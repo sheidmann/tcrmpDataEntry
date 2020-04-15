@@ -18,7 +18,11 @@
 .header {
   overflow: hidden;
   background-color: #f1f1f1;
-  padding: 20px 10px;
+}
+
+/* Style the UVI logo */
+.logo {
+  float: left;
 }
 
 /* Style the header links */
@@ -26,11 +30,11 @@
   float: left;
   color: black;
   text-align: center;
-  padding: 12px;
   text-decoration: none;
-  font-size: 18px; 
-  line-height: 25px;
+  font-size: 14px; 
   border-radius: 4px;
+  line-height: 87px;
+  padding: 10px;
 }
 
 /* Change the background color on mouse-over */
@@ -39,14 +43,45 @@
   color: black;
 }
 
+/* Style the header title */
+.title {
+  text-align: center;
+  float: left;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 4px;
+  margin-left: 24px;
+  line-height: 87px;
+}
+
+
 /* Basic Button */
 .button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
+  background-color: #3376FF; /* Blue */
+  padding: 15px 15px;
   text-align: center;
-  text-decoration: none;
+  height:20px; 
+  width:70px;
+  margin:auto;
+  margin-top: 50px;
+
+  /*text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   
+  margin-top: 50px;
+  margin-left: -100px;
+  
+  position:relative;
+  left:50%;
+  top:50%; 
+  */
+}
+
+/* Errors */
+.error {
+  color: red !important;
 }
