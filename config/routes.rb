@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'home' => 'static_pages#home'
   get 'login' => 'sessions#new'
   get 'about' => 'static_pages#about'
+
   get 'userhome' => 'static_pages#userhome'
+  get 'manageuser' => 'users#index'
 
   # Authentication
   post 'login' => 'sessions#create'

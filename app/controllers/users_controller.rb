@@ -13,6 +13,19 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def index
+		@new_user = User.new # use in the view to render a form
+		@all_users = User.order(created_at: :asc).all # use in the view to render a list of all posts
+	end
+
+	def edit
+	end
+
+	def destroy 
+	  user[:id] = nil 
+	  redirect_to '/manageuser' 
+	end
+
 
 	private
 

@@ -1,0 +1,31 @@
+<div class="main">
+  <div class="container">
+        <%= form_for(@new_user) do |f|%>
+        <%= f.text_field :name, :placeholder => "LASTNAME_FIRSTNAME" %> 
+        <%= f.submit "Add User", :class => "btn"%>
+        <% end %>
+        
+        <table id="userList", class="display table table-striped table-condensed">
+        <thead>
+        <tr>
+          <th>Diver Number</th>
+          <th>Diver Name</th>
+          <th>Active Diver?</th>
+          <th>Role</th>
+          <th>edit</th>
+          <th>destroy</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @all_users.each do |u| %>
+        <tr>
+          <td><%= u.id %></td>
+          <td><%= u.name %></td>
+          <td><%= u.active %></td>
+          <td><%= u.role %></td>
+        </tr>
+      <% end %>
+      </tbody>
+      </table>
+  </div>
+</div>
