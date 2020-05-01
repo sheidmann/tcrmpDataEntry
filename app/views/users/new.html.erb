@@ -1,0 +1,19 @@
+<div class="main">
+  <div class="container">
+  	<h1>New User</h1>
+  	<p><%= link_to 'Cancel', '/manageuser', data: { confirm: 'Cancel new user?' } %></p>
+        <%= form_for(@user) do |f|%>
+	    <%= f.label :name, 'Name' %>
+	    <%= f.text_field :name, :placeholder => "LASTNAME_FIRSTNAME" %> 
+	    <%= f.label :email, 'Email' %>
+	    <%= f.text_field :email %> 
+	    <%= f.label :role, 'Privileges' %>
+	    <%= f.select :role, [['user','user'],['manager','manager'],['admin','admin']] %>
+	    <%= f.label :agency, 'Agency' %>
+	    <%= f.select :agency, [['UVI','UVI'], ['NOAA','NOAA']] %>
+	    <%= f.label :active, 'Active?' %>
+	    <%= f.select :active, [['true','true'],['false','false']] %>
+	    <%= f.submit "Add User", class: "btn-submit" %>
+        <% end %>
+    </div>
+</div>

@@ -4,7 +4,7 @@
     <div class = "header">
       <div class="logo"><%= link_to image_tag("UVI_logo.jpg", :alt => "UVI logo", width: 75, height: 75, align: "middle"), "home" %></div>
       <% if current_user %>
-        <a> <%= link_to current_user.name, 'userhome' %></a>
+        <a> <%= link_to current_user.name, '/userhome' %></a>
         <a> <%= link_to "Log out", logout_path, method: "get" %> </a>
       <% else %>
         <a><%= link_to "Login", 'login' %></a>

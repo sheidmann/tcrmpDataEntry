@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy' 
 
+  # User management
+  get 'manageuser/new' => 'users#new'
+  post 'manageuser/new' => 'users#create'
+  get 'manageuser/edit' => 'users#edit'
+  post 'manageuser/edit' => 'users#update'
+
   # Resources
   resources :users
 
