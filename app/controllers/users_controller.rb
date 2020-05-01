@@ -36,10 +36,9 @@ class UsersController < ApplicationController
 	  @user = User.find(params[:id])
 	  @user.destroy
 	  if @user.destroy
-	  	flash[:notice] = 'User deleted'
         redirect_to '/manageuser'
 	  else
-	  	redirect_to '/manageuser', notice: "User not deleted."
+	  	redirect_to '/manageuser'
 	  end
 	end
 
