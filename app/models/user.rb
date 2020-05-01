@@ -5,10 +5,10 @@ class User < ApplicationRecord
 	validates_presence_of :role
 
 	def admin?
-		self.role == 'admin'
+		self.role == "admin"
 	end
 
 	def manager?
-		self.role == 'manager'
+		self.role == "manager"
 	end
 end

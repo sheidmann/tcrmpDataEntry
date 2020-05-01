@@ -1,21 +1,43 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it "is valid with valid attributes" do
-  	user1 = create(:user)
-  	expect(user1).to be_valid
+  describe "new user" do
+    it "is valid with valid attributes" do
+    	user1 = build(:user)
+    	expect(user1).to be_valid
+      puts 'new user is valid'
+    end
+    it "has a unique username" do
+    	user1 = create(:user)
+    	user2 = build(:user, username: "doe_john")
+    	expect(user2).to_not be_valid
+      puts 'new user is unique'
+    end
+    it "is not valid without a name" do
+    	user2 = build(:user, name: nil)
+    	expect(user2).to_not be_valid
+      puts 'nameless user is not valid'
+    end
+    it "is not valid without a role" do
+    	user2 = build(:user, role: nil)
+    	expect(user2).to_not be_valid
+      puts 'roleless user is not valid'
+    end
   end
-  it "has a unique username" do
-  	user1 = create(:user)
-  	user2 = build(:user, username: "doe_john")
-  	expect(user2).to_not be_valid
+
+  describe "admin" do
+    it "is an admin" do
+      user_admin = build_stubbed(:admin)
+      expect(user_admin.admin?).to be true
+      puts 'admin is an admin'
+    end
   end
-  it "is not valid without a name" do
-  	user2 = build(:user, name: nil)
-  	expect(user2).to_not be_valid
-  end
-  it "is not valid without a role" do
-  	user2 = build(:user, role: nil)
-  	expect(user2).to_not be_valid
+
+  describe "manager" do
+    it "is a manager" do
+      user_manager = build_stubbed(:manager)
+      expect(user_manager.manager?).to be true
+      puts 'manager is a manager'
+    end
   end
 end

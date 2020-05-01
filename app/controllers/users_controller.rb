@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	before_action :require_admin
+
 	def new
 		@user = User.new
 	end
@@ -19,10 +21,12 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+		@user = User.find(params[:id])
 	end
 
 	def destroy 
-	  user[:id] = nil 
+	  @user = User.find(params[:id])
+	  @user[:id] = nil 
 	  redirect_to '/manageuser' 
 	end
 
