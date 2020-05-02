@@ -11,11 +11,4 @@ class User < ApplicationRecord
 	def manager?
 		self.role == "manager"
 	end
-
-	def username
-    	"#{name.downcase}"
-	end
-	def password
-		"#{name.downcase}"
-	end
 end

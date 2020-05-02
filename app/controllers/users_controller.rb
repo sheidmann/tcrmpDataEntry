@@ -6,11 +6,15 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.new(user_params)
+		attrs = user_params
+    	attrs[ :name ] = attrs[ :name ].upcase(  )
+    	attrs[ :username ] = attrs[ :name ].downcase(  )
+    	attrs[ :password ] = attrs[ :name ].downcase(  )
+		@user = User.new( attrs )
 		if @user.save
-			redirect_to '/manageuser'
+			redirect_to '/manageuser', notice: "User successfully created"
 		else
-			redirect_to '/manageuser'
+			redirect_to '/manageuser', notice: "Error: user not created"
 		end
 	end
 
@@ -26,9 +30,9 @@ class UsersController < ApplicationController
 	def update
      @user = User.find(params[:id])
      if @user.update(user_params)
-       redirect_to '/manageuser'
+       redirect_to '/manageuser', notice: "User successfully updated"
      else
-       render 'edit'
+       render 'edit', notice: "Error: user not updated"
      end
    end
 
@@ -36,9 +40,9 @@ class UsersController < ApplicationController
 	  @user = User.find(params[:id])
 	  @user.destroy
 	  if @user.destroy
-        redirect_to '/manageuser'
+        redirect_to '/manageuser', notice: "User deleted"
 	  else
-	  	redirect_to '/manageuser'
+	  	redirect_to '/manageuser', notice: "Error: user not deleted"
 	  end
 	end
 
