@@ -7,9 +7,9 @@ class UsersController < ApplicationController
 
 	def create
 		attrs = user_params
-    	attrs[ :name ] = attrs[ :name ].upcase(  )
-    	attrs[ :username ] = attrs[ :name ].downcase(  )
-    	attrs[ :password ] = attrs[ :name ].downcase(  )
+    	attrs[ :name ] = attrs[ :name ].upcase!
+    	attrs[ :username ] = attrs[ :name ].downcase
+    	attrs[ :password ] = attrs[ :name ].downcase
 		@user = User.new( attrs )
 		if @user.save
 			redirect_to '/manageuser', notice: "User successfully created"

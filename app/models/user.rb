@@ -4,6 +4,10 @@ class User < ApplicationRecord
 	validates :name, presence: true, uniqueness: true
 	validates_presence_of :role
 
+	def active?
+		self.active == "true"
+	end
+
 	def admin?
 		self.role == "admin"
 	end
