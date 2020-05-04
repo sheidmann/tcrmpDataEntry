@@ -28,3 +28,7 @@
 
 # Ignore database seeds
 #/db/seeds.rb
+
+# Ignore sublime project files
+tcrmpDataEntry.sublime-project
+tcrmpDataEntry.sublime-workspace
