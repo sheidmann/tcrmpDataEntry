@@ -1,24 +1,35 @@
-# README
+# TCRMP Data Entry Web Form
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Enter Data](https://tcrmpdataentry.herokuapp.com)
 
-Things you may want to cover:
+This repository contains the code behind the web entry form for data entry for the University of the Virgin Islands' Territorial Coral Reef Monitoring Program (TCRMP). For more information about the program, [click here](https://tcrmpdataentry.herokuapp.com/about).
 
-* Ruby version
+This site does require a login and is only available to scientific divers collecting TCRMP data.
 
-* System dependencies
+## Some specifications
 
-* Configuration
+* Ruby version: 2.6.3
 
-* Database creation
+* Rails version: 5.2.4
 
-* Database initialization
+* Database: PostgreSQL
 
-* How to run the test suite
+* How to run the test suite: rspec
 
-* Services (job queues, cache servers, search engines, etc.)
+## Current functionality
 
-* Deployment instructions
+* A user account is required to access the site, with the exception of the home and about pages.
 
-* ...
+* A user with admin privileges can add, edit, and delete users.
+
+## Upcoming functionality
+
+* A user with admin privileges can export a table containing the users.
+
+* A user with manager privileges can add, edit, and delete boatlogs, which are used as metadata and QA/QC for surveys. They can also export the list of boatlogs.
+
+* Any user can enter fish transect, fish rover, and coral health data, and view and edit previously entered data.
+
+* Any user can export their own entered data for proofing purposes.
+
+* A user with admin (manager?) privileges can export all data from all users.
