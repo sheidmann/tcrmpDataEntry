@@ -4,6 +4,7 @@
         
         <table id="boatlogList", class="display table table-striped table-condensed">
         <thead>
+        <% #print table header %>
         <tr>
           <th>Boatlog Number</th>
           <th>Site</th>
@@ -15,6 +16,7 @@
         </tr>
       </thead>
       <tbody>
+      <% #print table fields %>
       <% @all_boatlogs.each do |bl| %>
         <tr>
           <td><%= bl.id %></td>

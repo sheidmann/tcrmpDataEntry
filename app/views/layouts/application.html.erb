@@ -3,6 +3,7 @@
   <head>
     <div class = "header">
       <div class="logo"><%= link_to image_tag("UVI_logo.jpg", :alt => "UVI logo", width: 75, height: 75, align: "middle"), "home" %></div>
+      <% # logged-in user can see their name and logout button %>
       <% if current_user %>
         <a> <%= link_to current_user.name, '/userhome' %></a>
         <a> <%= link_to "Log out", logout_path, method: "get" %> </a>
@@ -12,6 +13,7 @@
       <a><%= link_to "About", 'about' %></a>
       <div class = "title">TCRMP Data Entry</div>
     </div>
+    <% # allow flash messages (errors) %>
     <div class = "main">
       <% flash.each do |type, msg| %>
         <div>
