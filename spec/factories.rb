@@ -29,10 +29,13 @@ FactoryBot.define do
     role { "user" }
   end
 
+  # factory :boatlog_manager, class: "Manager" do
+  # end
+
   factory :boatlog do
     site { "The Best Site" }
-    date_completed { "2020-05-05" }
-    begin_time { "10:00" }
+    date_completed { Date.parse("2020-05-05") }
+    begin_time { Time.parse("10:00Z") }
     manager_name { "DOE_JACK" }
   end
 end

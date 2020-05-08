@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# To empty and re-seed, use rake db:reset
+# To empty and re-seed, use rake db:reset then rake db:seed
 User.create(name: "HEIDMANN_SARAH", username: "heidmann_sarah", 
 	email: "sarah@heidmann.com", password: "heidmann_sarah", 
 	agency: "UVI", active: "true", role: "admin")
@@ -25,3 +25,11 @@ User.create(name: "SMITH_TYLER", username: "smith_tyler",
 User.create(name: "BLONDEAU_JEREMIAH", username: "blondeau_jeremiah", 
 	email: "jeremiah@blondeau.com", password: "blondeau_jeremiah", 
 	agency: "NOAA", active: "true", role: "user")
+Boatlog.create(site: "Flat Cay", 
+	date_completed: Date.parse("2020-05-08"), 
+	begin_time: Time.parse("09:45Z"), 
+	manager_name: "ENNIS_ROSMIN")
+Boatlog.create(site: "Black Point", 
+	date_completed: Date.parse("2020-05-08"),
+	begin_time: Time.parse("13:00Z"), 
+	manager_name: "ENNIS_ROSMIN")
