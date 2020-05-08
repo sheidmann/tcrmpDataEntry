@@ -1,0 +1,2 @@
+class Boatlog < ApplicationRecord
+end

@@ -36,6 +36,19 @@ describe "User visits user home", type: :feature do
 	end
 end
 
+describe "Manager visits user home", type: :feature do
+	before do
+		@manager = create(:manager)
+		visit('/userhome')
+		sign_in(@manager)
+	end
+	it "can manage boatlogs" do
+		expect(page).to have_link("Boat Logs", href: '/boatlogs')
+		puts 'manager can manage boatlogs'
+	end
+end
+
+
 describe "Admin visits user home", type: :feature do
 	before do
 	    @admin = create(:admin)

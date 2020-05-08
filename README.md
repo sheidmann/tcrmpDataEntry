@@ -22,11 +22,14 @@ This site does require a login and is only available to scientific divers collec
 
 * A user with admin privileges can add, edit, and delete users.
 
-## Upcoming functionality
+## Features in progress
 
 * A user with admin privileges can export a table containing the users.
 
 * A user with manager privileges can add, edit, and delete boatlogs, which are used as metadata and QA/QC for surveys. They can also export the list of boatlogs.
+
+
+## Upcoming functionality
 
 * Any user can enter fish transect, fish rover, and coral health data, and view and edit previously entered data.
 

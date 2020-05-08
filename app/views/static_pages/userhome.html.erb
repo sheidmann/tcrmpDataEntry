@@ -9,6 +9,11 @@
     <div class="button">
       <a href="coraltransect">Coral Health</a>
     </div>
+    <% if current_user.manager? %>
+      <div class="button">
+        <a> <%= link_to "Boat Logs", '/boatlogs' %></a>
+      </div>
+    <% end %>
     <% if current_user.admin? %>
       <div class="button">
         <a> <%= link_to "Manage Users", '/manageuser' %></a>

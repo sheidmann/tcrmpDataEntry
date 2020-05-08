@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
 	end
 
 	def require_manager 
-  		redirect_to '/login' unless current_user && current_user.manager? 
+  		redirect_to '/login' unless current_user && (current_user.manager? || current_user.admin?)
 	end
 end

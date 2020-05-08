@@ -1,0 +1,32 @@
+<div class="main">
+  <div class="container">
+        <%= button_to "New Boatlog", '/boatlogs/new', method: :get%>
+        
+        <table id="boatlogList", class="display table table-striped table-condensed">
+        <thead>
+        <tr>
+          <th>Boatlog Number</th>
+          <th>Site</th>
+          <th>Date</th>
+          <th>Begin Time</th>
+          <th>Manager</th>
+          <th>Edit</th>
+          <th>Destroy</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @all_boatlogs.each do |bl| %>
+        <tr>
+          <td><%= bl.id %></td>
+          <td><%= bl.site %></td>
+          <td><%= bl.date_completed %></td>
+          <td><%= bl.begin_time %></td>
+          <td><%= bl.manager_name %></td>
+          <td><%= link_to 'edit', edit_boatlog_path(bl.id) %></td>
+          <td><%= link_to 'destroy', bl, data: { confirm: 'Are you sure?' }, method: :delete %></td>
+        </tr>
+      <% end %>
+      </tbody>
+      </table>
+  </div>
+</div>

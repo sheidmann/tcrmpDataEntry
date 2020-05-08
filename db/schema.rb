@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_191436) do
+ActiveRecord::Schema.define(version: 2020_05_08_003918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boatlogs", force: :cascade do |t|
+    t.string "site"
+    t.date "date_completed"
+    t.time "begin_time"
+    t.string "manager_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

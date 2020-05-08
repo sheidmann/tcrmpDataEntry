@@ -28,4 +28,11 @@ FactoryBot.define do
     active { "true" }
     role { "user" }
   end
+
+  factory :boatlog do
+    site { "The Best Site" }
+    date_completed { "2020-05-05" }
+    begin_time { "10:00" }
+    manager_name { "DOE_JACK" }
+  end
 end
