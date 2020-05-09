@@ -1,0 +1,13 @@
+<div class="main">
+  <div class="container">
+  	<h1>New Manager</h1>
+  	<p><%= button_to 'Cancel', '/managers', method: :get, data: { confirm: 'Cancel new manager?' } %></p>
+    <%= form_for(@manager) do |f|%>
+	    <%= f.label :manager_name, 'Name' %>
+	    <%= f.collection_select :manager_name, User.all, :id, :name, {:include_blank => ""} %> 
+	    <%= f.label :project, 'Project' %>
+	    <%= f.text_field :project %> 
+	    <%= f.submit "Add Manager", class: "btn-submit" %>
+    <% end %>
+  </div>
+</div>

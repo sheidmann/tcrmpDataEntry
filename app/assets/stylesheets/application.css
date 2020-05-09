@@ -55,32 +55,6 @@
 }
 
 
-/* Basic Button */
-.button {
-  background-color: #3376FF; /* Blue */
-  padding: 15px 15px;
-  text-align: center;
-  height:20px; 
-  width:70px;
-  margin:auto;
-  margin-top: 50px;
-
-  /*text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-   
-  margin-top: 50px;
-  margin-left: -100px;
-  
-  position:relative;
-  left:50%;
-  top:50%; 
-  */
-}
-
 /* Errors */
 .error {
   color: red !important;

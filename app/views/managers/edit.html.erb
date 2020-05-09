@@ -1,0 +1,13 @@
+<div class="main">
+  <div class="container">
+  	<h1>Edit Manager</h1>
+  	<p><%= button_to 'Cancel', '/managers', method: :get, data: { confirm: 'Cancel edit?' } %></p>
+    <%= form_for(@manager) do |f|%>
+	    <%= f.label :manager_name, 'Name' %>
+	    <%= f.text_field :manager_name, :placeholder => "LASTNAME_FIRSTNAME" %> 
+	    <%= f.label :project, 'Project' %>
+	    <%= f.text_field :project %> 
+	    <%= f.submit "Update Manager", class: "btn-submit" %>
+    <% end %>
+    </div>
+</div>

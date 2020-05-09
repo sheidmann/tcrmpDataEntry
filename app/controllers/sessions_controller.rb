@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+	# For login form
 	def new
 	end
 

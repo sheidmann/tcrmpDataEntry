@@ -1,23 +1,13 @@
 <div class="main">
   <div class="container">
-    <div class="button">
-    	<a href="fishtransect">Fish Transect</a>
-    </div>
-    <div class="button">
-      <a href="fishrover">Fish Rover</a>
-    </div>
-    <div class="button">
-      <a href="coraltransect">Coral Health</a>
-    </div>
+    <a> <%= button_to "Fish Transect", '/fishtransects', method: :get %></a>
+    <a> <%= button_to "Fish Rover", '/fishrovers', method: :get %></a>
+    <a> <%= button_to "Coral Health", '/coralhealths', method: :get %></a>
     <% if current_user.manager? %>
-      <div class="button">
-        <a> <%= link_to "Boat Logs", '/boatlogs' %></a>
-      </div>
+        <a> <%= button_to "Boat Logs", '/boatlogs', method: :get %></a>
     <% end %>
     <% if current_user.admin? %>
-      <div class="button">
-        <a> <%= link_to "Manage Users", '/manageuser' %></a>
-      </div>
+        <a> <%= button_to "Manage Users", '/users', method: :get %></a>
     <% end %>
   </div>
 </div>

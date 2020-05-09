@@ -29,8 +29,10 @@ FactoryBot.define do
     role { "user" }
   end
 
-  # factory :boatlog_manager, class: "Manager" do
-  # end
+  factory :boatlog_manager, class: "Manager" do
+    manager_name { "DOE_JACK" }
+    project { "My Project" }
+  end
 
   factory :boatlog do
     site { "The Best Site" }

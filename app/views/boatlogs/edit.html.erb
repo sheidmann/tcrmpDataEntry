@@ -1,0 +1,17 @@
+<div class="main">
+  <div class="container">
+  	<h1>Edit Boatlog</h1>
+  	<p><%= button_to 'Cancel', '/boatlogs', method: :get, data: { confirm: 'Cancel edit?' } %></p>
+    <%= form_for(@boatlog) do |f|%>
+	    <%= f.label :site, 'Site Name' %>
+	    <%= f.text_field :site %> 
+	    <%= f.label :date_completed, 'Date Completed' %>
+	    <%= f.text_field :date_completed %> 
+      <%= f.label :begin_time, 'Begin Time' %>
+      <%= f.text_field :begin_time %> 
+      <%= f.label :manager_name, 'Manager' %>
+      <%= f.text_field :manager_name %>
+	    <%= f.submit "Update Boatlog", class: "btn-submit" %>
+    <% end %>
+  </div>
+</div>

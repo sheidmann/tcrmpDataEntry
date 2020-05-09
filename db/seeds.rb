@@ -25,6 +25,7 @@ User.create(name: "SMITH_TYLER", username: "smith_tyler",
 User.create(name: "BLONDEAU_JEREMIAH", username: "blondeau_jeremiah", 
 	email: "jeremiah@blondeau.com", password: "blondeau_jeremiah", 
 	agency: "NOAA", active: "true", role: "user")
+Manager.create(manager_name: "ENNIS_ROSMIN", project: "TCRMP")
 Boatlog.create(site: "Flat Cay", 
 	date_completed: Date.parse("2020-05-08"), 
 	begin_time: Time.parse("09:45Z"), 

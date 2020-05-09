@@ -1,0 +1,26 @@
+<div class="main">
+  <div class="container">
+        <%= button_to "Back to Users", '/users', method: :get %>
+        <%= button_to "New Manager", '/managers/new', method: :get%>
+        <table id="managerList", class="display table table-striped table-condensed">
+        <thead>
+        <tr>
+          <th>Manager Name</th>
+          <th>Project</th>
+          <th>Edit</th>
+          <th>Destroy</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @all_managers.each do |m| %>
+        <tr>
+          <td><%= m.manager_name %></td>
+          <td><%= m.project %></td>
+          <td><%= link_to 'edit', edit_manager_path(m.id) %></td>
+          <td><%= link_to 'destroy', m, data: { confirm: 'Are you sure?' }, method: :delete %></td>
+        </tr>
+      <% end %>
+      </tbody>
+      </table>
+  </div>
+</div>

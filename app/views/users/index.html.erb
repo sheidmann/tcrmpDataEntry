@@ -1,6 +1,7 @@
 <div class="main">
   <div class="container">
-        <%= button_to "New User", '/manageuser/new', method: :get%>
+        <%= button_to "View Managers", '/managers', method: :get%>
+        <%= button_to "New User", '/users/new', method: :get%>
         
         <table id="userList", class="display table table-striped table-condensed">
         <thead>
@@ -25,7 +26,9 @@
           <td><%= u.active %></td>
           <td><%= u.role %></td>
           <td><%= link_to 'edit', edit_user_path(u.id) %></td>
-          <td><%= link_to 'destroy', u, data: { confirm: 'Are you sure?' }, method: :delete %></td>
+          <% if !u.manager? %>
+            <td><%= link_to 'destroy', u, data: { confirm: 'Are you sure?' }, method: :delete %></td>
+          <% end %>
         </tr>
       <% end %>
       </tbody>

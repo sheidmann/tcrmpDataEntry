@@ -4,6 +4,15 @@ class User < ApplicationRecord
 	validates :name, presence: true, uniqueness: true
 	validates_presence_of :role
 
+	# Automatically make username and password from name
+	before_create :check_params
+
+	def check_params   
+	   self.name.upcase! 
+	   self.username = self.name.downcase
+	   self.password = self.name.downcase    
+	end
+
 	def active?
 		self.active == "true"
 	end
