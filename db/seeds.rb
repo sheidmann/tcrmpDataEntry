@@ -25,12 +25,12 @@ User.create(name: "SMITH_TYLER", username: "smith_tyler",
 User.create(name: "BLONDEAU_JEREMIAH", username: "blondeau_jeremiah", 
 	email: "jeremiah@blondeau.com", password: "blondeau_jeremiah", 
 	agency: "NOAA", active: "true", role: "user")
-Manager.create(manager_name: "ENNIS_ROSMIN", project: "TCRMP")
+Manager.create(user_id: User.find_by(name: "ENNIS_ROSMIN").id, project: "TCRMP")	
 Boatlog.create(site: "Flat Cay", 
 	date_completed: Date.parse("2020-05-08"), 
 	begin_time: Time.parse("09:45Z"), 
-	manager_name: "ENNIS_ROSMIN")
+	manager_id: Manager.find_by(user_id: User.find_by(name: "ENNIS_ROSMIN").id).id)
 Boatlog.create(site: "Black Point", 
 	date_completed: Date.parse("2020-05-08"),
 	begin_time: Time.parse("13:00Z"), 
-	manager_name: "ENNIS_ROSMIN")
+	manager_id: Manager.find_by(user_id: User.find_by(name: "ENNIS_ROSMIN").id).id)

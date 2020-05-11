@@ -15,14 +15,13 @@ describe "Admin viewing manager index", :js => true, type: :feature do
     puts 'admin can view managers with option to edit'
   end
   it "can create a manager" do
-    @user = create(:manager) # create user (w manager role) to select
+    @manager = create(:manager) # create manager to select
     visit('/managers')
     click_button("New Manager")
     expect(page).to have_content "Project"
 
-    @manager = build(:boatlog_manager)
-    select @user.name, :from => "Name"
-    fill_in "Project", with: @manager.project
+    select @manager.name, :from => "Name"
+    fill_in "Project", with: "My Project"
     click_button "Add Manager"
     expect(page).to have_content "Manager successfully created"
     puts "admin can create a new manager"

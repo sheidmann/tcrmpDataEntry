@@ -14,7 +14,7 @@
       <tbody>
       <% @all_managers.each do |m| %>
         <tr>
-          <td><%= m.manager_name %></td>
+          <td><%= m.user.name %></td>
           <td><%= m.project %></td>
           <td><%= link_to 'edit', edit_manager_path(m.id) %></td>
           <td><%= link_to 'destroy', m, data: { confirm: 'Are you sure?' }, method: :delete %></td>

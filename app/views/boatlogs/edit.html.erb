@@ -9,8 +9,8 @@
 	    <%= f.text_field :date_completed %> 
       <%= f.label :begin_time, 'Begin Time' %>
       <%= f.text_field :begin_time %> 
-      <%= f.label :manager_name, 'Manager' %>
-      <%= f.text_field :manager_name %>
+      <%= f.label :manager_id, 'Project' %>
+      <%= f.collection_select :manager_id, Manager.all, :id, :project, {:include_blank => ""} %> 
 	    <%= f.submit "Update Boatlog", class: "btn-submit" %>
     <% end %>
   </div>

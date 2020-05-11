@@ -10,7 +10,7 @@
           <th>Site</th>
           <th>Date</th>
           <th>Begin Time</th>
-          <th>Manager</th>
+          <th>Project</th>
           <th>Edit</th>
           <th>Destroy</th>
         </tr>
@@ -23,7 +23,7 @@
           <td><%= bl.site %></td>
           <td><%= bl.date_completed %></td>
           <td><%= bl.begin_time.strftime("%H:%M") %></td>
-          <td><%= bl.manager_name %></td>
+          <td><%= bl.manager.project %></td>
           <td><%= link_to 'edit', edit_boatlog_path(bl.id) %></td>
           <td><%= link_to 'destroy', bl, data: { confirm: 'Are you sure?' }, method: :delete %></td>
         </tr>

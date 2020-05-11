@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_08_191203) do
+ActiveRecord::Schema.define(version: 2020_05_11_184931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,16 +19,18 @@ ActiveRecord::Schema.define(version: 2020_05_08_191203) do
     t.string "site"
     t.date "date_completed"
     t.time "begin_time"
-    t.string "manager_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "manager_id"
+    t.index ["manager_id"], name: "index_boatlogs_on_manager_id"
   end
 
   create_table "managers", force: :cascade do |t|
-    t.string "manager_name"
     t.string "project"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_managers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,4 +46,6 @@ ActiveRecord::Schema.define(version: 2020_05_08_191203) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "boatlogs", "managers"
+  add_foreign_key "managers", "users"
 end
