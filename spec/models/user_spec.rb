@@ -39,6 +39,13 @@ RSpec.describe User, type: :model do
       expect(@user_manager.manager?).to be true
       puts 'manager is a manager'
     end
+    it "has a project" do
+      @manager = create(:manager)
+      @blmanager = create(:boatlog_manager, user_id: @manager.id)
+      expect(@manager.project).to_not be_nil
+      expect(@manager.project).to eq(@blmanager.project)
+      puts 'manager has a project'
+    end
   end
 
   describe "inactive" do

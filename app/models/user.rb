@@ -26,4 +26,12 @@ class User < ApplicationRecord
 	def manager?
 		self.role == "manager" || self.role == "admin"
 	end
+
+	def project
+		if self.role == "manager"
+			Manager.find_by(user_id: self.id).project
+		else
+			nil
+		end
+	end
 end

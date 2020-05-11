@@ -37,14 +37,19 @@ describe "User visiting user home", type: :feature do
 end
 
 describe "Manager visiting user home", type: :feature do
-	before do
+	before(:each) do
 		@manager = create(:manager)
+		@blmanager = create(:boatlog_manager, user_id: @manager.id)
 		visit('/userhome')
 		sign_in(@manager)
 	end
 	it "can manage boatlogs" do
 		expect(page).to have_selector(:link_or_button, "Boat Logs")
 		puts 'manager can manage boatlogs'
+	end
+	it "sees it is a manager" do
+		expect(page).to have_content("You are a manager for project: My Project")
+		puts ' manager sees it is a manager for a project'
 	end
 end
 

@@ -1,5 +1,8 @@
 <div class="main">
   <div class="container">
+    <% if current_user.manager? %>
+        <p><%= "You are a manager for project: #{current_user.project}"  %> </p>
+    <% end %>
     <a> <%= button_to "Fish Transect", '/fishtransects', method: :get %></a>
     <a> <%= button_to "Fish Rover", '/fishrovers', method: :get %></a>
     <a> <%= button_to "Coral Health", '/coralhealths', method: :get %></a>
