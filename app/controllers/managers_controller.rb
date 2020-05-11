@@ -57,6 +57,6 @@ class ManagersController < ApplicationController
 	private
 
 	def manager_params
-		params.require(:manager).permit(:manager_name, :project)
+		params.require(:manager).permit(:project, :user_id)
 	end
 end

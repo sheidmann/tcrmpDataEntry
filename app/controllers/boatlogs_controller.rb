@@ -64,6 +64,6 @@ class BoatlogsController < ApplicationController
 	private
 
 	def boatlog_params
-		params.require(:boatlog).permit(:site, :date_completed, :begin_time, :manager_name)
+		params.require(:boatlog).permit(:site, :date_completed, :begin_time, :manager_id)
 	end
 end

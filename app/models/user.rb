@@ -4,6 +4,8 @@ class User < ApplicationRecord
 	validates :name, presence: true, uniqueness: true
 	validates_presence_of :role
 
+	has_many :managers
+
 	# Automatically make username and password from name
 	before_create :check_params
 
