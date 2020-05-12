@@ -1,3 +1,5 @@
+require 'csv'
+
 class User < ApplicationRecord
 	has_secure_password validations: false
 
@@ -32,6 +34,20 @@ class User < ApplicationRecord
 			Manager.find_by(user_id: self.id).project
 		else
 			nil
+		end
+	end
+
+	def self.export_columns
+		User.select("users.id, users.name, users.agency, users.active, users.role")
+	end
+
+	def self.as_csv
+		CSV.generate do |csv|
+			columns = %w(id name agency active role)
+			csv << columns.map(&:humanize)
+			export_columns.each do |user|
+				csv << user.attributes.values_at(*columns)
+			end
 		end
 	end
 end

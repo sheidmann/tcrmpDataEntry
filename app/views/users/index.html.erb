@@ -2,6 +2,7 @@
   <div class="container">
         <%= button_to "View Managers", '/managers', method: :get%>
         <%= button_to "New User", '/users/new', method: :get%>
+        <%= button_to "Export CSV", users_path(format: :csv), method: :get %>
         
         <table id="userList", class="display table table-striped table-condensed">
         <thead>

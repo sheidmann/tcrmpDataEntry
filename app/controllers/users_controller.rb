@@ -20,8 +20,14 @@ class UsersController < ApplicationController
 
 	# View all users
 	def index
-		@new_user = User.new # use in the view to render a form
+		#@new_user = User.new # use in the view to render a form
 		@all_users = User.order(created_at: :asc).all # use in the view to render a list of all posts
+
+		@users = User.export_columns 
+		respond_to do |format|
+			format.html
+			format.csv { send_data @users.as_csv }
+		end
 	end
 
 	# Edit a user

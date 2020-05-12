@@ -20,7 +20,7 @@ This site does require a login and is only available to scientific divers collec
 
 * A user account is required to access the site, with the exception of the home and about pages.
 
-* A user with admin privileges can add, edit, and delete users.
+* A user with admin privileges can add, edit, and delete users, and export a csv of their attributes.
 
 * A user with admin privileges can add, edit, and delete boatlog managers.
 
@@ -28,15 +28,13 @@ This site does require a login and is only available to scientific divers collec
 
 ## Features in progress
 
-* A user with admin privileges can export a table containing the users.
-
-* A user with manager privileges can export the list of boatlogs.
-
-## Known bugs
-
-* Date and time fields in entry forms
+* Dive section of boatlogs
 
 ## Upcoming functionality
+
+* Validations on existing fields (esp. date and time fields in entry forms)
+
+* A user with manager privileges can export a chart of completed boatlogs.
 
 * Any user can enter fish transect, fish rover, and coral health data, and view and edit previously entered data.
 
