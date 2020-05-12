@@ -32,6 +32,10 @@ This site does require a login and is only available to scientific divers collec
 
 * A user with manager privileges can export the list of boatlogs.
 
+## Known bugs
+
+* Date and time fields in entry forms
+
 ## Upcoming functionality
 
 * Any user can enter fish transect, fish rover, and coral health data, and view and edit previously entered data.

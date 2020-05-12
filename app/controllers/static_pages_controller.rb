@@ -12,4 +12,8 @@ class StaticPagesController < ApplicationController
 	# User homepage
 	def userhome
 	end
+
+	# Survey placeholder
+	def placeholder
+	end
 end

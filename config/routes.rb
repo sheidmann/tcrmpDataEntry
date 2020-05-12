@@ -32,6 +32,11 @@ Rails.application.routes.draw do
   get '/boatlogs/edit' => 'boatlogs#edit'
   post '/boatlogs/edit' => 'boatlogs#update'
 
+  # Surveys
+  get "/fishtransects" => 'static_pages#placeholder'
+  get "/fishrovers" => 'static_pages#placeholder'
+  get "/coralhealths" => 'static_pages#placeholder'
+
   # Resources
   resources :users
   resources :managers
