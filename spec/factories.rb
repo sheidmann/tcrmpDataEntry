@@ -1,4 +1,5 @@
 FactoryBot.define do
+
   factory :user do
     name { "DOE_JOHN" }
     username { "#{name.downcase}" if name}
@@ -30,4 +31,19 @@ FactoryBot.define do
     begin_time { Time.parse("10:00Z") }
     association :manager, factory: :boatlog_manager
   end
+
+  factory :survey_type do
+    type_name { "Special Survey"}
+    category { "benthic" }
+    units { "meters" }
+  end
+
+  factory :boatlog_survey do
+    association :boatlog, factory: :boatlog
+    association :user, factory: :user
+    association :survey_type, factory: :survey_type
+    rep { 1 }
+  end
+
+  
 end

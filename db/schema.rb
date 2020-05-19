@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_11_184931) do
+ActiveRecord::Schema.define(version: 2020_05_19_193529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boatlog_surveys", force: :cascade do |t|
+    t.bigint "boatlog_id"
+    t.bigint "user_id"
+    t.bigint "survey_type_id"
+    t.integer "rep"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["boatlog_id"], name: "index_boatlog_surveys_on_boatlog_id"
+    t.index ["survey_type_id"], name: "index_boatlog_surveys_on_survey_type_id"
+    t.index ["user_id"], name: "index_boatlog_surveys_on_user_id"
+  end
 
   create_table "boatlogs", force: :cascade do |t|
     t.string "site"
@@ -33,6 +45,14 @@ ActiveRecord::Schema.define(version: 2020_05_11_184931) do
     t.index ["user_id"], name: "index_managers_on_user_id"
   end
 
+  create_table "survey_types", force: :cascade do |t|
+    t.string "type_name"
+    t.string "category"
+    t.string "units"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "username"
@@ -46,6 +66,9 @@ ActiveRecord::Schema.define(version: 2020_05_11_184931) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "boatlog_surveys", "boatlogs"
+  add_foreign_key "boatlog_surveys", "survey_types"
+  add_foreign_key "boatlog_surveys", "users"
   add_foreign_key "boatlogs", "managers"
   add_foreign_key "managers", "users"
 end

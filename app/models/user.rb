@@ -7,6 +7,7 @@ class User < ApplicationRecord
 	validates_presence_of :role
 
 	has_many :managers
+	has_many :boatlog_surveys
 
 	# Automatically make username and password from name
 	before_create :check_params

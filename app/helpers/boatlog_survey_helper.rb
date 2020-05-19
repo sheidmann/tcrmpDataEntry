@@ -1,0 +1,2 @@
+module BoatlogSurveyHelper
+end
