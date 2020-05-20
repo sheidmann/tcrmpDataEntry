@@ -22,7 +22,7 @@ describe "Admin viewing manager index", :js => true, type: :feature do
 
     select @manager.name, :from => "Name"
     fill_in "Project", with: "My Project"
-    click_button "Add Manager"
+    click_button "Save Manager"
     expect(page).to have_content "Manager successfully created"
     puts "admin can create a new manager"
   end
@@ -32,9 +32,9 @@ describe "Admin viewing manager index", :js => true, type: :feature do
 
     click_link('edit')
     expect(page).to have_content("Edit Manager")
-    expect(page).to have_selector(:link_or_button, "Update Manager")
+    expect(page).to have_selector(:link_or_button, "Save Manager")
 
-    click_button("Update Manager")
+    click_button("Save Manager")
     expect(page).to have_content "Manager successfully updated"
     puts 'admin can edit manager'
   end

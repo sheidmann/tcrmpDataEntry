@@ -1,0 +1,9 @@
+<div class="form-horizontal">
+	<%= form_for(@manager) do |f|%>
+	    <%= f.label :user_id, 'Name' %>
+	    <%= f.collection_select :user_id, User.all, :id, :name, {:include_blank => ""} %> 
+	    <%= f.label :project, 'Project' %>
+	    <%= f.text_field :project %> 
+	    <%= f.submit "Save Manager", class: "btn-submit" %>
+    <% end %>
+</div>
