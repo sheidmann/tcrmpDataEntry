@@ -2,18 +2,6 @@
   <div class="container">
   	<h1>Edit User</h1>
   	<p><%= button_to 'Cancel', '/users', method: :get, data: { confirm: 'Cancel edit?' } %></p>
-        <%= form_for(@user) do |f|%>
-	    <%= f.label :name, 'Name' %>
-	    <%= f.text_field :name, :placeholder => "LASTNAME_FIRSTNAME" %>
-	    <%= f.label :email, 'Email' %>
-	    <%= f.text_field :email %>  
-	    <%= f.label :role, 'Privileges' %>
-	    <%= f.select :role, [['user','user'],['manager','manager'],['admin','admin']] %>
-	    <%= f.label :agency, 'Agency' %>
-	    <%= f.select :agency, [['UVI','UVI'], ['NOAA','NOAA']] %>
-	    <%= f.label :active, 'Active?' %>
-	    <%= f.select :active, [['true','true'],['false','false']] %>
-	    <%= f.submit "Update User", class: "btn-submit" %>
-        <% end %>
+        <%= render 'form' %>
     </div>
 </div>

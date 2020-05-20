@@ -6,5 +6,5 @@ class Boatlog < ApplicationRecord
 	belongs_to  :manager
 	accepts_nested_attributes_for :manager
 
-	#has_many :boatlog_surveys
+	has_many :boatlog_surveys
 end

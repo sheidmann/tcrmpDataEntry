@@ -1,0 +1,15 @@
+<div class="form-horizontal">
+	<%= form_for(@user) do |f|%>
+	    <%= f.label :name, 'Name' %>
+	    <%= f.text_field :name, :placeholder => "LASTNAME_FIRSTNAME" %> 
+	    <%= f.label :email, 'Email' %>
+	    <%= f.text_field :email %> 
+	    <%= f.label :role, 'Privileges' %>
+	    <%= f.select :role, [['user','user'],['manager','manager'],['admin','admin']] %>
+	    <%= f.label :agency, 'Agency' %>
+	    <%= f.select :agency, [['UVI','UVI'], ['NOAA','NOAA']] %>
+	    <%= f.label :active, 'Active?' %>
+	    <%= f.select :active, [['true','true'],['false','false']] %>
+	    <%= f.submit "Save", class: "btn-submit" %>
+    <% end %>
+</div>

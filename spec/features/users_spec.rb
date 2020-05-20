@@ -26,7 +26,7 @@ describe "Admin viewing user index", :js => true, type: :feature do
     select @user.agency, :from => "Agency"
     select @user.active, :from => "Active?"
     
-    expect { click_button('Add User') }.to change(User, :count).by(+1)
+    expect { click_button('Save') }.to change(User, :count).by(+1)
     expect(page).to have_content "User successfully created"
     puts 'admin can create user'
   end
@@ -36,9 +36,9 @@ describe "Admin viewing user index", :js => true, type: :feature do
 
     find("a[href='#{edit_user_path(@user.id)}']").click
     expect(page).to have_content("Edit User")
-    expect(page).to have_selector(:link_or_button, "Update User")
+    expect(page).to have_selector(:link_or_button, "Save")
 
-    click_button("Update User")
+    click_button("Save")
     expect(page).to have_content "User successfully updated"
     puts 'admin can edit user'
   end
