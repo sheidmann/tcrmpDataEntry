@@ -4,6 +4,9 @@ class BoatlogsController < ApplicationController
 	# Create a new boatlog
 	def new
 		@boatlog = Boatlog.new
+		2.times do
+      		@boatlog.boatlog_surveys.build
+      	end
 	end
 
 	# Create a new boatlog
@@ -64,6 +67,6 @@ class BoatlogsController < ApplicationController
 	private
 
 	def boatlog_params
-		params.require(:boatlog).permit(:site, :date_completed, :begin_time, :manager_id)
+		params.require(:boatlog).permit(:site, :date_completed, :begin_time, :manager_id, boatlog_surveys_attributes: [:id, :user_id, :survey_type_id, :rep, :_destroy])
 	end
 end
