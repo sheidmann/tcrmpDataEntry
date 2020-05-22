@@ -1,0 +1,13 @@
+<div class="form-horizontal">
+	<%= form_for(@boatlog) do |f|%>
+	    <%= f.label :site, 'Site Name' %>
+	    <%= f.text_field :site %> 
+	    <%= f.label :date_completed, 'Date Completed' %>
+	    <%= f.text_field :date_completed, placeholder: "YYYY-MM-DD" %> 
+      <%= f.label :begin_time, 'Begin Time' %>
+      <%= f.text_field :begin_time, value: f.object.try(:begin_time).try(:strftime, "%H:%M"), placeholder: "HH:MM (24 hr clock)" %> 
+      <%= f.label :manager_id, 'Project' %>
+      <%= f.collection_select :manager_id, Manager.all, :id, :project, {:include_blank => ""} %> 
+	    <%= f.submit "Save Boatlog", class: "btn-submit" %>
+    <% end %>
+</div>

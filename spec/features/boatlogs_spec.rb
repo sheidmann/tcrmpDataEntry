@@ -17,20 +17,20 @@ describe "Manager viewing boatlog index", :js => true, type: :feature do
       expect(page).to have_link("edit", href: edit_boatlog_path(@boatlog.id))
       puts 'manager can view boatlogs with option to edit'
     end
-    # it "can create a boatlog" do
-    #   visit('/boatlogs')
-    #   click_button("New Boatlog")
-    #   expect(page).to have_content "Site Name"
+    it "can create a boatlog" do
+      visit('/boatlogs')
+      click_button("New Boatlog")
+      expect(page).to have_content "Site Name"
 
-    #   @boatlog = build(:boatlog)
-    #   fill_in "Site Name", with: @boatlog.site
-    #   fill_in "Date Completed", with: @boatlog.date_completed
-    #   fill_in "Begin Time", with: @boatlog.begin_time.strftime("%H:%M")
-    #   select @blmanager.project, :from => "Project"
-    #   click_button("New Boatlog")
-    #   expect(page).to have_content "Boatlog successfully created"
-    #   puts 'manager can create a new boatlog'
-    # end
+      @boatlog = build(:boatlog)
+      fill_in "Site Name", with: @boatlog.site
+      fill_in "Date Completed", with: @boatlog.date_completed.strftime("%Y-%m-%d")
+      fill_in "Begin Time", with: @boatlog.begin_time.strftime("%H:%M")
+      select @blmanager.project, :from => "Project"
+      click_button("Save Boatlog")
+      expect(page).to have_content "Boatlog successfully created"
+      puts 'manager can create a new boatlog'
+    end
     it "can edit a boatlog" do
       @boatlog = create(:boatlog, manager_id: @blmanager.id)
       visit('/boatlogs')
@@ -38,7 +38,7 @@ describe "Manager viewing boatlog index", :js => true, type: :feature do
       click_link('edit')
       expect(page).to have_content "Edit Boatlog"
 
-      click_button("Update Boatlog")
+      click_button("Save Boatlog")
       expect(page).to have_content "Boatlog successfully updated"
       puts 'manager can edit boatlog'
     end
