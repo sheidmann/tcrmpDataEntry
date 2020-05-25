@@ -1,21 +1,25 @@
 <div class="form-horizontal">
 	<%= form_for @boatlog do |f|%>
 	<%= render 'shared/error_messages', :target => @boatlog %>
-		<div>
+		<div class='form-row'>
 	    <div class='field'>
 	    <%= f.label :site, 'Site Name' %>
+	    <br/>
 	    <%= f.text_field :site %> 
 	  	</div>
 	  	<div class='field'>
 	    <%= f.label :date_completed, 'Date Completed' %>
+	    <br/>
 	    <%= f.text_field :date_completed, placeholder: "YYYY-MM-DD" %> 
 		  </div>
 		  <div class='field'>
       <%= f.label :begin_time, 'Begin Time' %>
+      <br/>
       <%= f.text_field :begin_time, value: f.object.try(:begin_time).try(:strftime, "%H:%M"), placeholder: "HH:MM (24 hr clock)" %> 
 	    </div>
 	    <div class='field'>
       <%= f.label :manager_id, 'Project' %>
+      <br/>
       <%= f.collection_select :manager_id, Manager.all, :id, :project, {:include_blank => ""} %> 
 	    </div>
     </div>
