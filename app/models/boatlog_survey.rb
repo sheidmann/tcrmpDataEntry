@@ -1,5 +1,5 @@
 class BoatlogSurvey < ApplicationRecord
-	validates_presence_of :boatlog_id, :user_id, :survey_type_id, :rep
+	validates_presence_of :boatlog, :user_id, :survey_type_id, :rep
 	validates_uniqueness_of :rep, { scope: %i[boatlog_id user_id survey_type_id], 
 		message: "duplicate survey"}
 
