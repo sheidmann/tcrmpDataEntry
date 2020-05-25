@@ -1,0 +1,36 @@
+<div class='formContainer'>
+  <div id="sampleSection" class="sectionDiv">
+  <div class='show_section_1'>
+    <div id='section_1_part_1'>
+
+      <dl class="dl-horizontal">
+        <dt>Project</dt><dd><%= @boatlog.manager.project %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Sample Date</dt><dd><%= @boatlog.date_completed %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Sample Time</dt><dd><%= @boatlog.begin_time.strftime("%H:%M") %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Site</dt><dd><%= @boatlog.site %></dd>
+      </dl>
+    </div>
+
+    <div id='section_1_part_2'>
+      <h2>Surveys</h2>
+      <% @boatlog.boatlog_surveys.each do |b_survey|  %>
+       <dl class="dl-horizontal">
+        <dt> <%= User.find(b_survey.user_id).name %> </dt>
+        <dt> <%= SurveyType.find(b_survey.survey_type_id).type_name %></dt>
+        <dt> <%= "replicate: #{b_survey.rep}" %>
+      </dl>   
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="showActions" >
+ <%= button_to('Edit Boatlog', edit_boatlog_path(@boatlog), :method => "get", :class => 'btn btn-large btn-primary showAction') %>
+ <%= button_to("Delete Boatlog", @boatlog, data: { confirm: 'Are you sure?' }, method: :delete, :class => 'btn btn-large btn-primary showAction') %>
+ <%= button_to('Boatlog List', "/boatlogs", :method => "get", :class => 'btn btn-large btn-primary showAction') %>
+</div>

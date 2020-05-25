@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   # Boatlog management
   get '/boatlogs' => 'boatlogs#index'
+  post 'boatlogs/:id' => 'boatlogs#show'
   get '/boatlogs/new' => 'boatlogs#new'
   post '/boatlogs/new' => 'boatlogs#create'
   get '/boatlogs/edit' => 'boatlogs#edit'

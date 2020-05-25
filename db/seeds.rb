@@ -25,12 +25,35 @@ User.create(name: "SMITH_TYLER", username: "smith_tyler",
 User.create(name: "BLONDEAU_JEREMIAH", username: "blondeau_jeremiah", 
 	email: "jeremiah@blondeau.com", password: "blondeau_jeremiah", 
 	agency: "NOAA", active: "true", role: "user")
-Manager.create(user_id: User.find_by(name: "ENNIS_ROSMIN").id, project: "TCRMP")	
+Manager.create(user_id: User.find_by(name: "ENNIS_ROSMIN").id, project: "TCRMP")
+
+SurveyType.create(type_name: "coral health", category: "benthic", units: "m")
+SurveyType.create(type_name: "fish transect", category: "fish", units: "m")	
+
 Boatlog.create(site: "Flat Cay", 
 	date_completed: Date.parse("2020-05-08"), 
 	begin_time: Time.parse("09:45Z"), 
 	manager_id: Manager.find_by(user_id: User.find_by(name: "ENNIS_ROSMIN").id).id)
+BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site: "Flat Cay").id,
+	user_id: User.find_by(name: "ENNIS_ROSMIN").id, 
+	survey_type_id: SurveyType.find_by(type_name: "coral health").id, 
+	rep: 1)
+BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site: "Flat Cay").id,
+	user_id: User.find_by(name: "HEIDMANN_SARAH").id,
+	survey_type_id: SurveyType.find_by(type_name: "fish transect").id,
+	rep: 1)
+
 Boatlog.create(site: "Black Point", 
 	date_completed: Date.parse("2020-05-08"),
 	begin_time: Time.parse("13:00Z"), 
 	manager_id: Manager.find_by(user_id: User.find_by(name: "ENNIS_ROSMIN").id).id)
+BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site: "Black Point").id,
+	user_id: User.find_by(name: "ENNIS_ROSMIN").id, 
+	survey_type_id: SurveyType.find_by(type_name: "coral health").id, 
+	rep: 1)
+BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site: "Black Point").id,
+	user_id: User.find_by(name: "HEIDMANN_SARAH").id,
+	survey_type_id: SurveyType.find_by(type_name: "fish transect").id,
+	rep: 1)
+
+

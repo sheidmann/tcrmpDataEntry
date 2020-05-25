@@ -11,8 +11,6 @@
           <th>Date</th>
           <th>Begin Time</th>
           <th>Project</th>
-          <th>Edit</th>
-          <th>Destroy</th>
         </tr>
       </thead>
       <tbody>
@@ -24,8 +22,7 @@
           <td><%= bl.date_completed %></td>
           <td><%= bl.begin_time.strftime("%H:%M") %></td>
           <td><%= bl.manager.project %></td>
-          <td><%= link_to 'edit', edit_boatlog_path(bl.id) %></td>
-          <td><%= link_to 'destroy', bl, data: { confirm: 'Are you sure?' }, method: :delete %></td>
+          <td><%= button_to('View Boatlog', boatlog_path(bl.id)) %></td>
         </tr>
       <% end %>
       </tbody>

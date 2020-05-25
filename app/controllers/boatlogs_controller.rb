@@ -4,14 +4,24 @@ class BoatlogsController < ApplicationController
 	# Create a new boatlog
 	def new
 		@boatlog = Boatlog.new
-		2.times do
-      		@boatlog.boatlog_surveys.build
-      	end
+		# 2.times do
+  #     		@boatlog.boatlog_surveys.build
+  #     	end
 	end
 
 	# Create a new boatlog
 	def create
 		@boatlog = Boatlog.new( boatlog_params )
+
+		# respond_to do |format|
+	 #      if @boatlog.save
+	 #        format.html { redirect_to @boatlog, notice: 'Boatlog successfully created.' }
+	 #        format.json { render json: @boatlog, status: :created, location: @boatlog }
+	 #      else
+	 #        format.html { render action: "new" }
+	 #        format.json { render json: @boatlog.errors, status: :unprocessable_entity }
+	 #      end
+	 #    end
 		# successful creation
 		if @boatlog.save
 			redirect_to '/boatlogs', notice: "Boatlog successfully created"
@@ -32,6 +42,15 @@ class BoatlogsController < ApplicationController
     		#@boat_logs = BoatLog.where( "boatlog_manager_id=?", current_user.boatlog_manager_id )
     		@all_boatlogs = Boatlog.order(date_completed: :asc).all
     	end
+	end
+
+	def show
+	    @boatlog = Boatlog.find(params[:id])
+
+	    respond_to do |format|
+	      format.html # show.html.erb
+	      format.json { render json: @boatlog }
+	    end
 	end
 
 	# Edit a boatlog

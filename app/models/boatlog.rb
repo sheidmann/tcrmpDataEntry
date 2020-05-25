@@ -7,5 +7,5 @@ class Boatlog < ApplicationRecord
 	accepts_nested_attributes_for :manager
 
 	has_many :boatlog_surveys, :dependent => :destroy, inverse_of: :boatlog
-	accepts_nested_attributes_for :boatlog_surveys, :allow_destroy => true
+	accepts_nested_attributes_for :boatlog_surveys, :reject_if => :all_blank, :allow_destroy => true
 end

@@ -1,5 +1,6 @@
 <div class="form-horizontal">
 	<%= form_for @boatlog do |f|%>
+	<%= render 'shared/error_messages', :target => @boatlog %>
 		<div>
 	    <%= f.label :site, 'Site Name' %>
 	    <%= f.text_field :site %> 
@@ -11,19 +12,22 @@
       	<%= f.collection_select :manager_id, Manager.all, :id, :project, {:include_blank => ""} %> 
       	</div>
 
+      	<!--
       	<div>
       		<h3>Surveys</h3>
   			<div id='surveys'>
 		      	<%= f.fields_for :boatlog_surveys do |builder| %>
 		        	<%= render 'survey_fields', f: builder %>
-		      	<% end %>
-		      	<!-- This link is broken- it clears the form
+		      	<% end %> -->
+		      	<!-- This link is broken -->
 	      		<div class="links">
 			      	<%= link_to_add_association "Add Survey", f, :boatlog_surveys, partial: 'survey_fields' %>
 	      		</div>
-	      		-->
+	      		<!-- -->
+	      		<!--
 	      	</div>
 	    </div>
+		-->
 
 	    <%= f.submit "Save Boatlog", class: "btn-submit" %>
     <% end %>

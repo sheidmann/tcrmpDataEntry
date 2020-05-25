@@ -14,8 +14,8 @@ describe "Manager viewing boatlog index", :js => true, type: :feature do
       @boatlog = create(:boatlog, site: "My Site", manager_id: @blmanager.id)
       visit('/boatlogs')
       expect(page).to have_content "My Site"
-      expect(page).to have_link("edit", href: edit_boatlog_path(@boatlog.id))
-      puts 'manager can view boatlogs with option to edit'
+      expect(page).to have_selector(:link_or_button, "View Boatlog")
+      puts 'manager can view boatlogs with option to view'
     end
     # it "can create a boatlog" do
     #   visit('/boatlogs')
@@ -31,11 +31,21 @@ describe "Manager viewing boatlog index", :js => true, type: :feature do
     #   expect(page).to have_content "Boatlog successfully created"
     #   puts 'manager can create a new boatlog'
     # end
+    it "can view a boatlog" do
+      @boatlog = create(:boatlog, manager_id: @blmanager.id)
+      @bl_survey = create(:boatlog_survey, boatlog_id: @boatlog.id)
+      visit('/boatlogs')
+      click_button("View Boatlog")
+      expect(page).to have_content "The Best Site"
+      expect(page).to have_content "Special Survey"
+      puts 'maanger can view boatlog and associated surveys'
+    end
     it "can edit a boatlog" do
       @boatlog = create(:boatlog, manager_id: @blmanager.id)
       visit('/boatlogs')
 
-      click_link('edit')
+      click_button('View Boatlog')
+      click_button('Edit Boatlog')
       expect(page).to have_content "Edit Boatlog"
 
       click_button("Save Boatlog")
@@ -45,8 +55,10 @@ describe "Manager viewing boatlog index", :js => true, type: :feature do
     it "can delete a boatlog" do
       @boatlog = create(:boatlog, manager_id: @blmanager.id)
       visit('/boatlogs')
+
+      click_button('View Boatlog')
       accept_confirm do
-        click_link 'destroy'
+        click_button 'Delete Boatlog'
       end
       expect(page).to have_content "Boatlog deleted"
       puts 'manager can delete boatlog'
