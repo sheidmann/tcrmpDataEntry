@@ -1,13 +1,21 @@
 <div class='nested-fields'>
+	<div class='field'>
 	<%= f.label :user_id, 'Observer' %>
 	<%= f.collection_select :user_id, User.all, :id, :name, {:include_blank => ""} %>
+	</div>
+	<div class='field'>
 	<%= f.label :survey_type_id, 'Survey Type' %>
 	<%= f.collection_select :survey_type_id, SurveyType.all, :id, :type_name, {:include_blank => ""} %>
+	</div>
+	<div class='field'>
 	<%= f.label :rep, 'Replicate' %>
 	<%= f.text_field :rep, value: 1 %>
+	</div>
 
 
 	<!-- This link does not work  -->
+	<div class='links'>
 	<%= link_to_remove_association "Remove Survey", f, partial: 'survey_fields' %>
+	</div>
 	<!-- -->
 </div>

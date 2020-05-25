@@ -4,9 +4,15 @@ class BoatlogsController < ApplicationController
 	# Create a new boatlog
 	def new
 		@boatlog = Boatlog.new
-		2.times do
-      		@boatlog.boatlog_surveys.build
-      	end
+		@boatlog.boatlog_surveys.build
+		# 2.times do
+  #     @boatlog.boatlog_surveys.build
+  #   end
+
+    respond_to do |format|
+  		format.html # new.html.erb
+  		format.json { render json: @boat_log }
+  	end
 	end
 
 	# Create a new boatlog
@@ -31,12 +37,18 @@ class BoatlogsController < ApplicationController
 		@new_boatlog = Boatlog.new # use in the view to render a form
 		# Admin can view all boatlogs
 		if @current_user.role == 'admin'
-    		@all_boatlogs = Boatlog.order(date_completed: :asc).all
-    	# Manager can only view their own boatlogs
-    	elsif @current_user.role == 'manager'
-    		#@boat_logs = BoatLog.where( "boatlog_manager_id=?", current_user.boatlog_manager_id )
-    		@all_boatlogs = Boatlog.order(date_completed: :asc).all
-    	end
+    	@all_boatlogs = Boatlog.order(date_completed: :asc).all
+    # Manager can only view their own boatlogs
+    elsif @current_user.role == 'manager'
+    	#@boat_logs = BoatLog.where( "boatlog_manager_id=?", current_user.boatlog_manager_id )
+    	@all_boatlogs = Boatlog.order(date_completed: :asc).all
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @boatlogs }
+      #format.xlsx
+    end
 	end
 
 	def show

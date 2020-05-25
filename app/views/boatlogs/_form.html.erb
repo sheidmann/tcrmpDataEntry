@@ -2,19 +2,27 @@
 	<%= form_for @boatlog do |f|%>
 	<%= render 'shared/error_messages', :target => @boatlog %>
 		<div>
+	    <div class='field'>
 	    <%= f.label :site, 'Site Name' %>
 	    <%= f.text_field :site %> 
+	  	</div>
+	  	<div class='field'>
 	    <%= f.label :date_completed, 'Date Completed' %>
 	    <%= f.text_field :date_completed, placeholder: "YYYY-MM-DD" %> 
+		  </div>
+		  <div class='field'>
       <%= f.label :begin_time, 'Begin Time' %>
       <%= f.text_field :begin_time, value: f.object.try(:begin_time).try(:strftime, "%H:%M"), placeholder: "HH:MM (24 hr clock)" %> 
+	    </div>
+	    <div class='field'>
       <%= f.label :manager_id, 'Project' %>
       <%= f.collection_select :manager_id, Manager.all, :id, :project, {:include_blank => ""} %> 
-     </div>
+	    </div>
+    </div>
 
-     <div>
+    <div>
       <h3>Surveys</h3>
-  		<div id='surveys'>
+  		<div id='boatlog_surveys'>
 		    <%= f.fields_for :boatlog_surveys do |builder| %>
 		      <%= render 'survey_fields', f: builder %>
 		    <% end %>

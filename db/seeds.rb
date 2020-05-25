@@ -39,6 +39,10 @@ BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site: "Flat Cay").id,
 	survey_type_id: SurveyType.find_by(type_name: "coral health").id, 
 	rep: 1)
 BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site: "Flat Cay").id,
+	user_id: User.find_by(name: "BRANDTNERIS_VIKTOR").id,
+	survey_type_id: SurveyType.find_by(type_name: "coral health").id,
+	rep: 2)
+BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site: "Flat Cay").id,
 	user_id: User.find_by(name: "HEIDMANN_SARAH").id,
 	survey_type_id: SurveyType.find_by(type_name: "fish transect").id,
 	rep: 1)

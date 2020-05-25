@@ -26,12 +26,12 @@ Rails.application.routes.draw do
   post '/managers/edit' => 'managers#update'
 
   # Boatlog management
-  get '/boatlogs' => 'boatlogs#index'
+  #get '/boatlogs' => 'boatlogs#index'
   post 'boatlogs/:id' => 'boatlogs#show'
-  get '/boatlogs/new' => 'boatlogs#new'
-  post '/boatlogs/new' => 'boatlogs#create'
-  get '/boatlogs/edit' => 'boatlogs#edit'
-  post '/boatlogs/edit' => 'boatlogs#update'
+  #get '/boatlogs/new' => 'boatlogs#new'
+  #post '/boatlogs/new' => 'boatlogs#create'
+  #get '/boatlogs/edit' => 'boatlogs#edit'
+  #post '/boatlogs/edit' => 'boatlogs#update'
 
   # Surveys
   get "/fishtransects" => 'static_pages#placeholder'
