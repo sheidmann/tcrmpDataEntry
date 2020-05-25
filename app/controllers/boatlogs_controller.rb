@@ -4,31 +4,26 @@ class BoatlogsController < ApplicationController
 	# Create a new boatlog
 	def new
 		@boatlog = Boatlog.new
-		# 2.times do
-  #     		@boatlog.boatlog_surveys.build
-  #     	end
+		2.times do
+      		@boatlog.boatlog_surveys.build
+      	end
 	end
 
 	# Create a new boatlog
 	def create
 		@boatlog = Boatlog.new( boatlog_params )
 
-		# respond_to do |format|
-	 #      if @boatlog.save
-	 #        format.html { redirect_to @boatlog, notice: 'Boatlog successfully created.' }
-	 #        format.json { render json: @boatlog, status: :created, location: @boatlog }
-	 #      else
-	 #        format.html { render action: "new" }
-	 #        format.json { render json: @boatlog.errors, status: :unprocessable_entity }
-	 #      end
-	 #    end
-		# successful creation
-		if @boatlog.save
-			redirect_to '/boatlogs', notice: "Boatlog successfully created"
-		# Error occurred
-		else
-			redirect_to '/boatlogs', notice: "Error: boatlog not created"
-		end
+		respond_to do |format|
+		  # successful creation
+      if @boatlog.save
+        format.html { redirect_to @boatlog, notice: 'Boatlog successfully created.' }
+        format.json { render json: @boatlog, status: :created, location: @boatlog }
+      # otherwise, print errors
+      else
+        format.html { render action: "new" }
+        format.json { render json: @boatlog.errors, status: :unprocessable_entity }
+      end
+    end
 	end
 
 	# View all boatlogs
@@ -61,13 +56,17 @@ class BoatlogsController < ApplicationController
 	# Update the boatlog
 	def update
      @boatlog = Boatlog.find(params[:id])
-     # Successful update
-     if @boatlog.update(boatlog_params)
-       redirect_to '/boatlogs', notice: "Boatlog successfully updated"
-     # An error occurred
-     else
-       render 'edit', notice: "Error: boatlog not updated"
-     end
+     respond_to do |format|
+		  # successful update
+      if @boatlog.update(boatlog_params)
+        format.html { redirect_to @boatlog, notice: 'Boatlog successfully updated.' }
+        format.json { render json: @boatlog, status: :created, location: @boatlog }
+      # otherwise, print errors
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @boatlog.errors, status: :unprocessable_entity }
+      end
+    end
    end
 
    # Delete a boatlog
