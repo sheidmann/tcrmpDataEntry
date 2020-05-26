@@ -4,10 +4,9 @@ class BoatlogsController < ApplicationController
 	# Create a new boatlog
 	def new
 		@boatlog = Boatlog.new
-		@boatlog.boatlog_surveys.build
-		# 2.times do
-  #     @boatlog.boatlog_surveys.build
-  #   end
+		2.times do
+	     @boatlog.boatlog_surveys.build
+	  end
 
     respond_to do |format|
   		format.html # new.html.erb
@@ -67,8 +66,8 @@ class BoatlogsController < ApplicationController
 
 	# Update the boatlog
 	def update
-     @boatlog = Boatlog.find(params[:id])
-     respond_to do |format|
+    @boatlog = Boatlog.find(params[:id])
+    respond_to do |format|
 		  # successful update
       if @boatlog.update(boatlog_params)
         format.html { redirect_to @boatlog, notice: 'Boatlog successfully updated.' }
@@ -84,10 +83,10 @@ class BoatlogsController < ApplicationController
    # Delete a boatlog
 	def destroy 
 	  @boatlog = Boatlog.find(params[:id])
-	  @boatlog.destroy
+	  #@boatlog.destroy
 	  # Successful deletion
 	  if @boatlog.destroy
-        redirect_to '/boatlogs', notice: "Boatlog deleted"
+      redirect_to '/boatlogs', notice: "Boatlog deleted"
 	  # Error occurred
 	  else
 	  	redirect_to '/boatlogs', notice: "Error: boatlog not deleted"

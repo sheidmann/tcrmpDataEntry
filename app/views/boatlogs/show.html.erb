@@ -30,7 +30,7 @@
   </div>
 </div>
 <div class="showActions" >
- <%= button_to('Edit Boatlog', edit_boatlog_path(@boatlog), :method => "get", :class => 'btn btn-large btn-primary showAction') %>
- <%= button_to("Delete Boatlog", @boatlog, data: { confirm: 'Are you sure?' }, method: :delete, :class => 'btn btn-large btn-primary showAction') %>
- <%= button_to('Boatlog List', "/boatlogs", :method => "get", :class => 'btn btn-large btn-primary showAction') %>
+ <%= button_to('Edit Boatlog', edit_boatlog_path(@boatlog), :method => "get") %>
+ <%= button_to('Delete Boatlog', @boatlog, data: { confirm: 'Are you sure?' }, method: :delete) %>
+ <%= button_to('Boatlog List', "/boatlogs", :method => "get") %>
 </div>

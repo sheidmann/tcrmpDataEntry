@@ -29,6 +29,7 @@ describe "Manager viewing boatlog index", :js => true, type: :feature do
       fill_in "Begin Time", with: @boatlog.begin_time.strftime("%H:%M")
       select @blmanager.project, :from => "Project"
 
+      first('.nested-fields').click_link('Remove Survey')
       @bl_survey = build(:boatlog_survey, user_id: @manager.id, survey_type_id: @surveytype.id)
       select @bl_survey.user.name, :from => "Observer"
       select @bl_survey.survey_type.type_name, :from => "Survey Type"
@@ -65,7 +66,7 @@ describe "Manager viewing boatlog index", :js => true, type: :feature do
 
       click_button('View Boatlog')
       accept_confirm do
-        click_button 'Delete Boatlog'
+        click_button('Delete Boatlog')
       end
       expect(page).to have_content "Boatlog deleted"
       puts 'manager can delete boatlog'

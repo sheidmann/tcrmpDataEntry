@@ -24,17 +24,19 @@ This site does require a login and is only available to scientific divers collec
 
 * A user with admin privileges can add, edit, and delete boatlog managers.
 
-* A user with manager privileges can add, edit, and delete boatlogs, which are used as metadata and QA/QC for surveys. 
+* A user with manager privileges can add, edit, and delete boatlogs with nested surveys, which are used as metadata and QA/QC for surveys. 
 
 ## Features in progress
 
-* Dive section of boatlogs
+* Create site table to select from for boatlogs
 
 ## Upcoming functionality
 
-* Validations on existing fields (esp. date and time fields in entry forms)
+* Install Bootstrap for formatting and apply to forms for readability.
 
 * A user with manager privileges can export a chart of completed boatlogs.
+
+* Validations on existing fields (esp. date and time fields in entry forms)
 
 * Any user can enter fish transect, fish rover, and coral health data, and view and edit previously entered data.
 

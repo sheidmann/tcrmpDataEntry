@@ -10,7 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
+// SH deleted this line because it was requiring double confirmation: = require rails-ujs
+// This occurred after adding jquery lines below. StackOverflow suggested to only keep one.
+
 //= require activestorage
 //= require jquery
 //= require jquery_ujs
