@@ -18,7 +18,7 @@
       <% @all_boatlogs.each do |bl| %>
         <tr>
           <td><%= bl.id %></td>
-          <td><%= bl.site %></td>
+          <td><%= bl.site.site_name %></td>
           <td><%= bl.date_completed %></td>
           <td><%= bl.begin_time.strftime("%H:%M") %></td>
           <td><%= bl.manager.project %></td>

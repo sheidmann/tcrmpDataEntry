@@ -25,8 +25,12 @@ FactoryBot.define do
     association :user, factory: :manager
   end
 
+  factory :site do
+    site_name { "The Best Site" }
+  end
+
   factory :boatlog do
-    site { "The Best Site" }
+    association :site, factory: :site
     date_completed { Date.parse("2020-05-05") }
     begin_time { Time.parse("10:00Z") }
     association :manager, factory: :boatlog_manager

@@ -7,24 +7,25 @@ describe "Manager viewing boatlog index", :js => true, type: :feature do
     before(:each) do
 	    @manager = create(:manager) # create a user (who is a manager)
       @blmanager = create(:boatlog_manager, user_id: @manager.id) # create a manager
+      @site = create(:site, site_name: "My Site")
+      @surveytype = create(:survey_type, type_name: "Special Survey")
 	    visit('/login')
 	    sign_in(@manager)
     end
     it "sees array of boatlogs" do
-      @boatlog = create(:boatlog, site: "My Site", manager_id: @blmanager.id)
+      @boatlog = create(:boatlog, site_id: @site.id, manager_id: @blmanager.id)
       visit('/boatlogs')
       expect(page).to have_content "My Site"
       expect(page).to have_selector(:link_or_button, "View Boatlog")
       puts 'manager can view boatlogs with option to view'
     end
     it "can create a boatlog" do
-      @surveytype = create(:survey_type)
       visit('/boatlogs')
       click_button("New Boatlog")
       expect(page).to have_content "Site Name"
 
-      @boatlog = build(:boatlog)
-      fill_in "Site Name", with: @boatlog.site
+      @boatlog = build(:boatlog, site_id: @site.id)
+      select @boatlog.site.site_name, :from => "Site Name"
       fill_in "Date Completed", with: @boatlog.date_completed.strftime("%Y-%m-%d")
       fill_in "Begin Time", with: @boatlog.begin_time.strftime("%H:%M")
       select @blmanager.project, :from => "Project"
@@ -40,11 +41,11 @@ describe "Manager viewing boatlog index", :js => true, type: :feature do
       puts 'manager can create a new boatlog'
     end
     it "can view a boatlog" do
-      @boatlog = create(:boatlog, manager_id: @blmanager.id)
-      @bl_survey = create(:boatlog_survey, boatlog_id: @boatlog.id)
+      @boatlog = create(:boatlog, manager_id: @blmanager.id, site_id: @site.id)
+      @bl_survey = create(:boatlog_survey, boatlog_id: @boatlog.id, survey_type_id: @surveytype.id,)
       visit('/boatlogs')
       click_button("View Boatlog")
-      expect(page).to have_content "The Best Site"
+      expect(page).to have_content "My Site"
       expect(page).to have_content "Special Survey"
       puts 'maanger can view boatlog and associated surveys'
     end

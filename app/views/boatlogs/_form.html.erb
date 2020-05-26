@@ -3,9 +3,9 @@
 	<%= render 'shared/error_messages', :target => @boatlog %>
 		<div class='form-row'>
 	    <div class='field'>
-	    <%= f.label :site, 'Site Name' %>
+	    <%= f.label :site_id, 'Site Name' %>
 	    <br/>
-	    <%= f.text_field :site %> 
+	    <%= f.collection_select :site_id, Site.all, :id, :site_name, {:include_blank => ""} %> 
 	  	</div>
 	  	<div class='field'>
 	    <%= f.label :date_completed, 'Date Completed' %>
