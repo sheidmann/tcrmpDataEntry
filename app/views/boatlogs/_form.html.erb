@@ -22,6 +22,11 @@
       <br/>
       <%= f.collection_select :manager_id, Manager.all, :id, :project, {:include_blank => ""} %> 
 	    </div>
+	    <div class='field'>
+	    	<%= f.label :notes, 'Notes' %>
+	    	<br/>
+	    	<%= f.text_area :notes, { :size => '60x4', :autocomplete => :off } %>
+	    </div>
     </div>
 
     <div>
