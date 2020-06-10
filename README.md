@@ -26,9 +26,11 @@ This site does require a login and is only available to scientific divers collec
 
 * A user with manager privileges can add, edit, and delete boatlogs with nested surveys, which are used as metadata and QA/QC for surveys. 
 
-## Upcoming functionality
+## In-progress functionality
 
 * Install Bootstrap for formatting and apply to forms for readability.
+
+## Upcoming functionality
 
 * A user with manager privileges can export a chart of completed boatlogs.
 

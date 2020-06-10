@@ -9,6 +9,8 @@ gem 'rails', '~> 6.0.3'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.3.5'
+# Use Bootstrap framework for HTML formatting
+gem 'bootstrap-sass', '~> 3.4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 6.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -37,7 +39,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # JQuery
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 3.1.0'
 
 # Enable nested forms
 gem 'cocoon'
