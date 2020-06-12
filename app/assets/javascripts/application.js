@@ -14,6 +14,7 @@
 // This occurred after adding jquery lines below. StackOverflow suggested to only keep one.
 
 //= require activestorage
+//= require bootstrap-sprockets
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
