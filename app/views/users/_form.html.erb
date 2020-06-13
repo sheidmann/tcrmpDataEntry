@@ -1,15 +1,27 @@
-<div class="form-horizontal">
+<div class="container">
+	<div class="form">
 	<%= form_for(@user) do |f|%>
+		<div class="form-group">
 	    <%= f.label :name, 'Name' %>
 	    <%= f.text_field :name, :placeholder => "LASTNAME_FIRSTNAME" %> 
+	  </div>
+	  <div class="form-group">
 	    <%= f.label :email, 'Email' %>
 	    <%= f.text_field :email %> 
+	  </div>
+	  <div class="form-group">
 	    <%= f.label :role, 'Privileges' %>
 	    <%= f.select :role, [['user','user'],['manager','manager'],['admin','admin']] %>
+	  </div>
+	  <div class="form-group">
 	    <%= f.label :agency, 'Agency' %>
 	    <%= f.select :agency, [['UVI','UVI'], ['NOAA','NOAA']] %>
+	  </div>
+	  <div class="form-group">
 	    <%= f.label :active, 'Active?' %>
 	    <%= f.select :active, [['true','true'],['false','false']] %>
-	    <%= f.submit "Save", class: "btn-submit" %>
-    <% end %>
+	  </div>
+	  <%= f.submit "Save", class: "btn btn-primary" %>
+  <% end %>
+  </div>
 </div>

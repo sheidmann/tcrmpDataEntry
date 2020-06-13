@@ -1,9 +1,13 @@
 <div class="form-horizontal">
 	<%= form_for(@manager) do |f|%>
+	<div class="form-group">
 	    <%= f.label :user_id, 'Name' %>
 	    <%= f.collection_select :user_id, User.all, :id, :name, {:include_blank => ""} %> 
+	</div>
+	<div class="form-group">
 	    <%= f.label :project, 'Project' %>
 	    <%= f.text_field :project %> 
-	    <%= f.submit "Save Manager", class: "btn-submit" %>
+	</div>
+	    <%= f.submit "Save Manager", class: "btn btn-primary" %>
     <% end %>
 </div>
