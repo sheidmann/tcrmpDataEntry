@@ -19,14 +19,27 @@
 
     <div id='section_1_part_2'>
       <h2>Surveys</h2>
-      <% @boatlog.boatlog_surveys.each do |b_survey|  %>
-       <dl class="dl-horizontal">
-        <dt> <%= User.find(b_survey.user_id).name %> </dt>
-        <dt> <%= SurveyType.find(b_survey.survey_type_id).type_name %></dt>
-        <dt> <%= "replicate: #{b_survey.rep}" %>
-      </dl>   
-      <% end %>
+      <table id="boatlogSurveyList", class="display table table-striped" style="width: auto">
+        <thead>
+          <% #print table header %>
+          <tr>
+            <th>Observer</th>
+            <th>Survey Type</th>
+            <th>Replicate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @boatlog.boatlog_surveys.each do |b_survey|  %>
+            <tr>
+              <td><%= User.find(b_survey.user_id).name %></td>
+              <td><%= SurveyType.find(b_survey.survey_type_id).type_name %></td>
+              <td><%= b_survey.rep %></td>
+            </tr>   
+          <% end %>
+        </tbody>
+      </table>
     </div>
+  </div>
   </div>
 </div>
 <div class="showActions" >

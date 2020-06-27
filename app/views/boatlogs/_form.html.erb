@@ -1,31 +1,30 @@
 <div class="form-horizontal">
 	<%= form_for @boatlog do |f|%>
 	<%= render 'shared/error_messages', :target => @boatlog %>
-		<div class='form-row'>
-	    <div class='field'>
-	    <%= f.label :site_id, 'Site Name' %>
-	    <br/>
-	    <%= f.collection_select :site_id, Site.all, :id, :site_name, {:include_blank => ""} %> 
-	  	</div>
-	  	<div class='field'>
-	    <%= f.label :date_completed, 'Date Completed' %>
-	    <br/>
-	    <%= f.text_field :date_completed, placeholder: "YYYY-MM-DD" %> 
+		<div class="row">
+			<div class="col-md-3">
+		    <div class='control-group'>
+			    <%= f.label :site_id, 'Site Name' %>
+			    <%= f.collection_select :site_id, Site.all, :id, :site_name, {:include_blank => ""} %> 
+		  	</div>
+		  	<div class='control-group'>
+			    <%= f.label :date_completed, 'Date Completed' %>
+			    <%= f.text_field :date_completed, placeholder: "YYYY-MM-DD", autocomplete: :off %> 
+			  </div>
+			  <div class='control-group'>
+		      <%= f.label :begin_time, 'Begin Time' %>
+		      <%= f.text_field :begin_time, value: f.object.try(:begin_time).try(:strftime, "%H:%M"), placeholder: "HH:MM (24 hr clock)", autocomplete: :off %> 
+		    </div>
+		    <div class='control-group'>
+		      <%= f.label :manager_id, 'Project' %>
+		      <%= f.collection_select :manager_id, Manager.all, :id, :project, {:include_blank => ""} %> 
+		    </div>
 		  </div>
-		  <div class='field'>
-      <%= f.label :begin_time, 'Begin Time' %>
-      <br/>
-      <%= f.text_field :begin_time, value: f.object.try(:begin_time).try(:strftime, "%H:%M"), placeholder: "HH:MM (24 hr clock)" %> 
-	    </div>
-	    <div class='field'>
-      <%= f.label :manager_id, 'Project' %>
-      <br/>
-      <%= f.collection_select :manager_id, Manager.all, :id, :project, {:include_blank => ""} %> 
-	    </div>
-	    <div class='field'>
-	    	<%= f.label :notes, 'Notes' %>
-	    	<br/>
-	    	<%= f.text_area :notes, { :size => '60x4', :autocomplete => :off } %>
+			<div class="col-md-3">
+		    <div class='control-group'>
+		    	<%= f.label :notes, 'Notes' %>
+		    	<%= f.text_area :notes, { :size => '60x4', :autocomplete => :off } %>
+		    </div>
 	    </div>
     </div>
 
