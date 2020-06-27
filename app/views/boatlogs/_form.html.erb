@@ -2,7 +2,7 @@
 	<%= form_for @boatlog do |f|%>
 	<%= render 'shared/error_messages', :target => @boatlog %>
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-4">
 		    <div class='control-group'>
 			    <%= f.label :site_id, 'Site Name' %>
 			    <%= f.collection_select :site_id, Site.all, :id, :site_name, {:include_blank => ""} %> 
