@@ -2,15 +2,15 @@
 <html>
   <head>
     <div class = "header">
-      <div class="logo"><%= link_to image_tag("UVI_logo.jpg", :alt => "UVI logo", width: 75, height: 75, align: "middle"), "home" %></div>
+      <div class="logo"><%= link_to image_tag("UVI_logo.jpg", :alt => "UVI logo", width: 75, height: 75, align: "middle" ), "home", tabindex: "-1" %></div>
       <% # logged-in user can see their name and logout button %>
       <% if current_user %>
-        <a> <%= link_to current_user.name, '/userhome' %></a>
-        <a> <%= link_to "Log out", logout_path, method: "get" %> </a>
+        <a> <%= link_to current_user.name, '/userhome', tabindex: "-1" %></a>
+        <a> <%= link_to "Log out", logout_path, method: "get", tabindex: "-1" %> </a>
       <% else %>
-        <a><%= link_to "Log in", 'login' %></a>
+        <a><%= link_to "Log in", 'login', tabindex: "-1" %></a>
       <% end %>
-      <a><%= link_to "About", 'about' %></a>
+      <a><%= link_to "About", 'about', tabindex: "-1" %></a>
       <div class = "title">TCRMP Data Entry</div>
     </div>
     <% # allow flash messages (errors) %>

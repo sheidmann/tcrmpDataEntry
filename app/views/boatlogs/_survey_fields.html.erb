@@ -12,6 +12,6 @@
 		<%= f.label :rep, 'Replicate' %>
 		<%= f.text_field :rep, { value: 1, :size => '3' } %>
 		</div>
-		<%= link_to_remove_association "Remove Survey", f, partial: 'survey_fields' %>
+		<%= link_to_remove_association "Remove Survey", f, partial: 'survey_fields', tabindex: "-1" %>
 	</div>
 </div>
