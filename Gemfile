@@ -40,6 +40,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # JQuery
 gem 'jquery-rails', '>= 3.1.0'
+gem 'jquery-ui-rails'
 
 # Enable nested forms
 gem 'cocoon'
