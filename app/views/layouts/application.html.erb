@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title><%= content_for?(:title) ? yield(:title) : "TCRMP Data Entry" %></title>
     <div class = "header">
       <div class="logo"><%= link_to image_tag("UVI_logo.jpg", :alt => "UVI logo", width: 75, height: 75, align: "middle" ), "home", tabindex: "-1" %></div>
       <% # logged-in user can see their name and logout button %>
@@ -26,7 +27,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', async: true %>
   </head>
 
   <body>
