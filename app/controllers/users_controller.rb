@@ -4,17 +4,26 @@ class UsersController < ApplicationController
 	# Create a form for a new user
 	def new
 		@user = User.new
+
+		respond_to do |format|
+  		format.html # new.html.erb
+  		format.json { render json: @user }
+  	end
 	end
 
 	# Create a new user
 	def create
 		@user = User.new( user_params )
-		# successful creation
-		if @user.save
-			redirect_to '/users', notice: "User successfully created"
-		# Error occurred
-		else
-			redirect_to '/users', notice: "Error: user not created"
+
+		respond_to do |format|
+			# successful creation
+			if @user.save
+				format.html { redirect_to "/users", notice: 'User successfully created.' }
+			# Otherwise, print errors
+			else
+				format.html { render action: "new" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+			end
 		end
 	end
 
@@ -25,7 +34,7 @@ class UsersController < ApplicationController
 
 		@users = User.export_columns 
 		respond_to do |format|
-			format.html
+			format.html # index.html.erb
 			format.csv { send_data @users.as_csv }
 		end
 	end
@@ -37,14 +46,18 @@ class UsersController < ApplicationController
 
 	# Update the user
 	def update
-     @user = User.find(params[:id])
-     # Successful update
-     if @user.update(user_params)
-       redirect_to '/users', notice: "User successfully updated"
-     # An error occurred
-     else
-       render 'edit', notice: "Error: user not updated"
-     end
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+	    # Successful update
+	    if @user.update(user_params)
+	     format.html { redirect_to "/users", notice: 'User successfully updated.' }
+	    # Otherwise, print errors
+	    else
+	      format.html { render action: "edit", notice: "Error: user not updated" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+	    end
+	  end
    end
 
    # Delete a user

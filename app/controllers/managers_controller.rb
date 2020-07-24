@@ -4,17 +4,26 @@ class ManagersController < ApplicationController
 	# Create a form for a new manager
 	def new
 		@manager = Manager.new
+
+		respond_to do |format|
+  		format.html # new.html.erb
+  		format.json { render json: @manager }
+  	end
 	end
 
 	# Create a new manager
 	def create
 		@manager = Manager.new( manager_params )
-		# successful creation
-		if @manager.save
-			redirect_to '/managers', notice: "Manager successfully created"
-		# Error occurred
-		else
-			redirect_to '/managers', notice: "Error: manager not created"
+
+		respond_to do |format|
+			# successful creation
+			if @manager.save
+				format.html { redirect_to "/managers", notice: 'Manager successfully created.' }
+			# Error occurred
+			else
+				format.html { render action: "new", notice: "Error: manager not created" }
+        format.json { render json: @manager.errors, status: :unprocessable_entity }
+			end
 		end
 	end
 
@@ -31,14 +40,18 @@ class ManagersController < ApplicationController
 
 	# Update the manager
 	def update
-     @manager = Manager.find(params[:id])
-     # Successful update
-     if @manager.update(manager_params)
-       redirect_to '/managers', notice: "Manager successfully updated"
-     # An error occurred
-     else
-       render 'edit', notice: "Error: manager not updated"
-     end
+    @manager = Manager.find(params[:id])
+
+    respond_to do |format|
+	    # Successful update
+	    if @manager.update(manager_params)
+	      format.html { redirect_to "/managers", notice: 'Manager successfully updated.' }
+	    # Otherwise, print errors
+	    else
+	      format.html { render action: "edit", notice: "Error: manager not updated" }
+        format.json { render json: @manager.errors, status: :unprocessable_entity }
+	    end
+	  end
    end
 
    # Delete a manager
@@ -47,7 +60,7 @@ class ManagersController < ApplicationController
 	  @manager.destroy
 	  # Successful deletion
 	  if @manager.destroy
-        redirect_to '/managers', notice: "Manager deleted"
+      redirect_to '/managers', notice: "Manager deleted"
 	  # Error occurred
 	  else
 	  	redirect_to '/managers', notice: "Error: manager not deleted"

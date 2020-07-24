@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="form">
 	<%= form_for(@user) do |f|%>
+	<%= render 'shared/error_messages', :target => @user %>
 		<div class="form-group">
 	    <%= f.label :name, 'Name' %>
 	    <%= f.text_field :name, :placeholder => "LASTNAME_FIRSTNAME" %> 

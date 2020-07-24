@@ -10,7 +10,7 @@ class BoatlogsController < ApplicationController
 
     respond_to do |format|
   		format.html # new.html.erb
-  		format.json { render json: @boat_log }
+  		format.json { render json: @boatlog }
   	end
 	end
 
@@ -67,12 +67,13 @@ class BoatlogsController < ApplicationController
 	# Update the boatlog
 	def update
     @boatlog = Boatlog.find(params[:id])
+
     respond_to do |format|
 		  # successful update
       if @boatlog.update(boatlog_params)
         format.html { redirect_to @boatlog, notice: 'Boatlog successfully updated.' }
         format.json { render json: @boatlog, status: :created, location: @boatlog }
-      # otherwise, print errors
+      # Otherwise, print errors
       else
         format.html { render action: "edit" }
         format.json { render json: @boatlog.errors, status: :unprocessable_entity }
