@@ -14,7 +14,10 @@ This site does require a login and is only available to scientific divers collec
 
 * Database: PostgreSQL
 
-* How to run the test suite: rspec
+* How to run the test suite:
+```
+$ rspec
+```
 
 ## Current functionality
 
