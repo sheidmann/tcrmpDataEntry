@@ -18,6 +18,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require_tree ../../../vendor/assets/javascripts
 //= require_tree .
 
 //= require cocoon
