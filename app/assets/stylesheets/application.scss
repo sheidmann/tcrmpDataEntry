@@ -63,6 +63,11 @@
   color: red !important;
 }
 
+input.error {
+  background-color: yellow !important;
+  border: 1px solid yellow !important;
+}
+
 .field_with_errors{
   display: inline;
 }
