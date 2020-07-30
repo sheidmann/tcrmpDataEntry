@@ -15,6 +15,10 @@ $(document).ready(function() {
 
   alert24HourClock();
 
+  jQuery.validator.addMethod("timeformat", function(value, element) {
+    return this.optional(element) || /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/.test(value);
+  }, "Enter as HH:MM (24 hr clock)");
+
 	$("#new_boatlog").validate( {
 		debug:true,
   	onfocusout: function(element) {
@@ -24,7 +28,7 @@ $(document).ready(function() {
   	rules: {
 			"boatlog[site_id]": { required: true },
 			"boatlog[date_completed]": { required: true },
-			"boatlog[begin_time]": { required: true },
+			"boatlog[begin_time]": { required: true, timeformat: true },
 			"boatlog[manager_id]": { required: true }
   	},
 
