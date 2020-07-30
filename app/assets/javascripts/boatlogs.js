@@ -7,9 +7,9 @@ $(document).ready(function() {
       var $time = $(this).val();
       var b = ($time.split(":")[0]) + ($time.split(":")[1]);
       var $time2 = parseInt(b, 10);
-      if ( $time2 >= "800" && $time2 <= "1800" ){
-      
-      } else { alert("Why are you diving in the dark?"); }
+      if ( $time2 <= "800" || $time2 >= "1800" ){
+	      alert("Why are you diving in the dark?");
+      } else {  }
     });
   };
 
