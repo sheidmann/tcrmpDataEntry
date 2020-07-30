@@ -20,7 +20,7 @@ $(document).ready(function() {
   }, "Enter as HH:MM (24 hr clock)");
 
 	// Create validation rules
-	$("#new_boatlog").validate( {
+	$(".new_boatlog, .edit_boatlog").validate( {
 		debug:true,
 		// Trigger validation on focusout
   	onfocusout: function(element) {
@@ -53,10 +53,10 @@ $(document).ready(function() {
 	  // On focus, ignore the validation.
 	  // On hide, remove the ignored validation and validate.
   }).on("hide",function(){ 
-      $("#new_boatlog").data("validator").settings.ignore="";
+      $(".new_boatlog, .edit_boatlog").data("validator").settings.ignore="";
       $(this).valid();
   }).on("focus",function(){
-      $("#new_boatlog").data("validator").settings.ignore="#boatlog_date_completed, :hidden";
+      $(".new_boatlog, edit_boatlog").data("validator").settings.ignore="#boatlog_date_completed, :hidden";
   });
 
 	// Add validations for nested station fields
