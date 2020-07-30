@@ -31,9 +31,7 @@ $ rspec
 
 ## Upcoming functionality
 
-* A user with manager privileges can export a chart of completed boatlogs.
-
-* Validations on existing fields (esp. date and time fields in entry forms)
+* A user with manager privileges can view and export a chart of completed boatlogs.
 
 * Any user can enter fish transect, fish rover, and coral health data, and view and edit previously entered data.
 
