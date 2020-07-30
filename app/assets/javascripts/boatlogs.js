@@ -35,4 +35,30 @@ $(document).ready(function() {
       "boatlog[manager_id]": { required: "Required" }
     }
   });
+
+  function validate_fields() {
+      $('[name*="user_id"]').each(function(){
+        $(this).rules('add', {
+          required: true
+        });
+      });
+      $('[name*="survey_type_id"]').each(function(){
+        $(this).rules('add', {
+          required: true
+        });
+      });
+      $('[name*="rep"]').each(function(){
+        $(this).rules('add', {
+          required: true,
+          number: true,
+          min: 1,
+          max: 12
+        });
+      });
+    };
+
+    validate_fields();
+    $(document).delegate(".add_fields", "click", function(){ 
+      validate_fields();
+    });
 });
