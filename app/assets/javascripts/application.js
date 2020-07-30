@@ -19,5 +19,20 @@
 //= require bootstrap-sprockets
 //= require_tree ../../../vendor/assets/javascripts
 //= require_tree .
-
 //= require cocoon
+
+$(function(){
+  $('tr[data-link]').click(function(){
+    window.location = this.dataset.link
+  });
+
+  $('tr[data-link]').hover(
+    function(){
+      $(this).css("background", "yellow");
+      $(this).css("cursor", "pointer");
+    },
+    function(){
+      $(this).css("background", "");
+    }
+  );
+});

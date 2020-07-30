@@ -6,7 +6,6 @@
         <thead>
         <% #print table header %>
         <tr>
-          <th>Boatlog Number</th>
           <th>Site</th>
           <th>Date</th>
           <th>Begin Time</th>
@@ -16,13 +15,11 @@
       <tbody>
       <% #print table fields %>
       <% @all_boatlogs.each do |bl| %>
-        <tr>
-          <td><%= bl.id %></td>
+        <tr data-link=" <%= boatlog_path(bl.id) %> ">
           <td><%= bl.site.site_name %></td>
           <td><%= bl.date_completed %></td>
           <td><%= bl.begin_time.strftime("%H:%M") %></td>
           <td><%= bl.manager.project %></td>
-          <td><%= button_to('View Boatlog', boatlog_path(bl.id)) %></td>
         </tr>
       <% end %>
       </tbody>
