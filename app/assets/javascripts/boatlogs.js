@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+	// Prevent loading this script on every page
+	if(!EA.onRailsPage('boatlogs', ['edit', 'new'])) {
+    return;
+  };
+
 	// Create alert if time is too early or late
 	function alert24HourClock() {
     $("#boatlog_begin_time").on("focusout", function(){
