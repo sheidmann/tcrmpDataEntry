@@ -15,7 +15,7 @@
       <tbody>
       <% #print table fields %>
       <% @all_boatlogs.each do |bl| %>
-        <tr data-link=" <%= boatlog_path(bl.id) %> ">
+        <tr data-link="<%=boatlog_path(bl.id)%>">
           <td><%= bl.site.site_name %></td>
           <td><%= bl.date_completed %></td>
           <td><%= bl.begin_time.strftime("%H:%M") %></td>

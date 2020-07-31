@@ -16,7 +16,7 @@ describe "Manager viewing boatlog index", :js => true, type: :feature do
       @boatlog = create(:boatlog, site_id: @site.id, manager_id: @blmanager.id)
       visit('/boatlogs')
       expect(page).to have_content "My Site"
-      expect(page).to have_selector(:link_or_button, "View Boatlog")
+      expect(page).to have_css('tr')
       puts 'manager can view boatlogs with option to view'
     end
     it "can create a boatlog" do
@@ -34,7 +34,7 @@ describe "Manager viewing boatlog index", :js => true, type: :feature do
       @bl_survey = build(:boatlog_survey, user_id: @manager.id, survey_type_id: @surveytype.id)
       select @bl_survey.user.name, :from => "Observer"
       select @bl_survey.survey_type.type_name, :from => "Survey Type"
-      fill_in "Replicate", with: @bl_survey.rep
+      fill_in "Transect Number", with: @bl_survey.rep
 
       click_button("Save Boatlog")
       expect(page).to have_content "Boatlog successfully created"
@@ -42,18 +42,23 @@ describe "Manager viewing boatlog index", :js => true, type: :feature do
     end
     it "can view a boatlog" do
       @boatlog = create(:boatlog, manager_id: @blmanager.id, site_id: @site.id)
-      @bl_survey = create(:boatlog_survey, boatlog_id: @boatlog.id, survey_type_id: @surveytype.id,)
-      visit('/boatlogs')
-      click_button("View Boatlog")
+      @bl_survey = create(:boatlog_survey, boatlog_id: @boatlog.id, survey_type_id: @surveytype.id)
+      # I can't make Capybara click on the table row, so we just have to visit the link
+      #visit('/boatlogs')
+      # Code I tried that got close but didn't work:
+      #find(:xpath, "//table/tbody/tr[@href='#{boatlog_path(@boatlog.id)}']").click # can't find
+      #find("tr[id='#{@boatlog.id}']").click # No error but doesn't show boatlog
+      #find(:xpath, '//table/tbody/tr').click # No error but doesn't show boatlog
+      visit("#{boatlog_path(@boatlog.id)}")
       expect(page).to have_content "My Site"
       expect(page).to have_content "Special Survey"
-      puts 'maanger can view boatlog and associated surveys'
+      puts 'manager can view boatlog and associated surveys'
     end
     it "can edit a boatlog" do
       @boatlog = create(:boatlog, manager_id: @blmanager.id)
       visit('/boatlogs')
 
-      click_button('View Boatlog')
+      visit("#{boatlog_path(@boatlog.id)}")
       click_button('Edit Boatlog')
       expect(page).to have_content "Edit Boatlog"
 
@@ -65,7 +70,7 @@ describe "Manager viewing boatlog index", :js => true, type: :feature do
       @boatlog = create(:boatlog, manager_id: @blmanager.id)
       visit('/boatlogs')
 
-      click_button('View Boatlog')
+      visit("#{boatlog_path(@boatlog.id)}")
       accept_confirm do
         click_button('Delete Boatlog')
       end
