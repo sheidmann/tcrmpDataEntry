@@ -37,8 +37,8 @@ Site.create(site_name: "Flat Cay", site_code: "FLC", island: "STT",
 	latitude: 18.31822, longitude: -64.99104, orientation: "midshelf",
 	land: "island", reef_complex: "offshore", depth_m: 12)
 
-SurveyType.create(type_name: "coral health", category: "benthic", units: "m")
 SurveyType.create(type_name: "fish transect", category: "fish", units: "m")	
+SurveyType.create(type_name: "coral health", category: "benthic", units: "m")
 
 Boatlog.create(site_id: Site.find_by(site_name: "Flat Cay").id, 
 	date_completed: Date.parse("2020-05-08"), 
@@ -50,7 +50,7 @@ BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site_id: Site.find_by(site_name
 	rep: 1)
 BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site_id: Site.find_by(site_name: "Flat Cay").id).id,
 	user_id: User.find_by(name: "BRANDTNERIS_VIKTOR").id,
-	survey_type_id: SurveyType.find_by(type_name: "coral health").id,
+	survey_type_id: SurveyType.find_by(type_name: "fish transect").id,
 	rep: 2)
 BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site_id: Site.find_by(site_name: "Flat Cay").id).id,
 	user_id: User.find_by(name: "HEIDMANN_SARAH").id,
