@@ -1,9 +1,10 @@
 <div class="main">
   <div class="container">
-        <%= button_to "New Boatlog", '/boatlogs/new', method: :get%>
-        
-        <table id="boatlogList", class="display table table-striped table-condensed">
-        <thead>
+    <%= button_to "New Boatlog", '/boatlogs/new', method: :get %>
+    <%= button_to "Field Progress", '/sites', method: :get %>
+    
+    <table id="boatlogList", class="display table table-striped table-condensed">
+      <thead>
         <% #print table header %>
         <tr>
           <th>Site</th>
@@ -13,16 +14,16 @@
         </tr>
       </thead>
       <tbody>
-      <% #print table fields %>
-      <% @all_boatlogs.each do |bl| %>
-        <tr data-link="<%=boatlog_path(bl.id)%>">
-          <td><%= bl.site.site_name %></td>
-          <td><%= bl.date_completed %></td>
-          <td><%= bl.begin_time.strftime("%H:%M") %></td>
-          <td><%= bl.manager.project %></td>
-        </tr>
-      <% end %>
+        <% #print table fields %>
+        <% @all_boatlogs.each do |bl| %>
+          <tr data-link="<%=boatlog_path(bl.id)%>">
+            <td><%= bl.site.site_name %></td>
+            <td><%= bl.date_completed %></td>
+            <td><%= bl.begin_time.strftime("%H:%M") %></td>
+            <td><%= bl.manager.project %></td>
+          </tr>
+        <% end %>
       </tbody>
-      </table>
+    </table>
   </div>
 </div>

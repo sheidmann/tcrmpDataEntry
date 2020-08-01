@@ -1,0 +1,25 @@
+<div class="main">
+  <div class="container">
+    <%= button_to "Boatlog List", '/boatlogs', method: :get%>
+    <table id="fieldProgress", class="display table table-striped table-condensed">
+      <thead>
+        <% #print table header %>
+        <tr>
+          <th>Island</th>
+          <th>Site</th>
+          <th>Fish</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% #print table fields %>
+        <% @all_sites.each do |s| %>
+          <tr>
+            <td><%= s.island %></td>
+            <td><%= s.site_name %></td>
+            <td><%=  %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

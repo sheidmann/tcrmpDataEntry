@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   #get '/boatlogs/edit' => 'boatlogs#edit'
   #post '/boatlogs/edit' => 'boatlogs#update'
 
+  # Field Progress
+   get '/sites' => 'sites#index'
+
   # Surveys
   get "/fishtransects" => 'static_pages#placeholder'
   get "/fishrovers" => 'static_pages#placeholder'

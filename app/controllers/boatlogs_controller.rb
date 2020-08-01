@@ -51,12 +51,12 @@ class BoatlogsController < ApplicationController
 	end
 
 	def show
-	    @boatlog = Boatlog.find(params[:id])
+    @boatlog = Boatlog.find(params[:id])
 
-	    respond_to do |format|
-	      format.html # show.html.erb
-	      format.json { render json: @boatlog }
-	    end
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @boatlog }
+    end
 	end
 
 	# Edit a boatlog

@@ -19,7 +19,7 @@ This site does require a login and is only available to scientific divers collec
 $ rspec
 ```
 
-## Current functionality
+## Current features
 
 * A user account is required to access the site, with the exception of the home and about pages.
 
@@ -29,9 +29,11 @@ $ rspec
 
 * A user with manager privileges can add, edit, and delete boatlogs with nested surveys, which are used as metadata and QA/QC for surveys. 
 
-## Upcoming functionality
+## In-progress features
 
-* A user with manager privileges can view and export a chart of completed boatlogs.
+* A user with manager privileges can view and export field progress by site.
+
+## Upcoming features
 
 * Any user can enter fish transect, fish rover, and coral health data, and view and edit previously entered data.
 
