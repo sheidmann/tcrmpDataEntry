@@ -38,6 +38,7 @@ Site.create(site_name: "Flat Cay", site_code: "FLC", island: "STT",
 	land: "island", reef_complex: "offshore", depth_m: 12)
 
 SurveyType.create(type_name: "fish transect", category: "fish", units: "m")	
+SurveyType.create(type_name: "fish rover", category: "fish", units: "min")	
 SurveyType.create(type_name: "coral health", category: "benthic", units: "m")
 
 Boatlog.create(site_id: Site.find_by(site_name: "Flat Cay").id, 

@@ -14,16 +14,22 @@ RSpec.describe BoatlogSurvey, type: :model do
     	expect(@survey).to be_valid
     	puts "new boatlog survey is valid"
     end
+    it "is valid if observer does multiple transects of the same type" do
+      @survey1 = create(:boatlog_survey, boatlog_id: @boatlog.id, user_id: @observer.id, survey_type_id: @surveytype.id)
+      @survey2 = build(:boatlog_survey, boatlog_id: @boatlog.id, user_id: @observer.id, survey_type_id: @surveytype.id, rep: 2)
+      expect(@survey2).to be_valid
+      puts "boatlog survey is valid even if observer does multiple transects of the same type"
+    end
     it 'is not valid if boatlog/observer/type/rep combo is not unique' do
     	@survey1 = create(:boatlog_survey, boatlog_id: @boatlog.id, user_id: @observer.id, survey_type_id: @surveytype.id)
     	@survey2 = build(:boatlog_survey, boatlog_id: @boatlog.id, user_id: @observer.id, survey_type_id: @surveytype.id)
     	expect(@survey2).to_not be_valid
-    	puts 'duplicate survey is not valid'
+    	puts 'duplicate survey rep is not valid'
     end
     it "can access observer name" do
-        @survey = build(:boatlog_survey, boatlog_id: @boatlog.id, user_id: @observer.id, survey_type_id: @surveytype.id)
-        expect(@survey.user.name).to eq("DOE_JOHN")
-        puts "belongs to a user"
+      @survey = build(:boatlog_survey, boatlog_id: @boatlog.id, user_id: @observer.id, survey_type_id: @surveytype.id)
+      expect(@survey.user.name).to eq("DOE_JOHN")
+      puts "belongs to a user"
     end
   end
 end

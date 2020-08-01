@@ -7,7 +7,9 @@
         <tr>
           <th>Island</th>
           <th>Site</th>
-          <th>Fish</th>
+          <th>Fish Transects</th>
+          <th>Fish Rovers</th>
+          <th>Coral Health</th>
         </tr>
       </thead>
       <tbody>
@@ -16,7 +18,9 @@
           <tr>
             <td><%= s.island %></td>
             <td><%= s.site_name %></td>
-            <td><%=  %></td>
+            <td><%= s.fishtrancount %></td>
+            <td><%= s.fishrovcount %></td>
+            <td><%= s.coralhealthcount %></td>
           </tr>
         <% end %>
       </tbody>

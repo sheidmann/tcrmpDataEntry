@@ -40,4 +40,20 @@ RSpec.describe Boatlog, type: :model do
     	puts 'repeated site is valid'
     end
   end
+  describe "existing boatlog" do
+    before(:each) do
+      @manager = create(:manager)
+      @blmanager = create(:boatlog_manager, user_id: @manager.id)
+      @site = create(:site)
+      @boatlog = create(:boatlog, manager_id: @blmanager.id, site_id: @site.id)
+      @observer = create(:user)
+      @surveytype = create(:survey_type, type_name: "fish transect")
+      @survey1 = create(:boatlog_survey, boatlog_id: @boatlog.id, user_id: @observer.id, survey_type_id: @surveytype.id)
+      @survey2 = create(:boatlog_survey, boatlog_id: @boatlog.id, user_id: @observer.id, survey_type_id: @surveytype.id, rep: 2)
+    end
+    it 'fish transects can be counted' do
+      expect(@boatlog.countfishtran).to equal(2)
+      puts 'boatlog fish transects can be counted'
+    end
+  end
 end

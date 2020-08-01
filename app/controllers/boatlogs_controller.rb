@@ -6,7 +6,7 @@ class BoatlogsController < ApplicationController
 		@boatlog = Boatlog.new
 		2.times do
 	     @boatlog.boatlog_surveys.build
-	  end
+		end
 
     respond_to do |format|
   		format.html # new.html.erb
