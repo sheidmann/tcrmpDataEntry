@@ -52,6 +52,7 @@ class BoatlogsController < ApplicationController
 
 	def show
     @boatlog = Boatlog.find(params[:id])
+    @boatlog_surveys = @boatlog.boatlog_surveys.order(survey_type_id: :asc, rep: :asc).all
 
     respond_to do |format|
       format.html # show.html.erb
