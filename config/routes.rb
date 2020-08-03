@@ -27,14 +27,15 @@ Rails.application.routes.draw do
 
   # Boatlog management
   #get '/boatlogs' => 'boatlogs#index'
-  post 'boatlogs/:id' => 'boatlogs#show'
+  post '/boatlogs/:id' => 'boatlogs#show'
   #get '/boatlogs/new' => 'boatlogs#new'
   #post '/boatlogs/new' => 'boatlogs#create'
   #get '/boatlogs/edit' => 'boatlogs#edit'
   #post '/boatlogs/edit' => 'boatlogs#update'
 
   # Field Progress
-   get '/sites' => 'sites#index'
+  get '/sites' => 'sites#index'
+  post '/sites/:id' => 'sites#show'
 
   # Surveys
   get "/fishtransects" => 'static_pages#placeholder'
@@ -45,6 +46,7 @@ Rails.application.routes.draw do
   resources :users
   resources :managers
   resources :boatlogs
+  resources :sites
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,21 +1,22 @@
 <div class="main">
   <div class="container">
-    <%= button_to "Boatlog List", '/boatlogs', method: :get%>
+    <%= button_to "Back to Boatlogs", '/boatlogs', method: :get%>
+    <h1>Field Progress</h1>
     <table id="fieldProgress", class="display table table-striped table-condensed">
       <thead>
         <% #print table header %>
         <tr>
           <th>Island</th>
           <th>Site</th>
-          <th>Fish Transects</th>
-          <th>Fish Rovers</th>
-          <th>Coral Health</th>
+          <th>Fish Transects (9)</th>
+          <th>Fish Rovers (3)</th>
+          <th>Coral Health (6)</th>
         </tr>
       </thead>
       <tbody>
         <% #print table fields %>
         <% @all_sites.each do |s| %>
-          <tr>
+          <tr data-link="<%=site_path(s.id)%>">
             <td><%= s.island %></td>
             <td><%= s.site_name %></td>
             <td><%= s.fishtrancount %></td>
