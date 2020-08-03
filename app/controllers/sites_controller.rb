@@ -15,6 +15,8 @@ class SitesController < ApplicationController
 	def show
     @site = Site.find(params[:id])
     @site_surveys = @site.boatlog_surveys.order(survey_type_id: :asc, rep: :asc).all
+    @fish_surveys = @site_surveys.where(survey_type_id: SurveyType.find_by(category: "fish").id).all
+    @coral_surveys = @site_surveys.where(survey_type_id: SurveyType.find_by(category: "benthic").id).all
 
     respond_to do |format|
       format.html # show.html.erb

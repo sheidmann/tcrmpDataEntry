@@ -2,8 +2,8 @@
   <div class='container'>
     <p><%= button_to('Field Progress', "/sites", :method => "get") %></p>
     <h1><%= "#{@site.site_name} (#{@site.site_code})"%></h1>
-    <h2>Surveys</h2>
-    <table id="siteSurveyList", class="display table table-striped" style="width: auto">
+    <h2>Fish Surveys</h2>
+    <table id="siteFishSurveys", class="display table table-striped" style="width: auto">
       <thead>
         <% #print table header %>
         <tr>
@@ -14,12 +14,34 @@
         </tr>
       </thead>
       <tbody>
-        <% @site_surveys.each do |ss|  %>
+        <% @fish_surveys.each do |s|  %>
           <tr>
-            <td><%= SurveyType.find(ss.survey_type_id).type_name %></td>
-            <td><%= ss.rep %></td>
-            <td><%= User.find(ss.user_id).name %></td>
-            <td><%= ss.boatlog.date_completed %></td>
+            <td><%= SurveyType.find(s.survey_type_id).type_name %></td>
+            <td><%= s.rep %></td>
+            <td><%= User.find(s.user_id).name %></td>
+            <td><%= s.boatlog.date_completed %></td>
+          </tr>   
+        <% end %>
+      </tbody>
+    </table>
+    <h2>Benthic Surveys</h2>
+    <table id="siteBenthicSurveys", class="display table table-striped" style="width: auto">
+      <thead>
+        <% #print table header %>
+        <tr>
+          <th>Survey Type</th>
+          <th>Transect Number</th>
+          <th>Observer</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @coral_surveys.each do |s|  %>
+          <tr>
+            <td><%= SurveyType.find(s.survey_type_id).type_name %></td>
+            <td><%= s.rep %></td>
+            <td><%= User.find(s.user_id).name %></td>
+            <td><%= s.boatlog.date_completed %></td>
           </tr>   
         <% end %>
       </tbody>
