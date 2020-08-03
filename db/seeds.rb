@@ -15,7 +15,7 @@ User.create(name: "ENNIS_ROSMIN", username: "ennis_rosmin",
 	agency: "UVI", active: "true", role: "manager")
 User.create(name: "KADISON_SHAUN", username: "kadison_shaun", 
 	email: "shaun@kadison.com", password: "kadison_shaun", 
-	agency: "UVI", active: "true", role: "user")
+	agency: "UVI", active: "true", role: "manager")
 User.create(name: "BRANDTNERIS_VIKTOR", username: "brandtneris_viktor", 
 	email: "viktor@brandtneris.com", password: "brandtneris_viktor", 
 	agency: "UVI", active: "true", role: "user")
