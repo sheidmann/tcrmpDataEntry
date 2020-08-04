@@ -5,6 +5,9 @@ $(document).ready(function() {
     return;
   };
 
+  // Implement dropdown with textbox for site
+  $("#boatlog_site_id").select2();
+
 	// Create alert if time is too early or late
 	function alert24HourClock() {
     $("#boatlog_begin_time").on("focusout", function(){
@@ -62,6 +65,12 @@ $(document).ready(function() {
       $(this).valid();
   }).on("focus",function(){
       $(".new_boatlog, edit_boatlog").data("validator").settings.ignore="#boatlog_date_completed, :hidden";
+  });
+
+  // Implement dropdown with textbox for observer
+  $(".observerSelect").select2();
+  $(document).delegate(".add_fields", "click", function(){ 
+    $(".observerSelect").select2();
   });
 
 	// Add validations for nested station fields
