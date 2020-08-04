@@ -3,7 +3,7 @@ class SitesController < ApplicationController
 
 	# View field progress by site
 	def index
-		@all_sites = Site.order(site_name: :asc).all
+		@all_sites = Site.order(island: :asc, site_name: :asc).all
 
     respond_to do |format|
       format.html # index.html.erb
