@@ -29,9 +29,9 @@ $ rspec
 
 * A user with manager privileges can add, edit, and delete boatlogs with nested surveys, which are used as metadata and QA/QC for surveys. 
 
-## In-progress features
+* A user with manager privileges can view field progress by site.
 
-* A user with manager privileges can view and export field progress by site.
+## In-progress features
 
 ## Upcoming features
 
