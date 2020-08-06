@@ -7,6 +7,10 @@ $(document).ready(function() {
 
   // Implement dropdown with textbox for site
   $("#boatlog_site_id").select2();
+  // Trigger validation on close (select2 does not trigger focusout)
+  $("select").on("select2:close", function (e) {  
+    $(this).valid(); 
+  });
 
 	// Create alert if time is too early or late
 	function alert24HourClock() {
@@ -29,7 +33,7 @@ $(document).ready(function() {
 
 	// Create validation rules
 	$(".new_boatlog, .edit_boatlog").validate( {
-		debug:true,
+		ignore: [], // enable hidden field validation for select2
 		// Trigger validation on focusout
   	onfocusout: function(element) {
         this.element(element);
