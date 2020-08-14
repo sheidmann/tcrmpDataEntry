@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_175003) do
+ActiveRecord::Schema.define(version: 2020_08_14_154609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,20 @@ ActiveRecord::Schema.define(version: 2020_06_09_175003) do
     t.text "notes"
     t.index ["manager_id"], name: "index_boatlogs_on_manager_id"
     t.index ["site_id"], name: "index_boatlogs_on_site_id"
+  end
+
+  create_table "fish", force: :cascade do |t|
+    t.string "common_name"
+    t.string "scientific_name"
+    t.string "code_name"
+    t.string "family"
+    t.string "troph"
+    t.string "commercial"
+    t.integer "min_size"
+    t.integer "max_size"
+    t.integer "max_num"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "managers", force: :cascade do |t|

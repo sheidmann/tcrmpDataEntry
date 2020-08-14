@@ -49,5 +49,16 @@ FactoryBot.define do
     rep { 1 }
   end
 
+  factory :fish do
+    common_name { "the coolest fish" }
+    scientific_name { "Coolus fishus" }
+    code_name { "COO FISH" }
+    family { "Coolidae" }
+    troph { "apex" }
+    commercial { "Y" }
+    min_size { 10 }
+    max_size { 50 }
+    max_num { 1 }
+  end
   
 end
