@@ -60,5 +60,15 @@ FactoryBot.define do
     max_size { 50 }
     max_num { 1 }
   end
+
+  factory :fish_transect do
+    association :manager, factory: :boatlog_manager
+    association :site, factory: :site
+    association :user, factory: :user
+    date_completed { Date.parse("2020-05-05") }
+    begin_time { Time.parse("10:00Z") }
+    rep { 1 }
+    completed_m { 25 }
+  end
   
 end

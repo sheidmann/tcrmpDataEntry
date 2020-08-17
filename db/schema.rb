@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_14_154609) do
+ActiveRecord::Schema.define(version: 2020_08_17_220554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,22 @@ ActiveRecord::Schema.define(version: 2020_08_14_154609) do
     t.integer "max_num"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "fish_transects", force: :cascade do |t|
+    t.bigint "manager_id"
+    t.bigint "site_id"
+    t.bigint "user_id"
+    t.date "date_completed"
+    t.time "begin_time"
+    t.integer "rep"
+    t.integer "completed_m"
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["manager_id"], name: "index_fish_transects_on_manager_id"
+    t.index ["site_id"], name: "index_fish_transects_on_site_id"
+    t.index ["user_id"], name: "index_fish_transects_on_user_id"
   end
 
   create_table "managers", force: :cascade do |t|
@@ -101,5 +117,8 @@ ActiveRecord::Schema.define(version: 2020_08_14_154609) do
   add_foreign_key "boatlog_surveys", "users"
   add_foreign_key "boatlogs", "managers"
   add_foreign_key "boatlogs", "sites"
+  add_foreign_key "fish_transects", "managers"
+  add_foreign_key "fish_transects", "sites"
+  add_foreign_key "fish_transects", "users"
   add_foreign_key "managers", "users"
 end
