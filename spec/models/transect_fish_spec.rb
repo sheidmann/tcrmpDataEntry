@@ -12,7 +12,7 @@ RSpec.describe TransectFish, type: :model do
   	it "is valid with valid attributes" do
   		@tranf = build(:transect_fish, fish_transect_id: @ftran.id, fish_id: @fish.id)
   		expect(@tranf).to be_valid
-  		puts 'new fish transect is valid'
+  		puts 'new transect fish is valid'
   	end
   	it "is not valid without a fish transect" do
       @tranf = build(:transect_fish, fish_transect_id: nil)

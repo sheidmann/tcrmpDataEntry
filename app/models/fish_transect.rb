@@ -11,4 +11,7 @@ class FishTransect < ApplicationRecord
 
 	has_many :transect_fish, :dependent => :destroy, inverse_of: :fish_transect
 	accepts_nested_attributes_for :transect_fish, :reject_if => :all_blank, :allow_destroy => true
+
+	has_many :diadema, :dependent => :destroy, inverse_of: :fish_transect
+	accepts_nested_attributes_for :diadema, :reject_if => :all_blank, :allow_destroy => true
 end

@@ -81,5 +81,11 @@ FactoryBot.define do
     x31to40 { 0 }
     xgt40 { 0 }
   end
+
+  factory :diadema do
+    association :fish_transect, factory: :fish_transect
+    test_size_cm { 10 }
+  end
+
   
 end
