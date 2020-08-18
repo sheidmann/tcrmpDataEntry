@@ -43,4 +43,27 @@ RSpec.describe FishTransect, type: :model do
       puts 'repless fish transect is not valid'
     end
   end
+  describe "existing fish transect" do
+    before(:each) do
+      @manager = create(:manager)
+      @blmanager = create(:boatlog_manager, user_id: @manager.id)
+      @site = create(:site)
+      @ftran = create(:fish_transect, manager_id: @blmanager.id, site_id: @site.id, user_id: @manager.id)
+      @fish1 = create(:fish)
+      @tranf1 = create(:transect_fish, fish_transect_id: @ftran.id, fish_id: @fish1.id)
+      @fish2 = create(:fish)
+      @tranf2 = create(:transect_fish, fish_transect_id: @ftran.id, fish_id: @fish2.id)
+      @diadema1 = create(:diadema, fish_transect_id: @ftran.id)
+      @diadema2 = create(:diadema, fish_transect_id: @ftran.id)
+      @diadema3 = create(:diadema, fish_transect_id: @ftran.id)
+    end
+    it 'fish species can be counted' do
+      expect(@ftran.countfishspecies).to equal(2)
+      puts 'fish transect species can be counted'
+    end
+    it 'diadema can be counted' do
+      expect(@ftran.countdiadema).to equal(3)
+      puts 'fish transect diadema can be counted'
+    end
+  end
 end
