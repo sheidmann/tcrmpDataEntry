@@ -5,6 +5,9 @@ class Site < ApplicationRecord
 	accepts_nested_attributes_for :boatlogs
 
 	has_many :boatlog_surveys, :through => :boatlogs
+
+	has_many :fish_transects
+	accepts_nested_attributes_for :fish_transects
 	
 	def fishtrancount
 		@site_logs = Boatlog.where(site_id: self.id).all

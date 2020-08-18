@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
 	has_many :managers
 	has_many :boatlog_surveys
+	has_many :fish_transects
 
 	# Automatically make username and password from name
 	before_create :check_params
