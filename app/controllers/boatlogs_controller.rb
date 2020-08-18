@@ -98,6 +98,6 @@ class BoatlogsController < ApplicationController
 	private
 
 	def boatlog_params
-		params.require(:boatlog).permit(:site_id, :date_completed, :begin_time, :manager_id, boatlog_surveys_attributes: [:id, :user_id, :survey_type_id, :rep, :_destroy])
+		params.require(:boatlog).permit(:site_id, :date_completed, :begin_time, :notes, :manager_id, boatlog_surveys_attributes: [:id, :user_id, :survey_type_id, :rep, :_destroy])
 	end
 end

@@ -30,4 +30,19 @@ RSpec.describe TransectFish, type: :model do
     	puts 'transect fish can access fish attributes'
   	end
   end
+  describe "existing transect fish" do
+    before(:each) do
+      @manager = create(:manager)
+      @blmanager = create(:boatlog_manager, user_id: @manager.id)
+      @site = create(:site)
+      @ftran = create(:fish_transect, manager_id: @blmanager.id, site_id: @site.id, user_id: @manager.id)
+      @fish = create(:fish)
+      @tranf = create(:transect_fish, fish_transect_id: @ftran.id, fish_id: @fish.id)
+    end
+    it "has a species total" do
+      @tranf = create(:transect_fish, fish_transect_id: @ftran.id, fish_id: @fish.id)
+      expect(@tranf.speciestotal).to equal(11)
+      puts 'transect fish has total count'
+    end
+  end
 end
