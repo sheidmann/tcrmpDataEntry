@@ -70,5 +70,16 @@ FactoryBot.define do
     rep { 1 }
     completed_m { 25 }
   end
+
+  factory :transect_fish do
+    association :fish_transect, factory: :fish_transect
+    association :fish, factory: :fish
+    x0to5 { 5 }
+    x6to10 { 3 }
+    x11to20 { 2 }
+    x21to30 { 1 }
+    x31to40 { 0 }
+    xgt40 { 0 }
+  end
   
 end

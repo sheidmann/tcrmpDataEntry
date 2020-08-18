@@ -8,4 +8,7 @@ class FishTransect < ApplicationRecord
 
 	belongs_to :manager
 	accepts_nested_attributes_for :manager
+
+	has_many :transect_fish, :dependent => :destroy, inverse_of: :fish_transect
+	accepts_nested_attributes_for :transect_fish, :reject_if => :all_blank, :allow_destroy => true
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_220554) do
+ActiveRecord::Schema.define(version: 2020_08_18_162115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,21 @@ ActiveRecord::Schema.define(version: 2020_08_17_220554) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "transect_fishes", force: :cascade do |t|
+    t.bigint "fish_transect_id"
+    t.bigint "fish_id"
+    t.integer "x0to5"
+    t.integer "x6to10"
+    t.integer "x11to20"
+    t.integer "x21to30"
+    t.integer "x31to40"
+    t.integer "xgt40"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["fish_id"], name: "index_transect_fishes_on_fish_id"
+    t.index ["fish_transect_id"], name: "index_transect_fishes_on_fish_transect_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "username"
@@ -121,4 +136,6 @@ ActiveRecord::Schema.define(version: 2020_08_17_220554) do
   add_foreign_key "fish_transects", "sites"
   add_foreign_key "fish_transects", "users"
   add_foreign_key "managers", "users"
+  add_foreign_key "transect_fishes", "fish"
+  add_foreign_key "transect_fishes", "fish_transects"
 end
