@@ -15,7 +15,7 @@ class FishTransectsController < ApplicationController
 	def index
 		@new_ftran = FishTransect.new # use in the view to render a form
 		# Only show transects
-		@ftrans = @current_user.fish_transects.all
+		@ftrans = @current_user.fish_transects.order(date_completed: :asc).all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -34,6 +34,19 @@ class FishTransectsController < ApplicationController
       format.html # show.html.erb
       #format.json { render json: @fish_transect }
     end
+	end
+
+	# Delete a fish transect
+	def destroy 
+	  @ftran = FishTransect.find(params[:id])
+	  #@boatlog.destroy
+	  # Successful deletion
+	  if @ftran.destroy
+      redirect_to '/fish_transects', notice: "Fish transect deleted"
+	  # Error occurred
+	  else
+	  	redirect_to '/fish_transects', notice: "Error: fish transect not deleted"
+	  end
 	end
 
 	private

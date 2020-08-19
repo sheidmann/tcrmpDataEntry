@@ -83,7 +83,7 @@ class BoatlogsController < ApplicationController
     end
    end
 
-   # Delete a boatlog
+  # Delete a boatlog
 	def destroy 
 	  @boatlog = Boatlog.find(params[:id])
 	  #@boatlog.destroy
