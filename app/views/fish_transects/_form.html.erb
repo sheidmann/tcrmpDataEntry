@@ -41,6 +41,18 @@
 	    </div>
     </div>
 
+    <div>
+      <h3>Diadema</h3>
+  		<div id='diademas'>
+		    <%= f.fields_for :diademas do |builder| %>
+		      <%= render 'diadema_fields', f: builder %>
+		    <% end %>
+	      <div class="links">
+			     <%= link_to_add_association "Add Diadema", f, :diademas, partial: 'diadema_fields' %>
+	      </div>
+	     </div>
+	   </div>
+
 	  <%= f.submit "Save Fish Transect", class: "btn-submit" %>
   <% end %>
 </div>

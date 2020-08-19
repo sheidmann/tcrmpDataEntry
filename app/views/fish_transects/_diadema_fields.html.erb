@@ -1,0 +1,9 @@
+<div class='nested-fields'>
+	<div class="row">
+		<div class="col-md-3 field">
+			<%= f.label :test_size_cm, 'Test Size (cm)' %>
+			<%= f.text_field :test_size_cm, { :size => '3' } %>
+		</div>
+		<%= link_to_remove_association "Remove Diadema", f, partial: 'diadema_fields', tabindex: "-1" %>
+	</div>
+</div>

@@ -4,13 +4,13 @@ class FishTransectsController < ApplicationController
 	# Create a new fish transect
 	def new
 		@ftran = FishTransect.new
-		@ftran.diadema.build
-		@ftran.transect_fish.build
+		@ftran.diademas.build
+		@ftran.transect_fishes.build
 
 		respond_to do |format|
-  		format.html # new.html.erb
-  		format.json { render json: @ftran }
-  	end
+	  		format.html # new.html.erb
+	  		format.json { render json: @ftran }
+	  	end
 	end
 
 	def create
@@ -45,8 +45,8 @@ class FishTransectsController < ApplicationController
 	# View a fish transect
   def show
     @ftran = FishTransect.find(params[:id])
-    @tranfs = @ftran.transect_fish.all
-    @diademas = @ftran.diadema.all
+    @tranfs = @ftran.transect_fishes.all
+    @diademas = @ftran.diademas.all
 
     respond_to do |format|
       format.html # show.html.erb

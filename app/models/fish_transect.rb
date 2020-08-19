@@ -9,16 +9,16 @@ class FishTransect < ApplicationRecord
 	belongs_to :manager
 	accepts_nested_attributes_for :manager
 
-	has_many :transect_fish, :dependent => :destroy, inverse_of: :fish_transect
-	accepts_nested_attributes_for :transect_fish, :reject_if => :all_blank, :allow_destroy => true
+	has_many :transect_fishes, :dependent => :destroy, inverse_of: :fish_transect
+	accepts_nested_attributes_for :transect_fishes, :reject_if => :all_blank, :allow_destroy => true
 
-	has_many :diadema, :dependent => :destroy, inverse_of: :fish_transect
-	accepts_nested_attributes_for :diadema, :reject_if => :all_blank, :allow_destroy => true
+	has_many :diademas, :dependent => :destroy, inverse_of: :fish_transect
+	accepts_nested_attributes_for :diademas, :reject_if => :all_blank, :allow_destroy => true
 
 	def countfishspecies
-		self.transect_fish.count
+		self.transect_fishes.count
 	end
 	def countdiadema
-		self.diadema.count
+		self.diademas.count
 	end
 end
