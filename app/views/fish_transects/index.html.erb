@@ -1,0 +1,28 @@
+<div class="main">
+  <div class="container">
+    <%= button_to "New Fish Transect", '/fish_transects/new', method: :get %>
+    <h1>Fish Transects</h1>
+    <table class="display table table-striped table-condensed">
+      <thead>
+        <% #print table header %>
+        <tr>
+          <th>Site</th>
+          <th>Date</th>
+          <th>Begin Time</th>
+          <th>Replicate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% #print table fields %>
+        <% @ftrans.each do |ft| %>
+          <!-- <tr data-link="<%=fish_transect_path(ft.id)%>"> -->
+            <td><%= ft.site.site_name %></td>
+            <td><%= ft.date_completed %></td>
+            <td><%= ft.begin_time.strftime("%H:%M") %></td>
+            <td><%= ft.rep %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

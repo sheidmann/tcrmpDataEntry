@@ -37,8 +37,7 @@ Rails.application.routes.draw do
   get '/sites' => 'sites#index'
   post '/sites/:id' => 'sites#show'
 
-  # Surveys
-  get "/fishtransects" => 'static_pages#placeholder'
+  # Survey Placeholders
   get "/fishrovers" => 'static_pages#placeholder'
   get "/coralhealths" => 'static_pages#placeholder'
 
@@ -47,6 +46,7 @@ Rails.application.routes.draw do
   resources :managers
   resources :boatlogs
   resources :sites
+  resources :fish_transects
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

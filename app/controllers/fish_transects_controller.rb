@@ -11,6 +11,19 @@ class FishTransectsController < ApplicationController
 		@ftran = FishTransect.new( fish_transect_params )
 	end
 
+	# View all of a user's fish transects
+	def index
+		@new_ftran = FishTransect.new # use in the view to render a form
+		# Only show transects
+		@ftrans = @current_user.fish_transects.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      #format.json { render json: @fish_transects }
+      #format.xlsx
+    end
+	end
+
 	private
 
 	def fish_transect_params
