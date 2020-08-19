@@ -1,5 +1,11 @@
 <div class='formContainer'>
   <%= button_to "Back to Boatlogs", '/boatlogs', method: :get%>
+  <div class="showActions" style="margin-top: 20px">
+    <div class="btn-group-vertical">
+      <%= button_to('Edit Boatlog', edit_boatlog_path(@boatlog), :method => "get") %>
+      <%= button_to('Delete Boatlog', @boatlog, data: { confirm: 'Are you sure?' }, method: :delete) %>
+    </div>
+  </div>
   <div id="sampleSection" class="sectionDiv">
   <div class='show_section_1'>
     <div id='section_1_part_1'>
@@ -45,8 +51,4 @@
     </div>
   </div>
   </div>
-</div>
-<div class="showActions" >
- <%= button_to('Edit Boatlog', edit_boatlog_path(@boatlog), :method => "get") %>
- <%= button_to('Delete Boatlog', @boatlog, data: { confirm: 'Are you sure?' }, method: :delete) %>
 </div>
