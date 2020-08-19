@@ -3,24 +3,6 @@
 
 # To empty and re-seed, use rake db:reset
 
-# User.create(name: "HEIDMANN_SARAH", username: "heidmann_sarah", 
-# 	email: "sarah@heidmann.com", password: "heidmann_sarah", 
-# 	agency: "UVI", active: "true", role: "admin")
-# User.create(name: "ENNIS_ROSMIN", username: "ennis_rosmin", 
-# 	email: "rosmin@ennis.com", password: "ennis_rosmin", 
-# 	agency: "UVI", active: "true", role: "manager")
-# User.create(name: "KADISON_SHAUN", username: "kadison_shaun", 
-# 	email: "shaun@kadison.com", password: "kadison_shaun", 
-# 	agency: "UVI", active: "true", role: "manager")
-# User.create(name: "BRANDTNERIS_VIKTOR", username: "brandtneris_viktor", 
-# 	email: "viktor@brandtneris.com", password: "brandtneris_viktor", 
-# 	agency: "UVI", active: "true", role: "user")
-# User.create(name: "SMITH_TYLER", username: "smith_tyler", 
-# 	email: "tyler@smith.com", password: "smith_tyler", 
-# 	agency: "UVI", active: "true", role: "user")
-# User.create(name: "BLONDEAU_JEREMIAH", username: "blondeau_jeremiah", 
-# 	email: "jeremiah@blondeau.com", password: "blondeau_jeremiah", 
-# 	agency: "NOAA", active: "true", role: "user")
 # Manager.create(user_id: User.find_by(name: "ENNIS_ROSMIN").id, project: "TCRMP")
 
 # Site.create(site_name: "Buck Island STT", site_code: "BIT", island: "STT", 
@@ -37,34 +19,59 @@
 # SurveyType.create(type_name: "fish rover", category: "fish", units: "min")	
 # SurveyType.create(type_name: "coral health", category: "benthic", units: "m")
 
-Boatlog.create(site_id: Site.find_by(site_name: "Flat Cay").id, 
-	date_completed: Date.parse("2020-05-08"), 
-	begin_time: Time.parse("09:45Z"), 
-	manager_id: Manager.find_by(user_id: User.find_by(name: "ENNIS_ROSMIN").id).id)
-BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site_id: Site.find_by(site_name: "Flat Cay").id).id,
-	user_id: User.find_by(name: "ENNIS_ROSMIN").id, 
-	survey_type_id: SurveyType.find_by(type_name: "coral health").id, 
-	rep: 1)
-BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site_id: Site.find_by(site_name: "Flat Cay").id).id,
-	user_id: User.find_by(name: "BRANDTNERIS_VIKTOR").id,
-	survey_type_id: SurveyType.find_by(type_name: "fish transect").id,
-	rep: 2)
-BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site_id: Site.find_by(site_name: "Flat Cay").id).id,
-	user_id: User.find_by(name: "HEIDMANN_SARAH").id,
-	survey_type_id: SurveyType.find_by(type_name: "fish transect").id,
-	rep: 1)
+# Boatlog.create(site_id: Site.find_by(site_name: "Flat Cay").id, 
+# 	date_completed: Date.parse("2020-05-08"), 
+# 	begin_time: Time.parse("09:45Z"), 
+# 	manager_id: Manager.find_by(user_id: User.find_by(name: "ENNIS_ROSMIN").id).id)
+# BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site_id: Site.find_by(site_name: "Flat Cay").id).id,
+# 	user_id: User.find_by(name: "ENNIS_ROSMIN").id, 
+# 	survey_type_id: SurveyType.find_by(type_name: "coral health").id, 
+# 	rep: 1)
+# BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site_id: Site.find_by(site_name: "Flat Cay").id).id,
+# 	user_id: User.find_by(name: "BRANDTNERIS_VIKTOR").id,
+# 	survey_type_id: SurveyType.find_by(type_name: "fish transect").id,
+# 	rep: 2)
+# BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site_id: Site.find_by(site_name: "Flat Cay").id).id,
+# 	user_id: User.find_by(name: "HEIDMANN_SARAH").id,
+# 	survey_type_id: SurveyType.find_by(type_name: "fish transect").id,
+# 	rep: 1)
 
-Boatlog.create(site_id: Site.find_by(site_name: "Black Point").id, 
-	date_completed: Date.parse("2020-05-08"),
-	begin_time: Time.parse("13:00Z"), 
-	manager_id: Manager.find_by(user_id: User.find_by(name: "ENNIS_ROSMIN").id).id)
-BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site_id: Site.find_by(site_name: "Black Point").id).id,
-	user_id: User.find_by(name: "ENNIS_ROSMIN").id, 
-	survey_type_id: SurveyType.find_by(type_name: "coral health").id, 
-	rep: 1)
-BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site_id: Site.find_by(site_name: "Black Point").id).id,
-	user_id: User.find_by(name: "HEIDMANN_SARAH").id,
-	survey_type_id: SurveyType.find_by(type_name: "fish transect").id,
-	rep: 1)
+# Boatlog.create(site_id: Site.find_by(site_name: "Black Point").id, 
+# 	date_completed: Date.parse("2020-05-08"),
+# 	begin_time: Time.parse("13:00Z"), 
+# 	manager_id: Manager.find_by(user_id: User.find_by(name: "ENNIS_ROSMIN").id).id)
+# BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site_id: Site.find_by(site_name: "Black Point").id).id,
+# 	user_id: User.find_by(name: "ENNIS_ROSMIN").id, 
+# 	survey_type_id: SurveyType.find_by(type_name: "coral health").id, 
+# 	rep: 1)
+# BoatlogSurvey.create(boatlog_id: Boatlog.find_by(site_id: Site.find_by(site_name: "Black Point").id).id,
+# 	user_id: User.find_by(name: "HEIDMANN_SARAH").id,
+# 	survey_type_id: SurveyType.find_by(type_name: "fish transect").id,
+# 	rep: 1)
+
+FishTransect.create(manager_id: Manager.find_by(user_id: User.find_by(name: "ENNIS_ROSMIN").id).id, 
+	site_id: Site.find_by(site_name: "Flat Cay").id, user_id: User.find_by(name: "HEIDMANN_SARAH").id, 
+	date_completed: Date.parse("2020-08-19"),begin_time: Time.parse("13:00Z"), rep: 1, completed_m: 25, oc_cc: "OC")
+TransectFish.create(fish_transect_id: FishTransect.find_by(site_id: Site.find_by(site_name: "Flat Cay").id).id,
+	fish_id: Fish.find_by(common_name: "striped parrotfish").id, 
+	x0to5: 10, x6to10: 2, x11to20: 5, x21to30: 1, x31to40: 0, xgt40: 0)
+TransectFish.create(fish_transect_id: FishTransect.find_by(site_id: Site.find_by(site_name: "Flat Cay").id).id,
+	fish_id: Fish.find_by(common_name: "mutton snapper").id, 
+	x0to5: 0, x6to10: 0, x11to20: 0, x21to30: 0, x31to40: 0, xgt40: 1)
+Diadema.create(fish_transect_id: FishTransect.find_by(site_id: Site.find_by(site_name: "Flat Cay").id).id, test_size_cm: 11)
+Diadema.create(fish_transect_id: FishTransect.find_by(site_id: Site.find_by(site_name: "Flat Cay").id).id, test_size_cm: 13)
+
+FishTransect.create(manager_id: Manager.find_by(user_id: User.find_by(name: "ENNIS_ROSMIN").id).id, 
+	site_id: Site.find_by(site_name: "Black Point").id, user_id: User.find_by(name: "HEIDMANN_SARAH").id, 
+	date_completed: Date.parse("2020-08-19"),begin_time: Time.parse("14:15Z"), rep: 1, completed_m: 25, oc_cc: "OC")
+TransectFish.create(fish_transect_id: FishTransect.find_by(site_id: Site.find_by(site_name: "Black Point").id).id,
+	fish_id: Fish.find_by(common_name: "threespot damselfish").id, 
+	x0to5: 2, x6to10: 4, x11to20: 0, x21to30: 0, x31to40: 0, xgt40: 0)
+TransectFish.create(fish_transect_id: FishTransect.find_by(site_id: Site.find_by(site_name: "Black Point").id).id,
+	fish_id: Fish.find_by(common_name: "mutton snapper").id, 
+	x0to5: 0, x6to10: 0, x11to20: 0, x21to30: 0, x31to40: 0, xgt40: 1)
+TransectFish.create(fish_transect_id: FishTransect.find_by(site_id: Site.find_by(site_name: "Black Point").id).id,
+	fish_id: Fish.find_by(common_name: "blue chromis").id, 
+	x0to5: 20, x6to10: 30, x11to20: 0, x21to30: 0, x31to40: 0, xgt40: 0)
 
 
