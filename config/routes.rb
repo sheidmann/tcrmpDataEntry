@@ -37,6 +37,9 @@ Rails.application.routes.draw do
   get '/sites' => 'sites#index'
   post '/sites/:id' => 'sites#show'
 
+  # Surveys
+  post '/fish_transects/:id' => 'fish_transects#show'
+
   # Survey Placeholders
   get "/fishrovers" => 'static_pages#placeholder'
   get "/coralhealths" => 'static_pages#placeholder'

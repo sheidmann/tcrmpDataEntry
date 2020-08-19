@@ -1,0 +1,88 @@
+<div class='formContainer'>
+  <%= button_to "Back to Fish Transects", '/fish_transects', method: :get%>
+  <div id="sampleSection" class="sectionDiv">
+  <div class='show_section_1'>
+    <div id='section_1_part_1'>
+
+      <dl class="dl-horizontal">
+        <dt>Project</dt><dd><%= @ftran.manager.project %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Site</dt><dd><%= @ftran.site.site_name %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Sample Date</dt><dd><%= @ftran.date_completed %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Sample Time</dt><dd><%= @ftran.begin_time.strftime("%H:%M") %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Replicate</dt><dd><%= @ftran.rep %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>OC/CC</dt><dd><%= @ftran.oc_cc %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Meters Completed</dt><dd><%= @ftran.completed_m %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Notes</dt><dd><%= @ftran.notes %></dd>
+      </dl>
+    </div>
+
+    <div id='section_1_part_2'>
+      <h2>Diadema</h2>
+      <table id="DiademaList", class="display table table-striped" style="width: auto">
+        <thead>
+          <% #print table header %>
+          <tr>
+            <th>Test Size (cm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @diademas.each do |d|  %>
+            <tr>
+              <td><%= d.test_size_cm %></td>
+            </tr>   
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div id='section_1_part_3'>
+      <h2>Fish</h2>
+      <table id="transectFishList", class="display table table-striped" style="width: auto">
+        <thead>
+          <% #print table header %>
+          <tr>
+            <th>Common Name</th>
+            <th>0-5cm</th>
+            <th>6-10cm</th>
+            <th>11-20cm</th>
+            <th>21-30cm</th>
+            <th>31-40cm</th>
+            <th>&gt40cm</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tranfs.each do |f|  %>
+            <tr>
+              <td><%= f.fish.common_name %></td>
+              <td><%= f.x0to5 %></td>
+              <td><%= f.x6to10 %></td>
+              <td><%= f.x11to20 %></td>
+              <td><%= f.x21to30 %></td>
+              <td><%= f.x31to40 %></td>
+              <td><%= f.xgt40 %></td>
+            </tr>   
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="showActions" >
+ <%= button_to('Edit Fish Transect', edit_fish_transect_path(@ftran), :method => "get") %>
+ <%= button_to('Delete Fish Transect', @ftran, data: { confirm: 'Are you sure?' }, method: :delete) %>
+</div>

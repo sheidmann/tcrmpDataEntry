@@ -19,8 +19,20 @@ class FishTransectsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      #format.json { render json: @fish_transects }
+      #format.json { render json: @fish_transect }
       #format.xlsx
+    end
+	end
+
+	# View a fish transect
+  def show
+    @ftran = FishTransect.find(params[:id])
+    @tranfs = @ftran.transect_fish.all
+    @diademas = @ftran.diadema.all
+
+    respond_to do |format|
+      format.html # show.html.erb
+      #format.json { render json: @fish_transect }
     end
 	end
 

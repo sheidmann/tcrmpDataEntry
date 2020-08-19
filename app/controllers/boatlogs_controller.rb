@@ -50,7 +50,8 @@ class BoatlogsController < ApplicationController
     end
 	end
 
-	def show
+	# View a boatlog
+  def show
     @boatlog = Boatlog.find(params[:id])
     @boatlog_surveys = @boatlog.boatlog_surveys.order(survey_type_id: :asc, rep: :asc).all
 
