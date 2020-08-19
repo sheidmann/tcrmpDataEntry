@@ -53,6 +53,18 @@
 	     </div>
 	   </div>
 
+	  <div>
+      <h3>Fish</h3>
+  		<div id='fishes'>
+		    <%= f.fields_for :transect_fishes do |builder| %>
+		      <%= render 'fishes_fields', f: builder %>
+		    <% end %>
+	      <div class="links">
+			     <%= link_to_add_association "Add Species", f, :transect_fishes, partial: 'fishes_fields' %>
+	      </div>
+	     </div>
+	   </div>
+
 	  <%= f.submit "Save Fish Transect", class: "btn-submit" %>
   <% end %>
 </div>
