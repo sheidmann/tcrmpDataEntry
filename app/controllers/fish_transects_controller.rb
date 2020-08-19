@@ -4,11 +4,29 @@ class FishTransectsController < ApplicationController
 	# Create a new fish transect
 	def new
 		@ftran = FishTransect.new
+		@ftran.diadema.build
 		@ftran.transect_fish.build
+
+		respond_to do |format|
+  		format.html # new.html.erb
+  		format.json { render json: @ftran }
+  	end
 	end
 
 	def create
 		@ftran = FishTransect.new( fish_transect_params )
+
+		respond_to do |format|
+		  # successful creation
+      if @ftran.save
+        format.html { redirect_to @ftran, notice: 'Fish transect successfully created.' }
+        format.json { render json: @ftran, status: :created, location: @ftran }
+      # otherwise, print errors
+      else
+        format.html { render action: "new" }
+        format.json { render json: @ftran.errors, status: :unprocessable_entity }
+      end
+    end
 	end
 
 	# View all of a user's fish transects
@@ -36,6 +54,28 @@ class FishTransectsController < ApplicationController
     end
 	end
 
+	# Edit a fish transect
+	def edit
+		@ftran = FishTransect.find(params[:id])
+	end
+
+	# Update the fish transect
+	def update
+    @ftran = FishTransect.find(params[:id])
+
+    respond_to do |format|
+		  # successful update
+      if @ftran.update(fish_transect_params)
+        format.html { redirect_to @ftran, notice: 'Fish transect successfully updated.' }
+        format.json { render json: @ftran, status: :created, location: @ftran }
+      # Otherwise, print errors
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @ftran.errors, status: :unprocessable_entity }
+      end
+    end
+   end
+
 	# Delete a fish transect
 	def destroy 
 	  @ftran = FishTransect.find(params[:id])
@@ -52,6 +92,9 @@ class FishTransectsController < ApplicationController
 	private
 
 	def fish_transect_params
-		params.require(:fish_transect).permit(:manager_id, :site_id, :user_id, :date_completed, :begin_time, :rep, :completed_m, :notes, :oc_cc, transect_fishes_attributes: [:id, :fish_id, :x0to5, :x6to10, :x11to20, :x21to30, :x31to40, :xgt40, :_destroy])
+		params.require(:fish_transect).permit(:manager_id, :site_id, :user_id, 
+			:date_completed, :begin_time, :rep, :completed_m, :notes, :oc_cc, 
+			diademas_attributes: [:id, :test_size_cm],
+			transect_fishes_attributes: [:id, :fish_id, :x0to5, :x6to10, :x11to20, :x21to30, :x31to40, :xgt40, :_destroy])
 	end
 end
