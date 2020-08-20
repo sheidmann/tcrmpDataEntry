@@ -8,36 +8,73 @@ describe "User viewing fish transect index", :js => true, type: :feature do
     @manager = create(:manager) # create a user (who is a manager)
     @blmanager = create(:boatlog_manager, user_id: @manager.id) # create a manager
     @site = create(:site, site_name: "My Site")
-    @ftran = create(:fish_transect, manager_id: @blmanager.id, site_id: @site.id, user_id: @manager.id)
-      @fish1 = create(:fish)
-      @tranf1 = create(:transect_fish, fish_transect_id: @ftran.id, fish_id: @fish1.id)
-      @fish2 = create(:fish)
-      @tranf2 = create(:transect_fish, fish_transect_id: @ftran.id, fish_id: @fish2.id)
-      @diadema1 = create(:diadema, fish_transect_id: @ftran.id)
-      @diadema2 = create(:diadema, fish_transect_id: @ftran.id)
-      @diadema3 = create(:diadema, fish_transect_id: @ftran.id)
+    @fish = create(:fish)
     visit('/login')
     sign_in(@manager)
   end
   it "sees index of fish transects" do
+    @ftran = create(:fish_transect, manager_id: @blmanager.id, site_id: @site.id, user_id: @manager.id)
     visit('/fish_transects')
     expect(page).to have_content "My Site"
-    #expect(page).to have_css('tr')
+    expect(page).to have_css('tr')
     puts 'user can view boatlogs with option to view'
   end
+  it "can create a fish transect" do
+    visit('/fish_transects')
+    click_button("New Fish Transect")
+    expect(page).to have_content "Site Name"
+
+    @ftran = build(:fish_transect, manager_id: @blmanager.id, site_id: @site.id, user_id: @manager.id)
+    select @blmanager.project, :from => "Project"
+    select @ftran.site.site_name, :from => "Site Name"
+    select @ftran.user.name, :from => "Observer"
+    fill_in "Date Completed", with: @ftran.date_completed.strftime("%Y-%m-%d")
+    fill_in "Begin Time", with: @ftran.begin_time.strftime("%H:%M")
+    
+    @diadema = build(:diadema)
+    fill_in "Test Size (cm)", with: @diadema.test_size_cm
+
+    @tranf = build(:transect_fish, fish_id: @fish.id)
+    select @tranf.fish.spp_code_common, :from => "Species"
+    fill_in "0-5 cm", with: @tranf.x0to5
+    fill_in "6-10 cm", with: @tranf.x6to10
+    fill_in "11-20 cm", with: @tranf.x11to20
+    fill_in "21-30 cm", with: @tranf.x21to30
+    fill_in "31-40 cm", with: @tranf.x31to40
+    fill_in ">40 cm", with: @tranf.xgt40
+
+    click_button("Save Fish Transect")
+    expect(page).to have_content "Fish transect successfully created"
+    puts 'user can create a new fish transect'
+  end
   it "can view a fish transect" do
-      # I can't make Capybara click on the table row, so we just have to visit the link
-      visit("#{fish_transect_path(@ftran.id)}")
-      expect(page).to have_content "My Site"
-      expect(page).to have_content "the coolest fish"
-      puts 'user can view fish transect'
+    @ftran = create(:fish_transect, manager_id: @blmanager.id, site_id: @site.id, user_id: @manager.id)
+    @tranf = create(:transect_fish, fish_transect_id: @ftran.id, fish_id: @fish.id)
+    # I can't make Capybara click on the table row, so we just have to visit the link
+    visit("#{fish_transect_path(@ftran.id)}")
+    expect(page).to have_content "My Site"
+    expect(page).to have_content "the coolest fish"
+    puts 'user can view fish transect'
+  end
+  it "can edit a fish transect" do
+    @ftran = create(:fish_transect, manager_id: @blmanager.id, site_id: @site.id, user_id: @manager.id)
+    visit('/fish_transects')
+
+    visit("#{fish_transect_path(@ftran.id)}")
+    click_button('Edit Fish Transect')
+    expect(page).to have_content "Edit Fish Transect"
+
+    click_button("Save Fish Transect")
+    expect(page).to have_content "Fish transect successfully updated"
+    puts 'user can edit fish transect'
   end
   it "can delete a fish transect" do
-      visit("#{fish_transect_path(@ftran.id)}")
-      accept_confirm do
-        click_button('Delete Fish Transect')
-      end
-      expect(page).to have_content "Fish transect deleted"
-      puts 'user can delete fish transect'
+    @ftran = create(:fish_transect, manager_id: @blmanager.id, site_id: @site.id, user_id: @manager.id)
+    visit("#{fish_transect_path(@ftran.id)}")
+    accept_confirm do
+      click_button('Delete Fish Transect')
+    end
+    expect(page).to have_content "Fish transect deleted"
+    puts 'user can delete fish transect'
     end
 end

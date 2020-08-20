@@ -5,7 +5,7 @@ class FishTransectsController < ApplicationController
 	def new
 		@ftran = FishTransect.new
 		@ftran.diademas.build
-		@ftran.transect_fishes.build
+		@ftran.transect_fishes.build(x0to5: 0, x6to10: 0, x11to20: 0, x21to30: 0, x31to40: 0, xgt40: 0)
 
 		respond_to do |format|
 	  		format.html # new.html.erb
