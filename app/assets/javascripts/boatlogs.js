@@ -68,7 +68,7 @@ $(document).ready(function() {
       $(".new_boatlog, .edit_boatlog").data("validator").settings.ignore="";
       $(this).valid();
   }).on("focus",function(){
-      $(".new_boatlog, edit_boatlog").data("validator").settings.ignore="#boatlog_date_completed, :hidden";
+      $(".new_boatlog, .edit_boatlog").data("validator").settings.ignore="#boatlog_date_completed, :hidden";
   });
 
   // Implement dropdown with textbox for observer
