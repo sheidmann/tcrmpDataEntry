@@ -24,12 +24,16 @@
 			      <%= f.text_field :begin_time, value: f.object.try(:begin_time).try(:strftime, "%H:%M"), placeholder: "HH:MM (24 hr clock)", autocomplete: :off %> 
 			  </div>
 			  <div class="control-group">
+					<%= f.label :oc_cc, 'OC/CC' %>
+					<%= f.select :oc_cc, [['OC','OC'], ['CC','CC']], {:include_blank => ""}%>
+				</div>
+			  <div class="control-group">
 					<%= f.label :rep, 'Replicate' %>
-					<%= f.text_field :rep, { value: 1, :size => '3' } %>
+					<%= f.text_field :rep, { :size => '3' } %>
 				</div>
 				<div class="control-group">
 					<%= f.label :completed_m, 'Meters Completed' %>
-					<%= f.text_field :completed_m, { value: 25, :size => '3' } %>
+					<%= f.text_field :completed_m, { :size => '3' } %>
 				</div>
 		  </div>
 

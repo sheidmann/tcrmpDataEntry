@@ -30,6 +30,9 @@ describe "User viewing fish transect index", :js => true, type: :feature do
     select @ftran.user.name, :from => "Observer"
     fill_in "Date Completed", with: @ftran.date_completed.strftime("%Y-%m-%d")
     fill_in "Begin Time", with: @ftran.begin_time.strftime("%H:%M")
+    select @ftran.oc_cc, :from => "OC/CC"
+    fill_in "Replicate", with: @ftran.rep
+    fill_in "Meters Completed", with: @ftran.completed_m
     
     @diadema = build(:diadema)
     fill_in "Test Size (cm)", with: @diadema.test_size_cm
