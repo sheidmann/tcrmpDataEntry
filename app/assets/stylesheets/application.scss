@@ -11,7 +11,6 @@
  * It is generally better to create a new file per style scope.
  *
  *= require select2
- *= require select2-bootstrap
  *= require_tree .
  *= require_self
  */
@@ -72,4 +71,9 @@ input.error {
 
 .field_with_errors{
   display: inline;
+}
+
+/* Select2 box */
+.select2-container {
+  width: 250px;
 }

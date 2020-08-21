@@ -108,10 +108,11 @@ $(document).ready(function() {
 
   
 
-  // Implement dropdown with textbox for observer
+  // Implement dropdown with textbox for species
   $(".speciesSelect").select2();
-  $(document).delegate(".add_fields", "click", function(){ 
-    $(".speciesSelect").select2();
+  // Create dropdown for each nested field added
+  $('#fishes').on('cocoon:after-insert', function() {
+    $(".speciesSelect").last().select2();
   });
 
 	// Add validations for nested station fields
