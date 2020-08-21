@@ -8,7 +8,7 @@ $(document).ready(function() {
   // Implement dropdown with textbox for site
   $("#boatlog_site_id").select2();
   // Trigger validation on close (select2 does not trigger focusout)
-  $("select").on("select2:close", function (e) {  
+  $("#boatlog_site_id").on("close", function (e) {  
     $(this).valid(); 
   });
 
@@ -73,8 +73,16 @@ $(document).ready(function() {
 
   // Implement dropdown with textbox for observer
   $(".observerSelect").select2();
-  $(document).delegate(".add_fields", "click", function(){ 
-    $(".observerSelect").select2();
+  // Validate on closing event (focusout not triggered)
+  $(".observerSelect").on("close", function (e) {  
+    $(this).valid(); 
+  });
+  // Create dropdown for each nested field added
+  $('#boatlog_surveys').on('cocoon:after-insert', function() {
+    $(".observerSelect").last().select2(); // convert to select2
+    $(".observerSelect").on("close", function (e) {  
+      $(this).valid(); // validate on close
+    });
   });
 
 	// Add validations for nested station fields

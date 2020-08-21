@@ -6,10 +6,10 @@ $(document).ready(function() {
   };
 
   // Implement dropdown with textbox for site and observer
-  $("#fish_transect_site_id").select2();
-  $("#fish_transect_user_id").select2();
+  $(".metaSelect").select2();
+  //$("#fish_transect_user_id").select2();
   // Trigger validation on close (select2 does not trigger focusout)
-  $("select").on("select2:close", function (e) {  
+  $(".metaSelect").on("close", function (e) {  
     $(this).valid(); 
   });
 
@@ -110,9 +110,16 @@ $(document).ready(function() {
 
   // Implement dropdown with textbox for species
   $(".speciesSelect").select2();
+  // Validate on closing event (focusout not triggered)
+  $(".speciesSelect").on("close", function (e) {  
+    $(this).valid(); 
+  });
   // Create dropdown for each nested field added
   $('#fishes').on('cocoon:after-insert', function() {
-    $(".speciesSelect").last().select2();
+    $(".speciesSelect").last().select2(); // convert to select2
+    $(".speciesSelect").on("close", function (e) {  
+      $(this).valid(); // validate on close
+    });
   });
 
 	// Add validations for nested station fields
