@@ -42,6 +42,18 @@ $(document).ready(function() {
   // Trigger the alert
   alert24HourClock();
 
+  // Create alert if length is less than a full transect
+  function alert25Meters() {
+    $("#fish_transect_completed_m").on("focusout", function(){
+      var $m = $(this).val();
+      if ( $m < 25 ){
+        alert("Are you sure you did less than a full transect (25 m)?");
+      } else {  }
+    });
+  };
+  // Trigger the alert
+  alert25Meters();
+
   // Add validation method to check format of time
   jQuery.validator.addMethod("timeformat", function(value, element) {
     return this.optional(element) || /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/.test(value);
