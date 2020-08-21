@@ -1,5 +1,5 @@
 <div class="form-horizontal">
-	<%= form_for @ftran do |f|%>
+	<%= form_for @ftran, :html => {:autocomplete => "off"} do |f|%>
 	<%= render 'shared/error_messages', :target => @ftran %>
 		<div class="row">
 			<div class="col-md-4">
@@ -9,19 +9,19 @@
 		    </div>
 		    <div class='control-group'>
 			    <%= f.label :site_id, 'Site Name' %>
-			    <%= f.collection_select :site_id, Site.all, :id, :site_name, {:include_blank => ""} %> 
+			    <%= f.collection_select :site_id, Site.all, :id, :site_name, {:include_blank => ""}, {:class=>"metaSelect" } %> 
 		  	</div>
 		  	<div class='control-group'>
 			    <%= f.label :user_id, 'Observer' %>
-			    <%= f.collection_select :user_id, User.order(name: :asc).all, :id, :name, {:include_blank => ""} %> 
+			    <%= f.collection_select :user_id, User.order(name: :asc).all, :id, :name, {:include_blank => ""}, {:class=>"metaSelect" } %> 
 		  	</div>
 		  	<div class='control-group'>
 			    <%= f.label :date_completed, 'Date Completed' %>
-			    <%= f.text_field :date_completed, placeholder: "YYYY-MM-DD", autocomplete: :off %> 
+			    <%= f.text_field :date_completed, placeholder: "YYYY-MM-DD" %> 
 			  </div>
 			  <div class='control-group'>
 			      <%= f.label :begin_time, 'Begin Time' %>
-			      <%= f.text_field :begin_time, value: f.object.try(:begin_time).try(:strftime, "%H:%M"), placeholder: "HH:MM (24 hr clock)", autocomplete: :off %> 
+			      <%= f.text_field :begin_time, value: f.object.try(:begin_time).try(:strftime, "%H:%M"), placeholder: "HH:MM (24 hr clock)" %> 
 			  </div>
 			  <div class="control-group">
 					<%= f.label :oc_cc, 'OC/CC' %>
@@ -40,7 +40,7 @@
 			<div class="col-md-3">
 		    <div class='control-group'>
 		    	<%= f.label :notes, 'Notes' %>
-		    	<%= f.text_area :notes, { :size => '60x4', :autocomplete => :off } %>
+		    	<%= f.text_area :notes, { :size => '60x4' } %>
 		    </div>
 	    </div>
     </div>
