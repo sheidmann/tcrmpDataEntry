@@ -33,7 +33,7 @@ class User < ApplicationRecord
 
 	def project
 		if self.role == "manager"
-			Manager.find_by(user_id: self.id).project
+			Manager.find_by(user_id: self.id).try(:project)
 		elsif self.role == "admin"
 			"all"
 		else
