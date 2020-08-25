@@ -5,6 +5,7 @@ $(document).ready(function() {
     return;
   };
 
+  // First Section (Metadata)
   // Implement dropdown with textbox for site and observer
   $(".metaSelect").select2();
   //$("#fish_transect_user_id").select2();
@@ -106,8 +107,9 @@ $(document).ready(function() {
     }
   });
 
-  
+  // Second Section (Diadema)
 
+  // Third Section (Fish)
   // Implement dropdown with textbox for species
   $(".speciesSelect").select2();
   // Validate on closing event (focusout not triggered)
@@ -121,7 +123,11 @@ $(document).ready(function() {
       $(this).valid(); // validate on close
     });
   });
-
+  // Set color for size bins on change
+  $(".sizeBinField").on('change', function (e) {
+      $(this).addClass('bg-success');
+  });
+  
 	// Add validations for nested station fields
   function validate_fields() {
     $('[name*="test_size_cm"]').each(function(){
@@ -147,5 +153,8 @@ $(document).ready(function() {
   $(document).delegate(".add_fields", "click", function(){ 
     //$('.sizeBinField').val(0); // This line turns entered numbers to 0 when fields added
     validate_fields();
+    $(".sizeBinField").on('change', function (e) {
+      $(this).addClass('bg-success')
+  });
   });
 });
