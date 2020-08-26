@@ -127,6 +127,23 @@ $(document).ready(function() {
   $(".sizeBinField").on('change', function (e) {
       $(this).addClass('bg-success');
   });
+
+  // Write function to check species total
+  function sum_species(fish_row) {
+    var size_bin_nums = new Array();
+    
+    $(fish_row).find('.sizeBinField').each(function(){
+      if ( $(this).val() != 0 ){
+        size_bin_nums.push( $(this).val() );
+      };
+    });
+
+    var total = 0;
+    $.each(size_bin_nums,function() {
+      total += parseFloat( this );
+    });
+    return total;
+  };
   
 	// Add validations for nested station fields
   function validate_fields() {
@@ -142,19 +159,30 @@ $(document).ready(function() {
     });
     $('.sizeBinField').each(function(){
       $(this).rules('add', {
-        required: true
+        number: true
       });
     });
   };
 
   // Trigger validation for nested diadema and fish fields
   validate_fields();
-  // Trigger validation for added nested station fields
-  $(document).delegate(".add_fields", "click", function(){ 
-    //$('.sizeBinField').val(0); // This line turns entered numbers to 0 when fields added
-    validate_fields();
-    $(".sizeBinField").on('change', function (e) {
-      $(this).addClass('bg-success')
+
+  // Check species total before adding more fields
+  $("#fishes").on('cocoon:before-insert', function (e) {
+    // Alert if fish row with all zeroes
+    $(".fishRow").each(function(){
+      if (sum_species($(this)) == 0){
+        alert("You must have a value in one of the size bins")
+      };
+    });
   });
+  // Add all behavior to added nested station fields
+  $(document).delegate(".add_fields", "click", function(){ 
+    // Trigger validation
+    validate_fields();
+    // Changed size bins are colored
+    $(".sizeBinField").on('change', function (e) {
+      $(this).addClass('bg-success');
+    });
   });
 });

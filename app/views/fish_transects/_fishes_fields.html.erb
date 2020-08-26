@@ -1,5 +1,5 @@
 <div class='nested-fields'>
-	<div class="row">
+	<div class="row fishRow">
 		<div class='col-md-3 field'>
 	    <%= f.label :fish_id, 'Species' %>
 	    <%= f.collection_select :fish_id, Fish.order(scientific_name: :asc).all, :id, :spp_code_common, {:include_blank => ""}, {:class=>"speciesSelect" } %> 
