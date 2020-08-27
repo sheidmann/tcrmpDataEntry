@@ -52,7 +52,7 @@
 		      <%= render 'diadema_fields', f: builder %>
 		    <% end %>
 	      <div class="links">
-			     <%= link_to_add_association "Add Diadema", f, :diademas, partial: 'diadema_fields' %>
+			     <%= link_to_add_association "Add Diadema", f, :diademas, partial: 'diadema_fields', class: "addDiadema" %>
 	      </div>
 	     </div>
 	   </div>
@@ -64,7 +64,7 @@
 		      <%= render 'fishes_fields', f: builder %>
 		    <% end %>
 	      <div class="links">
-			     <%= link_to_add_association "Add Species", f, :transect_fishes, partial: 'fishes_fields' %>
+			     <%= link_to_add_association "Add Species", f, :transect_fishes, partial: 'fishes_fields', class: "addFish" %>
 	      </div>
 	     </div>
 	   </div>

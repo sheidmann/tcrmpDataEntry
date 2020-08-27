@@ -108,44 +108,7 @@ $(document).ready(function() {
   });
 
   // Second Section (Diadema)
-
-  // Third Section (Fish)
-  // Implement dropdown with textbox for species
-  $(".speciesSelect").select2();
-  // Validate on closing event (focusout not triggered)
-  $(".speciesSelect").on("close", function (e) {  
-    $(this).valid(); 
-  });
-  // Create dropdown for each nested field added
-  $('#fishes').on('cocoon:after-insert', function() {
-    $(".speciesSelect").last().select2(); // convert to select2
-    $(".speciesSelect").on("close", function (e) {  
-      $(this).valid(); // validate on close
-    });
-  });
-  // Set color for size bins on change
-  $(".sizeBinField").on('change', function (e) {
-      $(this).addClass('bg-success');
-  });
-
-  // Write function to check species total
-  function sum_species(fish_row) {
-    var size_bin_nums = new Array();
-    
-    $(fish_row).find('.sizeBinField').each(function(){
-      if ( $(this).val() != 0 ){
-        size_bin_nums.push( $(this).val() );
-      };
-    });
-
-    var total = 0;
-    $.each(size_bin_nums,function() {
-      total += parseFloat( this );
-    });
-    return total;
-  };
-  
-	// Add validations for nested station fields
+  // Add validations for all nested station fields
   function validate_fields() {
     $('[name*="test_size_cm"]').each(function(){
       $(this).rules('add', {
@@ -167,6 +130,45 @@ $(document).ready(function() {
   // Trigger validation for nested diadema and fish fields
   validate_fields();
 
+  // Add validation behavior to added nested fields
+  $(document).delegate(".add_fields", "click", function(){ 
+    // Trigger validation
+    validate_fields();
+  });
+
+  // Hitting enter while in diadema section adds new diadema
+  $("#diademas").bind("keypress", function(e){
+    if (e.keyCode ==13){
+      e.preventDefault();
+      $(".addDiadema").trigger("click");
+    };
+    $('.testSizeField').last().focus();
+  });
+
+  
+  // Third Section (Fish)
+  // Implement dropdown with textbox for species
+  $(".speciesSelect").select2();
+  // Validate on closing event (focusout not triggered)
+  $(".speciesSelect").on("close", function (e) {  
+    $(this).valid(); 
+  });
+  // Write function to check species total
+  function sum_species(fish_row) {
+    var size_bin_nums = new Array();
+    
+    $(fish_row).find('.sizeBinField').each(function(){
+      if ( $(this).val() != 0 ){
+        size_bin_nums.push( $(this).val() );
+      };
+    });
+
+    var total = 0;
+    $.each(size_bin_nums,function() {
+      total += parseFloat( this );
+    });
+    return total;
+  };
   // Check species total before adding more fields
   $("#fishes").on('cocoon:before-insert', function (e) {
     // Alert if fish row with all zeroes
@@ -176,13 +178,28 @@ $(document).ready(function() {
       };
     });
   });
-  // Add all behavior to added nested station fields
-  $(document).delegate(".add_fields", "click", function(){ 
-    // Trigger validation
-    validate_fields();
+  // Create dropdown for each nested field added
+  $('#fishes').on('cocoon:after-insert', function() {
+    $(".speciesSelect").last().select2(); // convert to select2
+    $('.speciesSelect').last().select2('open'); // focus and open dropdown
+    $(".speciesSelect").on("close", function (e) {  
+      $(this).valid(); // validate on close
+    });
     // Changed size bins are colored
     $(".sizeBinField").on('change', function (e) {
       $(this).addClass('bg-success');
     });
+  });
+  // Set color for size bins on change
+  $(".sizeBinField").on('change', function (e) {
+      $(this).addClass('bg-success');
+  });
+
+  // Hitting enter while in fish section adds new species
+  $("#fishes").bind("keypress", function(e){
+    if (e.keyCode ==13){
+      e.preventDefault();
+      $(".addFish").trigger("click");
+    };
   });
 });
