@@ -21,4 +21,8 @@ class Site < ApplicationRecord
 		@site_logs = Boatlog.where(site_id: self.id).all
 		@site_logs.to_a.sum(&:countcoralhealth)
 	end
+	def algaehtcount
+		@site_logs = Boatlog.where(site_id: self.id).all
+		@site_logs.to_a.sum(&:countalgaeht)
+	end
 end

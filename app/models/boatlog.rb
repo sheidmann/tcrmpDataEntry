@@ -24,4 +24,8 @@ class Boatlog < ApplicationRecord
 		@childsurveys = self.boatlog_surveys.all
 		@childsurveys.where(survey_type_id: SurveyType.find_by(type_name: "coral health").id).count
 	end
+	def countalgaeht
+		@childsurveys = self.boatlog_surveys.all
+		@childsurveys.where(survey_type_id: SurveyType.find_by(type_name: "algae heights").id).count
+	end
 end
