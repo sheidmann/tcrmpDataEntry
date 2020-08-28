@@ -1,33 +1,28 @@
 <div class='nested-fields'>
 	<div class="row fishRow">
+		<li>
 		<div class='col-md-3 field'>
-	    <%= f.label :fish_id, 'Species' %>
 	    <%= f.collection_select :fish_id, Fish.order(scientific_name: :asc).all, :id, :spp_code_common, {:include_blank => ""}, {:class=>"speciesSelect" } %> 
 	  	</div>
 		<div class="col-md-1 field">
-			<%= f.label :x0to5, '0-5 cm' %>
 			<%= f.text_field :x0to5, { :size => '3', :class=>"sizeBinField" } %>
 		</div>
 		<div class="col-md-1 field">
-			<%= f.label :x6to10, '6-10 cm' %>
 			<%= f.text_field :x6to10, { :size => '3', :class=>"sizeBinField" } %>
 		</div>
 		<div class="col-md-1 field">
-			<%= f.label :x11to20, '11-20 cm' %>
 			<%= f.text_field :x11to20, { :size => '3', :class=>"sizeBinField" } %>
 		</div>
 		<div class="col-md-1 field">
-			<%= f.label :x21to30, '21-30 cm' %>
 			<%= f.text_field :x21to30, { :size => '3', :class=>"sizeBinField" } %>
 		</div>
 		<div class="col-md-1 field">
-			<%= f.label :x31to40, '31-40 cm' %>
 			<%= f.text_field :x31to40, { :size => '3', :class=>"sizeBinField" } %>
 		</div>
 		<div class="col-md-1 field">
-			<%= f.label :xgt40, '>40 cm' %>
 			<%= f.text_field :xgt40, { :size => '3', :class=>"sizeBinField" } %>
 		</div>
 		<%= link_to_remove_association "Remove Species", f, partial: 'fishes_fields', tabindex: "-1" %>
+		</li>
 	</div>
 </div>

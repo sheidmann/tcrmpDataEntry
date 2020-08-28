@@ -59,13 +59,21 @@
 
 	  <div>
       <h3>Fish</h3>
+      <div class="fishLabels">
+      	<ul class="list-inline">
+      		<li class="col-md-3"> Species</li><li class="col-md-1">0-5 cm</li><li class="col-md-1">6-10 cm</li><li class="col-md-1">11-20 cm</li><li class="col-md-1">21-30 cm</li><li class="col-md-1">31-40 cm</li><li class="col-md-1">&gt40 cm</li>
+      	</ul>
+      </div>
+      <br>
   		<div id='fishes'>
-		    <%= f.fields_for :transect_fishes do |builder| %>
-		      <%= render 'fishes_fields', f: builder %>
-		    <% end %>
-	      <div class="links">
-			     <%= link_to_add_association "Add Species", f, :transect_fishes, partial: 'fishes_fields', class: "addFish" %>
-	      </div>
+  			<ol class="fishList">
+  				<%= f.fields_for :transect_fishes do |builder| %>
+	  				<%= render 'fishes_fields', :f => builder %>
+  				<% end %>
+		      <div class="links">
+				     <%= link_to_add_association "Add Species", f, :transect_fishes, partial: 'fishes_fields', class: "addFish" %>
+		      </div>
+			  </ol>
 	     </div>
 	   </div>
 

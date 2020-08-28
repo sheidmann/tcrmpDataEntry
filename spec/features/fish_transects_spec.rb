@@ -38,13 +38,13 @@ describe "User viewing fish transect index", :js => true, type: :feature do
     fill_in "Test Size (cm)", with: @diadema.test_size_cm
 
     @tranf = build(:transect_fish, fish_id: @fish.id)
-    select @tranf.fish.spp_code_common, :from => "Species"
-    fill_in "0-5 cm", with: @tranf.x0to5
-    fill_in "6-10 cm", with: @tranf.x6to10
-    fill_in "11-20 cm", with: @tranf.x11to20
-    fill_in "21-30 cm", with: @tranf.x21to30
-    fill_in "31-40 cm", with: @tranf.x31to40
-    fill_in ">40 cm", with: @tranf.xgt40
+    select @tranf.fish.spp_code_common#, :from => "Species"
+    fill_in("fish_transect_transect_fishes_attributes_0_x0to5", with: @tranf.x0to5)
+    fill_in("fish_transect_transect_fishes_attributes_0_x6to10", with: @tranf.x6to10)
+    fill_in("fish_transect_transect_fishes_attributes_0_x11to20", with: @tranf.x11to20)
+    fill_in("fish_transect_transect_fishes_attributes_0_x21to30", with: @tranf.x21to30)
+    fill_in("fish_transect_transect_fishes_attributes_0_x31to40", with: @tranf.x31to40)
+    fill_in("fish_transect_transect_fishes_attributes_0_xgt40", with: @tranf.xgt40)
 
     click_button("Save Fish Transect")
     expect(page).to have_content "Fish transect successfully created"
