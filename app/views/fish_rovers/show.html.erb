@@ -1,0 +1,60 @@
+<div class="container">
+<div class='formContainer'>
+  <%= button_to "Back to Fish Rovers", '/fish_rovers', method: :get%>
+  <div class="showActions" style="margin-top: 20px">
+    <div class="btn-group-vertical">
+      <%= button_to('Edit Fish Rover', edit_fish_rover_path(@frove), :method => "get") %>
+      <%= button_to('Delete Fish Rover', @frove, data: { confirm: 'Are you sure?' }, method: :delete) %>
+    </div>
+  </div>
+  <div id="sampleSection" class="sectionDiv">
+  <div class='show_section_1'>
+    <div id='section_1'>
+
+      <dl class="dl-horizontal">
+        <dt>Project</dt><dd><%= @frove.manager.project %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Site</dt><dd><%= @frove.site.site_name %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Sample Date</dt><dd><%= @frove.date_completed %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Sample Time</dt><dd><%= @frove.begin_time.strftime("%H:%M") %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Replicate</dt><dd><%= @frove.rep %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>OC/CC</dt><dd><%= @frove.oc_cc %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Notes</dt><dd><%= @frove.notes %></dd>
+      </dl>
+    </div>
+
+    <div id='fish_section'>
+      <h2>Fish</h2>
+      <table id="roverFishList", class="display table table-striped" style="width: auto">
+        <thead>
+          <% #print table header %>
+          <tr>
+            <th>Common Name</th>
+            <th>Abundance Index</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @rovefs.each do |f|  %>
+            <tr>
+              <td><%= f.fish.common_name %></td>
+              <td><%= f.abundance_index %></td>
+            </tr>   
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
