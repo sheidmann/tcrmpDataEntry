@@ -3,19 +3,19 @@ class FishRoversController < ApplicationController
 
 	# Create a new fish rover
 	def new
-		@frov = FishRover.new
+		@frove = FishRover.new
 
 		respond_to do |format|
   		format.html # new.html.erb
-  		format.json { render json: @frov }
+  		format.json { render json: @frove }
   	end
 	end
 
 	# View all of a user's fish rovers
 	def index
-		@new_frov = FishRover.new # use in the view to render a form
+		@new_frove = FishRover.new # use in the view to render a form
 		# Only show rovers
-		@frov = @current_user.fish_rovers.order(date_completed: :asc).all
+		@frove = @current_user.fish_rovers.order(date_completed: :asc).all
 
     respond_to do |format|
       format.html # index.html.erb

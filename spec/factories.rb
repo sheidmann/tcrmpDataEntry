@@ -98,11 +98,11 @@ FactoryBot.define do
     rep { 1 }
   end
 
-  # factory :rover_fish do
-  #   association :fish_rover, factory: :fish_rover
-  #   association :fish, factory: :fish
-  #   abundance_index { 1 }
-  # end
+  factory :rover_fish do
+    association :fish_rover, factory: :fish_rover
+    association :fish, factory: :fish
+    abundance_index { 1 }
+  end
 
   
 end

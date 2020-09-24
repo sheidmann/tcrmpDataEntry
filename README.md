@@ -31,13 +31,15 @@ $ rspec
 
 * A user with manager privileges can view field progress by site.
 
+* Any user can enter fish transect data, and view and edit previously entered data.
+
 ## In-progress features
 
-* Any user can enter fish transect data, and view and edit previously entered data.
+* Any user can enter fish rover data, and view and edit previously entered data.
 
 ## Upcoming features
 
-* Any user can enter fish rover and coral health data, and view and edit previously entered data.
+* Any user can enter coral health and algae height data, and view and edit previously entered data.
 
 * Any user can export their own entered data for proofing purposes.
 
