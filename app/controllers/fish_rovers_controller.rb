@@ -49,6 +49,40 @@ class FishRoversController < ApplicationController
     end
   end
 
+  # Edit a fish rover
+  def edit
+    @frove = FishRover.find(params[:id])
+  end
+
+  # Update the fish transect
+  def update
+    @frove = FishRover.find(params[:id])
+
+    respond_to do |format|
+      # successful update
+      if @frove.update(fish_rover_params)
+        format.html { redirect_to @frove, notice: 'Fish rover successfully updated.' }
+        format.json { render json: @frove, status: :created, location: @frove }
+      # Otherwise, print errors
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @frove.errors, status: :unprocessable_entity }
+      end
+    end
+   end
+
+  # Delete a fish transect
+  def destroy 
+    @frove = FishRover.find(params[:id])
+    # Successful deletion
+    if @frove.destroy
+      redirect_to '/fish_rovers', notice: "Fish rover deleted"
+    # Error occurred
+    else
+      redirect_to '/fish_rovers', notice: "Error: fish rover not deleted"
+    end
+  end
+
   private
 
 	def fish_rover_params

@@ -50,4 +50,25 @@ describe "User viewing fish rover index", :js => true, type: :feature do
     expect(page).to have_content "the coolest fish"
     puts 'user can view fish rover'
   end
+  it "can edit a fish rover" do
+    @frove = create(:fish_rover, manager_id: @blmanager.id, site_id: @site.id, user_id: @manager.id)
+    visit('/fish_rovers')
+
+    visit("#{fish_rover_path(@frove.id)}")
+    click_button('Edit Fish Rover')
+    expect(page).to have_content "Edit Fish Rover"
+
+    click_button("Save Fish Rover")
+    expect(page).to have_content "Fish rover successfully updated"
+    puts 'user can edit fish rover'
+  end
+  it "can delete a fish rover" do
+    @frove = create(:fish_rover, manager_id: @blmanager.id, site_id: @site.id, user_id: @manager.id)
+    visit("#{fish_rover_path(@frove.id)}")
+    accept_confirm do
+      click_button('Delete Fish Rover')
+    end
+    expect(page).to have_content "Fish rover deleted"
+    puts 'user can delete fish rover'
+  end
 end
