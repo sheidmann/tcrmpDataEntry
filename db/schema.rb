@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_205016) do
+ActiveRecord::Schema.define(version: 2020_09_24_152331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,22 @@ ActiveRecord::Schema.define(version: 2020_08_18_205016) do
     t.integer "max_num"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "fish_rovers", force: :cascade do |t|
+    t.bigint "manager_id"
+    t.bigint "site_id"
+    t.bigint "user_id"
+    t.date "date_completed"
+    t.time "begin_time"
+    t.string "oc_cc"
+    t.integer "rep"
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["manager_id"], name: "index_fish_rovers_on_manager_id"
+    t.index ["site_id"], name: "index_fish_rovers_on_site_id"
+    t.index ["user_id"], name: "index_fish_rovers_on_user_id"
   end
 
   create_table "fish_transects", force: :cascade do |t|
@@ -142,6 +158,9 @@ ActiveRecord::Schema.define(version: 2020_08_18_205016) do
   add_foreign_key "boatlogs", "managers"
   add_foreign_key "boatlogs", "sites"
   add_foreign_key "diademas", "fish_transects"
+  add_foreign_key "fish_rovers", "managers"
+  add_foreign_key "fish_rovers", "sites"
+  add_foreign_key "fish_rovers", "users"
   add_foreign_key "fish_transects", "managers"
   add_foreign_key "fish_transects", "sites"
   add_foreign_key "fish_transects", "users"

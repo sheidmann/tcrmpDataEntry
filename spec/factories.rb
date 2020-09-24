@@ -88,5 +88,21 @@ FactoryBot.define do
     test_size_cm { 10 }
   end
 
+  factory :fish_rover do
+    association :manager, factory: :boatlog_manager
+    association :site, factory: :site
+    association :user, factory: :user
+    date_completed { Date.parse("2020-05-05") }
+    begin_time { Time.parse("10:00Z") }
+    oc_cc { "OC" }
+    rep { 1 }
+  end
+
+  # factory :rover_fish do
+  #   association :fish_rover, factory: :fish_rover
+  #   association :fish, factory: :fish
+  #   abundance_index { 1 }
+  # end
+
   
 end

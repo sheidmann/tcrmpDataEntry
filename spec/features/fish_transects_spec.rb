@@ -17,7 +17,7 @@ describe "User viewing fish transect index", :js => true, type: :feature do
     visit('/fish_transects')
     expect(page).to have_content "My Site"
     expect(page).to have_css('tr')
-    puts 'user can view boatlogs with option to view'
+    puts 'user can see fish transects with option to view'
   end
   it "can create a fish transect" do
     visit('/fish_transects')
