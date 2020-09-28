@@ -5,7 +5,7 @@
 	    <%= f.collection_select :fish_id, Fish.order(scientific_name: :asc).all, :id, :spp_code_common, {:include_blank => ""}, {:class=>"speciesSelect" } %> 
 	  	</div>
 		<div class="col-md-1 field">
-			<%= f.text_field :abundance_index, { :size => '3' } %>
+			<%= f.text_field :abundance_index, { :size => '3', :class=>"abundField" } %>
 		</div>
 		<%= link_to_remove_association "Remove Species", f, partial: 'fishes_fields', tabindex: "-1" %>
 		</li>
