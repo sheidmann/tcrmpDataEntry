@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_24_200937) do
+ActiveRecord::Schema.define(version: 2021_02_23_204452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -142,9 +142,20 @@ ActiveRecord::Schema.define(version: 2020_09_24_200937) do
     t.integer "x11to20"
     t.integer "x21to30"
     t.integer "x31to40"
-    t.integer "xgt40"
+    t.integer "x41to50"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "x51to60"
+    t.integer "x61to70"
+    t.integer "x71to80"
+    t.integer "x81to90"
+    t.integer "x91to100"
+    t.integer "x101to110"
+    t.integer "x111to120"
+    t.integer "x121to130"
+    t.integer "x131to140"
+    t.integer "x141to150"
+    t.integer "xgt150"
     t.index ["fish_id"], name: "index_transect_fishes_on_fish_id"
     t.index ["fish_transect_id"], name: "index_transect_fishes_on_fish_transect_id"
   end
