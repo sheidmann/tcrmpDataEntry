@@ -42,6 +42,7 @@ Rails.application.routes.draw do
 
   # Survey Placeholders
   get "/coralhealths" => 'static_pages#placeholder'
+  get "/algaeheights" => 'static_pages#placeholder'
 
   # Resources
   resources :users
