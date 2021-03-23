@@ -59,11 +59,10 @@
 
 	  <div>
       <h3>Fish</h3>
-      <div class="fishLabels">
-      	<ul class="list-inline">
-      		<li class="col-md-3"> Species</li><li class="col-md-1">0-5 cm</li><li class="col-md-1">6-10 cm</li><li class="col-md-1">11-20 cm</li><li class="col-md-1">21-30 cm</li><li class="col-md-1">31-40 cm</li><li class="col-md-1">&gt40 cm</li>
+      <div style="overflow: auto;max-height:480px">
+      <ul class="fishLabels list-inline" style="white-space:nowrap;position:sticky;top:0;background-color: #7a96ea80;">
+      		<li class="col-md-3"> Species</li><li class="sizeBinHead">0-5 cm</li><li class="sizeBinHead">6-10 cm</li><li class="sizeBinHead">11-20 cm</li><li class="sizeBinHead">21-30 cm</li><li class="sizeBinHead">31-40 cm</li><li class="sizeBinHead">41-50 cm</li><li class="sizeBinHead">51-60 cm</li><li class="sizeBinHead">61-70 cm</li><li class="sizeBinHead">71-80 cm</li><li class="sizeBinHead">81-90 cm</li><li class="sizeBinHead">91-100 cm</li><li class="sizeBinHead">101-110 cm</li><li class="sizeBinHead">111-120 cm</li><li class="sizeBinHead">121-130 cm</li><li class="sizeBinHead">131-140 cm</li><li class="sizeBinHead">141-150 cm</li><li class="sizeBinHead">&gt150 cm</li>
       	</ul>
-      </div>
       <br>
   		<div id='fishes'>
   			<ol class="fishList">
@@ -76,7 +75,8 @@
 			  </ol>
 	     </div>
 	   </div>
+	   </div>
 
-	  <%= f.submit "Save Fish Transect", class: "btn-submit" %>
+	  <%= f.submit "Save Fish Transect", class: "btn-submit", style: "margin-top:50px;margin-bottom:100px" %>
   <% end %>
 </div>

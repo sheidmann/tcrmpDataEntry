@@ -80,7 +80,18 @@ FactoryBot.define do
     x11to20 { 2 }
     x21to30 { 1 }
     x31to40 { 0 }
-    xgt40 { 0 }
+    x41to50 { 0 }
+    x51to60 { 0 }
+    x61to70 { 0 }
+    x71to80 { 0 }
+    x81to90 { 0 }
+    x91to100 { 0 }
+    x101to110 { 0 }
+    x111to120 { 0 }
+    x121to130 { 0 }
+    x131to140 { 0 }
+    x141to150 { 0 }
+    xgt150 { 0 }
   end
 
   factory :diadema do

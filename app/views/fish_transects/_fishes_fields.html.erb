@@ -1,27 +1,26 @@
 <div class='nested-fields'>
 	<div class="row fishRow">
-		<li>
-		<div class='col-md-3 field'>
+		<li style="white-space:nowrap">
+		<div class='col-md-3 field' style="margin-right:10px">
 	    <%= f.collection_select :fish_id, Fish.order(scientific_name: :asc).all, :id, :spp_code_common, {:include_blank => ""}, {:class=>"speciesSelect" } %> 
 	  	</div>
-		<div class="col-md-1 field">
 			<%= f.text_field :x0to5, { :size => '3', :class=>"sizeBinField" } %>
-		</div>
-		<div class="col-md-1 field">
 			<%= f.text_field :x6to10, { :size => '3', :class=>"sizeBinField" } %>
-		</div>
-		<div class="col-md-1 field">
 			<%= f.text_field :x11to20, { :size => '3', :class=>"sizeBinField" } %>
-		</div>
-		<div class="col-md-1 field">
 			<%= f.text_field :x21to30, { :size => '3', :class=>"sizeBinField" } %>
-		</div>
-		<div class="col-md-1 field">
 			<%= f.text_field :x31to40, { :size => '3', :class=>"sizeBinField" } %>
-		</div>
-		<div class="col-md-1 field">
 			<%= f.text_field :x41to50, { :size => '3', :class=>"sizeBinField" } %>
-		</div>
+			<%= f.text_field :x51to60, { :size => '3', :class=>"sizeBinField" } %>
+			<%= f.text_field :x61to70, { :size => '3', :class=>"sizeBinField" } %>
+			<%= f.text_field :x71to80, { :size => '3', :class=>"sizeBinField" } %>
+			<%= f.text_field :x81to90, { :size => '3', :class=>"sizeBinField" } %>
+			<%= f.text_field :x91to100, { :size => '3', :class=>"sizeBinField" } %>
+			<%= f.text_field :x101to110, { :size => '3', :class=>"sizeBinField" } %>
+			<%= f.text_field :x111to120, { :size => '3', :class=>"sizeBinField" } %>
+			<%= f.text_field :x121to130, { :size => '3', :class=>"sizeBinField" } %>
+			<%= f.text_field :x131to140, { :size => '3', :class=>"sizeBinField" } %>
+			<%= f.text_field :x141to150, { :size => '3', :class=>"sizeBinField" } %>
+			<%= f.text_field :xgt150, { :size => '3', :class=>"sizeBinField" } %>
 		<%= link_to_remove_association "Remove Species", f, partial: 'fishes_fields', tabindex: "-1" %>
 		</li>
 	</div>

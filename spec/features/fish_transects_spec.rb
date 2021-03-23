@@ -44,7 +44,7 @@ describe "User viewing fish transect index", :js => true, type: :feature do
     fill_in("fish_transect_transect_fishes_attributes_0_x11to20", with: @tranf.x11to20)
     fill_in("fish_transect_transect_fishes_attributes_0_x21to30", with: @tranf.x21to30)
     fill_in("fish_transect_transect_fishes_attributes_0_x31to40", with: @tranf.x31to40)
-    fill_in("fish_transect_transect_fishes_attributes_0_xgt40", with: @tranf.xgt40)
+    fill_in("fish_transect_transect_fishes_attributes_0_x41to50", with: @tranf.x41to50)
 
     click_button("Save Fish Transect")
     expect(page).to have_content "Fish transect successfully created"
