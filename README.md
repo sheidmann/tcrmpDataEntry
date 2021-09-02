@@ -8,7 +8,7 @@ This site does require a login and is only available to scientific divers collec
 
 ## Some specifications
 
-* Ruby version: 2.7.1
+* Ruby version: 2.7.4
 
 * Rails version: 6.0.3
 
@@ -33,9 +33,10 @@ $ rspec
 
 * Any user can enter fish transect data, and view and edit previously entered data.
 
+* Any user can enter fish rover data, and view and edit previously entered data.
+
 ## In-progress features
 
-* Any user can enter fish rover data, and view and edit previously entered data.
 
 ## Upcoming features
 
