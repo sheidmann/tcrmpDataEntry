@@ -10,7 +10,7 @@ This site does require a login and is only available to scientific divers collec
 
 * Ruby version: 2.7.4
 
-* Rails version: 6.0.3
+* Rails version: 6.0.4
 
 * Database: PostgreSQL
 
@@ -31,9 +31,7 @@ $ rspec
 
 * A user with manager privileges can view field progress by site.
 
-* Any user can enter fish transect data, and view and edit previously entered data.
-
-* Any user can enter fish rover data, and view and edit previously entered data.
+* Any user can enter fish transect and rover data, and view and edit previously entered data.
 
 ## In-progress features
 
