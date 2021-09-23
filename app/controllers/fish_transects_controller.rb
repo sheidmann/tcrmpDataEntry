@@ -37,6 +37,7 @@ class FishTransectsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.csv { send_data @ftrans.as_csv, filename: "FishTransects_#{@current_user.name}_#{Date.today}.csv" }
       #format.json { render json: @fish_transect }
       #format.xlsx
     end
