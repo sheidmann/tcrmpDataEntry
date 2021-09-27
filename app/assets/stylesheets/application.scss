@@ -76,6 +76,8 @@ input.error {
 /* Select2 box */
 .select2-container {
   width: 250px;
+  margin-left: 0px;
+  padding-left: 0px;
 }
 
 /* Fish Transects */
@@ -88,11 +90,17 @@ input.error {
 .fishLabels #fishes {
   display: block;
 }
+.speciesHead {
+  width: 250px;
+}
+.speciesField {
+  width: 250px;
+}
 .sizeBinHead {
-  margin-right: 30px;
-  width: 5%;
+  width: 90px;
 }
 .sizeBinField {
-  margin-right: 44px;
+  margin-right: 42px;
   margin-left: 5px;
+  width: 40px;
 }
