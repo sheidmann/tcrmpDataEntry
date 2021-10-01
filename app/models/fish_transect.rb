@@ -28,7 +28,7 @@ class FishTransect < ApplicationRecord
 	end
 
   def self.as_csv
-    columns = %w(site_name name date_completed begin_time rep oc_cc common_name scientific_name x0to5 x6to10 x11to20 x21to30 x31to40 x41to50 x51to60 x61to70 x71to80 x81to90 x91to100 x101to110 x111to120 x121to130 x131to140 x141to150 xgt150)
+    columns = %w(fish_transect_id site_name date_completed name rep oc_cc common_name scientific_name x0to5 x6to10 x11to20 x21to30 x31to40 x41to50 x51to60 x61to70 x71to80 x81to90 x91to100 x101to110 x111to120 x121to130 x131to140 x141to150 xgt150)
     CSV.generate(headers: true) do |csv|
       csv << columns.map(&:humanize)
       all.each do |fish_transect|
