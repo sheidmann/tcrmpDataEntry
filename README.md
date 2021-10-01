@@ -33,13 +33,13 @@ $ rspec
 
 * Any user can enter fish transect and rover data, and view and edit previously entered data.
 
+* Any user can export their own entered data for proofing purposes.
+
 ## In-progress features
 
 
 ## Upcoming features
 
 * Any user can enter coral health and algae height data, and view and edit previously entered data.
-
-* Any user can export their own entered data for proofing purposes.
 
 * A user with admin (manager?) privileges can export all data from all users.

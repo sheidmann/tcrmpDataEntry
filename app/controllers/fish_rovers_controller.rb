@@ -36,6 +36,7 @@ class FishRoversController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.csv { send_data @frove.as_csv, filename: "FishRovers_#{@current_user.name}_#{Date.today}.csv" }
     end
 	end
 
