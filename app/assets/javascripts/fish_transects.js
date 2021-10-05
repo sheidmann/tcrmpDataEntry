@@ -104,6 +104,17 @@ $(document).ready(function() {
         number: "Must be a number",
         min: "Must be between 1 and 25",
         max: "Must be between 1 and 25" }
+    },
+
+    // Set error positions
+    errorPlacement: function (error, element) {
+      // Select2 dropdowns will put error on new line
+      if (element.hasClass("speciesSelect")){
+        error.insertAfter($(element).parent().parent().parent('div'));
+      } else {
+        // default for rest is immediately after
+        error.insertAfter($(element));
+      }
     }
   });
 
