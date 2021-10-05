@@ -3,7 +3,7 @@
     <%= button_to "New Fish Transect", '/fish_transects/new', method: :get %>
     <%= button_to "Export CSV", fish_transects_path(format: :csv), method: :get %>
     <h1>Fish Transects</h1>
-    <table class="display table table-striped table-condensed">
+    <table class="display table table-striped table-condensed table-sortable">
       <thead>
         <% #print table header %>
         <tr>
