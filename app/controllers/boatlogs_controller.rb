@@ -4,9 +4,7 @@ class BoatlogsController < ApplicationController
 	# Create a new boatlog
 	def new
 		@boatlog = Boatlog.new
-		2.times do
-	     @boatlog.boatlog_surveys.build
-		end
+    @boatlog.boatlog_surveys.build
 
     respond_to do |format|
   		format.html # new.html.erb

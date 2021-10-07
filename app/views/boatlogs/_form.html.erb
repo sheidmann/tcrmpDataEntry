@@ -30,13 +30,19 @@
 
     <div>
       <h3>Surveys</h3>
+      <ul class="surveyLabels list-inline", style="margin-left:40px">
+    		<li class="col-md-3 field"> Observer</li><li class="col-md-2 field">Survey Type</li><li class="col-md-2 field">Replicate</li>
+    	</ul>
+      <br>
   		<div id='boatlog_surveys'>
-		    <%= f.fields_for :boatlog_surveys do |builder| %>
-		      <%= render 'survey_fields', f: builder %>
-		    <% end %>
-	      <div class="links">
-			     <%= link_to_add_association "Add Survey", f, :boatlog_surveys, partial: 'survey_fields' %>
-	      </div>
+  			<ol class="surveyList">
+			    <%= f.fields_for :boatlog_surveys do |builder| %>
+			      <%= render 'survey_fields', f: builder %>
+			    <% end %>
+		      <div class="links">
+				     <%= link_to_add_association "Add Survey", f, :boatlog_surveys, partial: 'survey_fields', class: "addDiver" %>
+		      </div>
+		    </ol>
 	     </div>
 	   </div>
 

@@ -30,11 +30,10 @@ describe "Manager viewing boatlog index", :js => true, type: :feature do
       fill_in "Begin Time", with: @boatlog.begin_time.strftime("%H:%M")
       select @blmanager.project, :from => "Project"
 
-      first('.nested-fields').click_link('Remove Survey')
       @bl_survey = build(:boatlog_survey, user_id: @manager.id, survey_type_id: @surveytype.id)
-      select @bl_survey.user.name, :from => "Observer"
-      select @bl_survey.survey_type.type_name, :from => "Survey Type"
-      fill_in "Transect Number", with: @bl_survey.rep
+      select @bl_survey.user.name#, :from => "Observer"
+      select @bl_survey.survey_type.type_name#, :from => "Survey Type"
+      fill_in("boatlog_boatlog_surveys_attributes_0_rep", with: @bl_survey.rep)
 
       click_button("Save Boatlog")
       expect(page).to have_content "Boatlog successfully created"

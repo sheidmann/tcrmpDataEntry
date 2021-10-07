@@ -80,9 +80,18 @@ $(document).ready(function() {
   // Create dropdown for each nested field added
   $('#boatlog_surveys').on('cocoon:after-insert', function() {
     $(".observerSelect").last().select2(); // convert to select2
+    $('.observerSelect').last().select2('open'); // focus and open dropdown
     $(".observerSelect").on("close", function (e) {  
       $(this).valid(); // validate on close
     });
+  });
+
+  // Hitting enter while in fish section adds new species
+  $("#boatlog_surveys").bind("keypress", function(e){
+    if (e.keyCode ==13){
+      e.preventDefault();
+      $(".addDiver").trigger("click");
+    };
   });
 
 	// Add validations for nested station fields
