@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 		@users = User.export_columns 
 		respond_to do |format|
 			format.html # index.html.erb
-			format.csv { send_data @users.as_csv }
+			format.csv { send_data @users.as_csv filename: "Users_#{Date.today}.csv"}
 		end
 	end
 
