@@ -95,7 +95,7 @@ class FishTransectsController < ApplicationController
 	def fish_transect_params
 		params.require(:fish_transect).permit(:manager_id, :site_id, :user_id, 
 			:date_completed, :begin_time, :rep, :completed_m, :notes, :oc_cc, 
-			diademas_attributes: [:id, :test_size_cm],
-			transect_fishes_attributes: [:id, :fish_id, :x0to5, :x6to10, :x11to20, :x21to30, :x31to40, :xgt40, :_destroy])
+			diademas_attributes: [:id, :test_size_cm, :_destroy],
+			transect_fishes_attributes: [:id, :fish_id, :x0to5, :x6to10, :x11to20, :x21to30, :x31to40, :x41to50, :x51to60, :x61to70, :x71to80, :x81to90, :x91to100, :x101to110, :x111to120, :x121to130, :x131to140, :x141to150, :xgt150, :_destroy])
 	end
 end

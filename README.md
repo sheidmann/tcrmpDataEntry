@@ -42,4 +42,4 @@ $ rspec
 
 * Any user can enter coral health and algae height data, and view and edit previously entered data.
 
-* A user with admin (manager?) privileges can export all data from all users.
+* A user with manager privileges can export all data from all users.
