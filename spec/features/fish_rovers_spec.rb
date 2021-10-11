@@ -29,7 +29,7 @@ describe "User viewing fish rover index", :js => true, type: :feature do
     select @frove.site.site_name, :from => "Site Name"
     select @frove.user.name, :from => "Observer"
     fill_in "Date Completed", with: @frove.date_completed.strftime("%Y-%m-%d")
-    fill_in "Begin Time", with: @frove.begin_time.strftime("%H:%M")
+    # fill_in "Begin Time", with: @frove.begin_time.strftime("%H:%M")
     select @frove.oc_cc, :from => "OC/CC"
     fill_in "Replicate", with: @frove.rep
 

@@ -32,11 +32,11 @@ RSpec.describe FishRover, type: :model do
       expect(@frove).to_not be_valid
       puts 'dateless fish rover is not valid'
     end
-    it "is not valid without a time" do
-      @frove = build(:fish_rover, begin_time: nil)
-      expect(@frove).to_not be_valid
-      puts 'timeless fish rover is not valid'
-    end
+    # it "is not valid without a time" do
+    #   @frove = build(:fish_rover, begin_time: nil)
+    #   expect(@frove).to_not be_valid
+    #   puts 'timeless fish rover is not valid'
+    # end
     it "is not valid without a replicate number" do
       @frove = build(:fish_rover, rep: nil)
       expect(@frove).to_not be_valid

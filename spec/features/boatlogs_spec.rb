@@ -27,7 +27,7 @@ describe "Manager viewing boatlog index", :js => true, type: :feature do
       @boatlog = build(:boatlog, site_id: @site.id)
       select @boatlog.site.site_name, :from => "Site Name"
       fill_in "Date Completed", with: @boatlog.date_completed.strftime("%Y-%m-%d")
-      fill_in "Begin Time", with: @boatlog.begin_time.strftime("%H:%M")
+      # fill_in "Begin Time", with: @boatlog.begin_time.strftime("%H:%M")
       select @blmanager.project, :from => "Project"
 
       @bl_survey = build(:boatlog_survey, user_id: @manager.id, survey_type_id: @surveytype.id)

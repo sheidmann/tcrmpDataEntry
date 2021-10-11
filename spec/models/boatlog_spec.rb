@@ -27,18 +27,18 @@ RSpec.describe Boatlog, type: :model do
     	expect(@boatlog).to_not be_valid
       puts 'managerless boatlog is not valid'
     end
-    it 'is not valid if site/date/time is not unique' do
-    	@boatlog1 = create(:boatlog, manager_id: @blmanager.id, site_id: @site.id)
-    	@boatlog2 = build(:boatlog, manager_id: @blmanager.id, site_id: @site.id)
-    	expect(@boatlog2).to_not be_valid
-    	puts 'duplicate boatlog is not valid'
-    end
-    it 'is valid if site repeated in a day' do
-    	@boatlog1 = create(:boatlog, manager_id: @blmanager.id, site_id: @site.id, begin_time: Time.parse("09:00Z"))
-    	@boatlog2 = build(:boatlog, manager_id: @blmanager.id, site_id: @site.id, begin_time: Time.parse("10:00Z"))
-    	expect(@boatlog2).to be_valid
-    	puts 'repeated site is valid'
-    end
+    # it 'is not valid if site/date/time is not unique' do
+    # 	@boatlog1 = create(:boatlog, manager_id: @blmanager.id, site_id: @site.id)
+    # 	@boatlog2 = build(:boatlog, manager_id: @blmanager.id, site_id: @site.id)
+    # 	expect(@boatlog2).to_not be_valid
+    # 	puts 'duplicate boatlog is not valid'
+    # end
+    # it 'is valid if site repeated in a day' do
+    # 	@boatlog1 = create(:boatlog, manager_id: @blmanager.id, site_id: @site.id, begin_time: Time.parse("09:00Z"))
+    # 	@boatlog2 = build(:boatlog, manager_id: @blmanager.id, site_id: @site.id, begin_time: Time.parse("10:00Z"))
+    # 	expect(@boatlog2).to be_valid
+    # 	puts 'repeated site is valid'
+    # end
   end
   describe "existing boatlog" do
     before(:each) do

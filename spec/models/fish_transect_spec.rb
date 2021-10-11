@@ -32,11 +32,11 @@ RSpec.describe FishTransect, type: :model do
       expect(@ftran).to_not be_valid
       puts 'dateless fish transect is not valid'
     end
-    it "is not valid without a time" do
-      @ftran = build(:fish_transect, begin_time: nil)
-      expect(@ftran).to_not be_valid
-      puts 'timeless fish transect is not valid'
-    end
+    # it "is not valid without a time" do
+    #   @ftran = build(:fish_transect, begin_time: nil)
+    #   expect(@ftran).to_not be_valid
+    #   puts 'timeless fish transect is not valid'
+    # end
     it "is not valid without a replicate number" do
       @ftran = build(:fish_transect, rep: nil)
       expect(@ftran).to_not be_valid

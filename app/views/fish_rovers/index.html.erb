@@ -9,7 +9,6 @@
         <tr>
           <th>Site</th>
           <th>Date</th>
-          <th>Begin Time</th>
           <th>Replicate</th>
           <th>Fish Species</th>
         </tr>
@@ -20,7 +19,6 @@
           <tr data-link="<%=fish_rover_path(fr.id)%>">
             <td><%= fr.site.site_name %></td>
             <td><%= fr.date_completed %></td>
-            <td><%= fr.begin_time.strftime("%H:%M") %></td>
             <td><%= fr.rep %></td>
             <td><%= fr.countfishspecies %></td>
           </tr>

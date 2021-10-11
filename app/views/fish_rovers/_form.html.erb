@@ -19,10 +19,6 @@
 			    <%= f.label :date_completed, 'Date Completed' %>
 			    <%= f.text_field :date_completed, placeholder: "YYYY-MM-DD" %> 
 			  </div>
-			  <div class='control-group'>
-			      <%= f.label :begin_time, 'Begin Time' %>
-			      <%= f.text_field :begin_time, value: f.object.try(:begin_time).try(:strftime, "%H:%M"), placeholder: "HH:MM (24 hr clock)" %> 
-			  </div>
 			  <div class="control-group">
 					<%= f.label :oc_cc, 'OC/CC' %>
 					<%= f.select :oc_cc, [['OC','OC'], ['CC','CC']], {:include_blank => ""}%>

@@ -1,5 +1,5 @@
 class FishRover < ApplicationRecord
-	validates_presence_of :site, :manager, :user, :date_completed, :begin_time, :rep
+	validates_presence_of :site, :manager, :user, :date_completed, :rep
 
 	belongs_to :user
 

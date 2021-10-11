@@ -9,7 +9,6 @@
         <tr>
           <th>Site</th>
           <th>Date</th>
-          <th>Begin Time</th>
           <th>Replicate</th>
           <th>Fish Species</th>
           <th>Diadema</th>
@@ -21,7 +20,6 @@
           <tr data-link="<%=fish_transect_path(ft.id)%>">
             <td><%= ft.site.site_name %></td>
             <td><%= ft.date_completed %></td>
-            <td><%= ft.begin_time.strftime("%H:%M") %></td>
             <td><%= ft.rep %></td>
             <td><%= ft.countfishspecies %></td>
             <td><%= ft.countdiadema %></td>
