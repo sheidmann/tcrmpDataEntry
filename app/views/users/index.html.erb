@@ -4,7 +4,7 @@
         <%= button_to "New User", '/users/new', method: :get%>
         <%= button_to "Export CSV", users_path(format: :csv), method: :get %>
         
-        <table id="userList", class="display table table-striped table-condensed">
+        <table id="userList", class="display table table-striped table-condensed table-sortable">
         <thead>
         <tr>
           <th>Diver Number</th>
