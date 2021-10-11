@@ -33,11 +33,17 @@ class FishTransectsController < ApplicationController
 	def index
 		@new_ftran = FishTransect.new # use in the view to render a form
 		# Only show transects
-		@ftrans = @current_user.fish_transects.order(date_completed: :asc).all
+    if @current_user.manager?
+      @ftrans = FishTransect.order(date_completed: :asc).all
+      @filename = "all"
+    else
+      @ftrans = @current_user.fish_transects.order(date_completed: :asc).all
+      @filename = @current_user.name
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.csv { send_data @ftrans.as_csv, filename: "FishTransects_#{@current_user.name}_#{Date.today}.csv" }
+      format.csv { send_data @ftrans.as_csv, filename: "FishTransects_#{@filename}_#{Date.today}.csv" }
       #format.json { render json: @fish_transect }
       #format.xlsx
     end

@@ -1,0 +1,39 @@
+<div class="main">
+  <div class="container">
+    <div class="row">
+      <%= button_to('Boatlogs', boatlogs_path, :method => "get", :class => 'btn btn-sm btn-primary') %>
+      <%= button_to('Fish Transects', fish_transects_path, :method => "get", :class => 'btn btn-sm btn-primary') %>
+      <%= button_to('Fish Rovers', fish_rovers_path, :method => "get", :class => 'btn btn-sm btn-primary') %>
+      <%= button_to('Coral Health', '/coralhealths', :method => "get", :class => 'btn btn-sm btn-primary') %>
+      <%= button_to('Algae Heights', '/algaeheights', :method => "get", :class => 'btn btn-sm btn-primary') %>
+    </div>
+    <div class="row">
+      <div class="span4">
+        <table class="table table-striped table-bordered table-condensed">
+          <thead>
+            <tr>
+              <th>Diver</th>
+              <th>Boatlog Count</th>
+              <th>Fish Transect Count</th>
+              <th>Fish Rover Count</th>
+              <th>Coral Health Count</th>
+              <th>Algae Heights Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @data_by_divers.each do |diver, value| %>
+              <tr>
+                <td> <%= diver.name %></td>
+                <td> <%= value["boat"] %></td>
+                <td> <%= value["ftrans"] %></td>
+                <td> <%= value["frove"] %></td>
+                <td> <%= value["chealth"] %></td>
+                <td> <%= value["aheight"] %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

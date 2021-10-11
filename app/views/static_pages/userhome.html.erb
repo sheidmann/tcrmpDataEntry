@@ -16,6 +16,9 @@
         <% if current_user.manager? %>
             <a> <%= button_to "Boat Logs", '/boatlogs', method: :get, :class => "btn btn-info" %></a>
         <% end %>
+        <% if current_user.manager? %>
+            <a> <%= button_to "Dashboard", '/dashboard', method: :get, :class => "btn btn-info" %></a>
+        <% end %>
         <% if current_user.admin? %>
             <a> <%= button_to "Manage Users", '/users', method: :get, :class => "btn btn-info" %></a>
         <% end %>

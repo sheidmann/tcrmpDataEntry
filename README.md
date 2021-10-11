@@ -37,9 +37,8 @@ $ rspec
 
 ## In-progress features
 
+* A user with manager privileges can export all data from all users.
 
 ## Upcoming features
 
 * Any user can enter coral health and algae height data, and view and edit previously entered data.
-
-* A user with manager privileges can export all data from all users.

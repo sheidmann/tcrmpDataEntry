@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   #get '/boatlogs/edit' => 'boatlogs#edit'
   #post '/boatlogs/edit' => 'boatlogs#update'
 
+  # Dashboard
+  get '/dashboard' => 'dashboard#show'
+
   # Field Progress
   get '/sites' => 'sites#index'
   post '/sites/:id' => 'sites#show'

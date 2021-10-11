@@ -32,11 +32,17 @@ class FishRoversController < ApplicationController
 	def index
 		@new_frove = FishRover.new # use in the view to render a form
 		# Only show rovers
-		@frove = @current_user.fish_rovers.order(date_completed: :asc).all
+    if @current_user.manager?
+      @frove = FishRover.order(date_completed: :asc).all
+      @filename = "all"
+    else
+  		@frove = @current_user.fish_rovers.order(date_completed: :asc).all
+      @filename = @current_user.name
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.csv { send_data @frove.as_csv, filename: "FishRovers_#{@current_user.name}_#{Date.today}.csv" }
+      format.csv { send_data @frove.as_csv, filename: "FishRovers_#{@filename}_#{Date.today}.csv" }
     end
 	end
 

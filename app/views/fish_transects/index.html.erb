@@ -7,6 +7,7 @@
       <thead>
         <% #print table header %>
         <tr>
+          <th>Diver</th>
           <th>Site</th>
           <th>Date</th>
           <th>Replicate</th>
@@ -18,6 +19,7 @@
         <% #print table fields %>
         <% @ftrans.each do |ft| %>
           <tr data-link="<%=fish_transect_path(ft.id)%>">
+            <td><%= ft.user.name %></td>
             <td><%= ft.site.site_name %></td>
             <td><%= ft.date_completed %></td>
             <td><%= ft.rep %></td>

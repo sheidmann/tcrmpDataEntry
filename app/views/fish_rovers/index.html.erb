@@ -7,6 +7,7 @@
       <thead>
         <% #print table header %>
         <tr>
+          <th>Diver</th>
           <th>Site</th>
           <th>Date</th>
           <th>Replicate</th>
@@ -17,6 +18,7 @@
         <% #print table fields %>
         <% @frove.each do |fr| %>
           <tr data-link="<%=fish_rover_path(fr.id)%>">
+            <td><%= fr.user.name %></td>
             <td><%= fr.site.site_name %></td>
             <td><%= fr.date_completed %></td>
             <td><%= fr.rep %></td>
