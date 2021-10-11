@@ -12,24 +12,24 @@ $(document).ready(function() {
     $(this).valid(); 
   });
 
-	// Create alert if time is too early or late
-	function alert24HourClock() {
-    $("#boatlog_begin_time").on("focusout", function(){
-      var $time = $(this).val();
-      var b = ($time.split(":")[0]) + ($time.split(":")[1]);
-      var $time2 = parseInt(b, 10);
-      if ( $time2 <= "800" || $time2 >= "1800" ){
-	      alert("Why are you diving in the dark?");
-      } else {  }
-    });
-  };
-  // Trigger the alert
-  alert24HourClock();
+	// // Create alert if time is too early or late
+	// function alert24HourClock() {
+ //    $("#boatlog_begin_time").on("focusout", function(){
+ //      var $time = $(this).val();
+ //      var b = ($time.split(":")[0]) + ($time.split(":")[1]);
+ //      var $time2 = parseInt(b, 10);
+ //      if ( $time2 <= "800" || $time2 >= "1800" ){
+	//       alert("Why are you diving in the dark?");
+ //      } else {  }
+ //    });
+ //  };
+ //  // Trigger the alert
+ //  alert24HourClock();
 
-  // Add validation method to check format of time
-  jQuery.validator.addMethod("timeformat", function(value, element) {
-    return this.optional(element) || /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/.test(value);
-  }, "Enter as HH:MM (24 hr clock)");
+ //  // Add validation method to check format of time
+ //  jQuery.validator.addMethod("timeformat", function(value, element) {
+ //    return this.optional(element) || /^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/.test(value);
+ //  }, "Enter as HH:MM (24 hr clock)");
 
 	// Create validation rules
 	$(".new_boatlog, .edit_boatlog").validate( {
@@ -43,7 +43,7 @@ $(document).ready(function() {
   	rules: {
 			"boatlog[site_id]": { required: true },
 			"boatlog[date_completed]": { required: true },
-			"boatlog[begin_time]": { required: true, timeformat: true },
+			//"boatlog[begin_time]": { required: true, timeformat: true },
 			"boatlog[manager_id]": { required: true }
   	},
 
@@ -51,7 +51,7 @@ $(document).ready(function() {
   	messages: {
       "boatlog[site_id]": { required: "Required" },
       "boatlog[date_completed]": { required: "Required" },
-      "boatlog[begin_time]": { required: "Required" },
+      //"boatlog[begin_time]": { required: "Required" },
       "boatlog[manager_id]": { required: "Required" }
     }
   });

@@ -80,6 +80,17 @@ input.error {
   padding-left: 0px;
 }
 
+/* Field Progress */
+#fieldProgress {
+  text-align: center;
+}
+#fieldProgress th {
+  text-align: center;
+}
+.complete {
+  background-color: #ababab;
+}
+
 /* Fish Transects */
 .fishLabels {
   font-weight: bold;
