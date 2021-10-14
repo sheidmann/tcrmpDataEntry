@@ -43,7 +43,13 @@ class FishTransectsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.csv { send_data @ftrans.as_csv, filename: "FishTransects_#{@filename}_#{Date.today}.csv" }
+      format.csv do 
+        if (params[:format_data] == 'fish')
+          send_data @ftrans.as_csv, filename: "FishTransects_#{@filename}_#{Date.today}.csv"
+        elsif (params[:format_data] == 'diadema')
+          send_data @ftrans.as_csv2, filename: "Diadema_#{@filename}_#{Date.today}.csv"
+        end
+      end
       #format.json { render json: @fish_transect }
       #format.xlsx
     end

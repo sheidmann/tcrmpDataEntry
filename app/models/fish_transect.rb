@@ -41,4 +41,17 @@ class FishTransect < ApplicationRecord
       end
     end
   end
+  def self.as_csv2
+    columns = %w(fish_transect_id site_name date_completed name rep test_size_cm)
+    CSV.generate(headers: true) do |csv|
+      csv << columns.map(&:humanize)
+      all.each do |fish_transect|
+        site = fish_transect.site
+        user = fish_transect.user
+        fish_transect.diademas.each do |diadema|
+          csv << fish_transect.attributes.merge(site.attributes).merge(user.attributes).merge(diadema.attributes).values_at(*columns)
+        end
+      end
+    end
+  end
 end
