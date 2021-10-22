@@ -35,9 +35,11 @@ $ rspec
 
 * Any user can export their own entered data for proofing purposes.
 
+* A user with manager privileges can export all data from all users.
+
 ## In-progress features
 
-* A user with manager privileges can export all data from all users.
+* Fish data is checked against theoretical sizes as it is entered.
 
 ## Upcoming features
 

@@ -1,0 +1,31 @@
+<div class="main">
+  <div class="container">
+    <%= button_to "Back to Fish Transects", '/fish_transects', method: :get %>
+    <%= button_to "Export CSV", diademas_path(:format => :csv), method: :get %>
+    <h1>Diadema</h1>
+    <table class="display table table-striped table-condensed table-sortable">
+      <thead>
+        <% #print table header %>
+        <tr>
+          <th>Diver</th>
+          <th>Site</th>
+          <th>Date</th>
+          <th>Replicate</th>
+          <th>Test Size (cm)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% #print table fields %>
+        <% @diademas.each do |da| %>
+          <tr data-link="<%=diademas_path(da.id)%>">
+            <td><%= da.fish_transect.user.name %></td>
+            <td><%= da.fish_transect.site.site_name %></td>
+            <td><%= da.fish_transect.date_completed %></td>
+            <td><%= da.fish_transect.rep %></td>
+            <td><%= da.test_size_cm %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
