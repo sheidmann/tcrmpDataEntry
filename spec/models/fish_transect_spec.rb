@@ -65,5 +65,10 @@ RSpec.describe FishTransect, type: :model do
       expect(@ftran.countdiadema).to equal(3)
       puts 'fish transect diadema can be counted'
     end
+    it 'diadema of 0 test size is not counted' do
+      @diadema4 = create(:diadema, fish_transect_id: @ftran.id, test_size_cm: 0)
+      expect(@ftran.countdiadema).to equal(3)
+      puts 'fish transect diadema of 0 size is not counted'
+    end
   end
 end

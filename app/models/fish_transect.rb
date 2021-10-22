@@ -24,7 +24,7 @@ class FishTransect < ApplicationRecord
 		self.transect_fishes.count
 	end
 	def countdiadema
-		self.diademas.count
+		self.diademas.where("test_size_cm > 0").count
 	end
 
   def self.as_csv
