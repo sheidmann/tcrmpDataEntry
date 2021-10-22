@@ -43,15 +43,7 @@ class FishTransectsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.csv do 
-        if (params[:format_data] == 'fish')
-          send_data @ftrans.as_csv, filename: "FishTransects_#{@filename}_#{Date.today}.csv"
-        elsif (params[:format_data] == 'diadema')
-          send_data @ftrans.as_csv2, filename: "Diadema_#{@filename}_#{Date.today}.csv"
-        end
-      end
-      #format.json { render json: @fish_transect }
-      #format.xlsx
+      format.csv { send_data @ftrans.as_csv, filename: "FishTransects_#{@filename}_#{Date.today}.csv" }
     end
 	end
 
@@ -105,9 +97,8 @@ class FishTransectsController < ApplicationController
 	private
 
 	def fish_transect_params
-		params.require(:fish_transect).permit(:manager_id, :site_id, :user_id, 
-			:date_completed, :begin_time, :rep, :completed_m, :notes, :oc_cc, 
-			diademas_attributes: [:id, :test_size_cm, :_destroy],
-			transect_fishes_attributes: [:id, :fish_id, :x0to5, :x6to10, :x11to20, :x21to30, :x31to40, :x41to50, :x51to60, :x61to70, :x71to80, :x81to90, :x91to100, :x101to110, :x111to120, :x121to130, :x131to140, :x141to150, :xgt150, :_destroy])
+		params.require(:fish_transect).permit(:manager_id, :site_id, :user_id, :date_completed, :begin_time, :rep, :completed_m, :notes, :oc_cc, 
+      diademas_attributes: [:id, :test_size_cm, :_destroy], 
+      transect_fishes_attributes: [:id, :fish_id, :x0to5, :x6to10, :x11to20, :x21to30, :x31to40, :x41to50, :x51to60, :x61to70, :x71to80, :x81to90, :x91to100, :x101to110, :x111to120, :x121to130, :x131to140, :x141to150, :xgt150, :_destroy])
 	end
 end

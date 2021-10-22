@@ -42,6 +42,7 @@ Rails.application.routes.draw do
 
   # Surveys
   post '/fish_transects/:id' => 'fish_transects#show'
+  get '/diademas' => 'diademas#index'
 
   # Survey Placeholders
   get "/coralhealths" => 'static_pages#placeholder'
