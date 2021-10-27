@@ -60,3 +60,6 @@
 	  <%= f.submit "Save Fish Rover", class: "btn-submit", tabindex: "-1" %>
   <% end %>
 </div>
+<script>
+  var fish_info = <%= raw Fish.all.to_json %>
+</script>

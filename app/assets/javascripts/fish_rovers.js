@@ -142,5 +142,29 @@ $(document).ready(function() {
   $(document).delegate(".add_fields", "click", function(){ 
     // Trigger validation
     validate_fields();
+    alertAbundance();
   });
+
+  // Validate fish abundance using alerts
+  speciesInformation = {}
+  if ( typeof fish_info !== "undefined" ) {
+    $.each(fish_info, function(a){
+      speciesInformation[fish_info[a].id] = { "max_num": fish_info[a].max_num, "min_size": fish_info[a].min_size, "max_size": fish_info[a].max_size };
+    });
+  }
+
+  function alertAbundance() {
+    $('.abundField').on('change', function(){
+      var item = $(this).closest('li')
+      var $species = item.find('.speciesSelect').select2('val');
+      var most = speciesInformation[$species].max_num
+      var num = parseInt($(this).val());
+      if ( num >= 2 && most < 2) {alert("Over max number")};
+      if ( num >= 3 && most < 10) {alert("Over max number")};
+      if ( num >= 4 && most < 100) {alert("Over max number")};
+      if ( num >= 5 && most < 1000) {alert("Over max number")};
+    });
+  };
+
+  alertAbundance();
 });
