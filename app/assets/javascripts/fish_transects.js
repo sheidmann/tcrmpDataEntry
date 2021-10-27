@@ -270,7 +270,7 @@ $(document).ready(function() {
         if(!isNaN(size)){
           sizes.push(size);
         }
-        sum_sizes = sizes.reduce((a, b) => a + b, 0)
+        sum_sizes = sizes.reduce(function(a, b) { return a + b; }, 0)
       });
       if ( sum_sizes > speciesInformation[$species].max_num) {
         alert("Over max number");
