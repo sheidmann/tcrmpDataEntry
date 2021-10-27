@@ -33,7 +33,7 @@ $ rspec
 
 * Any user can enter fish transect and rover data, and view and edit previously entered data.
 
-* Fish data is checked against theoretical abundances as it is entered.
+* Fish data is checked against theoretical abundances, minimum sizes, and maximum sizes as it is entered.
 
 * Any user can export their own entered data for proofing purposes.
 
@@ -41,7 +41,6 @@ $ rspec
 
 ## In-progress features
 
-* Fish data is checked against theoretical sizes as it is entered.
 
 ## Upcoming features
 

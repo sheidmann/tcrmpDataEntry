@@ -4,23 +4,23 @@
 		<div class='col-md-3 field' style="margin-right:10px;position:sticky;left:0">
 	    <%= f.collection_select :fish_id, Fish.order(scientific_name: :asc).all, :id, :spp_code_common, {:include_blank => ""}, {:class=>"speciesSelect" } %> 
   	</div>
-		<%= f.text_field :x0to5, { :size => '3', :class=>"sizeBinField" } %>
-		<%= f.text_field :x6to10, { :size => '3', :class=>"sizeBinField" } %>
-		<%= f.text_field :x11to20, { :size => '3', :class=>"sizeBinField" } %>
-		<%= f.text_field :x21to30, { :size => '3', :class=>"sizeBinField" } %>
-		<%= f.text_field :x31to40, { :size => '3', :class=>"sizeBinField" } %>
-		<%= f.text_field :x41to50, { :size => '3', :class=>"sizeBinField" } %>
-		<%= f.text_field :x51to60, { :size => '3', :class=>"sizeBinField" } %>
-		<%= f.text_field :x61to70, { :size => '3', :class=>"sizeBinField" } %>
-		<%= f.text_field :x71to80, { :size => '3', :class=>"sizeBinField" } %>
-		<%= f.text_field :x81to90, { :size => '3', :class=>"sizeBinField" } %>
-		<%= f.text_field :x91to100, { :size => '3', :class=>"sizeBinField" } %>
-		<%= f.text_field :x101to110, { :size => '3', :class=>"sizeBinField" } %>
-		<%= f.text_field :x111to120, { :size => '3', :class=>"sizeBinField" } %>
-		<%= f.text_field :x121to130, { :size => '3', :class=>"sizeBinField" } %>
-		<%= f.text_field :x131to140, { :size => '3', :class=>"sizeBinField" } %>
-		<%= f.text_field :x141to150, { :size => '3', :class=>"sizeBinField" } %>
-		<%= f.text_field :xgt150, { :size => '3', :class=>"sizeBinField" } %>
+		<%= f.text_field :x0to5, {:size=>'3', :class=>"sizeBinField", :id=>"size0to5"} %>
+		<%= f.text_field :x6to10, {:size=>'3', :class=>"sizeBinField", :id=>"size6to10"} %>
+		<%= f.text_field :x11to20, {:size => '3', :class=>"sizeBinField", :id=>"size11to20"} %>
+		<%= f.text_field :x21to30, {:size => '3', :class=>"sizeBinField", :id=>"size21to30"} %>
+		<%= f.text_field :x31to40, {:size => '3', :class=>"sizeBinField", :id=>"size31to40"} %>
+		<%= f.text_field :x41to50, {:size => '3', :class=>"sizeBinField", :id=>"size41to50"} %>
+		<%= f.text_field :x51to60, {:size => '3', :class=>"sizeBinField", :id=>"size51to60"} %>
+		<%= f.text_field :x61to70, {:size => '3', :class=>"sizeBinField", :id=>"size61to70"} %>
+		<%= f.text_field :x71to80, {:size => '3', :class=>"sizeBinField", :id=>"size71to80"} %>
+		<%= f.text_field :x81to90, {:size => '3', :class=>"sizeBinField", :id=>"size81to90"} %>
+		<%= f.text_field :x91to100, {:size => '3', :class=>"sizeBinField", :id=>"size91to100"} %>
+		<%= f.text_field :x101to110, {:size => '3', :class=>"sizeBinField", :id=>"size101to110"} %>
+		<%= f.text_field :x111to120, {:size => '3', :class=>"sizeBinField", :id=>"size111to120"} %>
+		<%= f.text_field :x121to130, {:size => '3', :class=>"sizeBinField", :id=>"size121to130"} %>
+		<%= f.text_field :x131to140, {:size => '3', :class=>"sizeBinField", :id=>"size131to140"} %>
+		<%= f.text_field :x141to150, {:size => '3', :class=>"sizeBinField", :id=>"size141to150"} %>
+		<%= f.text_field :xgt150, {:size => '3', :class=>"sizeBinField", :id=>"sizegt150"} %>
 		<%= link_to_remove_association "Remove Species", f, partial: 'fishes_fields', tabindex: "-1" %>
 		</li>
 	</div>

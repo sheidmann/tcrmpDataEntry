@@ -260,6 +260,7 @@ $(document).ready(function() {
   function alertSpeciesSizes() {
     $('.sizeBinField').on('change', function(){
       var $species = $(this).parent().find('.speciesSelect').select2('val');
+      // Check abundance
       var item = $(this).closest('li');
       var sizes = [];
       var sum_sizes = 0
@@ -273,32 +274,39 @@ $(document).ready(function() {
       if ( sum_sizes > speciesInformation[$species].max_num) {
         alert("Over max number");
       }; 
+      // Check minimum and maximum sizes
+      var sizebin = $(this).attr('id');
+      var smallest = speciesInformation[$species].min_size
+      var biggest = speciesInformation[$species].max_size
+      
+      if ( sizebin == "size0to5" && smallest > 5 ) {alert("Under min size")};
+      if ( sizebin == "size6to10" && smallest > 10 ) {alert("Under min size")};
+      if ( sizebin == "size6to10" && biggest < 6 ) {alert("Over max size")};
+      if ( sizebin == "size11to20" && smallest > 20 ) {alert("Under min size")};
+      if ( sizebin == "size11to20" && biggest < 11 ) {alert("Over max size")};
+      if ( sizebin == "size21to30" && smallest > 30 ) {alert("Under min size")};
+      if ( sizebin == "size21to30" && biggest < 21 ) {alert("Over max size")};
+      if ( sizebin == "size31to40" && smallest > 40 ) {alert("Under min size")};
+      if ( sizebin == "size31to40" && biggest < 31 ) {alert("Over max size")};
+      if ( sizebin == "size41to50" && smallest > 50 ) {alert("Under min size")};
+      if ( sizebin == "size41to50" && biggest < 41 ) {alert("Over max size")};
+      if ( sizebin == "size51to60" && smallest > 60 ) {alert("Under min size")};
+      if ( sizebin == "size51to60" && biggest < 51 ) {alert("Over max size")};
+      if ( sizebin == "size61to70" && smallest > 70 ) {alert("Under min size")};
+      if ( sizebin == "size61to70" && biggest < 61 ) {alert("Over max size")};
+      if ( sizebin == "size71to80" && smallest > 80 ) {alert("Under min size")};
+      if ( sizebin == "size71to80" && biggest < 71 ) {alert("Over max size")};
+      if ( sizebin == "size81to90" && smallest > 90 ) {alert("Under min size")};
+      if ( sizebin == "size81to90" && biggest < 81 ) {alert("Over max size")};
+      if ( sizebin == "size91to100" && smallest > 100 ) {alert("Under min size")};
+      if ( sizebin == "size91to100" && biggest < 91 ) {alert("Over max size")};
+      if ( sizebin == "size101to110" && biggest < 101 ) {alert("Over max size")};
+      if ( sizebin == "size111to120" && biggest < 111 ) {alert("Over max size")};
+      if ( sizebin == "size121to130" && biggest < 121 ) {alert("Over max size")};
+      if ( sizebin == "size131to140" && biggest < 131 ) {alert("Over max size")};
+      if ( sizebin == "size141to150" && biggest < 141 ) {alert("Over max size")};
+      if ( sizebin == "sizegt150" && biggest < 151 ) {alert("Over max size")};
     });
-
-    // $('[id$="average_length"]').on('focusout', function(){
-    //   var $species = $(this).parent().find('.sppCommon').select2('val');
-    //   var $speciesNumber = $(this).parent().find('[id$="number_individuals"]').val();
-    //   if ( $speciesNumber == 1 ) {
-    //     if ( $(this).val() < speciesInformation[$species].min_size ) {
-    //       alert("under min size");
-    //     } else if ( $(this).val() > speciesInformation[$species].max_size ) {
-    //       alert("over max size");
-    //     };
-    //   };
-    // });
-
-    // $('[id$="min_length"]').on('focusout', function(){
-    //   var $species = $(this).parent().find('.sppCommon').select2('val');
-    //   if ( $(this).val() < speciesInformation[$species].min_size) {
-    //     alert("under min size");
-    //   }; 
-    // });
-    // $('[id$="max_length"]').on('focusout', function(){
-    //   var $species = $(this).parent().find('.sppCommon').select2('val');
-    //   if ( $(this).val() > speciesInformation[$species].max_size) {
-    //     alert("over max size");
-    //   }; 
-    // });
   };
   
   alertSpeciesSizes();
