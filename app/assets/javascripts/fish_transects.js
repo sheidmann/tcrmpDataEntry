@@ -223,7 +223,8 @@ $(document).ready(function() {
   function validate_fields() {
     $('[name*="test_size_cm"]').each(function(){
       $(this).rules('add', {
-        required: true
+        required: true,
+        number: true
       });
     });
     $('[name*="fish_id"]').each(function(){
@@ -306,6 +307,12 @@ $(document).ready(function() {
       if ( sizebin == "size131to140" && biggest < 131 ) {alert("Over max size")};
       if ( sizebin == "size141to150" && biggest < 141 ) {alert("Over max size")};
       if ( sizebin == "sizegt150" && biggest < 151 ) {alert("Over max size")};
+    });
+    // Alert to large Diadema
+    $('.testSizeField').on('change', function(){
+      if($(this).val() > 13){
+        alert("Over max size");
+      }
     });
   };
   
