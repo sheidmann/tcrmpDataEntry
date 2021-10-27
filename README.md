@@ -33,6 +33,8 @@ $ rspec
 
 * Any user can enter fish transect and rover data, and view and edit previously entered data.
 
+* Fish data is checked against theoretical abundances as it is entered.
+
 * Any user can export their own entered data for proofing purposes.
 
 * A user with manager privileges can export all data from all users.

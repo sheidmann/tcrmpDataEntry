@@ -77,3 +77,6 @@
 	  <%= f.submit "Save Fish Transect", class: "btn-submit", style: "margin-top:50px;margin-bottom:100px" %>
   <% end %>
 </div>
+<script>
+  var fish_info = <%= raw Fish.all.to_json %>
+</script>

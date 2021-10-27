@@ -246,5 +246,60 @@ $(document).ready(function() {
   $(document).delegate(".add_fields", "click", function(){ 
     // Trigger validation
     validate_fields();
+    alertSpeciesSizes();
   });
+
+  // Validate fish sizes using alerts
+  speciesInformation = {}
+  if ( typeof fish_info !== "undefined" ) {
+    $.each(fish_info, function(a){
+      speciesInformation[fish_info[a].id] = { "max_num": fish_info[a].max_num, "min_size": fish_info[a].min_size, "max_size": fish_info[a].max_size };
+    });
+  }
+
+  function alertSpeciesSizes() {
+    $('.sizeBinField').on('change', function(){
+      var $species = $(this).parent().find('.speciesSelect').select2('val');
+      var item = $(this).closest('li');
+      var sizes = [];
+      var sum_sizes = 0
+      item.find('.sizeBinField').each(function(){
+        var size = parseInt($(this).val());
+        if(!isNaN(size)){
+          sizes.push(size);
+        }
+        sum_sizes = sizes.reduce((a, b) => a + b, 0)
+      });
+      if ( sum_sizes > speciesInformation[$species].max_num) {
+        alert("Over max number");
+      }; 
+    });
+
+    // $('[id$="average_length"]').on('focusout', function(){
+    //   var $species = $(this).parent().find('.sppCommon').select2('val');
+    //   var $speciesNumber = $(this).parent().find('[id$="number_individuals"]').val();
+    //   if ( $speciesNumber == 1 ) {
+    //     if ( $(this).val() < speciesInformation[$species].min_size ) {
+    //       alert("under min size");
+    //     } else if ( $(this).val() > speciesInformation[$species].max_size ) {
+    //       alert("over max size");
+    //     };
+    //   };
+    // });
+
+    // $('[id$="min_length"]').on('focusout', function(){
+    //   var $species = $(this).parent().find('.sppCommon').select2('val');
+    //   if ( $(this).val() < speciesInformation[$species].min_size) {
+    //     alert("under min size");
+    //   }; 
+    // });
+    // $('[id$="max_length"]').on('focusout', function(){
+    //   var $species = $(this).parent().find('.sppCommon').select2('val');
+    //   if ( $(this).val() > speciesInformation[$species].max_size) {
+    //     alert("over max size");
+    //   }; 
+    // });
+  };
+  
+  alertSpeciesSizes();
 });
