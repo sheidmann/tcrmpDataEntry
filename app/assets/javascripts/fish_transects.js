@@ -177,6 +177,17 @@ $(document).ready(function() {
     },
     "This species has already been entered"
   );
+  // Numbers must be integers (no decimals)
+  $.validator.addMethod(
+    "isInteger", function(value, element) {
+      console.log(value.toString());
+      if(value.toString()==""){
+        return true; // PASS validation if empty box
+      }
+      return /^[1-9][0-9]*$/.test(value.toString()) // otherwise check if integer with regex
+    },
+    "Must be an integer"
+  );
   
   // Add properties to nested fields when added
   $('#fishes').on('cocoon:after-insert', function() {
@@ -227,7 +238,8 @@ $(document).ready(function() {
     });
     $('.sizeBinField').each(function(){
       $(this).rules('add', {
-        number: true
+        number: true,
+        isInteger: true
       });
     });
   };
