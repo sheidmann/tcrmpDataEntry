@@ -92,6 +92,27 @@ $(document).ready(function() {
   $(".speciesSelect").on("close", function (e) {  
     $(this).valid(); 
   });
+
+  // Species must not already exist in the form
+  $.validator.addMethod(
+    "notDuplicated", function(value, element) {
+      var species_list = [];
+      $('.speciesSelect').each(function(){
+        var species = $(this).val().toString();
+        species_list.push(species);
+      });
+      // Remove the blanks that were added
+      species_list = species_list.filter(Boolean);
+      // Take the just-selected species out of the list
+      species_list = species_list.slice(0,-1);
+      // Test for duplicates
+      if (species_list.includes(value)) {
+        return false; // FAIL validation if duplicated
+      }
+      return true; // PASS validation otherwise
+    },
+    "This species has already been entered"
+  );
   
   // Add properties to nested fields when added
   $('#fishes').on('cocoon:after-insert', function() {
@@ -122,7 +143,8 @@ $(document).ready(function() {
   function validate_fields() {
     $('[name*="fish_id"]').each(function(){
       $(this).rules('add', {
-        required: true
+        required: true,
+        notDuplicated: true
       });
     });
     $('.abundField').each(function(){

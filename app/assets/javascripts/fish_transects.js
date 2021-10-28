@@ -137,35 +137,6 @@ $(document).ready(function() {
     $(this).valid(); 
   });
 
-  // Write function to check species total
-  // This function and alert works, but it was changed to a validation (below)
-  // Will need to be modified in the future to validate total number
-  // function sum_species(fish_row) {
-  //   var size_bin_nums = new Array();
-    
-  //   $(fish_row).find('.sizeBinField').each(function(){
-  //     if ( $(this).val() != 0 ){
-  //       size_bin_nums.push( $(this).val() );
-  //     };
-  //   });
-
-  //   var total = 0;
-  //   $.each(size_bin_nums,function() {
-  //     total += parseFloat( this );
-  //   });
-  //   return total;
-  // };
-
-  // // Check species total before adding more fields
-  // $("#fishes").on('cocoon:before-insert', function (e) {
-  //   // Alert if fish row with all zeroes
-  //   $(".fishRow").each(function(){
-  //     if (sum_species($(this)) == 0){
-  //       alert("You must have a value in one of the size bins");
-  //     };
-  //   });
-  // });
-
   // Must be at least one fish per species
   $.validator.addMethod(
     "atLeastOneObserved", function(value, element) {
@@ -185,6 +156,26 @@ $(document).ready(function() {
       return numFound;
     },
     "There must be a value in one of the size bins"
+  );
+  // Species must not already exist in the form
+  $.validator.addMethod(
+    "notDuplicated", function(value, element) {
+      var species_list = [];
+      $('.speciesSelect').each(function(){
+        var species = $(this).val().toString();
+        species_list.push(species);
+      });
+      // Remove the blanks that were added
+      species_list = species_list.filter(Boolean);
+      // Take the just-selected species out of the list
+      species_list = species_list.slice(0,-1);
+      // Test for duplicates
+      if (species_list.includes(value)) {
+        return false; // FAIL validation if duplicated
+      }
+      return true; // PASS validation otherwise
+    },
+    "This species has already been entered"
   );
   
   // Add properties to nested fields when added
@@ -230,6 +221,7 @@ $(document).ready(function() {
     $('[name*="fish_id"]').each(function(){
       $(this).rules('add', {
         required: true,
+        notDuplicated: true,
         atLeastOneObserved: true
       });
     });
