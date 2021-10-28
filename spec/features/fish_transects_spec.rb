@@ -39,12 +39,12 @@ describe "User viewing fish transect index", :js => true, type: :feature do
 
     @tranf = build(:transect_fish, fish_id: @fish.id)
     select @tranf.fish.spp_code_common#, :from => "Species"
-    fill_in("fish_transect_transect_fishes_attributes_0_x0to5", with: @tranf.x0to5)
-    fill_in("fish_transect_transect_fishes_attributes_0_x6to10", with: @tranf.x6to10)
-    fill_in("fish_transect_transect_fishes_attributes_0_x11to20", with: @tranf.x11to20)
-    fill_in("fish_transect_transect_fishes_attributes_0_x21to30", with: @tranf.x21to30)
-    fill_in("fish_transect_transect_fishes_attributes_0_x31to40", with: @tranf.x31to40)
-    fill_in("fish_transect_transect_fishes_attributes_0_x41to50", with: @tranf.x41to50)
+    fill_in("size0to5", with: @tranf.x0to5)
+    fill_in("size6to10", with: @tranf.x6to10)
+    fill_in("size11to20", with: @tranf.x11to20)
+    fill_in("size21to30", with: @tranf.x21to30)
+    fill_in("size31to40", with: @tranf.x31to40)
+    fill_in("size41to50", with: @tranf.x41to50)
 
     click_button("Save Fish Transect")
     expect(page).to have_content "Fish transect successfully created"
