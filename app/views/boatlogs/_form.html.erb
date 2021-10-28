@@ -45,3 +45,7 @@
 	  <%= f.submit "Save Boatlog", class: "btn-submit" %>
   <% end %>
 </div>
+<script>
+  var survey_info = <%= raw BoatlogSurvey.all.to_json %>
+  var boatlog_info = <%= raw Boatlog.all.to_json %>
+</script>

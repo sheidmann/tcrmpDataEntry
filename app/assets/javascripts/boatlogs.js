@@ -71,6 +71,43 @@ $(document).ready(function() {
       $(".new_boatlog, .edit_boatlog").data("validator").settings.ignore="#boatlog_date_completed, :hidden";
   });
 
+  // Survey must be unique (site, survey_type, replicate)
+  surveyInformation = {}
+  if ( typeof survey_info !== "undefined" ) {
+    $.each(survey_info, function(a){
+      // Need to extract the site from the boatlog
+      var bl_id = survey_info[a].boatlog_id;
+      var boatlog = boatlog_info.filter(function(e) {
+        return e.id == bl_id;
+      });
+      var site = boatlog[0].site_id;
+      // Add info to array
+      surveyInformation[survey_info[a].id] = { "site": site, "type": survey_info[a].survey_type_id, "replicate": survey_info[a].rep };
+    });
+  };
+  $.validator.addMethod(
+    "uniqueReplicate", function(value, element) {
+      // Check against form
+      // type and replicate only
+
+      // Check against database unless editing
+      if(EA.onRailsPage('boatlogs', ['edit'])) {
+        return true;
+      };
+      var site = $('#boatlog_site_id').val();
+      var this_type = $(element).closest('li').find('.typeSelect').val();
+      var filtered = Object.values(surveyInformation).filter(function(e) {
+        return e.site === parseInt(site) && e.type === parseInt(this_type) && e.replicate === parseInt(value);
+      });
+      if ( filtered.length > 0) {
+        return false; // FAIL validation if site/survey_type/replicate exists in database
+      };
+      
+      return true; // PASS otherwise
+    },
+    "Duplicate survey"
+  );
+
   // Implement dropdown with textbox for observer
   $(".observerSelect").select2();
   // Validate on closing event (focusout not triggered)
@@ -110,6 +147,7 @@ $(document).ready(function() {
       $(this).rules('add', {
         required: true,
         number: true,
+        uniqueReplicate: true,
         min: 1,
         max: 12
       });
