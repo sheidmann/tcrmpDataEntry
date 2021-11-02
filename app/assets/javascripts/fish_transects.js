@@ -160,19 +160,22 @@ $(document).ready(function() {
   // Species must not already exist in the form
   $.validator.addMethod(
     "notDuplicated", function(value, element) {
-      var species_list = [];
-      $('.speciesSelect').each(function(){
-        var species = $(this).val().toString();
-        species_list.push(species);
-      });
-      // Remove the blanks that were added
-      species_list = species_list.filter(Boolean);
-      // Take the just-selected species out of the list
-      species_list = species_list.slice(0,-1);
-      // Test for duplicates
-      if (species_list.includes(value)) {
-        return false; // FAIL validation if duplicated
-      }
+        var species_list = [];
+        $('.speciesSelect').each(function(){
+          var species = $(this).val().toString();
+          species_list.push(species);
+        });
+        // Remove the blanks that were added
+        species_list = species_list.filter(Boolean);
+        // Take the just-selected species out of the list
+        var this_index = species_list.indexOf(value);
+        if (this_index > -1) {
+          species_list.splice(this_index, 1)
+        }
+        // Test for duplicates
+        if (species_list.includes(value)) {
+          return false; // FAIL validation if duplicated
+        }
       return true; // PASS validation otherwise
     },
     "This species has already been entered"
@@ -180,7 +183,6 @@ $(document).ready(function() {
   // Numbers must be integers (no decimals)
   $.validator.addMethod(
     "isInteger", function(value, element) {
-      console.log(value.toString());
       if(value.toString()==""){
         return true; // PASS validation if empty box
       }
