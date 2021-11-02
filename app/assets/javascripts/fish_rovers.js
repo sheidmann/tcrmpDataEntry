@@ -104,7 +104,10 @@ $(document).ready(function() {
       // Remove the blanks that were added
       species_list = species_list.filter(Boolean);
       // Take the just-selected species out of the list
-      species_list = species_list.slice(0,-1);
+      var this_index = species_list.indexOf(value);
+      if (this_index > -1) {
+        species_list.splice(this_index, 1)
+      }
       // Test for duplicates
       if (species_list.includes(value)) {
         return false; // FAIL validation if duplicated
@@ -116,7 +119,6 @@ $(document).ready(function() {
   // Numbers must be integers (no decimals)
   $.validator.addMethod(
     "isInteger", function(value, element) {
-      console.log(value.toString());
       if(value.toString()==""){
         return true; // PASS validation if empty box
       }
