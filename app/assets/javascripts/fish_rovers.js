@@ -67,7 +67,7 @@ $(document).ready(function() {
       "fish_rover[rep]": { required: true,
         number: true,
         min: 1,
-        max: 3 }
+        max: 4 }
   	},
 
   	// List the error messages
