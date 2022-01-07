@@ -12,6 +12,7 @@ class DashboardController < ApplicationController
 			if !@data_by_divers.has_key?(diver)
 				@data_by_divers[diver] = {
 					"boat" => 0,
+          "boatfish" => 0,
 					"ftrans" => 0,
 					"frove" => 0,
 					"chealth" => 0,
@@ -19,6 +20,7 @@ class DashboardController < ApplicationController
 				}
 			end
 			@data_by_divers[diver]["boat"] += diver.boatlog_surveys.count
+      @data_by_divers[diver]["boatfish"] += diver.boatlog_surveys.where(survey_type_id: SurveyType.where(category: "fish").ids).count
 			@data_by_divers[diver]["ftrans"] += diver.fish_transects.count
 			@data_by_divers[diver]["frove"] += diver.fish_rovers.count
 			#@data_by_divers[diver]["chealth"] += diver.coralhealths.count

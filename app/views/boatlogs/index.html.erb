@@ -10,6 +10,10 @@
           <th>Site</th>
           <th>Date</th>
           <th>Project</th>
+          <th>Fish Transects</th>
+          <th>Fish Rovers</th>
+          <th>Coral Health Transects</th>
+          <th>Algae Heights</th>
         </tr>
       </thead>
       <tbody>
@@ -19,6 +23,10 @@
             <td><%= bl.site.site_name %></td>
             <td><%= bl.date_completed %></td>
             <td><%= bl.manager.project %></td>
+            <td><%= bl.countfishtran %></td>
+            <td><%= bl.countfishrov %></td>
+            <td><%= bl.countcoralhealth %></td>
+            <td><%= bl.countalgaeht %></td>
           </tr>
         <% end %>
       </tbody>
