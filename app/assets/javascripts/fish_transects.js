@@ -210,6 +210,10 @@ $(document).ready(function() {
   $(".sizeBinField").on('change', function (e) {
     // Highlight changed fields
     $(this).addClass('bg-success');
+    // Remove highlight if field is blank
+    if ($(this).val().toString() == "") {
+      $(this).removeClass("bg-success");
+    };
     // Validate the fish
     $(this).parent().parent().find('[name*="fish_id"]').valid();
   });
