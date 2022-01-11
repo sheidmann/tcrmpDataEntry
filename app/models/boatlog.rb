@@ -14,18 +14,18 @@ class Boatlog < ApplicationRecord
 
 	def countfishtran
 		@childsurveys = self.boatlog_surveys.all
-		@childsurveys.where(survey_type_id: SurveyType.find_by(type_name: "fish transect").id).count
+		@childsurveys.where(survey_type_id: SurveyType.find_by(type_name: "fish transect").try(:id)).count
 	end
 	def countfishrov
 		@childsurveys = self.boatlog_surveys.all
-		@childsurveys.where(survey_type_id: SurveyType.find_by(type_name: "fish rover").id).count
+		@childsurveys.where(survey_type_id: SurveyType.find_by(type_name: "fish rover").try(:id)).count
 	end
 	def countcoralhealth
 		@childsurveys = self.boatlog_surveys.all
-		@childsurveys.where(survey_type_id: SurveyType.find_by(type_name: "coral health").id).count
+		@childsurveys.where(survey_type_id: SurveyType.find_by(type_name: "coral health").try(:id)).count
 	end
 	def countalgaeht
 		@childsurveys = self.boatlog_surveys.all
-		@childsurveys.where(survey_type_id: SurveyType.find_by(type_name: "algae heights").id).count
+		@childsurveys.where(survey_type_id: SurveyType.find_by(type_name: "algae heights").try(:id)).count
 	end
 end
