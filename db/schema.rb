@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_13_154736) do
+ActiveRecord::Schema.define(version: 2022_01_13_160229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "algae_heights", force: :cascade do |t|
+    t.bigint "manager_id"
+    t.bigint "site_id"
+    t.bigint "user_id"
+    t.date "date_completed"
+    t.integer "rep"
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["manager_id"], name: "index_algae_heights_on_manager_id"
+    t.index ["site_id"], name: "index_algae_heights_on_site_id"
+    t.index ["user_id"], name: "index_algae_heights_on_user_id"
+  end
 
   create_table "algaes", force: :cascade do |t|
     t.string "code_name"
@@ -180,6 +194,9 @@ ActiveRecord::Schema.define(version: 2022_01_13_154736) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "algae_heights", "managers"
+  add_foreign_key "algae_heights", "sites"
+  add_foreign_key "algae_heights", "users"
   add_foreign_key "boatlog_surveys", "boatlogs"
   add_foreign_key "boatlog_surveys", "survey_types"
   add_foreign_key "boatlog_surveys", "users"

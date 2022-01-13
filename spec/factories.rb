@@ -120,5 +120,13 @@ FactoryBot.define do
     full_name { "wavy plant stuff" }
   end
 
+  factory :algae_height do
+    association :manager, factory: :boatlog_manager
+    association :site, factory: :site
+    association :user, factory: :user
+    date_completed { Date.parse("2021-01-05") }
+    rep { 1 }
+  end
+
   
 end
