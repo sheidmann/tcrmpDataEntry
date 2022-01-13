@@ -1,0 +1,51 @@
+<div class="form-horizontal">
+	<%= form_for @aht, :html => {:autocomplete => "off"} do |f|%>
+	<%= render 'shared/error_messages', :target => @aht %>
+		<div class="row">
+			<div class="col-md-4">
+				<div class='control-group'>
+		      <%= f.label :manager_id, 'Project' %>
+		      <%= f.collection_select :manager_id, Manager.all, :id, :project, {:include_blank => ""} %> 
+		    </div>
+		    <div class='control-group'>
+			    <%= f.label :site_id, 'Site Name' %>
+			    <%= f.collection_select :site_id, Site.all, :id, :site_name, {:include_blank => ""}, {:class=>"metaSelect" } %> 
+		  	</div>
+		  	<div class='control-group'>
+			    <%= f.label :user_id, 'Observer' %>
+			    <%= f.collection_select :user_id, User.order(name: :asc).all, :id, :name, {:include_blank => ""}, {:class=>"metaSelect" } %> 
+		  	</div>
+		  	<div class='control-group'>
+			    <%= f.label :date_completed, 'Date Completed' %>
+			    <%= f.text_field :date_completed, placeholder: "YYYY-MM-DD" %> 
+			  </div>
+			  <div class="control-group">
+					<%= f.label :rep, 'Replicate' %>
+					<%= f.text_field :rep, { :size => '3' } %>
+				</div>
+		  </div>
+
+			<div class="col-md-3">
+		    <div class='control-group'>
+		    	<%= f.label :notes, 'Notes' %>
+		    	<%= f.text_area :notes, { :size => '60x4' } %>
+		    </div>
+	    </div>
+    </div>
+
+    <div>
+      <h3>Algae</h3>
+      <p>Enter height in centimeters for each algae point.<br>Use 0 for encrusting algae like Ramicrusta.</p>
+  		<div id='algaes'>
+		    <%= f.fields_for :transect_algaes do |builder| %>
+		      <%= render 'algae_fields', f: builder %>
+		    <% end %>
+	      <div class="links">
+			     <%= link_to_add_association "Add Algae", f, :transect_algaes, partial: 'algae_fields', class: "addAlgae" %>
+	      </div>
+	     </div>
+	   </div>
+
+	  <%= f.submit "Save Algae Heights", class: "btn-submit", style: "margin-top:50px;margin-bottom:100px" %>
+  <% end %>
+</div>

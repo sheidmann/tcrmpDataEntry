@@ -77,7 +77,7 @@ describe "User viewing fish transect index", :js => true, type: :feature do
     accept_confirm do
       click_button('Delete Fish Transect')
     end
-    expect(page).to have_content "Fish transect deleted"
-    puts 'user can delete fish transect'
-    end
+  expect(page).to have_content "Fish transect deleted"
+  puts 'user can delete fish transect'
+  end
 end

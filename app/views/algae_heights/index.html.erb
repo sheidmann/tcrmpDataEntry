@@ -2,5 +2,27 @@
   <div class="container">
     <%= button_to "New Algae Heights Transect", '/algae_heights/new', method: :get %>
     <h1>Algae Heights</h1>
+    <table class="display table table-striped table-condensed table-sortable">
+      <thead>
+        <% #print table header %>
+        <tr>
+          <th>Diver</th>
+          <th>Site</th>
+          <th>Date</th>
+          <th>Replicate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% #print table fields %>
+        <% @aht.each do |ah| %>
+          <tr data-link="<%=algae_height_path(ah.id)%>">
+            <td><%= ah.user.name %></td>
+            <td><%= ah.site.site_name %></td>
+            <td><%= ah.date_completed %></td>
+            <td><%= ah.rep %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

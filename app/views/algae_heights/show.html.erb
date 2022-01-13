@@ -1,5 +1,52 @@
 <div class="container">
 	<div class='formContainer'>
 		<%= button_to "Back to Algae Heights", '/algae_heights', method: :get%>
+		<div class="showActions" style="margin-top: 20px">
+    <div class="btn-group-vertical">
+      <%= button_to('Edit Algae Heights', edit_algae_height_path(@aht), :method => "get") %>
+      <%= button_to('Delete Algae Heights', @aht, data: { confirm: 'Are you sure?' }, method: :delete) %>
+    </div>
+  </div>
+  <div id="sampleSection" class="sectionDiv">
+  <div class='show_section_1'>
+    <div id='section_1'>
+
+      <dl class="dl-horizontal">
+        <dt>Project</dt><dd><%= @aht.manager.project %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Site</dt><dd><%= @aht.site.site_name %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Sample Date</dt><dd><%= @aht.date_completed %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Replicate</dt><dd><%= @aht.rep %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Notes</dt><dd><%= @aht.notes %></dd>
+      </dl>
+    </div>
+
+    <div id='section_2'>
+      <h2>Algae</h2>
+      <table id="AlgaeList", class="display table table-striped" style="width: auto">
+        <thead>
+          <% #print table header %>
+          <tr>
+          	<th>Algae Type</th>
+            <th>Height(cm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tranas.each do |a|  %>
+            <tr>
+            	<td><%= a.algae.combo_name %></td>
+              <td><%= a.height_cm %></td>
+            </tr>   
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 	</div>
 </div>
