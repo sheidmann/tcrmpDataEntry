@@ -115,5 +115,10 @@ FactoryBot.define do
     abundance_index { 1 }
   end
 
+  factory :algae do
+    code_name { "ALG" }
+    full_name { "wavy plant stuff" }
+  end
+
   
 end
