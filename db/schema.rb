@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_13_160229) do
+ActiveRecord::Schema.define(version: 2022_01_13_161659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -155,6 +155,16 @@ ActiveRecord::Schema.define(version: 2022_01_13_160229) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "transect_algaes", force: :cascade do |t|
+    t.bigint "algae_height_id"
+    t.bigint "algae_id"
+    t.decimal "height_cm"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["algae_height_id"], name: "index_transect_algaes_on_algae_height_id"
+    t.index ["algae_id"], name: "index_transect_algaes_on_algae_id"
+  end
+
   create_table "transect_fishes", force: :cascade do |t|
     t.bigint "fish_transect_id"
     t.bigint "fish_id"
@@ -212,6 +222,8 @@ ActiveRecord::Schema.define(version: 2022_01_13_160229) do
   add_foreign_key "managers", "users"
   add_foreign_key "rover_fishes", "fish"
   add_foreign_key "rover_fishes", "fish_rovers"
+  add_foreign_key "transect_algaes", "algae_heights"
+  add_foreign_key "transect_algaes", "algaes"
   add_foreign_key "transect_fishes", "fish"
   add_foreign_key "transect_fishes", "fish_transects"
 end

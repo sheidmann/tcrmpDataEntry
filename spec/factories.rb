@@ -128,5 +128,10 @@ FactoryBot.define do
     rep { 1 }
   end
 
+  factory :transect_algae do
+    association :algae_height, factory: :algae_height
+    association :algae, factory: :algae
+    height_cm { 2.5 }
+  end
   
 end
