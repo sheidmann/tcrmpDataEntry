@@ -41,6 +41,7 @@ $ rspec
 
 ## In-progress features
 
+* Any user can enter coral health data, and view and edit previously entered data.
+
 ## Upcoming features
 
-* Any user can enter coral health data, and view and edit previously entered data.
