@@ -40,7 +40,7 @@ class AlgaeHeightsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      #format.csv { send_data @aht.as_csv, filename: "AlgaeHeights_#{@filename}_#{Date.today}.csv" }
+      format.csv { send_data @aht.as_csv, filename: "AlgaeHeights_#{@filename}_#{Date.today}.csv" }
     end
   end
   
@@ -50,7 +50,6 @@ class AlgaeHeightsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      #format.json { render json: @fish_transect }
     end
   end
 

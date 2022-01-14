@@ -1,6 +1,7 @@
 <div class="main">
   <div class="container">
     <%= button_to "New Algae Heights Transect", '/algae_heights/new', method: :get %>
+    <%= button_to "Export CSV", algae_heights_path(:format => :csv), method: :get %>
     <h1>Algae Heights</h1>
     <table class="display table table-striped table-condensed table-sortable">
       <thead>
