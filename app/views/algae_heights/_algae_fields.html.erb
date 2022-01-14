@@ -3,7 +3,7 @@
 		<div class="col-md-3 field">
 			<%= f.collection_select :algae_id, Algae.order(code_name: :asc).all, :id, :combo_name, {:include_blank => ""}, {:class=>"speciesSelect" } %> 
 		</div>
-		<div class="col-md-3 field">
+		<div class="col-md-1 field">
 			<%= f.text_field :height_cm, { :size => '3', :class=>"heightField", :id=>"heightField" } %>
 		</div>
 		<%= link_to_remove_association "Remove Algae", f, partial: 'algae_fields', tabindex: "-1" %>

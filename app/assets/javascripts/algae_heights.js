@@ -105,7 +105,8 @@ $(document).ready(function() {
     $('[name*="height_cm"]').each(function(){
       $(this).rules('add', {
         required: true,
-        number: true
+        number: true,
+        min: 0
       });
     });
     $('[name*="algae_id"]').each(function(){
