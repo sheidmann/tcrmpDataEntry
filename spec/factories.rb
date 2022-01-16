@@ -155,4 +155,13 @@ FactoryBot.define do
     date_completed { Date.parse("2021-01-15") }
     rep { 1 }
   end
+
+  factory :transect_coral do
+    association :coral_health, factory: :coral_health
+    association :coral_code, factory: :coral
+    length_cm { 7 }
+    width_cm { 5 }
+    height_cm { 2 }
+  end
+
 end
