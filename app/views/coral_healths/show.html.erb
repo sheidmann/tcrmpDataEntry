@@ -1,5 +1,56 @@
 <div class="container">
 	<div class='formContainer'>
-		<%= button_to "Back to Algae Heights", '/algae_heights', method: :get%>
+		<%= button_to "Back to Coral Healths", '/coral_healths', method: :get%>
+		<div class="showActions" style="margin-top: 20px">
+    <div class="btn-group-vertical">
+      <%= button_to('Edit Coral Health', edit_coral_health_path(@chealth), :method => "get") %>
+      <%= button_to('Delete Coral Health', @chealth, data: { confirm: 'Are you sure?' }, method: :delete) %>
+    </div>
+	  </div>
+	  <div id="sampleSection" class="sectionDiv">
+  <div class='show_section_1'>
+    <div id='section_1'>
+
+      <dl class="dl-horizontal">
+        <dt>Project</dt><dd><%= @chealth.manager.project %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Site</dt><dd><%= @chealth.site.site_name %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Sample Date</dt><dd><%= @chealth.date_completed %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Replicate</dt><dd><%= @chealth.rep %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Notes</dt><dd><%= @chealth.notes %></dd>
+      </dl>
+    </div>
+
+    <div id='section_2'>
+      <h2>Corals</h2>
+      <table id="CoralList", class="display table table-striped" style="width: auto">
+        <thead>
+          <% #print table header %>
+          <tr>
+          	<th>Coral Species</th>
+          	<th>Length (cm)</th>
+          	<th>Width (cm)</th>
+            <th>Height (cm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @trancs.each do |c|  %>
+            <tr>
+            	<td><%= c.coral_code.combo_name %></td>
+            	<td><%= c.length_cm %></td>
+            	<td><%= c.width_cm %></td>
+              <td><%= c.height_cm %></td>
+            </tr>   
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 	</div>
 </div>

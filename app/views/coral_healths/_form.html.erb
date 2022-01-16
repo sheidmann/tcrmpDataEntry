@@ -1,0 +1,54 @@
+<div class="form-horizontal">
+	<%= form_for @chealth, :html => {:autocomplete => "off"} do |f|%>
+	<%= render 'shared/error_messages', :target => @chealth %>
+		<div class="row">
+			<div class="col-md-4">
+				<div class='control-group'>
+		      <%= f.label :manager_id, 'Project' %>
+		      <%= f.collection_select :manager_id, Manager.all, :id, :project, {:include_blank => ""} %> 
+		    </div>
+		    <div class='control-group'>
+			    <%= f.label :site_id, 'Site Name' %>
+			    <%= f.collection_select :site_id, Site.all, :id, :site_name, {:include_blank => ""}, {:class=>"metaSelect" } %> 
+		  	</div>
+		  	<div class='control-group'>
+			    <%= f.label :user_id, 'Observer' %>
+			    <%= f.collection_select :user_id, User.order(name: :asc).all, :id, :name, {:include_blank => ""}, {:class=>"metaSelect" } %> 
+		  	</div>
+		  	<div class='control-group'>
+			    <%= f.label :date_completed, 'Date Completed' %>
+			    <%= f.text_field :date_completed, placeholder: "YYYY-MM-DD" %> 
+			  </div>
+			  <div class="control-group">
+					<%= f.label :rep, 'Replicate' %>
+					<%= f.text_field :rep, { :size => '3' } %>
+				</div>
+		  </div>
+
+			<div class="col-md-3">
+		    <div class='control-group'>
+		    	<%= f.label :notes, 'Notes' %>
+		    	<%= f.text_area :notes, { :size => '60x4' } %>
+		    </div>
+	    </div>
+    </div>
+
+    <div>
+      <h3>Coral</h3>
+      <ul class="coralLabels list-inline" style="background: #DDD;white-space:nowrap;position:sticky;top:0;border-bottom: 3px solid black;">
+	      		<li class="speciesHead"> Species</li><li class="dimHead">Length (cm)</li><li class="dimHead">Width (cm)</li><li class="dimHead">Height (cm)</li>
+	    	</ul>
+	    	<br>
+  		<div id='corals'>
+		    <%= f.fields_for :transect_corals do |builder| %>
+		      <%= render 'coral_fields', f: builder %>
+		    <% end %>
+	      <div class="links">
+			     <%= link_to_add_association "Add Coral", f, :transect_corals, partial: 'coral_fields', class: "addCoral" %>
+	      </div>
+	     </div>
+	   </div>
+
+	  <%= f.submit "Save Coral Health", class: "btn-submit", style: "margin-top:50px;margin-bottom:100px" %>
+  <% end %>
+</div>

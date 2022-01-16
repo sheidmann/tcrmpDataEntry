@@ -6,9 +6,9 @@ class AlgaeHeightsController < ApplicationController
     @aht.transect_algaes.build
 
     respond_to do |format|
-        format.html # new.html.erb
-        format.json { render json: @aht }
-      end
+      format.html # new.html.erb
+      format.json { render json: @aht }
+    end
   end
 
   def create

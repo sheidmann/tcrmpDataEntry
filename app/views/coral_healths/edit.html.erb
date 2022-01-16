@@ -1,5 +1,7 @@
 <div class="main">
   <div class="container">
     <h1>Edit Coral Health</h1>
+    <p><%= button_to 'Cancel', '/coral_healths', method: :get, data: { confirm: 'Cancel edit?' } %></p>
+    <%= render 'form' %>
   </div>
 </div>

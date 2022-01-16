@@ -1,5 +1,30 @@
 <div class="main">
   <div class="container">
+    <%= button_to "New Coral Health Transect", '/coral_healths/new', method: :get %>
     <h1>Coral Health</h1>
+    <table class="display table table-striped table-condensed table-sortable">
+      <thead>
+        <% #print table header %>
+        <tr>
+          <th>Diver</th>
+          <th>Site</th>
+          <th>Date</th>
+          <th>Replicate</th>
+          <th>Corals</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% #print table fields %>
+        <% @chealth.each do |ch| %>
+          <tr data-link="<%=coral_health_path(ch.id)%>">
+            <td><%= ch.user.name %></td>
+            <td><%= ch.site.site_name %></td>
+            <td><%= ch.date_completed %></td>
+            <td><%= ch.rep %></td>
+            <td><%= ch.countcorals %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
