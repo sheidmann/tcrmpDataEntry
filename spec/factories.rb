@@ -133,5 +133,26 @@ FactoryBot.define do
     association :algae, factory: :algae
     height_cm { 2.5 }
   end
+
+  factory :coral, class: "CoralCode" do
+    code_name { "CC" }
+    group { "Identification" }
+    category { "Coral" }
+    full_name { "Coolus coralus" }
+  end
   
+  factory :interaction, class: "CoralCode" do
+    code_name { "RS" }
+    group { "Interaction" }
+    category { "Sponge" }
+    full_name { "rude sponge" }
+  end
+
+  factory :coral_health do
+    association :manager, factory: :boatlog_manager
+    association :site, factory: :site
+    association :user, factory: :user
+    date_completed { Date.parse("2021-01-15") }
+    rep { 1 }
+  end
 end

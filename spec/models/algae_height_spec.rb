@@ -35,7 +35,7 @@ RSpec.describe AlgaeHeight, type: :model do
     it "is not valid without a replicate number" do
       @aht = build(:algae_height, rep: nil)
       expect(@aht).to_not be_valid
-      puts 'repless algae_height is not valid'
+      puts 'repless algae height is not valid'
     end
   end
 end

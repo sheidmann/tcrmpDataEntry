@@ -44,9 +44,6 @@ Rails.application.routes.draw do
   post '/fish_transects/:id' => 'fish_transects#show'
   get '/diademas' => 'diademas#index'
 
-  # Survey Placeholders
-  get "/coral_healths" => 'static_pages#placeholder'
-
   # Resources
   resources :users
   resources :managers
@@ -55,6 +52,7 @@ Rails.application.routes.draw do
   resources :fish_transects
   resources :fish_rovers
   resources :algae_heights
+  resources :coral_healths
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

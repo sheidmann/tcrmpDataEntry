@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_13_161659) do
+ActiveRecord::Schema.define(version: 2022_01_16_180433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,29 @@ ActiveRecord::Schema.define(version: 2022_01_13_161659) do
     t.text "notes"
     t.index ["manager_id"], name: "index_boatlogs_on_manager_id"
     t.index ["site_id"], name: "index_boatlogs_on_site_id"
+  end
+
+  create_table "coral_codes", force: :cascade do |t|
+    t.string "code_name"
+    t.string "group"
+    t.string "category"
+    t.string "full_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "coral_healths", force: :cascade do |t|
+    t.bigint "manager_id"
+    t.bigint "site_id"
+    t.bigint "user_id"
+    t.date "date_completed"
+    t.integer "rep"
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["manager_id"], name: "index_coral_healths_on_manager_id"
+    t.index ["site_id"], name: "index_coral_healths_on_site_id"
+    t.index ["user_id"], name: "index_coral_healths_on_user_id"
   end
 
   create_table "diademas", force: :cascade do |t|
@@ -212,6 +235,9 @@ ActiveRecord::Schema.define(version: 2022_01_13_161659) do
   add_foreign_key "boatlog_surveys", "users"
   add_foreign_key "boatlogs", "managers"
   add_foreign_key "boatlogs", "sites"
+  add_foreign_key "coral_healths", "managers"
+  add_foreign_key "coral_healths", "sites"
+  add_foreign_key "coral_healths", "users"
   add_foreign_key "diademas", "fish_transects"
   add_foreign_key "fish_rovers", "managers"
   add_foreign_key "fish_rovers", "sites"

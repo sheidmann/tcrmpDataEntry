@@ -1,4 +1,4 @@
-class AlgaeHeightsController < ApplicationController
+class CoralHealthsController < ApplicationController
   before_action :require_user
 
   def new
