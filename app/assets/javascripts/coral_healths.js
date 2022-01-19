@@ -5,6 +5,13 @@ $(document).ready(function() {
     return;
   };
 
+  // Stop enter from submitting form
+  $(document).bind("keypress", function(e){
+    if (e.keyCode ==13){
+      e.preventDefault();
+    };
+  });
+
   // First Section (Metadata)
   // Implement dropdown with textbox for site and observer
   $(".metaSelect").select2();
@@ -75,13 +82,21 @@ $(document).ready(function() {
 
   // Second Section (Coral)
   // Hitting enter while in coral section adds new coral
-  $("#corals").bind("keypress", function(e){
-    if (e.keyCode ==13){
-      e.preventDefault();
-      $(".addCoral").trigger("click");
-    };
-    $('.speciesSelect').last().focus();
-  });
+  // $("#corals:not(#interactions)").bind("keypress", function(e){
+  //   if (e.keyCode ==13){
+  //     e.preventDefault();
+  //     $(".addCoral").trigger("click");
+  //   };
+  //   $('.speciesSelect').last().focus();
+  // });
+  // Hitting enter while in interaction section adds new interaction
+  // $("#interactions").bind("keypress", function(e){
+  //   if (e.keyCode ==13){
+  //     e.preventDefault();
+  //     $(this).closest(".addInteraction").trigger("click");
+  //   };
+  //   $('.speciesSelect').last().focus();
+  // });
 
   // Implement dropdown with textbox for species
   $(".speciesSelect").select2();
@@ -103,7 +118,7 @@ $(document).ready(function() {
 
   
   // Add properties to nested fields when added
-  $('#corals').on('cocoon:after-insert', function() {
+  $('#corals, #interactions').on('cocoon:after-insert', function() {
     $(".speciesSelect").last().select2(); // convert to select2
     $('.speciesSelect').last().select2('open'); // focus and open dropdown
     $(".speciesSelect").on("close", function (e) {  
@@ -140,6 +155,14 @@ $(document).ready(function() {
     $('[name*="coral_code_id"]').each(function(){
       $(this).rules('add', {
         required: true
+      });
+    });
+    $('[name*="value"]').each(function(){
+      $(this).rules('add', {
+        required: true,
+        isInteger: true,
+        min: 0,
+        max: 100
       });
     });
   };

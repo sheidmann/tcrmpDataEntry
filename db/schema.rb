@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_16_184251) do
+ActiveRecord::Schema.define(version: 2022_01_19_152022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,16 @@ ActiveRecord::Schema.define(version: 2022_01_16_184251) do
     t.index ["manager_id"], name: "index_coral_healths_on_manager_id"
     t.index ["site_id"], name: "index_coral_healths_on_site_id"
     t.index ["user_id"], name: "index_coral_healths_on_user_id"
+  end
+
+  create_table "coral_interactions", force: :cascade do |t|
+    t.bigint "transect_coral_id"
+    t.bigint "coral_code_id"
+    t.integer "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coral_code_id"], name: "index_coral_interactions_on_coral_code_id"
+    t.index ["transect_coral_id"], name: "index_coral_interactions_on_transect_coral_id"
   end
 
   create_table "diademas", force: :cascade do |t|
@@ -250,6 +260,8 @@ ActiveRecord::Schema.define(version: 2022_01_16_184251) do
   add_foreign_key "coral_healths", "managers"
   add_foreign_key "coral_healths", "sites"
   add_foreign_key "coral_healths", "users"
+  add_foreign_key "coral_interactions", "coral_codes"
+  add_foreign_key "coral_interactions", "transect_corals"
   add_foreign_key "diademas", "fish_transects"
   add_foreign_key "fish_rovers", "managers"
   add_foreign_key "fish_rovers", "sites"

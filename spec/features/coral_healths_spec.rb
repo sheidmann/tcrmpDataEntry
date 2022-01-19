@@ -9,6 +9,7 @@ describe "User viewing coral health index", :js => true, type: :feature do
     @blmanager = create(:boatlog_manager, user_id: @manager.id) # create a manager
     @site = create(:site, site_name: "My Site")
     @coral = create(:coral)
+    @int = create(:interaction)
     visit('/login')
     sign_in(@manager)
   end
@@ -32,10 +33,13 @@ describe "User viewing coral health index", :js => true, type: :feature do
     fill_in "Replicate", with: @chealth.rep
     
     @tranc = build(:transect_coral, coral_code_id: @coral.id)
+    @corint = build(:coral_interaction)
     select @tranc.coral_code.combo_name
     fill_in "lengthField", with: @tranc.length_cm
     fill_in "widthField", with: @tranc.width_cm
     fill_in "heightField", with: @tranc.height_cm
+    select @int.combo_name
+    fill_in "coral_health_transect_corals_attributes_0_coral_interactions_attributes_0_value", with: @corint.value
 
     click_button("Save Coral Health")
     expect(page).to have_content "Coral health successfully created"

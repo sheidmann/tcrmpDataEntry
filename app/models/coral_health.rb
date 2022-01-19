@@ -15,6 +15,9 @@ class CoralHealth < ApplicationRecord
   has_many :coral_codes, through: :transect_corals
   accepts_nested_attributes_for :coral_codes
 
+  has_many :coral_interactions, through: :transect_corals
+  accepts_nested_attributes_for :coral_interactions
+
   def countcorals
     self.transect_corals.count
   end

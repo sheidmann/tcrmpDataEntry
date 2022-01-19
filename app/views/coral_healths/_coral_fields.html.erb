@@ -1,5 +1,5 @@
 <div class='nested-fields'>
-	<div class="row">
+	<div class="row" id='coralRow'>
 		<div class="col-md-3 field">
 			<%= f.collection_select :coral_code_id, CoralCode.where(group: "Identification").order(code_name: :asc).all, :id, :combo_name, {:include_blank => ""}, {:class=>"speciesSelect" } %> 
 		</div>
@@ -14,4 +14,13 @@
 		</div>
 		<%= link_to_remove_association "Remove Coral", f, partial: 'coral_fields', tabindex: "-1" %>
 	</div>
+	<br>
+	<div id='interactions' style="padding-left:250px">
+    <%= f.fields_for :coral_interactions do |builder| %>
+      <%= render 'interaction_fields', f: builder %>
+    <% end %>
+    <div class="links">
+	     <%= link_to_add_association "Add Interaction", f, :coral_interactions, partial: 'interaction_fields', class: "addInteraction" %>
+    </div>
+  </div>
 </div>

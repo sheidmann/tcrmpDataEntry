@@ -164,4 +164,9 @@ FactoryBot.define do
     height_cm { 2 }
   end
 
+  factory :coral_interaction do
+    association :transect_coral, factory: :transect_coral
+    association :coral_code, factory: :interaction
+    value { 5 }
+  end
 end

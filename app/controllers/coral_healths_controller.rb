@@ -3,7 +3,8 @@ class CoralHealthsController < ApplicationController
 
   def new
     @chealth = CoralHealth.new
-    @chealth.transect_corals.build
+    @tranc = @chealth.transect_corals.build
+    @cint = @tranc.coral_interactions.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -88,6 +89,7 @@ class CoralHealthsController < ApplicationController
 
   def coral_health_params
     params.require(:coral_health).permit(:manager_id, :site_id, :user_id, :date_completed, :rep, :notes, 
-      transect_corals_attributes: [:id, :coral_code_id, :length_cm, :width_cm, :height_cm, :_destroy])
+      transect_corals_attributes: [:id, :coral_code_id, :length_cm, :width_cm, :height_cm, :_destroy, 
+        coral_interactions_attributes: [:id, :coral_code_id, :value, :_destroy]])
   end
 end

@@ -10,6 +10,8 @@ class User < ApplicationRecord
 	has_many :boatlog_surveys
 	has_many :fish_transects
 	has_many :fish_rovers
+  has_many :coral_healths
+  has_many :algae_heights
 
 	# Automatically make username and password from name
 	before_create :check_params

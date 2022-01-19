@@ -1,0 +1,11 @@
+<div class='nested-fields'>
+	<div class="row">
+		<div class="col-md-3 field">
+			<%= f.collection_select :coral_code_id, CoralCode.where.not(group: "Identification").order(code_name: :asc).all, :id, :combo_name, {:include_blank => ""}, {:class=>"speciesSelect" } %> 
+		</div>
+		<div class="col-md-1 field" style="padding-left:50px; padding-right:50px">
+			<%= f.text_field :value, { :size => '3' } %>
+		</div>
+		<%= link_to_remove_association "Remove Interaction", f, partial: 'interaction_fields', tabindex: "-1" %>
+	</div>
+</div>
