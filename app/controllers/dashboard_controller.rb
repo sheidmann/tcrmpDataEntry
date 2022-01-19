@@ -23,7 +23,7 @@ class DashboardController < ApplicationController
       @data_by_divers[diver]["boatfish"] += diver.boatlog_surveys.where(survey_type_id: SurveyType.where(category: "fish").ids).count
 			@data_by_divers[diver]["ftrans"] += diver.fish_transects.count
 			@data_by_divers[diver]["frove"] += diver.fish_rovers.count
-			#@data_by_divers[diver]["chealth"] += diver.coralhealths.count
+			@data_by_divers[diver]["chealth"] += diver.coral_healths.count
 			@data_by_divers[diver]["aheight"] += diver.algae_heights.count
 		end
 	  @data_by_divers = @data_by_divers.sort_by { |diver, data| diver.name }
