@@ -38,6 +38,8 @@
           	<th>Length (cm)</th>
           	<th>Width (cm)</th>
             <th>Height (cm)</th>
+            <th>Old Mortality</th>
+            <th>Recent Mortality</th>
             <th>Interactions</th>
           </tr>
         </thead>
@@ -48,6 +50,8 @@
             	<td><%= c.length_cm %></td>
             	<td><%= c.width_cm %></td>
               <td><%= c.height_cm %></td>
+              <td><%= c.old_mortality%></td>
+              <td><%= c.new_mortality%></td>
               <td><%= c.count_interactions %></td>
             </tr>   
           <% end %>

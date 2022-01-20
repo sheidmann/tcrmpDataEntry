@@ -38,6 +38,9 @@ describe "User viewing coral health index", :js => true, type: :feature do
     fill_in "lengthField", with: @tranc.length_cm
     fill_in "widthField", with: @tranc.width_cm
     fill_in "heightField", with: @tranc.height_cm
+    fill_in "oldMField", with: @tranc.old_mortality
+    fill_in "newMField", with: @tranc.new_mortality
+
     select @int.combo_name
     fill_in "coral_health_transect_corals_attributes_0_coral_interactions_attributes_0_value", with: @corint.value
 

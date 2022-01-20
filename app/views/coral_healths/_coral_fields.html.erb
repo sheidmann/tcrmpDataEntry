@@ -12,6 +12,15 @@
 		<div class="col-md-1 field">
 			<%= f.text_field :height_cm, { :size => '3', :class=>"dimField", :id=>"heightField" } %>
 		</div>
+		<div class="col-md-1 field">
+			<%= f.text_field :old_mortality, { :size => '3', :class=>"dimField", :id=>"oldMField" } %>
+		</div>
+		<div class="col-md-1 field">
+			<%= f.text_field :new_mortality, { :size => '3', :class=>"dimField", :id=>"newMField" } %>
+		</div>
+		<div class="col-md-2 field">
+			<%= f.text_field :notes, { :size => '20', :class=>"dimField", :id=>"notesfield" } %>
+		</div>
 		<%= link_to_remove_association "Remove Coral", f, partial: 'coral_fields', tabindex: "-1" %>
 	</div>
 	<br>

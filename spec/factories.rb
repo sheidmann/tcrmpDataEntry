@@ -162,6 +162,8 @@ FactoryBot.define do
     length_cm { 7 }
     width_cm { 5 }
     height_cm { 2 }
+    old_mortality { 20 }
+    new_mortality { 5 }
   end
 
   factory :coral_interaction do

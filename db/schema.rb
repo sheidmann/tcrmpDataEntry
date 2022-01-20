@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_19_152022) do
+ActiveRecord::Schema.define(version: 2022_01_20_135752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -206,6 +206,9 @@ ActiveRecord::Schema.define(version: 2022_01_19_152022) do
     t.integer "height_cm"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "old_mortality"
+    t.integer "new_mortality"
+    t.text "notes"
     t.index ["coral_code_id"], name: "index_transect_corals_on_coral_code_id"
     t.index ["coral_health_id"], name: "index_transect_corals_on_coral_health_id"
   end
