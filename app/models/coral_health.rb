@@ -1,3 +1,5 @@
+require 'csv'
+
 class CoralHealth < ApplicationRecord
   validates_presence_of :site, :manager, :user, :date_completed, :rep
 
@@ -20,5 +22,31 @@ class CoralHealth < ApplicationRecord
 
   def countcorals
     self.transect_corals.count
+  end
+
+  def self.as_csv
+    columns = %w(ID site_name date_completed observer rep transect_coral_id coral_name length_cm width_cm height_cm interaction_name interaction_value)
+    CSV.generate(headers: true) do |csv|
+      csv << columns.map(&:humanize)
+      all.each do |coral_health|
+        site = coral_health.site
+        user = coral_health.user
+        coral_health.transect_corals.each do |transect_coral|
+          coral = transect_coral.coral_code
+          # Create the row through coral dimensions
+          row_coral = [coral_health.id, site.site_name, coral_health.date_completed, user.name, coral_health.rep, transect_coral.id, coral.code_name, transect_coral.length_cm, transect_coral.width_cm, transect_coral.height_cm]
+          # Leave interaction columns empty if none
+          if transect_coral.coral_interactions.count == 0
+            csv << row_coral
+          else
+            # Otherwise add a full row for each interaction
+            transect_coral.coral_interactions.each do |coral_interaction|
+              interaction = coral_interaction.coral_code
+              csv << row_coral + [interaction.code_name] + [coral_interaction.value]
+            end
+          end
+        end
+      end
+    end
   end
 end
