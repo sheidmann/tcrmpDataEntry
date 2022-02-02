@@ -7,6 +7,6 @@ class CoralCode < ApplicationRecord
   has_many :transect_corals
 
   def combo_name
-    "#{code_name} __ #{full_name}"
+    "#{code_name} __ #{full_name} __ #{category}"
   end
 end

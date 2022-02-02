@@ -10,7 +10,7 @@ RSpec.describe CoralCode, type: :model do
     it "has a searchable name" do
       @coral = create(:coral)
       @name = @coral.combo_name
-      expect(@name).to eq("CC __ Coolus coralus")
+      expect(@name).to eq("CC __ Coolus coralus __ Coral")
       puts 'new coral has a searchable name'
     end
     it "is not valid without a full name" do
@@ -33,7 +33,7 @@ RSpec.describe CoralCode, type: :model do
     it "has a searchable name" do
       @int = create(:interaction)
       @name = @int.combo_name
-      expect(@name).to eq("RS __ rude sponge")
+      expect(@name).to eq("RS __ rude sponge __ Sponge")
       puts 'new interaction has a searchable name'
     end
     it "is not valid without a full name" do
