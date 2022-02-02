@@ -132,7 +132,6 @@ $(document).ready(function() {
       $(this).rules('add', {
         required: true,
         number: true,
-        isInteger: true,
         min: 0
       });
     });
@@ -140,7 +139,6 @@ $(document).ready(function() {
       $(this).rules('add', {
         required: true,
         number: true,
-        isInteger: true,
         min: 0
       });
     });
@@ -148,7 +146,6 @@ $(document).ready(function() {
       $(this).rules('add', {
         required: true,
         number: true,
-        isInteger: true,
         min: 0
       });
     });
