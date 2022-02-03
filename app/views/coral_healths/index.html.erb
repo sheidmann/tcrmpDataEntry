@@ -2,6 +2,7 @@
   <div class="container">
     <%= button_to "New Coral Health Transect", '/coral_healths/new', method: :get %>
     <%= button_to "Export CSV", coral_healths_path(:format => :csv), method: :get %>
+    <%= button_to "View Coral/Interaction Codes", '/coral_codes', method: :get %>
     <h1>Coral Health</h1>
     <table class="display table table-striped table-condensed table-sortable">
       <thead>

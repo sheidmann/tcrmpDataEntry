@@ -1,0 +1,27 @@
+<div class="main">
+  <div class="container">
+    <h1>Coral/Interaction Codes</h1>
+    <table class="display table table-striped table-condensed table-sortable">
+      <thead>
+        <% #print table header %>
+        <tr>
+          <th>Code</th>
+          <th>Full Name</th>
+          <th>Group</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% #print table fields %>
+        <% @ccodes.each do |cc| %>
+          <tr>
+            <td><%= cc.code_name %></td>
+            <td><%= cc.full_name %></td>
+            <td><%= cc.group %></td>
+            <td><%= cc.category %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

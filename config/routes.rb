@@ -44,6 +44,9 @@ Rails.application.routes.draw do
   post '/fish_transects/:id' => 'fish_transects#show'
   get '/diademas' => 'diademas#index'
 
+  # IDs
+  get '/coral_codes' => 'coral_codes#index'
+
   # Resources
   resources :users
   resources :managers
