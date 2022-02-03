@@ -31,7 +31,7 @@ $ rspec
 
 * A user with manager privileges can view field progress by site.
 
-* Any user can enter fish transect, rover, and algae height data, and view and edit previously entered data.
+* Any user can enter fish transect, rover, coral health, and algae height data, and view and edit previously entered data.
 
 * Fish data is checked against theoretical abundances, minimum sizes, and maximum sizes as it is entered.
 
@@ -41,7 +41,6 @@ $ rspec
 
 ## In-progress features
 
-* Any user can enter coral health data, and view and edit previously entered data.
 
 ## Upcoming features
 
