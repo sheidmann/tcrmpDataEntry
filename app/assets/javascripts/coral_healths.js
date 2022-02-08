@@ -36,6 +36,13 @@ $(document).ready(function() {
       $(".new_coral_health, .edit_coral_health").data("validator").settings.ignore="#coral_health_date_completed, :hidden";
   });
 
+  // Fix calendar arrows disappearing
+  $('.prev i').removeClass();
+  $('.prev i').addClass("fa fa-chevron-left");
+
+  $('.next i').removeClass();
+  $('.next i').addClass("fa fa-chevron-right");
+
 	// Create validation rules
 	$(".new_coral_health, .edit_coral_health").validate( {
 		ignore: [], // enable hidden field validation for select2

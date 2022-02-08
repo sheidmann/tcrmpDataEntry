@@ -71,6 +71,13 @@ $(document).ready(function() {
       $(".new_boatlog, .edit_boatlog").data("validator").settings.ignore="#boatlog_date_completed, :hidden";
   });
 
+  // Fix calendar arrows disappearing
+  $('.prev i').removeClass();
+  $('.prev i').addClass("fa fa-chevron-left");
+
+  $('.next i').removeClass();
+  $('.next i').addClass("fa fa-chevron-right");
+
   // Survey must be unique (site, survey_type, replicate)
   surveyInformation = {}
   if ( typeof survey_info !== "undefined" ) {

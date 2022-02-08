@@ -29,6 +29,13 @@ $(document).ready(function() {
       $(".new_algae_height, .edit_algae_height").data("validator").settings.ignore="#algae_height_date_completed, :hidden";
   });
 
+  // Fix calendar arrows disappearing
+  $('.prev i').removeClass();
+  $('.prev i').addClass("fa fa-chevron-left");
+
+  $('.next i').removeClass();
+  $('.next i').addClass("fa fa-chevron-right");
+
 	// Create validation rules
 	$(".new_algae_height, .edit_algae_height").validate( {
 		ignore: [], // enable hidden field validation for select2

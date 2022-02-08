@@ -29,6 +29,13 @@ $(document).ready(function() {
       $(".new_fish_rover, .edit_fish_rover").data("validator").settings.ignore="#fish_rover_date_completed, :hidden";
   });
 
+  // Fix calendar arrows disappearing
+  $('.prev i').removeClass();
+  $('.prev i').addClass("fa fa-chevron-left");
+
+  $('.next i').removeClass();
+  $('.next i').addClass("fa fa-chevron-right");
+
 	// Create alert if time is too early or late
 	function alert24HourClock() {
     $("#fish_rover_begin_time").on("focusout", function(){
