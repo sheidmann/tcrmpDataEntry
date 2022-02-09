@@ -30,7 +30,7 @@ describe "User viewing coral health index", :js => true, type: :feature do
     select @chealth.site.site_name, :from => "Site Name"
     select @chealth.user.name, :from => "Observer"
     fill_in "Date Completed", with: @chealth.date_completed.strftime("%Y-%m-%d")
-    fill_in "Replicate", with: @chealth.rep
+    fill_in "Transect #", with: @chealth.rep
     
     @tranc = build(:transect_coral, coral_code_id: @coral.id)
     @corint = build(:coral_interaction)
