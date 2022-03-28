@@ -1,6 +1,7 @@
 <div class="container">
 <div class='formContainer'>
   <%= button_to "Back to Fish Transects", '/fish_transects', method: :get%>
+  <%= button_to "New Fish Transect", '/fish_transects/new', method: :get %>
   <div class="showActions" style="margin-top: 20px">
     <div class="btn-group-vertical">
       <%= button_to('Edit Fish Transect', edit_fish_transect_path(@ftran), :method => "get") %>

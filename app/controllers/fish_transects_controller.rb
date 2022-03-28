@@ -49,6 +49,8 @@ class FishTransectsController < ApplicationController
 
 	# View a fish transect
   def show
+    @new_ftran = FishTransect.new # use in the view to render a form
+    
     @ftran = FishTransect.find(params[:id])
     @tranfs = @ftran.transect_fishes.all
     @diademas = @ftran.diademas.all

@@ -46,6 +46,8 @@ class CoralHealthsController < ApplicationController
   end
 
   def show
+    @new_chealth = CoralHealth.new # use in the view to render a form
+    
     @chealth = CoralHealth.find(params[:id])
     @trancs = @chealth.transect_corals.all
 

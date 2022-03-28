@@ -45,6 +45,8 @@ class AlgaeHeightsController < ApplicationController
   end
   
   def show
+    @new_aht = AlgaeHeight.new # use in the view to render a form
+    
     @aht = AlgaeHeight.find(params[:id])
     @tranas = @aht.transect_algaes.all
 

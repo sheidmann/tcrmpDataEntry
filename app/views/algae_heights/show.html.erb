@@ -1,6 +1,7 @@
 <div class="container">
 	<div class='formContainer'>
 		<%= button_to "Back to Algae Heights", '/algae_heights', method: :get%>
+    <%= button_to "New Algae Heights Transect", '/algae_heights/new', method: :get %>
 		<div class="showActions" style="margin-top: 20px">
     <div class="btn-group-vertical">
       <%= button_to('Edit Algae Heights', edit_algae_height_path(@aht), :method => "get") %>

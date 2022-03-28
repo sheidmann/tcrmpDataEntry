@@ -1,6 +1,7 @@
 <div class="container">
 	<div class='formContainer'>
 		<%= button_to "Back to Coral Healths", '/coral_healths', method: :get%>
+    <%= button_to "New Coral Health Transect", '/coral_healths/new', method: :get %>
 		<div class="showActions" style="margin-top: 20px">
     <div class="btn-group-vertical">
       <%= button_to('Edit Coral Health', edit_coral_health_path(@chealth), :method => "get") %>

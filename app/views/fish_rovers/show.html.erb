@@ -1,6 +1,7 @@
 <div class="container">
 <div class='formContainer'>
   <%= button_to "Back to Fish Rovers", '/fish_rovers', method: :get%>
+  <%= button_to "New Fish Rover", '/fish_rovers/new', method: :get %>
   <div class="showActions" style="margin-top: 20px">
     <div class="btn-group-vertical">
       <%= button_to('Edit Fish Rover', edit_fish_rover_path(@frove), :method => "get") %>

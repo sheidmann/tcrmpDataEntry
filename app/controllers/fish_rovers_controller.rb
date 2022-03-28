@@ -48,6 +48,8 @@ class FishRoversController < ApplicationController
 
   # View a fish rover
   def show
+    @new_frove = FishRover.new # use in the view to render a form
+    
     @frove = FishRover.find(params[:id])
     @rovefs = @frove.rover_fishes.all
 
