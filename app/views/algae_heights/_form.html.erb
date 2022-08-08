@@ -13,7 +13,7 @@
 		  	</div>
 		  	<div class='control-group'>
 			    <%= f.label :user_id, 'Observer' %>
-			    <%= f.collection_select :user_id, User.order(name: :asc).all, :id, :name, {:include_blank => ""}, {:class=>"metaSelect" } %> 
+			    <%= f.collection_select :user_id, User.where(active: "true").order(name: :asc).all, :id, :name, {:include_blank => ""}, {:class=>"metaSelect" } %> 
 		  	</div>
 		  	<div class='control-group'>
 			    <%= f.label :date_completed, 'Date Completed' %>
