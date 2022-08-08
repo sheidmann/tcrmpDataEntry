@@ -32,10 +32,9 @@ class UsersController < ApplicationController
 		#@new_user = User.new # use in the view to render a form
 		@all_users = User.order(created_at: :asc).all # use in the view to render a list of all posts
 
-		@users = User.export_columns 
 		respond_to do |format|
 			format.html # index.html.erb
-			format.csv { send_data @users.as_csv filename: "Users_#{Date.today}.csv"}
+			format.csv { send_data @all_users.as_csv, filename: "Users_#{Date.today}.csv" }
 		end
 	end
 

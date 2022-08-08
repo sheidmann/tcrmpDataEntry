@@ -44,15 +44,11 @@ class User < ApplicationRecord
 		end
 	end
 
-	def self.export_columns
-		User.select("users.id, users.name, users.agency, users.active, users.role")
-	end
-
 	def self.as_csv
-		CSV.generate do |csv|
-			columns = %w(id name agency active role)
+		columns = %w(id name agency active role)
+    CSV.generate(headers: true) do |csv|
 			csv << columns.map(&:humanize)
-			export_columns.each do |user|
+			all.each do |user|
 				csv << user.attributes.values_at(*columns)
 			end
 		end
