@@ -2,7 +2,7 @@
 	<div class="row fishRow">
 		<li style="white-space:nowrap;">
 		<div class='col-md-3 field' style="margin-right:10px;position:sticky;left:0">
-	    <%= f.collection_select :fish_id, Fish.order(scientific_name: :asc).all, :id, :spp_code_common, {:include_blank => ""}, {:class=>"speciesSelect" } %> 
+	    <%= f.collection_select :fish_id, Fish.order(scientific_name: :asc).all, :id, :spp_code_common, {:include_blank => ""}, {:class=>"speciesSelect select2-container"} %> 
   	</div>
 		<%= f.text_field :x0to5, {:size=>'3', :class=>"sizeBinField", :id=>"size0to5"} %>
 		<%= f.text_field :x6to10, {:size=>'3', :class=>"sizeBinField", :id=>"size6to10"} %>
