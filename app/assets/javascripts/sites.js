@@ -41,4 +41,15 @@ $(document).ready(function() {
 	    aheightCells[i].classList.add('complete');
 	  }
 	}
+	// Ginsburg starts complete
+	var siteCells = document.querySelectorAll('td:nth-child(2)');
+	for(var i = 0 ; i < siteCells.length ; i++) {
+		// If the cell is Ginsburg, color it complete
+	  if(siteCells[i].textContent.trim() == 'Ginsburg Fringe') {
+	  	ftranCells[i].classList.add('complete');
+	  	froveCells[i].classList.add('complete');
+	  	chealthCells[i].classList.add('complete');
+	  	aheightCells[i].classList.add('complete');
+	  }
+	}
 });
