@@ -1,7 +1,7 @@
 <div class='nested-fields'>
 	<div class="row" id='coralRow'>
 		<div class="col-md-3 field">
-			<%= f.collection_select :coral_code_id, CoralCode.where(group: "Identification").order(code_name: :asc).all, :id, :combo_name, {:include_blank => ""}, {:class=>"speciesSelect" } %> 
+			<%= f.collection_select :coral_code_id, CoralCode.where(group: "Identification").order(code_name: :asc).all, :id, :combo_name, {:include_blank => ""}, {:class=>"speciesSelect select2-container" } %> 
 		</div>
 		<div class="col-md-1 field">
 			<%= f.text_field :length_cm, { :size => '3', :class=>"dimField", :id=>"lengthField" } %>
