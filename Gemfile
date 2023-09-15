@@ -72,7 +72,7 @@ group :development do
 end
 
 group :test do
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver'#, '-> 4.11'
   gem 'capybara-selenium'
   # Easy installation and use of chromedriver to run system tests with Chrome
   #gem 'chromedriver-helper'
