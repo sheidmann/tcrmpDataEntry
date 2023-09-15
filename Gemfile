@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.1.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails' #, '~> 7.0.3'
@@ -76,7 +76,7 @@ group :test do
   gem 'capybara-selenium'
   # Easy installation and use of chromedriver to run system tests with Chrome
   #gem 'chromedriver-helper'
-  gem 'webdrivers' #, '~> 4.4.1'
+  #gem 'webdrivers' #, '~> 4.4.1'
   gem 'database_cleaner-active_record'
 end
 

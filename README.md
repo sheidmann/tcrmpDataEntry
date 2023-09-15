@@ -8,9 +8,9 @@ This site does require a login and is only available to scientific divers collec
 
 ## Some specifications
 
-* Ruby version: 3.1.2
+* Ruby version: 3.1.4
 
-* Rails version: 7.0.3
+* Rails version: 7.0.8
 
 * Database: PostgreSQL
 
