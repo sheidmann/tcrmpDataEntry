@@ -2,7 +2,7 @@
 	<div class="row fishRow">
 		<li>
 		<div class='col-md-3 field'>
-	    <%= f.collection_select :fish_id, Fish.order(scientific_name: :asc).all, :id, :spp_code_common, {:include_blank => ""}, {:class=>"speciesSelect select2-container" } %> 
+	    <%= f.collection_select :fish_id, Fish.order(occurrence: :desc).all, :id, :spp_code_common, {:include_blank => ""}, {:class=>"speciesSelect select2-container" } %> 
 	  	</div>
 		<div class="col-md-1 field">
 			<%= f.text_field :abundance_index, { :size => '3', :class=>"abundField" } %>

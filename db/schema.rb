@@ -2,16 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_03_162034) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_09_28_190641) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,8 +21,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
     t.date "date_completed"
     t.integer "rep"
     t.text "notes"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["manager_id"], name: "index_algae_heights_on_manager_id"
     t.index ["site_id"], name: "index_algae_heights_on_site_id"
     t.index ["user_id"], name: "index_algae_heights_on_user_id"
@@ -32,8 +31,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
   create_table "algaes", force: :cascade do |t|
     t.string "code_name"
     t.string "full_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "boatlog_surveys", force: :cascade do |t|
@@ -41,8 +40,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
     t.bigint "user_id"
     t.bigint "survey_type_id"
     t.integer "rep"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["boatlog_id"], name: "index_boatlog_surveys_on_boatlog_id"
     t.index ["survey_type_id"], name: "index_boatlog_surveys_on_survey_type_id"
     t.index ["user_id"], name: "index_boatlog_surveys_on_user_id"
@@ -51,8 +50,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
   create_table "boatlogs", force: :cascade do |t|
     t.date "date_completed"
     t.time "begin_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.bigint "manager_id"
     t.bigint "site_id"
     t.text "notes"
@@ -65,8 +64,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
     t.string "group"
     t.string "category"
     t.string "full_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "coral_healths", force: :cascade do |t|
@@ -76,8 +75,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
     t.date "date_completed"
     t.integer "rep"
     t.text "notes"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["manager_id"], name: "index_coral_healths_on_manager_id"
     t.index ["site_id"], name: "index_coral_healths_on_site_id"
     t.index ["user_id"], name: "index_coral_healths_on_user_id"
@@ -87,8 +86,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
     t.bigint "transect_coral_id"
     t.bigint "coral_code_id"
     t.integer "value"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["coral_code_id"], name: "index_coral_interactions_on_coral_code_id"
     t.index ["transect_coral_id"], name: "index_coral_interactions_on_transect_coral_id"
   end
@@ -96,8 +95,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
   create_table "diademas", force: :cascade do |t|
     t.bigint "fish_transect_id"
     t.integer "test_size_cm"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["fish_transect_id"], name: "index_diademas_on_fish_transect_id"
   end
 
@@ -111,8 +110,9 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
     t.integer "min_size"
     t.integer "max_size"
     t.integer "max_num"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "occurrence"
   end
 
   create_table "fish_rovers", force: :cascade do |t|
@@ -124,8 +124,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
     t.string "oc_cc"
     t.integer "rep"
     t.text "notes"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["manager_id"], name: "index_fish_rovers_on_manager_id"
     t.index ["site_id"], name: "index_fish_rovers_on_site_id"
     t.index ["user_id"], name: "index_fish_rovers_on_user_id"
@@ -140,8 +140,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
     t.integer "rep"
     t.integer "completed_m"
     t.text "notes"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "oc_cc"
     t.index ["manager_id"], name: "index_fish_transects_on_manager_id"
     t.index ["site_id"], name: "index_fish_transects_on_site_id"
@@ -150,8 +150,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
 
   create_table "managers", force: :cascade do |t|
     t.string "project"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_managers_on_user_id"
   end
@@ -160,8 +160,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
     t.bigint "fish_rover_id"
     t.bigint "fish_id"
     t.integer "abundance_index"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["fish_id"], name: "index_rover_fishes_on_fish_id"
     t.index ["fish_rover_id"], name: "index_rover_fishes_on_fish_rover_id"
   end
@@ -176,24 +176,24 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
     t.string "land"
     t.string "reef_complex"
     t.integer "depth_m"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "survey_types", force: :cascade do |t|
     t.string "type_name"
     t.string "category"
     t.string "units"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "transect_algaes", force: :cascade do |t|
     t.bigint "algae_height_id"
     t.bigint "algae_id"
     t.decimal "height_cm"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["algae_height_id"], name: "index_transect_algaes_on_algae_height_id"
     t.index ["algae_id"], name: "index_transect_algaes_on_algae_id"
   end
@@ -204,8 +204,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
     t.integer "length_cm"
     t.integer "width_cm"
     t.integer "height_cm"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "old_mortality"
     t.integer "new_mortality"
     t.text "notes"
@@ -223,8 +223,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
     t.integer "x21to30"
     t.integer "x31to40"
     t.integer "x41to50"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "x51to60"
     t.integer "x61to70"
     t.integer "x71to80"
@@ -249,8 +249,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_162034) do
     t.string "active"
     t.string "role"
     t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   add_foreign_key "algae_heights", "managers"

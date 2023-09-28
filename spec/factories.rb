@@ -59,6 +59,7 @@ FactoryBot.define do
     min_size { 10 }
     max_size { 50 }
     max_num { 1 }
+    occurrence { 20 }
   end
 
   factory :fish_transect do
