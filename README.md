@@ -16,7 +16,7 @@ This site does require a login and is only available to scientific divers collec
 
 * How to run the test suite:
 ```
-$ rspec
+$ bundle exec rspec
 ```
 
 ## Current features
