@@ -3,13 +3,13 @@
     <% if current_user.manager? %>
         <p><%= "You are a manager for project: #{current_user.project}"  %> </p>
     <% end %>
-    <p>Please do not enter any benthic data (algae heights or coral health) at this time. Fish only for now.</p>
+    <p>Please do not enter any coral health at this time. Fish and algae only for now.</p>
     <div class="col text-center">
       <div class="btn-group-vertical">
         <a> <%= button_to "Fish Transect", '/fish_transects', method: :get, :class => "btn btn-primary" %></a>
         <a> <%= button_to "Fish Rover", '/fish_rovers', method: :get, :class => "btn btn-primary" %></a>
-        <!--<a> <%= button_to "Coral Health", '/coral_healths', method: :get, :class => "btn btn-primary" %></a>
-        <a> <%= button_to "Algae Heights", '/algae_heights', method: :get, :class => "btn btn-primary" %></a>-->
+        <!--<a> <%= button_to "Coral Health", '/coral_healths', method: :get, :class => "btn btn-primary" %></a>-->
+        <a> <%= button_to "Algae Heights", '/algae_heights', method: :get, :class => "btn btn-primary" %></a>
       </div>
     </div>
     <div class="col text-center" style="margin-top: 20px">
