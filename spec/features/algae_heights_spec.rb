@@ -29,11 +29,11 @@ describe "User viewing algae heights index", :js => true, type: :feature do
     select @aht.site.site_name, :from => "Site Name"
     select @aht.user.name, :from => "Observer"
     fill_in "Date Completed", with: @aht.date_completed.strftime("%Y-%m-%d")
-    fill_in "Replicate", with: @aht.rep
+    fill_in "Transect", with: @aht.rep
     
     @trana = build(:transect_algae, algae_id: @algae.id)
     select @trana.algae.combo_name
-    fill_in "heightField", with: @trana.height_cm
+    fill_in("algae_height_transect_algaes_attributes_0_height_cm", with: @trana.height_cm)
 
     click_button("Save Algae Heights")
     expect(page).to have_content "Algae heights successfully created"
