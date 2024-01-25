@@ -35,17 +35,24 @@
 
     <div>
       <h3>Algae</h3>
-      <p>Enter height in centimeters for each algae point.<br>Use 0 for encrusting algae like Ramicrusta.</p>
+      <div class="algaeLabels">
+      	<ul class="list-inline">
+      		<li class="col-md-3"> Algae Type</li><li class="col-md-1">Height (cm)</li><li class="col-8"> </li>
+      	</ul>
+      </div>
+      <br>
   		<div id='algaes'>
-		    <%= f.fields_for :transect_algaes do |builder| %>
-		      <%= render 'algae_fields', f: builder %>
-		    <% end %>
-	      <div class="links">
-			     <%= link_to_add_association "Add Algae", f, :transect_algaes, partial: 'algae_fields', class: "addAlgae" %>
-	      </div>
+  			<ol class="algaeList">
+			    <%= f.fields_for :transect_algaes do |builder| %>
+			      <%= render 'algae_fields', f: builder %>
+			    <% end %>
+		      <div class="links">
+				     <%= link_to_add_association "Add Algae", f, :transect_algaes, partial: 'algae_fields', class: "addAlgae" %>
+		      </div>
+		    </ol>
 	     </div>
 	   </div>
 
-	  <%= f.submit "Save Algae Heights", class: "btn-submit", style: "margin-top:50px;margin-bottom:100px" %>
+	  <%= f.submit "Save Algae Heights", class: "btn-submit", tabindex: "-1", style: "margin-top:50px;margin-bottom:100px" %>
   <% end %>
 </div>

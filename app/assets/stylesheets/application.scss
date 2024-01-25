@@ -97,14 +97,14 @@ input.error {
   background-color: #ababab;
 }
 
-/* Fish Transects */
-.fishLabels, .coralLabels {
+/* Survey Formatting */
+.fishLabels, .coralLabels, .algaeLabels {
   font-weight: bold;
 }
-.fishList {
+.fishList, .algaeList {
   padding: 0px 0px 0px 0px;
 }
-.fishLabels #fishes {
+.fishLabels #fishes, .algaeLabels #algaes {
   display: block;
 }
 .speciesHead {

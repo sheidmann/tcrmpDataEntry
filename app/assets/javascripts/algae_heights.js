@@ -99,7 +99,6 @@ $(document).ready(function() {
       e.preventDefault();
       $(".addAlgae").trigger("click");
     };
-    $('.speciesSelect').last().focus();
   });
 
   // Implement dropdown with textbox for species
