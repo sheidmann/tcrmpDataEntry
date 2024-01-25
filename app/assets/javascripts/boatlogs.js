@@ -118,7 +118,8 @@ $(document).ready(function() {
       var filtered = Object.values(surveyInformation).filter(function(e) {
         return e.site === parseInt(site) && e.type === parseInt(this_type) && e.replicate === parseInt(value);
       });
-      if ( filtered.length > 0) {
+      // if there's a duplicate and it is a fish transect or rover, fail validation
+      if ( filtered.length > 0  && (parseInt(this_type) == 1 || parseInt(this_type) ==2)) {
         return false; // FAIL validation if site/survey_type/replicate exists in database
       };
       
