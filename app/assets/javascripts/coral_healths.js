@@ -136,6 +136,22 @@ $(document).ready(function() {
     },
     "Must be an integer"
   );
+  // Width cannot be larger than length
+  $.validator.addMethod(
+    "lessThanLength", function(value, element) {
+      var item = $(element).closest('li');
+      var length = 0;
+      item.find('.dimField').each(function(){
+        var thisdim = $(this).attr('id');
+        var dimval = parseInt($(this).val());
+        if(thisdim == "lengthField") {length += dimval};
+      });
+      // If length is greater than width, pass validation (return true)
+      return length > value;
+    },
+    "Width cannot be greater than length"
+  );
+  
 
   
   // Add properties to nested fields when added
@@ -160,7 +176,8 @@ $(document).ready(function() {
       $(this).rules('add', {
         required: true,
         number: true,
-        min: 0
+        min: 0,
+        lessThanLength: true
       });
     });
     $('[name*="height_cm"]').each(function(){
@@ -228,4 +245,44 @@ $(document).ready(function() {
     // Trigger validation
     validate_fields();
   });
+
+  function alertHealth100() {
+    // Sum of bleaching and disease fields cannot be >100
+    // This does not include mortality for now.
+    $('.healthField').on('change', function(){
+      var item = $(this).closest('li');
+      var percents = [];
+      var sum_percent = 0
+      item.find('.healthField').each(function(){
+        var percent = parseInt($(this).val());
+        if(!isNaN(percent)){
+          percents.push(percent);
+        }
+        sum_percent = percents.reduce(function(a, b) { return a + b; }, 0)
+      });
+      if ( sum_percent > 100) {
+        alert("Health percents cannot sum to >100");
+      }; 
+    });
+    /*// Width cannot be larger than length
+    // We actually want this to be a hard rather than soft alert
+    $('.dimField').on('change', function(){
+      var item = $(this).closest('li');
+      var length = 0;
+      var width = 0;
+      item.find('.dimField').each(function(){
+        var thisdim = $(this).attr('id');
+        //console.log(thisdim);
+        var dimval = parseInt($(this).val());
+        //console.log(dimval);
+        if(thisdim == "lengthField") {length += dimval};
+        if(thisdim == "widthField") {width += dimval};
+      });
+      if ( length < width ) {
+        alert("Width cannot be greater than length");
+      }; 
+    });*/
+  };
+
+  alertHealth100();
 });

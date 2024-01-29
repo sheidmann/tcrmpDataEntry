@@ -1,22 +1,24 @@
 <div class='nested-fields'>
 	<div class="row" id='coralRow'>
+		<li style="white-space:nowrap;list-style-type:none;">
 		<div class="col-md-3 field">
 			<%= f.collection_select :coral_code_id, CoralCode.where(group: "Identification").order(code_name: :asc).all, :id, :combo_name, {:include_blank => ""}, {:class=>"speciesSelect select2-container" } %> 
 		</div>
 			<%= f.text_field :length_cm, { :size => '3', :class=>"dimField", :id=>"lengthField" } %>
 			<%= f.text_field :width_cm, { :size => '3', :class=>"dimField", :id=>"widthField" } %>
 			<%= f.text_field :height_cm, { :size => '3', :class=>"dimField", :id=>"heightField" } %>
-			<%= f.text_field :bl_sp, { :size => '3', :class=>"dimField" } %>
-			<%= f.text_field :bl_p, { :size => '3', :class=>"dimField" } %>
-			<%= f.text_field :bl_vp, { :size => '3', :class=>"dimField" } %>
-			<%= f.text_field :bl_bl, { :size => '3', :class=>"dimField" } %>
-			<%= f.text_field :old_mortality, { :size => '3', :class=>"dimField", :id=>"oldMField" } %>
-			<%= f.text_field :new_mortality, { :size => '3', :class=>"dimField", :id=>"newMField" } %>
-			<%= f.text_field :disease, { :size => '3', :class=>"dimField" } %>
+			<%= f.text_field :bl_sp, { :size => '3', :class=>"healthField" } %>
+			<%= f.text_field :bl_p, { :size => '3', :class=>"healthField" } %>
+			<%= f.text_field :bl_vp, { :size => '3', :class=>"healthField" } %>
+			<%= f.text_field :bl_bl, { :size => '3', :class=>"healthField" } %>
+			<%= f.text_field :old_mortality, { :size => '3', :class=>"mortField", :id=>"oldMField" } %>
+			<%= f.text_field :new_mortality, { :size => '3', :class=>"mortField", :id=>"newMField" } %>
+			<%= f.text_field :disease, { :size => '3', :class=>"healthField" } %>
 		<div class="col-md-2 field">
 			<%= f.text_field :notes, { :size => '20', :id=>"notesfield" } %>
 		</div>
 		<%= link_to_remove_association "Remove Coral", f, partial: 'coral_fields', tabindex: "-1" %>
+		</li>
 	</div>
 	<br>
 	<div id='interactions' style="padding-left:250px">
