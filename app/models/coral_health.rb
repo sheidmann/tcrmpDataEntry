@@ -25,7 +25,7 @@ class CoralHealth < ApplicationRecord
   end
 
   def self.as_csv
-    columns = %w(ID site_name date_completed observer rep transect_coral_id coral_code_name coral_full_name length_cm width_cm height_cm old_mortality recent_mortality interaction_name interaction_value)
+    columns = %w(ID site_name date_completed method observer rep transect_coral_id coral_code_name coral_full_name length_cm width_cm height_cm bl_sp bl_p bl_vp bl_bl old_mortality recent_mortality disease interaction_name interaction_value)
     CSV.generate(headers: true) do |csv|
       csv << columns.map(&:humanize)
       all.each do |coral_health|
@@ -34,7 +34,7 @@ class CoralHealth < ApplicationRecord
         coral_health.transect_corals.each do |transect_coral|
           coral = transect_coral.coral_code
           # Create the row through coral dimensions
-          row_coral = [coral_health.id, site.site_name, coral_health.date_completed, user.name, coral_health.rep, transect_coral.id, coral.code_name, coral.full_name, transect_coral.length_cm, transect_coral.width_cm, transect_coral.height_cm, transect_coral.old_mortality, transect_coral.new_mortality]
+          row_coral = [coral_health.id, site.site_name, coral_health.date_completed, coral_health.method, user.name, coral_health.rep, transect_coral.id, coral.code_name, coral.full_name, transect_coral.length_cm, transect_coral.width_cm, transect_coral.height_cm, transect_coral.bl_sp, transect_coral.bl_p, transect_coral.bl_vp, transect_coral.bl_bl, transect_coral.old_mortality, transect_coral.new_mortality, transect_coral.disease]
           # Leave interaction columns empty if none
           if transect_coral.coral_interactions.count == 0
             csv << row_coral

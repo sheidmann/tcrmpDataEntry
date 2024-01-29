@@ -72,7 +72,8 @@ $(document).ready(function() {
       "coral_health[rep]": { required: true,
         number: true,
         min: 1,
-        max: 6 }
+        max: 6 },
+      "coral_health[method]": { required: true }
   	},
 
   	// List the error messages
@@ -84,7 +85,8 @@ $(document).ready(function() {
       "coral_health[rep]": { required: "Required",
         number: "Must be a number",
         min: "Must be between 1 and 6",
-        max: "Must be between 1 and 6" }
+        max: "Must be between 1 and 6" },
+      "coral_health[method]": { required: "Required" },
     },
 
     // Set error positions
@@ -166,6 +168,41 @@ $(document).ready(function() {
         required: true,
         number: true,
         min: 0
+      });
+    });
+    $('[name*="bl_sp"]').each(function(){
+      $(this).rules('add', {
+        number: true,
+        min: 0,
+        max: 100
+      });
+    });
+    $('[name*="bl_p"]').each(function(){
+      $(this).rules('add', {
+        number: true,
+        min: 0,
+        max: 100
+      });
+    });
+    $('[name*="bl_vp"]').each(function(){
+      $(this).rules('add', {
+        number: true,
+        min: 0,
+        max: 100
+      });
+    });
+    $('[name*="bl_bl"]').each(function(){
+      $(this).rules('add', {
+        number: true,
+        min: 0,
+        max: 100
+      });
+    });
+    $('[name*="disease"]').each(function(){
+      $(this).rules('add', {
+        number: true,
+        min: 0,
+        max: 100
       });
     });
     $('[name*="coral_code_id"]').each(function(){

@@ -3,26 +3,18 @@
 		<div class="col-md-3 field">
 			<%= f.collection_select :coral_code_id, CoralCode.where(group: "Identification").order(code_name: :asc).all, :id, :combo_name, {:include_blank => ""}, {:class=>"speciesSelect select2-container" } %> 
 		</div>
-		<div class="col-md-1 field">
 			<%= f.text_field :length_cm, { :size => '3', :class=>"dimField", :id=>"lengthField" } %>
-		</div>
-		<div class="col-md-1 field">
 			<%= f.text_field :width_cm, { :size => '3', :class=>"dimField", :id=>"widthField" } %>
-		</div>
-		<div class="col-md-1 field">
 			<%= f.text_field :height_cm, { :size => '3', :class=>"dimField", :id=>"heightField" } %>
-		</div>
-		<div class="col-md-1 field">
+			<%= f.text_field :bl_sp, { :size => '3', :class=>"dimField" } %>
+			<%= f.text_field :bl_p, { :size => '3', :class=>"dimField" } %>
+			<%= f.text_field :bl_vp, { :size => '3', :class=>"dimField" } %>
+			<%= f.text_field :bl_bl, { :size => '3', :class=>"dimField" } %>
 			<%= f.text_field :old_mortality, { :size => '3', :class=>"dimField", :id=>"oldMField" } %>
-		</div>
-		<div class="col-md-1 field">
 			<%= f.text_field :new_mortality, { :size => '3', :class=>"dimField", :id=>"newMField" } %>
-		</div>
-		<div class="col-md-1 field">
-			<%= f.check_box :damage %>
-		</div>
+			<%= f.text_field :disease, { :size => '3', :class=>"dimField" } %>
 		<div class="col-md-2 field">
-			<%= f.text_field :notes, { :size => '20', :class=>"dimField", :id=>"notesfield" } %>
+			<%= f.text_field :notes, { :size => '20', :id=>"notesfield" } %>
 		</div>
 		<%= link_to_remove_association "Remove Coral", f, partial: 'coral_fields', tabindex: "-1" %>
 	</div>

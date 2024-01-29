@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_28_190641) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_29_141027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -77,6 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_190641) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "method"
     t.index ["manager_id"], name: "index_coral_healths_on_manager_id"
     t.index ["site_id"], name: "index_coral_healths_on_site_id"
     t.index ["user_id"], name: "index_coral_healths_on_user_id"
@@ -209,7 +210,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_190641) do
     t.integer "old_mortality"
     t.integer "new_mortality"
     t.text "notes"
-    t.boolean "damage", default: false, null: false
+    t.integer "bl_sp"
+    t.integer "bl_p"
+    t.integer "bl_vp"
+    t.integer "bl_bl"
+    t.integer "disease"
     t.index ["coral_code_id"], name: "index_transect_corals_on_coral_code_id"
     t.index ["coral_health_id"], name: "index_transect_corals_on_coral_health_id"
   end

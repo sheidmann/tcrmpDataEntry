@@ -1,6 +1,7 @@
 <div class="form-horizontal">
 	<%= form_for @chealth, :html => {:autocomplete => "off"} do |f|%>
 	<%= render 'shared/error_messages', :target => @chealth %>
+	<p>If entering a belt transect, please create a separate entry for the intercept corals. Put belt size in the notes box below (e.g., 50 cm)</p>
 		<div class="row">
 			<div class="col-md-4">
 				<div class='control-group'>
@@ -23,6 +24,10 @@
 					<%= f.label :rep, 'Transect #' %>
 					<%= f.text_field :rep, { :size => '3' } %>
 				</div>
+				<div class='control-group'>
+		      <%= f.label :method, 'Method' %>
+		      <%= f.select :method, ['intercept','belt'], {:include_blank => ""} %> 
+		    </div>
 		  </div>
 
 			<div class="col-md-3">
@@ -35,9 +40,9 @@
 
     <div>
       <h3>Coral</h3>
-      <p>If you don't have coral measurements or an estimate of interaction extent, put a 0 in the appropriate box.<br>For a presence/absence interaction (i.e. icing sponge), enter a 1.<br>Put bleaching type and cause in the coral notes box.</p>
+      <p>If you don't have coral measurements or an estimate of interaction extent, put a 0 in the appropriate box.<br>For a presence/absence interaction (i.e., icing sponge), enter a 1.<br>Use the notes box for bleaching type (e.g., granular, multifocal) and cause (e.g., Dict interaction), presence of damage, interaction cause (e.g., STPL), or other important notes.</p>
       <ul class="coralLabels list-inline" style="background: #DDD;white-space:nowrap;position:sticky;top:0;border-bottom: 3px solid black;">
-	      		<li class="speciesHead col-md-3 field"> Species</li><li class="dimHead col-md-1 field">Length (cm)</li><li class="dimHead col-md-1 field">Width (cm)</li><li class="dimHead col-md-1 field">Height (cm)</li><li class="dimHead col-md-1 field">Old Mort</li><li class="dimHead col-md-1 field">Recent Mort</li><li class="col-md-1 field">Damage</li><li class="dimHead col-md-2 field" style="padding-left:20px">Notes</li>
+	      		<li class="speciesHead col-md-3 field"> Species</li><li class="dimHead">Length<br>(cm)</li><li class="dimHead">Width<br>(cm)</li><li class="dimHead">Height<br>(cm)</li><li class="dimHead">SP</li><li class="dimHead">P</li><li class="dimHead">VP</li><li class="dimHead">BL</li><li class="dimHead">Old<br>Mort</li><li class="dimHead">Recent<br>Mort</li><li class="dimHead">Disease</li><li class="col-md-2 field">Notes</li>
 	    	</ul>
 	    	<br>
   		<div id='corals'>
