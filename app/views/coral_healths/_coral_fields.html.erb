@@ -13,7 +13,6 @@
 			<%= f.text_field :bl_bl, { :size => '3', :class=>"healthField" } %>
 			<%= f.text_field :old_mortality, { :size => '3', :class=>"mortField", :id=>"oldMField" } %>
 			<%= f.text_field :new_mortality, { :size => '3', :class=>"mortField", :id=>"newMField" } %>
-			<%= f.text_field :disease, { :size => '3', :class=>"healthField" } %>
 		<div class="col-md-2 field">
 			<%= f.text_field :notes, { :size => '20', :id=>"notesfield" } %>
 		</div>
@@ -22,7 +21,7 @@
 	</div>
 	<br>
 	<div id='interactions' style="padding-left:250px">
-		<p><b>Bleaching/Disease/Interaction</b></p>
+		<p><b>Interaction/Disease</b></p>
     <%= f.fields_for :coral_interactions do |builder| %>
       <%= render 'interaction_fields', f: builder %>
     <% end %>
