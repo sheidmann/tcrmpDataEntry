@@ -1,7 +1,7 @@
 <div class="form-horizontal">
 	<%= form_for @chealth, :html => {:autocomplete => "off"} do |f|%>
 	<%= render 'shared/error_messages', :target => @chealth %>
-	<p>If entering a belt transect, please create a separate entry for the intercept corals. Put belt size in the notes box below (e.g., 50 cm)</p>
+	<p><b>If entering a belt transect, please select "belt" as the method and put belt size in the notes box below (e.g., 50 cm). Enter ONLY the corals in the belt (skip the intercept corals).  Save the transect, then create a new transect, select "intercept" as the method, and enter ONLY the intercept corals from that same transect.</b></p>
 		<div class="row">
 			<div class="col-md-4">
 				<div class='control-group'>

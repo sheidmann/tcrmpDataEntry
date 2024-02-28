@@ -215,13 +215,13 @@ $(document).ready(function() {
         max: 100
       });
     });
-    $('[name*="disease"]').each(function(){
-      $(this).rules('add', {
-        number: true,
-        min: 0,
-        max: 100
-      });
-    });
+    // $('[name*="disease"]').each(function(){
+    //   $(this).rules('add', {
+    //     number: true,
+    //     min: 0,
+    //     max: 100
+    //   });
+    // });
     $('[name*="coral_code_id"]').each(function(){
       $(this).rules('add', {
         required: true
