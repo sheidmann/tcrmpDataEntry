@@ -146,8 +146,8 @@ $(document).ready(function() {
         var dimval = parseInt($(this).val());
         if(thisdim == "lengthField") {length += dimval};
       });
-      // If length is greater than width, pass validation (return true)
-      return length > value;
+      // If length is greater than or equal to width, pass validation (return true)
+      return length >= value;
     },
     "Width cannot be greater than length"
   );

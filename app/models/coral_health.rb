@@ -25,7 +25,7 @@ class CoralHealth < ApplicationRecord
   end
 
   def self.as_csv
-    columns = %w(ID site_name date_completed method observer rep transect_coral_id coral_code_name coral_full_name length_cm width_cm height_cm bl_sp bl_p bl_vp bl_bl old_mortality recent_mortality interaction_name interaction_value)
+    columns = %w(coral_health_id site_name date_completed method name rep transect_coral_id coral_code_name coral_full_name length_cm width_cm height_cm bl_sp bl_p bl_vp bl_bl old_mortality recent_mortality interaction_name interaction_value)
     CSV.generate(headers: true) do |csv|
       csv << columns.map(&:humanize)
       all.each do |coral_health|
