@@ -13,6 +13,7 @@
           <th>Date</th>
           <th>Transect #</th>
           <th>Corals</th>
+          <th>Date Entered</th>
         </tr>
       </thead>
       <tbody>
@@ -24,6 +25,7 @@
             <td><%= ch.date_completed %></td>
             <td><%= ch.rep %></td>
             <td><%= ch.countcorals %></td>
+            <td><%= ch.created_at %></td>
           </tr>
         <% end %>
       </tbody>
