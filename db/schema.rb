@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_29_141027) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_01_212809) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -202,9 +202,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_29_141027) do
   create_table "transect_corals", force: :cascade do |t|
     t.bigint "coral_health_id"
     t.bigint "coral_code_id"
-    t.integer "length_cm"
-    t.integer "width_cm"
-    t.integer "height_cm"
+    t.decimal "length_cm", precision: 4, scale: 1
+    t.decimal "width_cm", precision: 4, scale: 1
+    t.decimal "height_cm", precision: 4, scale: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "old_mortality"

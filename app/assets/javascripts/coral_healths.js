@@ -126,7 +126,7 @@ $(document).ready(function() {
     $(this).valid(); 
   });
 
-  // Numbers must be integers (no decimals)
+  // Some numbers must be integers (no decimals)
   $.validator.addMethod(
     "isInteger", function(value, element) {
       if(value.toString()==""){
