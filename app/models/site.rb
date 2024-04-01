@@ -25,4 +25,8 @@ class Site < ApplicationRecord
 		@site_logs = Boatlog.where(site_id: self.id).all
 		@site_logs.to_a.sum(&:countalgaeht)
 	end
+
+	def combo_name
+		"#{site_code} __ #{site_name} __ #{island}"
+	end
 end

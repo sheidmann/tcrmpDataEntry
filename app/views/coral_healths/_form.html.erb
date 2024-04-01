@@ -10,7 +10,7 @@
 		    </div>
 		    <div class='control-group'>
 			    <%= f.label :site_id, 'Site Name' %>
-			    <%= f.collection_select :site_id, Site.all, :id, :site_name, {:include_blank => ""}, {:class=>"metaSelect" } %> 
+			    <%= f.collection_select :site_id, Site.all, :id, :combo_name, {:include_blank => ""}, {:class=>"metaSelect" } %> 
 		  	</div>
 		  	<div class='control-group'>
 			    <%= f.label :user_id, 'Observer' %>
