@@ -143,7 +143,7 @@ $(document).ready(function() {
       var length = 0;
       item.find('.dimField').each(function(){
         var thisdim = $(this).attr('id');
-        var dimval = parseInt($(this).val());
+        var dimval = parseFloat($(this).val());
         if(thisdim == "lengthField") {length += dimval};
       });
       // If length is greater than or equal to width, pass validation (return true)
