@@ -140,6 +140,7 @@ FactoryBot.define do
     group { "Identification" }
     category { "Coral" }
     full_name { "Coolus coralus" }
+    long_code { "COOCO" }
   end
   
   factory :interaction, class: "CoralCode" do
@@ -147,6 +148,7 @@ FactoryBot.define do
     group { "Interaction" }
     category { "Sponge" }
     full_name { "rude sponge" }
+    long_code { "RUSPO" }
   end
 
   factory :coral_health do
