@@ -90,7 +90,7 @@ class AlgaeHeightsController < ApplicationController
   private
 
   def algae_height_params
-    params.require(:algae_height).permit(:manager_id, :site_id, :user_id, :date_completed, :rep, :notes, 
+    params.require(:algae_height).permit(:manager_id, :site_id, :user_id, :date_completed, :rep, :notes, :proofed, 
       transect_algaes_attributes: [:id, :algae_id, :height_cm, :_destroy])
   end
 end

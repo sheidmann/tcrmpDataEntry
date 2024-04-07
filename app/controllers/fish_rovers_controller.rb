@@ -96,7 +96,7 @@ class FishRoversController < ApplicationController
 
 	def fish_rover_params
 		params.require(:fish_rover).permit(:manager_id, :site_id, :user_id, 
-			:date_completed, :begin_time, :oc_cc, :rep, :notes,
+			:date_completed, :begin_time, :oc_cc, :rep, :notes, :proofed,
 			rover_fishes_attributes: [:id, :fish_id, :abundance_index, :_destroy])
 	end
 end

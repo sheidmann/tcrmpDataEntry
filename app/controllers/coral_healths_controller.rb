@@ -90,7 +90,7 @@ class CoralHealthsController < ApplicationController
   private
 
   def coral_health_params
-    params.require(:coral_health).permit(:manager_id, :site_id, :user_id, :date_completed, :method, :rep, :notes, 
+    params.require(:coral_health).permit(:manager_id, :site_id, :user_id, :date_completed, :method, :rep, :notes, :proofed,
       transect_corals_attributes: [:id, :coral_code_id, :length_cm, :width_cm, :height_cm, :bl_sp, :bl_p, :bl_vp, :bl_bl, :old_mortality, :new_mortality, :disease, :notes, :_destroy, 
         coral_interactions_attributes: [:id, :coral_code_id, :value, :_destroy]])
   end
