@@ -45,8 +45,12 @@
           	<th>Length (cm)</th>
           	<th>Width (cm)</th>
             <th>Height (cm)</th>
-            <th>Old Mortality</th>
-            <th>Recent Mortality</th>
+            <th>SP</th>
+            <th>P</th>
+            <th>VP</th>
+            <th>BL</th>
+            <th>Old Mort</th>
+            <th>Recent Mort</th>
             <th>Interactions</th>
           </tr>
         </thead>
@@ -57,6 +61,10 @@
             	<td><%= c.length_cm %></td>
             	<td><%= c.width_cm %></td>
               <td><%= c.height_cm %></td>
+              <td><%= c.bl_sp %></td>
+              <td><%= c.bl_p %></td>
+              <td><%= c.bl_vp %></td>
+              <td><%= c.bl_bl %></td>
               <td><%= c.old_mortality%></td>
               <td><%= c.new_mortality%></td>
               <td><%= c.count_interactions %></td>

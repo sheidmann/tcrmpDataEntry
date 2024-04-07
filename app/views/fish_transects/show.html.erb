@@ -64,6 +64,7 @@
           <% #print table header %>
           <tr>
             <th>Common Name</th>
+            <th>Scientific Name</th>
             <th>0-5cm</th>
             <th>6-10cm</th>
             <th>11-20cm</th>
@@ -87,6 +88,7 @@
           <% @tranfs.each do |f|  %>
             <tr>
               <td><%= f.fish.common_name %></td>
+              <td><%= f.fish.scientific_name %></td>
               <td><%= f.x0to5 %></td>
               <td><%= f.x6to10 %></td>
               <td><%= f.x11to20 %></td>
