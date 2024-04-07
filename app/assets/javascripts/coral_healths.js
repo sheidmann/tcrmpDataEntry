@@ -258,6 +258,8 @@ $(document).ready(function() {
   $(document).delegate(".add_fields", "click", function(){ 
     // Trigger validation
     validate_fields();
+    alertSpeciesSizes();
+    alertHealth100();
   });
 
   // Validate coral sizes using alerts

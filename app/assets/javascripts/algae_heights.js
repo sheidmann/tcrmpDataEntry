@@ -141,5 +141,17 @@ $(document).ready(function() {
   $(document).delegate(".add_fields", "click", function(){ 
     // Trigger validation
     validate_fields();
+    alertCm();
   });
+
+  // Many people are entering in mm rather than cm
+  // So implement alert for anything >10cm
+  function alertCm() {
+    $('.heightField').on('change', function(){
+      var num = parseFloat($(this).val());
+      if ( num >= 10 ) {alert("That's big. Are you sure you are entering in cm?")};
+    });
+  };
+
+  alertCm();
 });
