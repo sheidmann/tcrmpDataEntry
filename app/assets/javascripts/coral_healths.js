@@ -215,6 +215,20 @@ $(document).ready(function() {
         max: 100
       });
     });
+    $('[name*="old_mortality"]').each(function(){
+      $(this).rules('add', {
+        number: true,
+        min: 0,
+        max: 100
+      });
+    });
+    $('[name*="new_mortality"]').each(function(){
+      $(this).rules('add', {
+        number: true,
+        min: 0,
+        max: 100
+      });
+    });
     // $('[name*="disease"]').each(function(){
     //   $(this).rules('add', {
     //     number: true,
@@ -246,8 +260,33 @@ $(document).ready(function() {
     validate_fields();
   });
 
+  // Validate coral sizes using alerts
+  speciesInformation = {}
+  if ( typeof coral_info !== "undefined" ) {
+    $.each(coral_info, function(a){
+      speciesInformation[coral_info[a].id] = { "max_diam": coral_info[a].max_diam, "max_height": coral_info[a].max_height };
+    });
+  }
+
+  function alertSpeciesSizes() {
+    $('.dimField').on('change', function(){
+      var $species = $(this).parent().find('.speciesSelect').select2('val');
+      // Check maximum diameter and height
+      var dimtype = $(this).attr('id');
+      var size = parseFloat($(this).val());
+      var maxDiam = speciesInformation[$species].max_diam
+      var maxHeight = speciesInformation[$species].max_height
+      if(!isNaN(size)){
+        if ( dimtype == "lengthField" && size > maxDiam ) {alert("Over max size")};
+        if ( dimtype == "heightField" && size > maxHeight ) {alert("Over max size")};
+      }
+    });
+  };
+
+  alertSpeciesSizes();
+
+  // Sum of bleaching and disease fields cannot be >100
   function alertHealth100() {
-    // Sum of bleaching and disease fields cannot be >100
     // This does not include mortality for now.
     $('.healthField').on('change', function(){
       var item = $(this).closest('li');

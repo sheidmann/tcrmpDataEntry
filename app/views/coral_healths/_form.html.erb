@@ -58,3 +58,6 @@
 	  <%= f.submit "Save Coral Health", class: "btn-submit", style: "margin-top:50px;margin-bottom:100px" %>
   <% end %>
 </div>
+<script>
+  var coral_info = <%= raw CoralCode.all.to_json %>
+</script>
