@@ -278,9 +278,11 @@ $(document).ready(function() {
       var size = parseFloat($(this).val());
       var maxDiam = speciesInformation[$species].max_diam
       var maxHeight = speciesInformation[$species].max_height
-      if(!isNaN(size)){
-        if ( dimtype == "lengthField" && size > maxDiam ) {alert("Over max size")};
-        if ( dimtype == "heightField" && size > maxHeight ) {alert("Over max size")};
+      if(!isNaN(size) && maxDiam != null){
+        if ( dimtype == "lengthField" && size > maxDiam ) {alert("Over max length")};
+      }
+      if(!isNaN(size) && maxHeight != null){
+        if ( dimtype == "heightField" && size > maxHeight ) {alert("Over max height")};
       }
     });
   };
