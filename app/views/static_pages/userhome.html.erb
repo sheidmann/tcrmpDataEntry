@@ -3,6 +3,9 @@
     <% if current_user.manager? %>
         <p><%= "You are a manager for project: #{current_user.project}"  %> </p>
     <% end %>
+    <div class="col text-center" style="margin-top: 20px">
+    <p><a href="https://sheidmann.github.io/TCRMP_Report/TCRMP_entry_checks.html">Click here to see our progress as a team and what's left to do</a></p>
+    </div>
     <div class="col text-center">
       <div class="btn-group-vertical">
         <a> <%= button_to "Fish Transect", '/fish_transects', method: :get, :class => "btn btn-primary" %></a>
