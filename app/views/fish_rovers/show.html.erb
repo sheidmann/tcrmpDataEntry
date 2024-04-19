@@ -42,6 +42,7 @@
           <% #print table header %>
           <tr>
             <th>Common Name</th>
+            <th>Scientific Name</th>
             <th>Abundance Index</th>
           </tr>
         </thead>
@@ -49,6 +50,7 @@
           <% @rovefs.each do |f|  %>
             <tr>
               <td><%= f.fish.common_name %></td>
+              <td><%= f.fish.scientific_name %></td>
               <td><%= f.abundance_index %></td>
             </tr>   
           <% end %>
