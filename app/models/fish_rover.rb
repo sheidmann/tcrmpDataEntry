@@ -20,7 +20,7 @@ class FishRover < ApplicationRecord
 	end
 
   def self.as_csv
-    columns = %w(fish_rover_id site_name date_completed name rep oc_cc common_name scientific_name abundance_index)
+    columns = %w(fish_rover_id proofed site_name date_completed name rep oc_cc common_name scientific_name abundance_index)
     CSV.generate(headers: true) do |csv|
       csv << columns.map(&:humanize)
       all.each do |fish_rover|
