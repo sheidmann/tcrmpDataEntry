@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_07_173850) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_24_140823) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -106,6 +106,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_07_173850) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["fish_transect_id"], name: "index_diademas_on_fish_transect_id"
+  end
+
+  create_table "e_surveys", force: :cascade do |t|
+    t.integer "fid"
+    t.bigint "user_id"
+    t.integer "team"
+    t.string "role"
+    t.date "date_completed"
+    t.time "begin_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_e_surveys_on_user_id"
   end
 
   create_table "fish", force: :cascade do |t|
@@ -281,6 +293,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_07_173850) do
   add_foreign_key "coral_interactions", "coral_codes"
   add_foreign_key "coral_interactions", "transect_corals"
   add_foreign_key "diademas", "fish_transects"
+  add_foreign_key "e_surveys", "users"
   add_foreign_key "fish_rovers", "managers"
   add_foreign_key "fish_rovers", "sites"
   add_foreign_key "fish_rovers", "users"
