@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_24_140823) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_24_143838) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -106,6 +106,54 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_24_140823) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["fish_transect_id"], name: "index_diademas_on_fish_transect_id"
+  end
+
+  create_table "e_esa_pas", force: :cascade do |t|
+    t.bigint "e_survey_id"
+    t.string "oann"
+    t.string "ofav"
+    t.string "ofra"
+    t.string "apal"
+    t.string "acer"
+    t.string "dcyl"
+    t.string "mfer"
+    t.string "mmea"
+    t.string "dsto"
+    t.string "efas"
+    t.string "dead_APAL"
+    t.string "dead_DCYL"
+    t.string "rami"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["e_survey_id"], name: "index_e_esa_pas_on_e_survey_id"
+  end
+
+  create_table "e_plot_corals", force: :cascade do |t|
+    t.bigint "e_plot_id"
+    t.integer "quadrant"
+    t.bigint "coral_code_id"
+    t.decimal "max_diam", precision: 4, scale: 1
+    t.integer "old_mortality"
+    t.integer "new_mortality"
+    t.string "disease"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coral_code_id"], name: "index_e_plot_corals_on_coral_code_id"
+    t.index ["e_plot_id"], name: "index_e_plot_corals_on_e_plot_id"
+  end
+
+  create_table "e_plots", force: :cascade do |t|
+    t.bigint "e_survey_id"
+    t.string "plot"
+    t.string "habitat"
+    t.integer "hardbottom"
+    t.decimal "max_relief_m", precision: 3, scale: 2
+    t.integer "min_depth"
+    t.integer "max_depth"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["e_survey_id"], name: "index_e_plots_on_e_survey_id"
   end
 
   create_table "e_surveys", force: :cascade do |t|
@@ -293,6 +341,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_24_140823) do
   add_foreign_key "coral_interactions", "coral_codes"
   add_foreign_key "coral_interactions", "transect_corals"
   add_foreign_key "diademas", "fish_transects"
+  add_foreign_key "e_esa_pas", "e_surveys"
+  add_foreign_key "e_plot_corals", "coral_codes"
+  add_foreign_key "e_plot_corals", "e_plots"
+  add_foreign_key "e_plots", "e_surveys"
   add_foreign_key "e_surveys", "users"
   add_foreign_key "fish_rovers", "managers"
   add_foreign_key "fish_rovers", "sites"
