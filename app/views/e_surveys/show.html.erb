@@ -1,0 +1,61 @@
+<div class="container">
+	<div class='formContainer'>
+		<%= button_to "Back to ECMP Surveys", '/e_surveys', method: :get%>
+    <%= button_to "New ECMP Survey", '/e_surveys/new', method: :get %>
+		<div class="showActions" style="margin-top: 20px">
+    <div class="btn-group-vertical">
+      <%= button_to('Edit ECMP Survey', edit_e_survey_path(@esurv), :method => "get") %>
+      <%= button_to('Delete ECMP Survey', @esurv, data: { confirm: 'Are you sure?' }, method: :delete) %>
+    </div>
+	  </div>
+	  <div id="sampleSection" class="sectionDiv">
+  <div class='show_section_1'>
+    <div id='section_1'>
+
+      <dl class="dl-horizontal">
+        <dt>Field ID</dt><dd><%= @esurv.fid %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Team</dt><dd><%= @esurv.team %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Role</dt><dd><%= @esurv.role %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Sample Date</dt><dd><%= @esurv.date_completed %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Time</dt><dd><%= @esurv.begin_time %></dd>
+      </dl>
+    </div>
+
+    <div id='section_2'>
+      <h2>Plots</h2>
+      <table id="PlotList", class="display table table-striped" style="width: auto">
+        <thead>
+          <% #print table header %>
+          <tr>
+          	<th>Plot</th>
+          	<th>Habitat</th>
+          	<th>Hardbottom %</th>
+            <th>Max Relief (m)</th>
+            <th>Min Depth (ft)</th>
+            <th>Max Depth (ft)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @eesa.each do |p|  %>
+            <tr>
+            	<td><%= p.plot %></td>
+            	<td><%= p.habitat %></td>
+            	<td><%= p.hardbottom %></td>
+              <td><%= p.max_relief_m %></td>
+              <td><%= p.min_depth %></td>
+              <td><%= p.max_depth %></td>
+            </tr>   
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+	</div>
+</div>

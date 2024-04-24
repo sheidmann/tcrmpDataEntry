@@ -1,0 +1,29 @@
+<div class="form-horizontal">
+	<%= form_for @esurv, :html => {:autocomplete => "off"} do |f|%>
+	<%= render 'shared/error_messages', :target => @esurv %>
+		<div class="row">
+			<div class="col-md-4">
+				<div class='control-group'>
+		      <%= f.label :fid, 'Field ID' %>
+		      <%= f.text_field :fid, { :size => '4' } %>
+		    </div>
+		  	<div class='control-group'>
+			    <%= f.label :user_id, 'Diver' %>
+			    <%= f.collection_select :user_id, User.where(active: "true").order(name: :asc).all, :id, :name, {:include_blank => ""}, {:class=>"metaSelect" } %> 
+		  	</div>
+		  	<div class='control-group'>
+		      <%= f.label :team, 'Team' %>
+		      <%= f.text_field :team, { :size => '2' } %>
+		    </div>
+		    <div class='control-group'>
+		      <%= f.label :role, 'Role' %>
+		      <%= f.text_field :role, { :size => '1' } %>
+		    </div>
+		  	<div class='control-group'>
+			    <%= f.label :date_completed, 'Date Completed' %>
+			    <%= f.text_field :date_completed, placeholder: "YYYY-MM-DD" %> 
+			  </div>
+		  </div>
+	  <%= f.submit "Save Survey", class: "btn-submit" %>
+  <% end %>
+</div>

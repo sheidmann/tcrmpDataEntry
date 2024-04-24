@@ -1,0 +1,35 @@
+<div class="main">
+  <div class="container">
+    <%= button_to "New ECMP Survey", '/e_surveys/new', method: :get %>
+    <%= button_to "Export CSV", e_surveys_path(:format => :csv), method: :get %>
+    <h1>ECMP Surveys</h1>
+    <table class="display table table-striped table-condensed table-sortable">
+      <thead>
+        <% #print table header %>
+        <tr>
+          <th>Diver</th>
+          <th>Field ID</th>
+          <th>Team</th>
+          <th>Role</th>
+          <th>Date Completed</th>
+          <th>Time</th>
+          <th>Date Entered</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% #print table fields %>
+        <% @esurv.each do |es| %>
+          <tr data-link="<%=e_survey_path(es.id)%>">
+            <td><%= es.user.name %></td>
+            <td><%= es.fid %></td>
+            <td><%= es.team %></td>
+            <td><%= es.role %></td>
+            <td><%= es.date_completed %></td>
+            <td><%= es.begin_time %></td>
+            <td><%= es.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
