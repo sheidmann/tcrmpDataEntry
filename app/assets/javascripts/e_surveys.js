@@ -53,4 +53,17 @@ $(document).ready(function() {
 
   $('.next i').removeClass();
   $('.next i').addClass("fa fa-chevron-right");
+
+  // Implement dropdown with textbox for species
+  $(".speciesSelect").select2();
+
+
+  // Add properties to nested fields when added
+  $('#plotcorals').on('cocoon:after-insert', function() {
+    $(".speciesSelect").last().select2(); // convert to select2
+    $('.speciesSelect').last().select2('open'); // focus and open dropdown
+    $(".speciesSelect").on("close", function (e) {  
+      $(this).valid(); // validate on close
+    });
+  });
 });

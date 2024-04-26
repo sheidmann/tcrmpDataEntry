@@ -1,0 +1,14 @@
+<div class='nested-fields w-75'>
+	<div class="row w-75">
+		<%= f.text_field :quadrant, {:size=>'2', :class=>"pcoralField", :style=>"padding-left:30px"} %>
+		<div class="col-md-3 field">
+			<%= f.collection_select :coral_code_id, CoralCode.where(group: "Identification").order(occurrence: :asc).all, :id, :combo_name, {:include_blank => ""}, {:class=>"speciesSelect select2-container", :style=>"padding-right:50px"} %> 
+		</div>
+		<%= f.text_field :max_diam, {:size=>'2', :class=>"pcField"} %>
+		<%= f.text_field :old_mortality, {:size=>'3', :class=>"pcField"} %>
+		<%= f.text_field :new_mortality, {:size=>'3', :class=>"pcField"} %>
+		<%= f.text_field :disease, {:size=>'3', :class=>"pcField"} %>
+		<%= f.text_field :notes, { :size => '20', :style=>"margin-right:50px"} %>
+		<%= link_to_remove_association "Remove Coral", f, partial: 'pcoral_fields', tabindex: "-1" %>
+	</div>
+</div>

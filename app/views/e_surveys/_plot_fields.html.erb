@@ -1,0 +1,26 @@
+<div class="nested-fields">
+	<div class="row" id='coralRow'>
+		<li style="white-space:nowrap;list-style-type:none;">
+			<%= f.text_field :plot, { :size => '3', :class=>"plotField", :id=> "plotField" } %>
+			<%= f.text_field :habitat, { :size => '4', :class=>"plotField", :id=>"habitatField" } %>
+			<%= f.text_field :hardbottom, { :size => '3', :class=>"plotField", :id=>"hbField", :style=>"padding-right:75px"}%>
+			<%= f.text_field :max_relief_m, { :size => '3', :class=>"plotField", :id=>"reliefField" } %>
+			<%= f.text_field :min_depth, { :size => '3', :class=>"plotField" } %>
+			<%= f.text_field :max_depth, { :size => '3', :class=>"plotField" } %>
+			<%= link_to_remove_association "Remove Plot", f, partial: 'plot_fields', tabindex: "-1" %>
+		</li>
+	</div>
+	<br>
+	<div id='plotCorals' style="padding-left:50px">
+		<p><b>Corals</b></p>
+	  <ul class="pCoralLabels list-inline" style="background: #DDD;white-space:nowrap;position:sticky;top:0;border-bottom: 3px solid black;">
+  		<li class="pcHead">Quadrant</li><li class="pcHead col-md-3">Species</li><li class="pcHead">Max Diam<br>(cm)</li><li class="pcHead">Old Mort</li><li class="pcHead">New Mort</li><li class="pcHead">Disease</li><li class="pcHead w-10">Notes</li>
+  	</ul>
+    <%= f.fields_for :e_plot_corals, :wrapper => false do |builder| %>
+      <%= render 'pcoral_fields', f: builder %>
+    <% end %>
+    <div class="links">
+     	<%= link_to_add_association "Add Coral", f, :e_plot_corals, partial: 'pcoral_fields', class: "addPCoral" %>
+    </div>
+	</div>
+</div>

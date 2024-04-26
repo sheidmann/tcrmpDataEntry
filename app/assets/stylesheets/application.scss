@@ -98,7 +98,7 @@ input.error {
 }
 
 /* Survey Formatting */
-.fishLabels, .coralLabels, .algaeLabels {
+.fishLabels, .coralLabels, .algaeLabels, .plotLabels, .pCoralLabels {
   font-weight: bold;
 }
 .fishList, .algaeList {
@@ -132,6 +132,20 @@ input.error {
 .dimField, .healthField, .mortField {
   margin-right: 2px;
   margin-left: 5px;
+  width: 40px;
+}
+.plotHead, .pcHead {
+  padding-right: 30px;
+}
+.plotField {
+  margin-right: 2px;
+  margin-left: 5px;
+  width: 40px;
+  padding-right: 50px;
+}
+.pcField {
+  margin-left: 15px;
+  padding-right: 50px;
   width: 40px;
 }
 .ESATable {

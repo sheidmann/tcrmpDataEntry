@@ -1,61 +1,81 @@
 <div class="form-horizontal">
 	<%= form_for @esurv, :html => {:autocomplete => "off"} do |f|%>
 	<%= render 'shared/error_messages', :target => @esurv %>
-		<div class="row">
-			<div class="col-md-4">
-				<div class='control-group'>
-		      <%= f.label :fid, 'Field ID' %>
-		      <%= f.text_field :fid, { :size => '4' } %>
-		    </div>
-		  	<div class='control-group'>
-			    <%= f.label :user_id, 'Diver' %>
-			    <%= f.collection_select :user_id, User.where(active: "true").order(name: :asc).all, :id, :name, {:include_blank => ""}, {:class=>"metaSelect" } %> 
-		  	</div>
-		  	<div class='control-group'>
-		      <%= f.label :team, 'Team' %>
-		      <%= f.text_field :team, { :size => '2' } %>
-		    </div>
-		    <div class='control-group'>
-		      <%= f.label :role, 'Role' %>
-		      <%= f.text_field :role, { :size => '1' } %>
-		    </div>
-		  	<div class='control-group'>
-			    <%= f.label :date_completed, 'Date Completed' %>
-			    <%= f.text_field :date_completed, placeholder: "YYYY-MM-DD" %> 
-			  </div>
-		  </div>
-		</div>
-
-		  <br />
-
-		  <div>
-      <h3>ESA Presence/Absence</h3>
-      <table class='ESATable'>
-      	<thead>
-	      	<tr>
-	      		<th>OANN</th>
-	      		<th>OFAV</th>
-	      		<th>OFRA</th>
-	      		<th>APAL</th>
-	      		<th>ACER</th>
-	      		<th>DCYL</th>
-	      		<th>MFER</th>
-	      		<th>MMEA</th>
-            <th>DSTO</th>
-            <th>EFAS</th>
-            <th>Dead APAL</th>
-            <th>Dead DCYL</th>
-            <th>Rami</th>
-	    		</tr>
-	    	</thead>
-	    	<tbody>
-	  			<%= f.fields_for :e_esa_pas do |builder| %>
-			      <%= render 'esa_fields', f: builder %>
-			    <% end %>
-			  </tbody>
-		  </table>
+	<div class="row">
+		<div class="col-md-4">
+			<div class='control-group'>
+	      <%= f.label :fid, 'Field ID' %>
+	      <%= f.text_field :fid, { :size => '4' } %>
 	    </div>
+	  	<div class='control-group'>
+		    <%= f.label :user_id, 'Diver' %>
+		    <%= f.collection_select :user_id, User.where(active: "true").order(name: :asc).all, :id, :name, {:include_blank => ""}, {:class=>"metaSelect" } %> 
+	  	</div>
+	  	<div class='control-group'>
+	      <%= f.label :team, 'Team' %>
+	      <%= f.text_field :team, { :size => '2' } %>
+	    </div>
+	    <div class='control-group'>
+	      <%= f.label :role, 'Role' %>
+	      <%= f.text_field :role, { :size => '1' } %>
+	    </div>
+	  	<div class='control-group'>
+		    <%= f.label :date_completed, 'Date Completed' %>
+		    <%= f.text_field :date_completed, placeholder: "YYYY-MM-DD" %> 
+		  </div>
+	  </div>
+	</div>
 
-	  <%= f.submit "Save Survey", class: "btn-submit" %>
-  <% end %>
+  <br />
+
+  <div>
+    <h3>Plots</h3>
+    <ul class="plotLabels list-inline" style="background: #DDD;white-space:nowrap;position:sticky;top:0;border-bottom: 3px solid black;">
+  		<li class="plotHead" style="padding-right:30px"> Plot</li><li class="plotHead">Habitat</li><li class="plotHead">%<br>Hardbottom</li><li class="plotHead">Max Relief<br>(m)</li><li class="plotHead">Min Depth<br>(ft)</li><li class="plotHead">Max Depth<br>(ft)</li>
+  	</ul>
+  	<br>
+    <div id="plots">
+			<%= f.fields_for :e_plots, :wrapper=> false do |builder| %>
+	      <%= render 'plot_fields', f: builder %>
+	    <% end %>
+      <div class="links">
+	     	<%= link_to_add_association "Add Plot", f, :e_plots, partial: 'plot_fields', class: "addPlot" %>
+      </div>
+	  </div>
+	</div>
+
+  <br />
+
+  <div>
+    <h3>ESA Presence/Absence</h3>
+    <table class='ESATable'>
+    	<thead>
+      	<tr>
+      		<th>OANN</th>
+      		<th>OFAV</th>
+      		<th>OFRA</th>
+      		<th>APAL</th>
+      		<th>ACER</th>
+      		<th>DCYL</th>
+      		<th>MFER</th>
+      		<th>MMEA</th>
+          <th>DSTO</th>
+          <th>EFAS</th>
+          <th>Dead <br>APAL</th>
+          <th>Dead <br>DCYL</th>
+          <th>Rami</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+  			<%= f.fields_for :e_esa_pas do |builder| %>
+		      <%= render 'esa_fields', f: builder %>
+		    <% end %>
+		  </tbody>
+	  </table>
+  </div>
+	<div style="padding-left:250px">
+		  <%= f.submit "Save Survey", class: "btn-submit", style: "margin-top:50px;margin-bottom:100px" %>
+	  <% end %>
+	</div>
+	<br />
 </div>
