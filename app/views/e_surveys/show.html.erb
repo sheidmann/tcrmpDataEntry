@@ -44,7 +44,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @eesa.each do |p|  %>
+          <% @eplots.each do |p|  %>
             <tr>
             	<td><%= p.plot %></td>
             	<td><%= p.habitat %></td>
@@ -52,6 +52,82 @@
               <td><%= p.max_relief_m %></td>
               <td><%= p.min_depth %></td>
               <td><%= p.max_depth %></td>
+            </tr>   
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div id='section_3'>
+      <h2>Corals</h2>
+      <table id="CoralList", class="display table table-striped" style="width: auto">
+        <thead>
+          <% #print table header %>
+          <tr>
+            <th>Plot</th>
+            <th>Quadrant</th>
+            <th>Species</th>
+            <th>Max Diam (cm)</th>
+            <th>Old Mort</th>
+            <th>New Mort</th>
+            <th>Disease</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @eplotcs.each do |c|  %>
+            <tr>
+              <td><%= c.e_plot.plot %></td>
+              <td><%= c.quadrant %></td>
+              <td><%= c.coral_code.long_code %></td>
+              <td><%= c.max_diam %></td>
+              <td><%= c.old_mortality %></td>
+              <td><%= c.new_mortality %></td>
+              <td><%= c.disease %></td>
+              <td><%= c.notes %></td>
+            </tr>   
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div id='section_4'>
+      <h2>ESA</h2>
+      <table id="ESAList", class="display table table-striped" style="width: auto">
+        <thead>
+          <% #print table header %>
+          <tr>
+            <th>OANN</th>
+            <th>OFAV</th>
+            <th>OFRA</th>
+            <th>APAL</th>
+            <th>ACER</th>
+            <th>DCYL</th>
+            <th>MFER</th>
+            <th>MMEA</th>
+            <th>DSTO</th>
+            <th>EFAS</th>
+            <th>Dead APAL</th>
+            <th>Dead DCYL</th>
+            <th>Rami</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @eesa.each do |e|  %>
+            <tr>
+              <td><%= e.oann %></td>
+              <td><%= e.ofav %></td>
+              <td><%= e.ofra %></td>
+              <td><%= e.apal %></td>
+              <td><%= e.acer %></td>
+              <td><%= e.dcyl %></td>
+              <td><%= e.mfer %></td>
+              <td><%= e.mmea %></td>
+              <td><%= e.dsto %></td>
+              <td><%= e.efas %></td>
+              <td><%= e.dead_APAL %></td>
+              <td><%= e.dead_DCYL %></td>
+              <td><%= e.rami %></td>
             </tr>   
           <% end %>
         </tbody>

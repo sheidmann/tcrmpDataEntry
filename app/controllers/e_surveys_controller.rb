@@ -50,7 +50,7 @@ class ESurveysController < ApplicationController
     
     @esurv = ESurvey.find(params[:id])
     @eplots = @esurv.e_plots.all
-    #@eplotcs = @eplots.e_plot_corals.all
+    @eplotcs = @esurv.e_plot_corals.all
     @eesa = @esurv.e_esa_pas.all
 
     respond_to do |format|
