@@ -24,6 +24,38 @@
 			    <%= f.text_field :date_completed, placeholder: "YYYY-MM-DD" %> 
 			  </div>
 		  </div>
+		</div>
+
+		  <br />
+
+		  <div>
+      <h3>ESA Presence/Absence</h3>
+      <table class='ESATable'>
+      	<thead>
+	      	<tr>
+	      		<th>OANN</th>
+	      		<th>OFAV</th>
+	      		<th>OFRA</th>
+	      		<th>APAL</th>
+	      		<th>ACER</th>
+	      		<th>DCYL</th>
+	      		<th>MFER</th>
+	      		<th>MMEA</th>
+            <th>DSTO</th>
+            <th>EFAS</th>
+            <th>Dead APAL</th>
+            <th>Dead DCYL</th>
+            <th>Rami</th>
+	    		</tr>
+	    	</thead>
+	    	<tbody>
+	  			<%= f.fields_for :e_esa_pas do |builder| %>
+			      <%= render 'esa_fields', f: builder %>
+			    <% end %>
+			  </tbody>
+		  </table>
+	    </div>
+
 	  <%= f.submit "Save Survey", class: "btn-submit" %>
   <% end %>
 </div>

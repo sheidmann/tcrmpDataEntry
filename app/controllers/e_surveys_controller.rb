@@ -5,6 +5,7 @@ class ESurveysController < ApplicationController
     @esurv = ESurvey.new
     @eplot = @esurv.e_plots.build
     @eplotc = @eplot.e_plot_corals.build
+    @eesa = @esurv.e_esa_pas.build
 
     respond_to do |format|
       format.html # new.html.erb
