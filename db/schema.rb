@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_24_143838) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_27_133353) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -106,6 +106,34 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_24_143838) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["fish_transect_id"], name: "index_diademas_on_fish_transect_id"
+  end
+
+  create_table "e_boatlog_teams", force: :cascade do |t|
+    t.bigint "e_boatlog_id"
+    t.integer "team"
+    t.bigint "user_id"
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["e_boatlog_id"], name: "index_e_boatlog_teams_on_e_boatlog_id"
+    t.index ["user_id"], name: "index_e_boatlog_teams_on_user_id"
+  end
+
+  create_table "e_boatlogs", force: :cascade do |t|
+    t.integer "fid"
+    t.date "date_completed"
+    t.string "captain"
+    t.integer "dod"
+    t.decimal "latitude", precision: 7, scale: 5
+    t.decimal "longitude", precision: 7, scale: 5
+    t.time "time_in"
+    t.time "time_out"
+    t.integer "depth_ft"
+    t.string "hss"
+    t.string "disease"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "e_esa_pas", force: :cascade do |t|
@@ -341,6 +369,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_24_143838) do
   add_foreign_key "coral_interactions", "coral_codes"
   add_foreign_key "coral_interactions", "transect_corals"
   add_foreign_key "diademas", "fish_transects"
+  add_foreign_key "e_boatlog_teams", "e_boatlogs"
+  add_foreign_key "e_boatlog_teams", "users"
   add_foreign_key "e_esa_pas", "e_surveys"
   add_foreign_key "e_plot_corals", "coral_codes"
   add_foreign_key "e_plot_corals", "e_plots"
