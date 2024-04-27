@@ -1,9 +1,7 @@
-<div class='nested-fields w-75'>
-	<div class="row w-75">
-		<%= f.text_field :quadrant, {:size=>'2', :class=>"pcoralField", :style=>"padding-left:30px"} %>
-		<div class="col-md-3 field">
-			<%= f.collection_select :coral_code_id, CoralCode.where(group: "Identification").order(occurrence: :asc).all, :id, :combo_name, {:include_blank => ""}, {:class=>"speciesSelect select2-container", :style=>"padding-right:50px"} %> 
-		</div>
+<div class='nested-fields'>
+	<div class="row">
+		<%= f.text_field :quadrant, {:size=>'2', :class=>"pcoralField", :style=>"margin-left:30px;margin-right:50px"} %>
+		<%= f.collection_select :coral_code_id, CoralCode.where(group: "Identification").order(occurrence: :asc).all, :id, :combo_name, {:include_blank => ""}, {:class=>"speciesSelect select2-container", :style=>"margin-right:50px"} %> 
 		<%= f.text_field :max_diam, {:size=>'2', :class=>"pcField"} %>
 		<%= f.text_field :old_mortality, {:size=>'3', :class=>"pcField"} %>
 		<%= f.text_field :new_mortality, {:size=>'3', :class=>"pcField"} %>

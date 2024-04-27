@@ -59,7 +59,7 @@ $(document).ready(function() {
 
 
   // Add properties to nested fields when added
-  $('#plotcorals').on('cocoon:after-insert', function() {
+  $('#plots, ç#plotcorals').on('cocoon:after-insert', function() {
     $(".speciesSelect").last().select2(); // convert to select2
     $('.speciesSelect').last().select2('open'); // focus and open dropdown
     $(".speciesSelect").on("close", function (e) {  
