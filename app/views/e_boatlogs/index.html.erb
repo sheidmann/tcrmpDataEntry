@@ -1,0 +1,39 @@
+<div class="main">
+  <div class="container">
+    <%= button_to "New Boatlog", '/e_boatlogs/new', method: :get %>
+    <%= button_to "Export CSV", e_boatlogs_path(format: :csv), method: :get %>
+    <h1>ECMP Boatlogs</h1>
+    <table id="boatlogList", class="display table table-striped table-condensed table-sortable">
+      <thead>
+        <% #print table header %>
+        <tr>
+          <th>FID</th>
+          <th>Date</th>
+          <th>Captain</th>
+          <th>DOD</th>
+          <th>Time In</th>
+          <th>Depth (ft)</th>
+          <th>HSS</th>
+          <th>Disease</th>
+          <th>Date Entered</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% #print table fields %>
+        <% @all_eboatlogs.each do |bl| %>
+          <tr data-link="<%=e_boatlog_path(bl.id)%>">
+            <td><%= bl.fid %></td>
+            <td><%= bl.date_completed %></td>
+            <td><%= bl.captain %></td>
+            <td><%= bl.dod %></td>
+            <td><%= bl.time_in %></td>
+            <td><%= bl.depth_ft %></td>
+            <td><%= bl.hss %></td>
+            <td><%= bl.disease %></td>
+            <td><%= bl.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

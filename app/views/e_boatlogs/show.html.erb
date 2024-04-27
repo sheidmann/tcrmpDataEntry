@@ -1,0 +1,78 @@
+<div class="container">
+<div class='formContainer'>
+  <%= button_to "Back to Boatlogs", '/e_boatlogs', method: :get%>
+  <%= button_to "New Boatlog", '/e_boatlogs/new', method: :get %>
+  <div class="showActions" style="margin-top: 20px">
+    <div class="btn-group-vertical">
+      <%= button_to('Edit Boatlog', edit_e_boatlog_path(@eboatlog), :method => "get") %>
+      <%= button_to('Delete Boatlog', @eboatlog, data: { confirm: 'Are you sure?' }, method: :delete) %>
+    </div>
+  </div>
+  <div id="sampleSection" class="sectionDiv">
+  <div class='show_section_1'>
+    <div id='section_1_part_1'>
+
+      <dl class="dl-horizontal">
+        <dt>FID</dt><dd><%= @eboatlog.fid %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Date Completed</dt><dd><%= @eboatlog.date_completed %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Captain</dt><dd><%= @eboatlog.captain %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Dive of Day</dt><dd><%= @eboatlog.dod %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Latitude</dt><dd><%= @eboatlog.latitude %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Longitude</dt><dd><%= @eboatlog.longitude %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Time In</dt><dd><%= @eboatlog.try(:time_in).try(:strftime, "%H:%M")%></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Time Out</dt><dd><%= @eboatlog.try(:time_out).try(:strftime, "%H:%M") %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Depth (ft)</dt><dd><%= @eboatlog.depth_ft %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>HSS</dt><dd><%= @eboatlog.hss %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Disease</dt><dd><%= @eboatlog.disease %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Notes</dt><dd><%= @eboatlog.notes %></dd>
+      </dl>
+    </div>
+
+    <div id='section_1_part_2'>
+      <h2>Divers</h2>
+      <table id="boatlogSurveyList", class="display table table-striped" style="width: auto">
+        <thead>
+          <% #print table header %>
+          <tr>
+            <th>Team</th>
+            <th>Diver</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @eboatlog_teams.each do |bt|  %>
+            <tr>
+              <td><%= bt.team %></td>
+              <td><%= User.find(bt.user_id).name %></td>
+              <td><%= bt.role %></td>
+            </tr>   
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+</div>
+</div>

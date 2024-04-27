@@ -1,0 +1,79 @@
+<div class="form-horizontal">
+	<%= form_for @eboatlog, :html => {:autocomplete => "off"} do |f|%>
+	<%= render 'shared/error_messages', :target => @eboatlog %>
+		<div class="row">
+			<div class="col-md-4">
+		    <div class='control-group'>
+		      <%= f.label :fid, 'Field ID' %>
+		      <%= f.text_field :fid %> 
+		    </div>
+		  	<div class='control-group'>
+			    <%= f.label :date_completed, 'Date Completed' %>
+			    <%= f.text_field :date_completed, placeholder: "YYYY-MM-DD" %> 
+			  </div>
+			  <div class='control-group'>
+		      <%= f.label :captain, 'Captain' %>
+		      <%= f.text_field :captain %> 
+		    </div>
+		    <div class='control-group'>
+		      <%= f.label :dod, 'Dive of Day (DOD)' %>
+		      <%= f.text_field :dod %> 
+		    </div>
+		    <div class='control-group'>
+		      <%= f.label :latitude, 'Latitude' %>
+		      <%= f.text_field :latitude %> 
+		    </div>
+		    <div class='control-group'>
+		      <%= f.label :longitude, 'Longitude' %>
+		      <%= f.text_field :longitude %> 
+		    </div>
+		    <div class='control-group'>
+			    <%= f.label :time_in, 'Time In' %>
+			    <%= f.text_field :time_in, value: f.object.try(:time_in).try(:strftime, "%H:%M"), placeholder: "HH:MM (24 hr clock)", autocomplete: :off %> 
+			  </div>
+			  <div class='control-group'>
+			    <%= f.label :time_out, 'Time Out' %>
+			    <%= f.text_field :time_out, value: f.object.try(:time_out).try(:strftime, "%H:%M"), placeholder: "HH:MM (24 hr clock)", autocomplete: :off %> 
+			  </div>
+			  <div class='control-group'>
+		      <%= f.label :depth_ft, 'Depth (ft)' %>
+		      <%= f.text_field :depth_ft %> 
+		    </div>
+		    <div class='control-group'>
+		      <%= f.label :hss, 'HSS' %>
+		      <%= f.text_field :hss %> 
+		    </div>
+		    <div class='control-group'>
+		      <%= f.label :disease, 'Disease' %>
+		      <%= f.text_field :disease %> 
+		    </div>
+		  </div>
+			<div class="col-md-3">
+		    <div class='control-group'>
+		    	<%= f.label :notes, 'Notes' %>
+		    	<%= f.text_area :notes, { :size => '60x4' } %>
+		    </div>
+	    </div>
+    </div>
+
+    <div>
+      <h3>Divers</h3>
+      <ul class="diverLabels list-inline", style="margin-left:40px">
+    		<li class="col-md-2 field">Team</li><li class="col-md-3 field">Diver</li><li class="col-md-2 field">Role</li>
+    	</ul>
+      <br>
+  		<div id='boatlog_teams'>
+  			<ol class="diverList">
+			    <%= f.fields_for :e_boatlog_teams do |builder| %>
+			      <%= render 'team_fields', f: builder %>
+			    <% end %>
+		      <div class="links">
+				     <%= link_to_add_association "Add Diver", f, :e_boatlog_teams, partial: 'team_fields', class: "addDiver" %>
+		      </div>
+		    </ol>
+	     </div>
+	   </div>
+
+	  <%= f.submit "Save Boatlog", class: "btn-submit" %>
+  <% end %>
+</div>
