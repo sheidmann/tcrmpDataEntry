@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_02_142055) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_02_165923) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -182,6 +182,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_02_142055) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "max_relief_cm"
+    t.integer "coral_cover"
     t.index ["e_survey_id"], name: "index_e_plots_on_e_survey_id"
   end
 

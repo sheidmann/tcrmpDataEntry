@@ -134,8 +134,11 @@ input.error {
   margin-left: 5px;
   width: 40px;
 }
-.plotHead, .pcHead {
+.plotHead {
   margin-right: 30px;
+}
+.pcHead {
+  margin-right: 25px;
 }
 .plotField {
   margin-right: 50px;
@@ -145,7 +148,7 @@ input.error {
 .pcField {
   margin-left: 5px;
   margin-right: 35px;
-  width: 60px;
+  width: 50px;
 }
 .ESATable {
   padding: 0 10px 0 0;
