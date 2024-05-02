@@ -25,7 +25,10 @@
         <dt>Sample Date</dt><dd><%= @esurv.date_completed %></dd>
       </dl>
       <dl class="dl-horizontal">
-        <dt>Time</dt><dd><%= @esurv.begin_time %></dd>
+        <dt>Time</dt><dd><%= @esurv.try(:begin_time).try(:strftime, "%H:%M") %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Notes</dt><dd><%= @esurv.notes %></dd>
       </dl>
     </div>
 
