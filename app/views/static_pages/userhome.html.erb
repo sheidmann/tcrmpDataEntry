@@ -1,29 +1,40 @@
 <div class="main">
   <div class="container">
     <% if current_user.manager? %>
-        <p><%= "You are a manager for project: #{current_user.project}"  %> </p>
+        <p><%= "You have manager privileges."  %> </p>
     <% end %>
-    <div class="col text-center" style="margin-top: 20px">
-    <p><a href="https://sheidmann.github.io/TCRMP_Report/TCRMP_entry_checks.html">Click here to see our progress as a team and what's left to do</a></p>
-    </div>
+    <% if current_user.admin? %>
+        <p><%= "You have admin privileges."  %> </p>
+    <% end %>
+    <h2 class="col text-center">TCRMP</h2>
+    <p class="col text-center" style="margin-top: 20px"><a href="https://sheidmann.github.io/TCRMP_Report/TCRMP_entry_checks.html">Click here to see our progress as a team and what's left to do</a></p>
     <div class="col text-center">
       <div class="btn-group-vertical">
         <a> <%= button_to "Fish Transect", '/fish_transects', method: :get, :class => "btn btn-primary" %></a>
         <a> <%= button_to "Fish Rover", '/fish_rovers', method: :get, :class => "btn btn-primary" %></a>
         <a> <%= button_to "Coral Health", '/coral_healths', method: :get, :class => "btn btn-primary" %></a>
         <a> <%= button_to "Algae Heights", '/algae_heights', method: :get, :class => "btn btn-primary" %></a>
-      </div>
-    </div>
-    <div class="col text-center" style="margin-top: 20px">
-      <div class="btn-group-vertical">
         <% if current_user.manager? %>
             <a> <%= button_to "Boat Logs", '/boatlogs', method: :get, :class => "btn btn-info" %></a>
-        <% end %>
-        <% if current_user.manager? %>
             <a> <%= button_to "Dashboard", '/dashboard', method: :get, :class => "btn btn-info" %></a>
         <% end %>
+      </div>
+    </div>
+    
+    <div class="col text-center">
+      <div class="btn-group-vertical">
+        <% if current_user.manager? %>
+          <h2 class="col text-center" style="margin-top: 50px">ECMP</h2>
+          <a> <%= button_to "ECMP Survey", '/e_surveys', method: :get, :class => "btn btn-primary" %></a>
+          <a> <%= button_to "Boat Logs", '/e_boatlogs', method: :get, :class => "btn btn-info" %></a>
+        <% end %>
+      </div>
+    </div>
+    <div class="col text-center" style="margin-top: 50px">
+      <div class="btn-group-vertical">
         <% if current_user.admin? %>
-            <a> <%= button_to "Manage Users", '/users', method: :get, :class => "btn btn-info" %></a>
+          <h2 class="col text-center">Admin</h2>
+          <a> <%= button_to "Manage Users", '/users', method: :get, :class => "btn btn-secondary" %></a>
         <% end %>
       </div>
     </div>

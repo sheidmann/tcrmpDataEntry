@@ -1,0 +1,43 @@
+<div class="main">
+  <div class="container">
+    <%= button_to "Back to ECMP surveys", '/e_surveys', method: :get %>
+    <%= button_to "Export CSV", e_plots_path(:format => :csv), method: :get %>
+    <h1>ECMP Plots Abiotic</h1>
+    <table class="display table table-striped table-condensed table-sortable">
+      <thead>
+        <% #print table header %>
+        <tr>
+          <th>FID</th>
+          <th>Date</th>
+          <th>Diver</th>
+          <th>Team</th>
+          <th>Role</th>
+          <th>Habitat</th>
+          <th>% Hardbottom</th>
+          <th>% Coral Cover</th>
+          <th>Max Relief<br>(cm)</th>
+          <th>Min Depth (ft)</th>
+          <th>Max Depth (ft)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% #print table fields %>
+        <% @eps.each do |ep| %>
+          <tr>
+            <td><%= ep.e_survey.fid %></td>
+            <td><%= ep.e_survey.date_completed %></td>
+            <td><%= ep.e_survey.user.name %></td>
+            <td><%= ep.e_survey.team %></td>
+            <td><%= ep.e_survey.role %></td>
+            <td><%= ep.habitat %></td>
+            <td><%= ep.hardbottom %></td>
+            <td><%= ep.coral_cover %></td>
+            <td><%= ep.max_relief_cm %></td>
+            <td><%= ep.min_depth %></td>
+            <td><%= ep.max_depth %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

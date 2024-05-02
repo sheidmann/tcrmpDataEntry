@@ -17,7 +17,7 @@
       <tbody>
         <% #print table fields %>
         <% @diademas.each do |da| %>
-          <tr data-link="<%=diademas_path(da.id)%>">
+          <tr>
             <td><%= da.fish_transect.user.name %></td>
             <td><%= da.fish_transect.site.site_name %></td>
             <td><%= da.fish_transect.date_completed %></td>

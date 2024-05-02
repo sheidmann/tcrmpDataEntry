@@ -1,0 +1,47 @@
+<div class="main">
+  <div class="container">
+    <%= button_to "Back to ECMP surveys", '/e_surveys', method: :get %>
+    <%= button_to "Export CSV", e_plot_corals_path(:format => :csv), method: :get %>
+    <h1>ECMP Corals</h1>
+    <table class="display table table-striped table-condensed table-sortable">
+      <thead>
+        <% #print table header %>
+        <tr>
+          <th>FID</th>
+          <th>Date</th>
+          <th>Diver</th>
+          <th>Team</th>
+          <th>Role</th>
+          <th>Plot</th>
+          <th>Quadrant</th>
+          <th>Species</th>
+          <th>Max Diam<br>(cm)</th>
+          <th>Old Mort</th>
+          <th>New Mort</th>
+          <th>Disease</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% #print table fields %>
+        <% @epcs.each do |epc| %>
+          <tr>
+            <td><%= epc.e_plot.e_survey.fid %></td>
+            <td><%= epc.e_plot.e_survey.date_completed %></td>
+            <td><%= epc.e_plot.e_survey.user.name %></td>
+            <td><%= epc.e_plot.e_survey.team %></td>
+            <td><%= epc.e_plot.e_survey.role %></td>
+            <td><%= epc.e_plot.plot %></td>
+            <td><%= epc.quadrant %></td>
+            <td><%= epc.coral_code.long_code %></td>
+            <td><%= epc.max_diam %></td>
+            <td><%= epc.old_mortality %></td>
+            <td><%= epc.new_mortality %></td>
+            <td><%= epc.disease %></td>
+            <td><%= epc.notes %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

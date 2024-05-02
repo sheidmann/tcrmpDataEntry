@@ -1,0 +1,59 @@
+<div class="main">
+  <div class="container">
+    <%= button_to "Back to ECMP surveys", '/e_surveys', method: :get %>
+    <%= button_to "Export CSV", e_esa_pas_path(:format => :csv), method: :get %>
+    <h1>ECMP ESA Presence</h1>
+    <table class="display table table-striped table-condensed table-sortable">
+      <thead>
+        <% #print table header %>
+        <tr>
+          <th>FID</th>
+          <th>Date</th>
+          <th>Diver</th>
+          <th>Team</th>
+          <th>Role</th>
+          <th>OANN</th>
+          <th>OFAV</th>
+          <th>OFRA</th>
+          <th>APAL</th>
+          <th>ACER</th>
+          <th>APRO</th>
+          <th>DCYL</th>
+          <th>MFER</th>
+          <th>MMEA</th>
+          <th>DSTO</th>
+          <th>EFAS</th>
+          <th>Dead APAL</th>
+          <th>Dead DCYL</th>
+          <th>Rami</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% #print table fields %>
+        <% @esas.each do |e| %>
+          <tr>
+            <td><%= e.e_survey.fid %></td>
+            <td><%= e.e_survey.date_completed %></td>
+            <td><%= e.e_survey.user.name %></td>
+            <td><%= e.e_survey.team %></td>
+            <td><%= e.e_survey.role %></td>
+            <td><%= e.oann %></td>
+            <td><%= e.ofav %></td>
+            <td><%= e.ofra %></td>
+            <td><%= e.apal %></td>
+            <td><%= e.acer %></td>
+            <td><%= e.apro %></td>
+            <td><%= e.dcyl %></td>
+            <td><%= e.mfer %></td>
+            <td><%= e.mmea %></td>
+            <td><%= e.dsto %></td>
+            <td><%= e.efas %></td>
+            <td><%= e.dead_APAL %></td>
+            <td><%= e.dead_DCYL %></td>
+            <td><%= e.rami %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

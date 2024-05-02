@@ -43,6 +43,9 @@ Rails.application.routes.draw do
   # Surveys
   post '/fish_transects/:id' => 'fish_transects#show'
   get '/diademas' => 'diademas#index'
+  get '/e_plots' => 'e_plots#index'
+  get '/e_plot_corals' => 'e_plot_corals#index'
+  get '/e_esa_pas' => 'e_esa_pas#index'
 
   # IDs
   get '/coral_codes' => 'coral_codes#index'
