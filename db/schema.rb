@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_27_133353) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_02_135852) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -176,11 +176,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_27_133353) do
     t.string "plot"
     t.string "habitat"
     t.integer "hardbottom"
-    t.decimal "max_relief_m", precision: 3, scale: 2
     t.integer "min_depth"
     t.integer "max_depth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "max_relief_cm"
     t.index ["e_survey_id"], name: "index_e_plots_on_e_survey_id"
   end
 

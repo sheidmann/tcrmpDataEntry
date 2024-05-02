@@ -4,7 +4,7 @@
 			<%= f.text_field :plot, { :size => '2', :class=>"plotField" } %>
 			<%= f.select :habitat, ['AGRF','PTRF','PVMT','SCRS'], {:include_blank => ""}, {:style=>"width:80px"} %> 
 			<%= f.text_field :hardbottom, { :size => '3', :class=>"plotField", :style=>"margin-right:50px"}%>
-			<%= f.text_field :max_relief_m, { :size => '3', :class=>"plotField" } %>
+			<%= f.text_field :max_relief_cm, { :size => '3', :class=>"plotField" } %>
 			<%= f.text_field :min_depth, { :size => '3', :class=>"plotField" } %>
 			<%= f.text_field :max_depth, { :size => '3', :class=>"plotField" } %>
 			<%= link_to_remove_association "Remove Plot", f, partial: 'plot_fields', tabindex: "-1" %>
