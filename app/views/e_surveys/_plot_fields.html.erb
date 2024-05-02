@@ -14,7 +14,7 @@
 	<div id='plotCorals' style="margin-left:50px">
 		<p><b>Corals</b></p>
 	  <ul class="pCoralLabels list-inline" style="background: #DDD;white-space:nowrap;position:sticky;top:0;border-bottom: 3px solid black;">
-  		<li class="pcHead">Quadrant</li><li class="pcHead" style="padding-right:180px">Species</li><li class="pcHead">Max Diam<br>(cm)</li><li class="pcHead">Old Mort</li><li class="pcHead">New Mort</li><li class="pcHead">Disease</li><li class="pcHead">Notes</li>
+  		<li class="pcHead">Quadrant</li><li class="pcHead" style="padding-right:180px">Species</li><li class="pcHead">Max Diam<br>(cm)</li><li class="pcHead">Old Mort</li><li class="pcHead">New Mort</li><li class="pcHead" style="padding-right:50px;padding-left:10px">Disease</li><li class="pcHead">Notes</li>
   	</ul>
     <%= f.fields_for :e_plot_corals, :wrapper => false do |builder| %>
       <%= render 'pcoral_fields', f: builder %>

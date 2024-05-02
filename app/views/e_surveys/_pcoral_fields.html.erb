@@ -1,11 +1,11 @@
 <div class='nested-fields'>
 	<div class="row">
-		<%= f.text_field :quadrant, {:size=>'2', :class=>"pcoralField", :style=>"margin-left:30px;margin-right:50px"} %>
+		<%= f.text_field :quadrant, {:size=>'2', :class=>"pcField", :style=>"margin-left:20px;margin-right:50px"} %>
 		<%= f.collection_select :coral_code_id, CoralCode.where(group: "Identification", ecmp_target: ["target","hss"]).order(occurrence: :asc).all, :id, :combo_name, {:include_blank => ""}, {:class=>"speciesSelect select2-container", :style=>"margin-right:50px"} %> 
 		<%= f.text_field :max_diam, {:size=>'2', :class=>"pcField"} %>
 		<%= f.text_field :old_mortality, {:size=>'3', :class=>"pcField"} %>
 		<%= f.text_field :new_mortality, {:size=>'3', :class=>"pcField"} %>
-		<%= f.text_field :disease, {:size=>'3', :class=>"pcField"} %>
+		<%= f.select :disease, ['present','fast','slow'], {:include_blank => ""}, {:class=>"pcField", :style=>"width:80px"} %>
 		<%= f.text_field :notes, { :size => '20', :style=>"margin-right:50px"} %>
 		<%= link_to_remove_association "Remove Coral", f, partial: 'pcoral_fields', tabindex: "-1" %>
 	</div>
