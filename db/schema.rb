@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_02_140827) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_02_142055) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,6 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_02_140827) do
     t.string "long_code"
     t.decimal "max_diam", precision: 4, scale: 1
     t.decimal "max_height", precision: 4, scale: 1
+    t.string "ecmp_target"
   end
 
   create_table "coral_healths", force: :cascade do |t|

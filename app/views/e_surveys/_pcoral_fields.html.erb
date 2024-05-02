@@ -1,7 +1,7 @@
 <div class='nested-fields'>
 	<div class="row">
 		<%= f.text_field :quadrant, {:size=>'2', :class=>"pcoralField", :style=>"margin-left:30px;margin-right:50px"} %>
-		<%= f.collection_select :coral_code_id, CoralCode.where(group: "Identification").order(occurrence: :asc).all, :id, :combo_name, {:include_blank => ""}, {:class=>"speciesSelect select2-container", :style=>"margin-right:50px"} %> 
+		<%= f.collection_select :coral_code_id, CoralCode.where(group: "Identification", ecmp_target: ["target","hss"]).order(occurrence: :asc).all, :id, :combo_name, {:include_blank => ""}, {:class=>"speciesSelect select2-container", :style=>"margin-right:50px"} %> 
 		<%= f.text_field :max_diam, {:size=>'2', :class=>"pcField"} %>
 		<%= f.text_field :old_mortality, {:size=>'3', :class=>"pcField"} %>
 		<%= f.text_field :new_mortality, {:size=>'3', :class=>"pcField"} %>
