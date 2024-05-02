@@ -26,7 +26,7 @@
             <td><%= bl.date_completed %></td>
             <td><%= bl.captain %></td>
             <td><%= bl.dod %></td>
-            <td><%= bl.time_in %></td>
+            <td><%= bl.try(:time_in).try(:strftime, "%H:%M") %></td>
             <td><%= bl.depth_ft %></td>
             <td><%= bl.hss %></td>
             <td><%= bl.disease %></td>
