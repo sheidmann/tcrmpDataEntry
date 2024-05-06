@@ -29,15 +29,15 @@
 		    </div>
 		    <div class='control-group'>
 			    <%= f.label :time_in, 'Time In' %>
-			    <%= f.text_field :time_in, value: f.object.try(:time_in).try(:strftime, "%H:%M"), placeholder: "HH:MM (24 hr clock)", autocomplete: :off %> 
+			    <%= f.text_field :time_in, value: f.object.try(:time_in).try(:strftime, "%H:%M"), placeholder: "HH:MM (24 hr clock)", autocomplete: :off, class: 'timeField', id: 'timeIn' %> 
 			  </div>
 			  <div class='control-group'>
 			    <%= f.label :time_out, 'Time Out' %>
-			    <%= f.text_field :time_out, value: f.object.try(:time_out).try(:strftime, "%H:%M"), placeholder: "HH:MM (24 hr clock)", autocomplete: :off %> 
+			    <%= f.text_field :time_out, value: f.object.try(:time_out).try(:strftime, "%H:%M"), placeholder: "HH:MM (24 hr clock)", autocomplete: :off, class: 'timeField', id: 'timeOut' %> 
 			  </div>
 			  <div class='control-group'>
 		      <%= f.label :depth_ft, 'Depth (ft)' %>
-		      <%= f.text_field :depth_ft %> 
+		      <%= f.text_field :depth_ft, class: 'depthField' %> 
 		    </div>
 		    <div class='control-group'>
 		      <%= f.label :hss, 'HSS' %>

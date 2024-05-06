@@ -112,7 +112,7 @@ $(document).ready(function() {
     // Set error positions
     errorPlacement: function (error, element) {
       // Select2 dropdowns will put error on new line
-      if (element.hasClass("metaSelect")){
+      if (element.hasClass("metaSelect, speciesSelect")){
         error.insertAfter($(element).parent().parent().parent('div'));
       } else {
         // default for rest is immediately after
@@ -330,7 +330,7 @@ $(document).ready(function() {
 
   alertMort100();
 
-  // Sum of mortality fields cannot be >100
+  // Depth rarely deeper than 30
   function alertDepth30() {
     $('.depthField').on('focusout', function(){
       var depth = $(this).val();
