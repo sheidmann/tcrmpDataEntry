@@ -156,7 +156,7 @@ $(document).ready(function() {
 
 
   // Add properties to nested fields when added
-  $('#plots, #plotcorals').on('cocoon:after-insert', function() {
+  $('#plots, #plotCorals').on('cocoon:after-insert', function() {
     $(".speciesSelect").last().select2(); // convert to select2
     //$('.speciesSelect').last().select2('open'); // focus and open dropdown
     $(".speciesSelect").on("close", function (e) {  
@@ -295,12 +295,11 @@ $(document).ready(function() {
   function alertSpeciesSizes() {
     $('.diamField').on('change', function(){
       var $species = $(this).parent().find('.speciesSelect').select2('val');
-      // Check maximum diameter and height
-      var dimtype = $(this).attr('id');
+      // Check maximum diameter
       var size = parseFloat($(this).val());
       var maxDiam = speciesInformation[$species].max_diam
       if(!isNaN(size) && maxDiam != null){
-        if ( dimtype == "lengthField" && size > maxDiam ) {alert("Over max length")};
+        if ( size > maxDiam ) {alert("Over max length")};
       }
     });
   };
