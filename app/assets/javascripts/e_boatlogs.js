@@ -175,10 +175,10 @@ $(document).ready(function() {
   // Create dropdown for each nested field added
   $('#boatlog_teams').on('cocoon:after-insert', function() {
     $(".observerSelect").last().select2(); // convert to select2
-    // $('.observerSelect').last().select2('open'); // focus and open dropdown
     $(".observerSelect").on("close", function (e) {  
       $(this).valid(); // validate on close
     });
+    $('.teamteam').last().focus(); // focus on first box of new diver
   });
 
   // Hitting enter while in diver section adds new diver

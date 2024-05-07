@@ -148,8 +148,8 @@ $(document).ready(function() {
         var depthval = parseFloat($(this).val());
         if(thisdepth == "minDepth") {min += depthval};
       });
-      // If length is greater than or equal to width, pass validation (return true)
-      return min >= value;
+      // If max depth is greater than or equal to min depth, pass validation (return true)
+      return min <= value;
     },
     "Max depth cannot be less than min depth"
   );
@@ -158,10 +158,10 @@ $(document).ready(function() {
   // Add properties to nested fields when added
   $('#plots, #plotCorals').on('cocoon:after-insert', function() {
     $(".speciesSelect").last().select2(); // convert to select2
-    //$('.speciesSelect').last().select2('open'); // focus and open dropdown
     $(".speciesSelect").on("close", function (e) {  
       $(this).valid(); // validate on close
     });
+    $('.quad').last().focus(); // focus on first box of new coral
   });
 
   // Add validations for all nested station fields
