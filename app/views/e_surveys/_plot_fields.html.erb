@@ -2,7 +2,7 @@
 	<div class="row">
 		<li style="white-space:nowrap;list-style-type:none;">
 			<%= f.text_field :plot, { :size => '2', :class=>"plotField plotplot firstbox" } %>
-			<%= f.select :habitat, ['AGRF','PTRF','PVMT','SCRS'], {:include_blank => ""}, {:style=>"width:80px"} %> 
+			<%= f.select :habitat, ['AGRF','PVMT','PTRF','SCRS'], {:include_blank => ""}, {:style=>"width:80px"} %> 
 			<%= f.text_field :hardbottom, { :size => '3', :class=>"plotField", :style=>"margin-right:50px"}%>
 			<%= f.text_field :coral_cover, { :size => '3', :class=>"plotField"}%>
 			<%= f.text_field :max_relief_cm, { :size => '3', :class=>"plotField" } %>
