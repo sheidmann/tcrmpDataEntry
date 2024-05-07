@@ -192,7 +192,6 @@ $(document).ready(function() {
     });
     $('[name*="coral_cover"]').each(function(){
       $(this).rules('add', {
-        required: true,
         number: true,
         isInteger: true,
         min: 0,
@@ -201,6 +200,7 @@ $(document).ready(function() {
     });
     $('[name*="max_relief_cm"]').each(function(){
       $(this).rules('add', {
+        required: true,
         number: true,
         isInteger: true,
         min: 1,
@@ -209,6 +209,7 @@ $(document).ready(function() {
     });
     $('[name*="min_depth"]').each(function(){
       $(this).rules('add', {
+        required: true,
         number: true,
         isInteger: true,
         min: 0,
@@ -217,6 +218,7 @@ $(document).ready(function() {
     });
     $('[name*="max_depth"]').each(function(){
       $(this).rules('add', {
+        required: true,
         number: true,
         isInteger: true,
         moreThanMin: true,
