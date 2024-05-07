@@ -148,13 +148,12 @@ $(document).ready(function() {
         var depthval = parseFloat($(this).val());
         if(thisdepth == "minDepth") {min += depthval};
       });
-      if(value != null){
+      if(value != "" && !isNaN(min)){
         // If max depth is greater than or equal to min depth, pass validation (return true)
         return min <= value;
-      } else { return true }
+      } else { return true } // default is to pass validation
     },
     "Max depth cannot be less than min depth"
-    }
   );
 
 
