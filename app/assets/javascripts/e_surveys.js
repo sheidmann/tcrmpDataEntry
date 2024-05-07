@@ -161,7 +161,7 @@ $(document).ready(function() {
     $(".speciesSelect").on("close", function (e) {  
       $(this).valid(); // validate on close
     });
-    $('.quad').last().focus(); // focus on first box of new coral
+    $('.firstbox').last().focus(); // focus on first box of new coral or plot
   });
 
   // Add validations for all nested station fields

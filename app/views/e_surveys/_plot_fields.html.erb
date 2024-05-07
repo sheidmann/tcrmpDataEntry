@@ -1,7 +1,7 @@
 <div class="nested-fields" style="border-bottom: 3px dashed #bbb;">
 	<div class="row">
 		<li style="white-space:nowrap;list-style-type:none;">
-			<%= f.text_field :plot, { :size => '2', :class=>"plotField plotplot" } %>
+			<%= f.text_field :plot, { :size => '2', :class=>"plotField plotplot firstbox" } %>
 			<%= f.select :habitat, ['AGRF','PTRF','PVMT','SCRS'], {:include_blank => ""}, {:style=>"width:80px"} %> 
 			<%= f.text_field :hardbottom, { :size => '3', :class=>"plotField", :style=>"margin-right:50px"}%>
 			<%= f.text_field :coral_cover, { :size => '3', :class=>"plotField"}%>
