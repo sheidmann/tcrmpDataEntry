@@ -6,7 +6,7 @@
 		<%= f.text_field :old_mortality, {:size=>'3', :class=>"pcMortField"} %>
 		<%= f.text_field :new_mortality, {:size=>'3', :class=>"pcMortField"} %>
 		<%= f.select :disease, ['present','fast','slow'], {:include_blank => ""}, {:class=>"pcField", :style=>"width:80px"} %>
-		<%= f.text_field :notes, { :size => '20', :style=>"margin-right:50px"} %>
+		<%= f.text_field :notes, { :size => '20', :style=>"margin-right:50px", autocomplete: :off} %>
 		<%= link_to_remove_association "Remove Coral", f, partial: 'pcoral_fields', tabindex: "-1" %>
 	</div>
 </div>

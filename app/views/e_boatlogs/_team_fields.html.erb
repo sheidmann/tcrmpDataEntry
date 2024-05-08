@@ -2,13 +2,13 @@
 	<div class="row">
 		<li style="white-space:nowrap;">
 		<div class="col-md-2 field">
-			<%= f.text_field :team, { :size => '3', :class => 'teamteam' } %>
+			<%= f.select :team, ['1','2'], {:include_blank => ""} %> 
 		</div>
 		<div class="col-md-3 field">
 		<%= f.collection_select :user_id, User.where(active: "true").order(name: :asc).all, :id, :name, {:include_blank => ""}, {:class=>"observerSelect" } %>
 		</div>
 		<div class="col-md-2 field">
-			<%= f.text_field :role, { :size => '3' } %>
+			<%= f.select :role, ['A','B'], {:include_blank => ""} %> 
 		</div>
 		<%= link_to_remove_association "Remove Diver", f, partial: 'team_fields', tabindex: "-1" %>
 		</li>
