@@ -36,7 +36,7 @@ class ESurveysController < ApplicationController
       @esurv = ESurvey.order(date_completed: :asc, begin_time: :asc).all
       @filename = "all"
     else
-      @esurv = @current_user.e_surveys.order(date_completed: :asc. begin_time: :asc).all
+      @esurv = @current_user.e_surveys.order(date_completed: :asc, begin_time: :asc).all
       @filename = @current_user.name
     end
 
