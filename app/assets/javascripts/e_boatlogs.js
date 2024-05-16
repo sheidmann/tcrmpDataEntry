@@ -222,14 +222,14 @@ $(document).ready(function() {
   });
 
   // Depth rarely deeper than 30
-  function alertDepth30() {
+  function alertDepth33() {
     $('.depthField').on('focusout', function(){
       var depth = $(this).val();
-      if ( depth > 30) {
-        alert("Are you sure you went deeper than 30 ft?");
+      if ( depth > 33) {
+        alert("Are you sure you went deeper than 33 ft?");
       }; 
     });
   };
 
-  alertDepth30();
+  alertDepth33();
 });
