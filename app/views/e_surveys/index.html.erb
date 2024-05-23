@@ -2,9 +2,11 @@
   <div class="container">
     <%= button_to "New ECMP Survey", '/e_surveys/new', method: :get %>
     <div style="margin-top: 15px"></div>
-    <%= button_to "View/Export Abiotic", '/e_plots', method: :get %>
-    <%= button_to "View/Export Coral", '/e_plot_corals', method: :get %>
-    <%= button_to "View/Export ESA", '/e_esa_pas', method: :get %>
+    <% if current_user.manager? %>
+      <%= button_to "View/Export Abiotic", '/e_plots', method: :get %>
+      <%= button_to "View/Export Coral", '/e_plot_corals', method: :get %>
+      <%= button_to "View/Export ESA", '/e_esa_pas', method: :get %>
+    <% end %>
     <h1>ECMP Surveys</h1>
     <table class="display table table-striped table-condensed table-sortable">
       <thead>
