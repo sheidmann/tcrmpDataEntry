@@ -105,7 +105,7 @@ $(document).ready(function() {
       number: true,
       isInteger: true,
       min: 1000,
-      max: 2000 },
+      max: 2601 },
       "e_boatlog[date_completed]": { required: true },
       "e_boatlog[captain]": { required: true },
       "e_boatlog[dod]": { required: true,

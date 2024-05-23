@@ -87,7 +87,7 @@ $(document).ready(function() {
       number: true,
       isInteger: true,
       min: 1000,
-      max: 2000 },
+      max: 2601 },
       "e_survey[user_id]": { required: true },
       "e_survey[team]": { required: true },
       "e_survey[role]": { required: true },
