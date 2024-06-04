@@ -33,10 +33,10 @@ class ESurveysController < ApplicationController
     @new_esurv = ESurvey.new # use in the view to render a form
     # Only show transects
     if @current_user.manager?
-      @esurv = ESurvey.order(date_completed: :asc, begin_time: :asc).all
+      @esurv = ESurvey.order(date_completed: :desc, begin_time: :desc).all
       @filename = "all"
     else
-      @esurv = @current_user.e_surveys.order(date_completed: :asc, begin_time: :asc).all
+      @esurv = @current_user.e_surveys.order(date_completed: :desc, begin_time: :desc).all
       @filename = @current_user.name
     end
 
