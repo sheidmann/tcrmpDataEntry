@@ -89,10 +89,12 @@ $(document).ready(function() {
       min: 1000,
       max: 2601 },
       "e_survey[user_id]": { required: true },
+      "e_survey[buddy]": { required: true },
       "e_survey[team]": { required: true },
       "e_survey[role]": { required: true },
       "e_survey[date_completed]": { required: true },
-      "e_survey[begin_time]": { required: true, timeformat: true }
+      "e_survey[begin_time]": { required: true, timeformat: true },
+      "e_survey[habitat]": { required: true }
     },
 
     // List the error messages
@@ -103,10 +105,12 @@ $(document).ready(function() {
         min: "Must be between 1000 and 2000",
         max: "Must be between 1000 and 2000" },
       "e_survey[user_id]": { required: "Required" },
+      "e_survey[buddy]": { required: "Required" },
       "e_survey[team]": { required: "Required" },
       "e_survey[role]": { required: "Required" },
       "e_survey[date_completed]": { required: "Required" },
-      "e_survey[begin_time]": { required: "Required" }
+      "e_survey[begin_time]": { required: "Required" },
+      "e_survey[habitat]": { required: "Required" }
     },
 
     // Set error positions

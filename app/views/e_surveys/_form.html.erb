@@ -4,12 +4,20 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div class='control-group'>
+					<%= f.label :proofed, 'Proofed?' %>
+		      <%= f.check_box :proofed %> 
+			</div>
+			<div class='control-group'>
 	      <%= f.label :fid, 'Field ID' %>
 	      <%= f.text_field :fid, { :size => '4' } %>
 	    </div>
 	  	<div class='control-group'>
 		    <%= f.label :user_id, 'Diver' %>
 		    <%= f.collection_select :user_id, User.where(active: "true").order(name: :asc).all, :id, :name, {:include_blank => ""}, {:class=>"metaSelect" } %> 
+	  	</div>
+	  	<div class='control-group'>
+		    <%= f.label :buddy, 'Buddy' %>
+		    <%= f.collection_select :buddy, User.where(active: "true").order(name: :asc).all, :name, :name, {:include_blank => ""}, {:class=>"metaSelect" } %> 
 	  	</div>
 	  	<div class='control-group'>
 	      <%= f.label :team, 'Team' %>
@@ -27,6 +35,10 @@
 		    <%= f.label :begin_time, 'Begin Time' %>
 		    <%= f.text_field :begin_time, value: f.object.try(:begin_time).try(:strftime, "%H:%M"), placeholder: "HH:MM (24 hr clock)", autocomplete: :off %> 
 		  </div>
+		  <div class='control-group'>
+	      <%= f.label :habitat, 'Habitat' %>
+	      <%= f.select :habitat, ['AGRF','PVMT','BDRK','PTRF','SCRS'], {:include_blank => ""}, {:style=>"width:80px"} %> 
+	    </div>
 	  </div>
 
 	  <div class="col-md-3">
@@ -74,9 +86,9 @@
       		<th>MMEA</th>
           <th>DSTO</th>
           <th>EFAS</th>
+          <th>Rami</th>
           <th>Dead <br>APAL</th>
           <th>Dead <br>DCYL</th>
-          <th>Rami</th>
     		</tr>
     	</thead>
     	<tbody>

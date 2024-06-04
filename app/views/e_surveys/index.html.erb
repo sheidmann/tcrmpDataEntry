@@ -13,12 +13,15 @@
         <% #print table header %>
         <tr>
           <th>Diver</th>
+          <th>Buddy</th>
           <th>Field ID</th>
           <th>Team</th>
           <th>Role</th>
           <th>Date Completed</th>
           <th>Time</th>
+          <th>Habitat</th>
           <th>Date Entered</th>
+          <th>Proofed?</th>
         </tr>
       </thead>
       <tbody>
@@ -26,12 +29,15 @@
         <% @esurv.each do |es| %>
           <tr data-link="<%=e_survey_path(es.id)%>">
             <td><%= es.user.name %></td>
+            <td><%= es.buddy %></td>
             <td><%= es.fid %></td>
             <td><%= es.team %></td>
             <td><%= es.role %></td>
             <td><%= es.date_completed %></td>
             <td><%= es.try(:begin_time).try(:strftime, "%H:%M") %></td>
+            <td><%= es.habitat %></td>
             <td><%= es.created_at %></td>
+            <td><%= es.proofed %></td>
           </tr>
         <% end %>
       </tbody>

@@ -93,7 +93,7 @@ class ESurveysController < ApplicationController
   private
 
   def e_survey_params
-    params.require(:e_survey).permit(:fid, :user_id, :team, :role, :date_completed, :begin_time, :notes,
+    params.require(:e_survey).permit(:fid, :user_id, :buddy, :team, :role, :date_completed, :begin_time, :habitat, :notes, :proofed,
     	e_esa_pas_attributes: [:id, :oann, :ofav, :ofra, :apal, :acer, :apro, :dcyl, :mfer, :mmea, :dsto, :efas, :dead_APAL, :dead_DCYL, :rami, :_destroy ],
       e_plots_attributes: [:id, :plot, :habitat, :hardbottom, :coral_cover, :max_relief_cm, :min_depth, :max_depth, :_destroy, 
         e_plot_corals_attributes: [:id, :quadrant, :coral_code_id, :max_diam, :old_mortality, :new_mortality, :disease, :notes, :_destroy]])

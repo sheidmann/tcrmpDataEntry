@@ -13,7 +13,16 @@
     <div id='section_1'>
 
       <dl class="dl-horizontal">
+        <dt>Proofed</dt><dd><%= @esurv.proofed %></dd>
+      </dl>
+      <dl class="dl-horizontal">
         <dt>Field ID</dt><dd><%= @esurv.fid %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Diver</dt><dd><%= @esurv.user.name %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Buddy</dt><dd><%= @esurv.buddy %></dd>
       </dl>
       <dl class="dl-horizontal">
         <dt>Team</dt><dd><%= @esurv.team %></dd>
@@ -26,6 +35,9 @@
       </dl>
       <dl class="dl-horizontal">
         <dt>Time</dt><dd><%= @esurv.try(:begin_time).try(:strftime, "%H:%M") %></dd>
+      </dl>
+      <dl class="dl-horizontal">
+        <dt>Habitat</dt><dd><%= @esurv.habitat %></dd>
       </dl>
       <dl class="dl-horizontal">
         <dt>Notes</dt><dd><%= @esurv.notes %></dd>
@@ -113,9 +125,9 @@
             <th>MMEA</th>
             <th>DSTO</th>
             <th>EFAS</th>
+            <th>Rami</th>
             <th>Dead APAL</th>
             <th>Dead DCYL</th>
-            <th>Rami</th>
           </tr>
         </thead>
         <tbody>
@@ -132,9 +144,9 @@
               <td><%= e.mmea %></td>
               <td><%= e.dsto %></td>
               <td><%= e.efas %></td>
+              <td><%= e.rami %></td>
               <td><%= e.dead_APAL %></td>
               <td><%= e.dead_DCYL %></td>
-              <td><%= e.rami %></td>
             </tr>   
           <% end %>
         </tbody>
