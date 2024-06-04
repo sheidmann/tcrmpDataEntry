@@ -31,9 +31,11 @@ $ bundle exec rspec
 
 * A user with manager privileges can view field progress by site.
 
-* Any user can enter fish transect, rover, coral health, and algae height data, and view and edit previously entered data.
+* Any user can enter TCRMP fish transect, rover, coral health, and algae height data, and view and edit previously entered data.
 
-* Fish data is checked against theoretical abundances, minimum sizes, and maximum sizes as it is entered.
+* Any user can enter ECMP survey data, and view and edit previously entered data.
+
+* Data is checked against theoretical abundances, minimum sizes, and maximum sizes as it is entered.
 
 * Any user can export their own entered data for proofing purposes.
 

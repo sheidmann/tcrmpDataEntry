@@ -5,6 +5,10 @@
 		<div class="row">
 			<div class="col-md-4">
 				<div class='control-group'>
+					<%= f.label :proofed, 'Proofed?' %>
+		      <%= f.check_box :proofed %> 
+				</div>
+				<div class='control-group'>
 		      <%= f.label :manager_id, 'Project' %>
 		      <%= f.collection_select :manager_id, Manager.all, :id, :project, {:include_blank => ""} %> 
 		    </div>
