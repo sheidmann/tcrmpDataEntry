@@ -32,10 +32,10 @@ class CoralHealthsController < ApplicationController
     @new_chealth = CoralHealth.new # use in the view to render a form
     # Only show transects
     if @current_user.manager?
-      @chealth = CoralHealth.order(date_completed: :asc).all
+      @chealth = CoralHealth.order(date_completed: :asc, site_id: :asc, rep: :asc).all
       @filename = "all"
     else
-      @chealth = @current_user.coral_healths.order(date_completed: :asc).all
+      @chealth = @current_user.coral_healths.order(date_completed: :asc, site_id: :asc, rep: :asc).all
       @filename = @current_user.name
     end
 

@@ -33,10 +33,10 @@ class FishRoversController < ApplicationController
 		@new_frove = FishRover.new # use in the view to render a form
 		# Only show rovers
     if @current_user.manager?
-      @frove = FishRover.order(date_completed: :asc).all
+      @frove = FishRover.order(date_completed: :asc, site_id: :asc, rep: :asc).all
       @filename = "all"
     else
-  		@frove = @current_user.fish_rovers.order(date_completed: :asc).all
+  		@frove = @current_user.fish_rovers.order(date_completed: :asc, site_id: :asc, rep: :asc).all
       @filename = @current_user.name
     end
 

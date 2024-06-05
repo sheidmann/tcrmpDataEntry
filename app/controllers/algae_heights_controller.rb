@@ -31,10 +31,10 @@ class AlgaeHeightsController < ApplicationController
     @new_aht = AlgaeHeight.new # use in the view to render a form
     # Only show transects
     if @current_user.manager?
-      @aht = AlgaeHeight.order(date_completed: :asc).all
+      @aht = AlgaeHeight.order(date_completed: :asc, site_id: :asc, rep: :asc).all
       @filename = "all"
     else
-      @aht = @current_user.algae_heights.order(date_completed: :asc).all
+      @aht = @current_user.algae_heights.order(date_completed: :asc, site_id: :asc, rep: :asc).all
       @filename = @current_user.name
     end
 

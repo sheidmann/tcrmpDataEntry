@@ -34,10 +34,10 @@ class FishTransectsController < ApplicationController
 		@new_ftran = FishTransect.new # use in the view to render a form
 		# Only show transects
     if @current_user.manager?
-      @ftrans = FishTransect.order(date_completed: :asc).all
+      @ftrans = FishTransect.order(date_completed: :asc, site_id: :asc, rep: :asc).all
       @filename = "all"
     else
-      @ftrans = @current_user.fish_transects.order(date_completed: :asc).all
+      @ftrans = @current_user.fish_transects.order(date_completed: :asc, site_id: :asc, rep: :asc).all
       @filename = @current_user.name
     end
 
