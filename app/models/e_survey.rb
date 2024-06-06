@@ -7,7 +7,7 @@ class ESurvey < ApplicationRecord
 	accepts_nested_attributes_for :e_plots, :reject_if => :all_blank, :allow_destroy => true
 
 	has_many :e_plot_corals, through: :e_plots
-  accepts_nested_attributes_for :e_plot_corals
+  accepts_nested_attributes_for :e_plot_corals, :reject_if => :all_blank, :allow_destroy => true
 
   has_many :coral_codes, through: :e_plot_corals
   accepts_nested_attributes_for :coral_codes
