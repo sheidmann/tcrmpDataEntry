@@ -7,7 +7,7 @@ class EPlot < ApplicationRecord
 	accepts_nested_attributes_for :e_survey
 
 	has_many :e_plot_corals, :dependent => :destroy, inverse_of: :e_plot
-  accepts_nested_attributes_for :e_plot_corals
+  accepts_nested_attributes_for :e_plot_corals, :reject_if => :all_blank, :allow_destroy => true
 
   def self.as_csv
     columns = %w(fid proofed date_completed diver buddy team role habitat hardbottom coral_cover max_vert_relief_cm min_depth max_depth)
