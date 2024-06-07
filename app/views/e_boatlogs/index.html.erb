@@ -13,8 +13,6 @@
           <th>DOD</th>
           <th>Time In</th>
           <th>Depth (ft)</th>
-          <th>HSS</th>
-          <th>Disease</th>
           <th>Date Entered</th>
         </tr>
       </thead>
@@ -28,8 +26,6 @@
             <td><%= bl.dod %></td>
             <td><%= bl.try(:time_in).try(:strftime, "%H:%M") %></td>
             <td><%= bl.depth_ft %></td>
-            <td><%= bl.hss %></td>
-            <td><%= bl.disease %></td>
             <td><%= bl.created_at %></td>
           </tr>
         <% end %>

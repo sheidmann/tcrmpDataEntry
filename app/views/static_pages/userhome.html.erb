@@ -21,9 +21,10 @@
       </div>
     </div>
     
+    <h2 class="col text-center" style="margin-top: 50px">ECMP</h2>
+    <p class="col text-center" style="margin-top: 20px"><a href="https://sheidmann.github.io/TCRMP_Report/ECMP_entry_checks.html">Click here to see our progress as a team and what's left to do</a></p>
     <div class="col text-center">
       <div class="btn-group-vertical">
-        <h2 class="col text-center" style="margin-top: 50px">ECMP</h2>
         <a> <%= button_to "ECMP Survey", '/e_surveys', method: :get, :class => "btn btn-primary" %></a>
         <% if current_user.manager? %>
           <a> <%= button_to "Boat Logs", '/e_boatlogs', method: :get, :class => "btn btn-info" %></a>
