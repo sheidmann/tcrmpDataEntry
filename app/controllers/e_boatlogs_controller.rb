@@ -34,11 +34,11 @@ class EBoatlogsController < ApplicationController
 		@new_eboatlog = EBoatlog.new # use in the view to render a form
 		# Admin can view all boatlogs
 		if @current_user.role == 'admin'
-    	@all_eboatlogs = EBoatlog.order(date_completed: :asc, dod: :asc).all
+    	@all_eboatlogs = EBoatlog.order(date_completed: :desc, dod: :desc).all
     # Manager can only view their own boatlogs
     elsif @current_user.role == 'manager'
     	#@boat_logs = BoatLog.where( "boatlog_manager_id=?", current_user.boatlog_manager_id )
-    	@all_eboatlogs = EBoatlog.order(date_completed: :asc, dod: :asc).all
+    	@all_eboatlogs = EBoatlog.order(date_completed: :desc, dod: :desc).all
     end
 
     respond_to do |format|
