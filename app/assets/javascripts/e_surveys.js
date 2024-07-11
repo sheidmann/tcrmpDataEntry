@@ -252,7 +252,7 @@ $(document).ready(function() {
       $(this).rules('add', {
         required: true,
         number: true,
-        min: 1
+        min: 0
       });
     });
     $('[name*="old_mortality"]').each(function(){
