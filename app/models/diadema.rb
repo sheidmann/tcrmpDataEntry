@@ -5,7 +5,7 @@ class Diadema < ApplicationRecord
   accepts_nested_attributes_for :fish_transect
 
   def self.as_csv
-    columns = %w(fish_transect_id site_name date_completed name rep test_size_cm)
+    columns = %w(fish_transect_id site_name date_completed name rep notes test_size_cm)
     CSV.generate(headers: true) do |csv|
       csv << columns.map(&:humanize)
       all.each do |diadema|

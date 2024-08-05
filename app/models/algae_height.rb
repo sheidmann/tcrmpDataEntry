@@ -18,7 +18,7 @@ class AlgaeHeight < ApplicationRecord
   accepts_nested_attributes_for :algaes
 
   def self.as_csv
-    columns = %w(algae_height_id proofed site_name date_completed name rep code_name full_name height_cm)
+    columns = %w(algae_height_id proofed site_name date_completed name rep notes code_name full_name height_cm)
     CSV.generate(headers: true) do |csv|
       csv << columns.map(&:humanize)
       all.each do |algae_height|
