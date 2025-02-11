@@ -6,6 +6,7 @@
         <% #print table header %>
         <tr>
           <th>Code</th>
+          <th>Long Code</th>
           <th>Full Name</th>
           <th>Group</th>
           <th>Category</th>
@@ -16,6 +17,7 @@
         <% @ccodes.each do |cc| %>
           <tr>
             <td><%= cc.code_name %></td>
+            <td><%= cc.long_code %></td>
             <td><%= cc.full_name %></td>
             <td><%= cc.group %></td>
             <td><%= cc.category %></td>
