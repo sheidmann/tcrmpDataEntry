@@ -50,6 +50,10 @@ gem 'cocoon'
 # Enable jQuery select boxes
 gem 'select2-rails' #, '~> 3.2.1'
 
+# Until update rails to 7.1, direct dependency on concurrent, which has dependency on logger
+# https://stackoverflow.com/questions/79360526/uninitialized-constant-activesupportloggerthreadsafelevellogger-nameerror
+gem 'concurrent-ruby', '1.3.4'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -76,7 +80,7 @@ group :test do
   gem 'capybara-selenium'
   # Easy installation and use of chromedriver to run system tests with Chrome
   #gem 'chromedriver-helper'
-  gem 'webdrivers' #, '~> 4.4.1'
+  # gem 'webdrivers' #, '~> 4.4.1'
   gem 'database_cleaner-active_record'
 end
 
