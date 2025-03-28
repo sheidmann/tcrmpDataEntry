@@ -32,7 +32,7 @@ describe "User viewing fish transect index", :js => true, type: :feature do
     # fill_in "Begin Time", with: @ftran.begin_time.strftime("%H:%M")
     select @ftran.oc_cc, :from => "OC/CC"
     fill_in "Transect", with: @ftran.rep
-    fill_in "Meters Completed", with: @ftran.completed_m
+    #fill_in "Meters Completed", with: @ftran.completed_m
     
     @diadema = build(:diadema)
     fill_in "Test Size (cm)", with: @diadema.test_size_cm

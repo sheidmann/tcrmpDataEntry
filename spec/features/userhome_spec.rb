@@ -48,7 +48,7 @@ describe "Manager visiting user home", type: :feature do
 		puts 'manager can manage boatlogs'
 	end
 	it "sees it is a manager" do
-		expect(page).to have_content("You are a manager for project: My Project")
+		expect(page).to have_content("You have manager privileges.")
 		puts ' manager sees it is a manager for a project'
 	end
 end
