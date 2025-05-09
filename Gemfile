@@ -32,6 +32,7 @@ gem 'json'
 gem 'irb'
 gem 'reline'
 gem 'rdoc'
+gem 'logger'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails' #, '~> 5.0'
