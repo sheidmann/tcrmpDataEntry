@@ -289,7 +289,16 @@ $(document).ready(function() {
 
   function alertSpeciesSizes() {
     $('.sizeBinField').on('change', function(){
+      //prevent from firing twice because javascript is weird
+      if(this.value==this.oldvalue){return}; // checks for an actual change
+      this.oldvalue=this.value; // makes sure we are using the new value
+      // prevent from firing when an offending number is removed
+      var num = parseInt($(this).val());
+      if (isNaN(num)){return};
+
+      // extract species
       var $species = $(this).parent().find('.speciesSelect').select2('val');
+      
       // Check abundance
       var item = $(this).closest('li');
       var sizes = [];
@@ -304,41 +313,57 @@ $(document).ready(function() {
       if ( sum_sizes > speciesInformation[$species].max_num) {
         alert("Over max number");
       }; 
+      
       // Check minimum and maximum sizes
       var sizebin = $(this).attr('id');
       var smallest = speciesInformation[$species].min_size
       var biggest = speciesInformation[$species].max_size
-      
-      if ( sizebin == "size0to5" && smallest > 5 ) {alert("Under min size")};
-      if ( sizebin == "size6to10" && smallest > 10 ) {alert("Under min size")};
-      if ( sizebin == "size6to10" && biggest < 6 ) {alert("Over max size")};
-      if ( sizebin == "size11to20" && smallest > 20 ) {alert("Under min size")};
-      if ( sizebin == "size11to20" && biggest < 11 ) {alert("Over max size")};
-      if ( sizebin == "size21to30" && smallest > 30 ) {alert("Under min size")};
-      if ( sizebin == "size21to30" && biggest < 21 ) {alert("Over max size")};
-      if ( sizebin == "size31to40" && smallest > 40 ) {alert("Under min size")};
-      if ( sizebin == "size31to40" && biggest < 31 ) {alert("Over max size")};
-      if ( sizebin == "size41to50" && smallest > 50 ) {alert("Under min size")};
-      if ( sizebin == "size41to50" && biggest < 41 ) {alert("Over max size")};
-      if ( sizebin == "size51to60" && smallest > 60 ) {alert("Under min size")};
-      if ( sizebin == "size51to60" && biggest < 51 ) {alert("Over max size")};
-      if ( sizebin == "size61to70" && smallest > 70 ) {alert("Under min size")};
-      if ( sizebin == "size61to70" && biggest < 61 ) {alert("Over max size")};
-      if ( sizebin == "size71to80" && smallest > 80 ) {alert("Under min size")};
-      if ( sizebin == "size71to80" && biggest < 71 ) {alert("Over max size")};
-      if ( sizebin == "size81to90" && smallest > 90 ) {alert("Under min size")};
-      if ( sizebin == "size81to90" && biggest < 81 ) {alert("Over max size")};
-      if ( sizebin == "size91to100" && smallest > 100 ) {alert("Under min size")};
-      if ( sizebin == "size91to100" && biggest < 91 ) {alert("Over max size")};
-      if ( sizebin == "size101to110" && biggest < 101 ) {alert("Over max size")};
-      if ( sizebin == "size111to120" && biggest < 111 ) {alert("Over max size")};
-      if ( sizebin == "size121to130" && biggest < 121 ) {alert("Over max size")};
-      if ( sizebin == "size131to140" && biggest < 131 ) {alert("Over max size")};
-      if ( sizebin == "size141to150" && biggest < 141 ) {alert("Over max size")};
-      if ( sizebin == "sizegt150" && biggest < 151 ) {alert("Over max size")};
+
+      var u = 0;
+      u += ( sizebin == "size0to5" && smallest > 5 )? 1 : 0;
+      u += ( sizebin == "size6to10" && smallest > 10 )? 1 : 0;
+      u += ( sizebin == "size11to20" && smallest > 20 )? 1 : 0;
+      u += ( sizebin == "size21to30" && smallest > 30 )? 1 : 0;
+      u += ( sizebin == "size31to40" && smallest > 40 )? 1 : 0;
+      u += ( sizebin == "size41to50" && smallest > 50 )? 1 : 0;
+      u += ( sizebin == "size51to60" && smallest > 60 )? 1 : 0;
+      u += ( sizebin == "size61to70" && smallest > 70 )? 1 : 0;
+      u += ( sizebin == "size71to80" && smallest > 80 )? 1 : 0;
+      u += ( sizebin == "size81to90" && smallest > 90 )? 1 : 0;
+      u += ( sizebin == "size91to100" && smallest > 100 )? 1 : 0;
+
+      if( u > 0 ) {
+          alert("Under min size");
+      };
+      var o = 0;
+      o += ( sizebin == "size6to10" && biggest < 6 )? 1 : 0;
+      o += ( sizebin == "size11to20" && biggest < 11 )? 1 : 0;
+      o += ( sizebin == "size21to30" && biggest < 21 )? 1 : 0;
+      o += ( sizebin == "size31to40" && biggest < 31 )? 1 : 0;
+      o += ( sizebin == "size41to50" && biggest < 41 )? 1 : 0;
+      o += ( sizebin == "size51to60" && biggest < 51 )? 1 : 0;
+      o += ( sizebin == "size61to70" && biggest < 61 )? 1 : 0;
+      o += ( sizebin == "size71to80" && biggest < 71 )? 1 : 0;
+      o += ( sizebin == "size81to90" && biggest < 81 )? 1 : 0;
+      o += ( sizebin == "size91to100" && biggest < 91 )? 1 : 0;
+      o += ( sizebin == "size101to110" && biggest < 101 )? 1 : 0;
+      o += ( sizebin == "size111to120" && biggest < 111 )? 1 : 0;
+      o += ( sizebin == "size121to130" && biggest < 121 )? 1 : 0;
+      o += ( sizebin == "size131to140" && biggest < 131 )? 1 : 0;
+      o += ( sizebin == "size141to150" && biggest < 141 )? 1 : 0;
+      o += ( sizebin == "sizegt150" && biggest < 151 )? 1 : 0;
+
+      if( o > 0 ) {
+          alert("Over max size");
+      };
     });
+
     // Alert to large Diadema
     $('.testSizeField').on('change', function(){
+      //prevent from firing twice because javascript is weird
+      if(this.value==this.oldvalue){return};
+      this.oldvalue=this.value;
+
       if($(this).val() > 13){
         alert("Over max size");
       }

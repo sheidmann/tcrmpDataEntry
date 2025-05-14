@@ -210,14 +210,26 @@ $(document).ready(function() {
 
   function alertAbundance() {
     $('.abundField').on('change', function(){
-      var item = $(this).closest('li')
+      //prevent from firing twice because javascript is weird
+      if(this.value==this.oldvalue){return};
+      this.oldvalue=this.value;
+
+      // extract species and corresponding info
+      var item = $(this).closest('li');
       var $species = item.find('.speciesSelect').select2('val');
       var most = speciesInformation[$species].max_num
+
+      // compare entered value to the max num
       var num = parseInt($(this).val());
-      if ( num >= 2 && most < 2) {alert("Over max number")};
-      if ( num >= 3 && most < 10) {alert("Over max number")};
-      if ( num >= 4 && most < 100) {alert("Over max number")};
-      if ( num >= 5 && most < 1000) {alert("Over max number")};
+      var a = 0;
+      a += ( num >= 2 && most < 2 )? 1 : 0;
+      a += ( num >= 3 && most < 10 )? 1 : 0;
+      a += ( num >= 4 && most < 100 )? 1 : 0;
+      a += ( num >= 5 && most < 1000 )? 1 : 0;
+
+      if( a > 0 ) {
+          alert("Over max number");
+      };
     });
   };
 
