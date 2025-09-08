@@ -92,9 +92,6 @@ end
 group :test do
   gem 'selenium-webdriver'#, '-> 4.11'
   gem 'capybara-selenium'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  #gem 'chromedriver-helper'
-  # gem 'webdrivers' #, '~> 4.4.1'
   gem 'database_cleaner-active_record'
 end
 
