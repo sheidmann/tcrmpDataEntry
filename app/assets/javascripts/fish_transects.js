@@ -283,7 +283,7 @@ $(document).ready(function() {
   speciesInformation = {}
   if ( typeof fish_info !== "undefined" ) {
     $.each(fish_info, function(a){
-      speciesInformation[fish_info[a].id] = { "max_num": fish_info[a].max_num, "min_size": fish_info[a].min_size, "max_size": fish_info[a].max_size };
+      speciesInformation[fish_info[a].id] = { "max_num": fish_info[a].max_num, "min_size": fish_info[a].min_size, "max_size": fish_info[a].max_size, "sci_name": fish_info[a].scientific_name };
     });
   }
 
@@ -371,4 +371,24 @@ $(document).ready(function() {
   };
   
   alertSpeciesSizes();
+
+  // There are some commonly mis-entered species we want to alert to
+  function alertRareSpecies() {
+    $(".speciesSelect").on("change", function (e) {  
+      // extract species
+      var $species = $(this).parent().find('.speciesSelect').select2('val');
+      var $speciesname = speciesInformation[$species].sci_name
+      console.log($speciesname);
+      // sand diver sometimes entered as lizardfish
+      if( $speciesname == "Synodus saurus" ) {
+        alert("Did you mean sand diver?");
+      }
+      // indigo hamlet sometimes entered as blue hamlet
+      if( $speciesname == "Hypoplectrus gemma" ) {
+        alert("Did you mean indigo hamlet?");
+      }
+    });
+  };
+
+  alertRareSpecies();
 });
